@@ -1,0 +1,67 @@
+#player {
+	opacity: 0;
+	animation: appear 0.5s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;	
+	animation-delay: 1s;
+}
+
+#container-1 {
+	opacity: 0;
+	animation: slide 0.7s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+	animation-delay: 1s;
+}
+#container-2 {
+    opacity: 0;	
+	animation: slide 0.7s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+	animation-delay: 1.4s;
+}
+#container-3 {
+	opacity: 0;
+	animation: slide 0.7s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+	animation-delay: 1.8s;
+}
+#container-4 {
+	opacity: 0;
+	animation: slide 0.7s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+	animation-delay: 2.2s;
+}
+#container-5 {
+	opacity: 0;
+	animation: slide 0.7s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;	
+	animation-delay: 2.6s;
+}
+#container-6 {
+	opacity: 0;
+	animation: slide 0.7s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+	animation-delay: 3s;
+}
+
+@keyframes appear {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slide {
+  0% { transform: translate(-100%, 0px); opacity: 0; }
+  100% { transform: translate(0px, 0px); opacity: 1; }
+}
