@@ -1,0 +1,910 @@
+Move;Type
+Pound;Normal
+Karate Chop;Fighting
+Double Slap;Normal
+Comet Punch;Normal
+Mega Punch;Normal
+Pay Day;Normal
+Fire Punch;Fire
+Ice Punch;Ice
+Thunder Punch;Electric
+Scratch;Normal
+Vise Grip;Normal
+Guillotine;Normal
+Razor Wind;Normal
+Swords Dance;Normal
+Cut;Normal
+Gust;Flying
+Wing Attack;Flying
+Whirlwind;Normal
+Fly;Flying
+Bind;Normal
+Slam;Normal
+Vine Whip;Grass
+Stomp;Normal
+Double Kick;Fighting
+Mega Kick;Normal
+Jump Kick;Fighting
+Rolling Kick;Fighting
+Sand Attack;Ground
+Headbutt;Normal
+Horn Attack;Normal
+Fury Attack;Normal
+Horn Drill;Normal
+Tackle;Normal
+Body Slam;Normal
+Wrap;Normal
+Take Down;Normal
+Thrash;Normal
+Double-Edge;Normal
+Tail Whip;Normal
+Poison Sting;Poison
+Twineedle;Bug
+Pin Missile;Bug
+Leer;Normal
+Bite;Dark
+Growl;Normal
+Roar;Normal
+Sing;Normal
+Supersonic;Normal
+Sonic Boom;Normal
+Disable;Normal
+Acid;Poison
+Ember;Fire
+Flamethrower;Fire
+Mist;Ice
+Water Gun;Water
+Hydro Pump;Water
+Surf;Water
+Ice Beam;Ice
+Blizzard;Ice
+Psybeam;Psychic
+Bubble Beam;Water
+Aurora Beam;Ice
+Hyper Beam;Normal
+Peck;Flying
+Drill Peck;Flying
+Submission;Fighting
+Low Kick;Fighting
+Counter;Fighting
+Seismic Toss;Fighting
+Strength;Normal
+Absorb;Grass
+Mega Drain;Grass
+Leech Seed;Grass
+Growth;Normal
+Razor Leaf;Grass
+Solar Beam;Grass
+Poison Powder;Poison
+Stun Spore;Grass
+Sleep Powder;Grass
+Petal Dance;Grass
+String Shot;Bug
+Dragon Rage;Dragon
+Fire Spin;Fire
+Thunder Shock;Electric
+Thunderbolt;Electric
+Thunder Wave;Electric
+Thunder;Electric
+Rock Throw;Rock
+Earthquake;Ground
+Fissure;Ground
+Dig;Ground
+Toxic;Poison
+Confusion;Psychic
+Psychic;Psychic
+Hypnosis;Psychic
+Meditate;Psychic
+Agility;Psychic
+Quick Attack;Normal
+Rage;Normal
+Teleport;Psychic
+Night Shade;Ghost
+Mimic;Normal
+Screech;Normal
+Double Team;Normal
+Recover;Normal
+Harden;Normal
+Minimize;Normal
+Smokescreen;Normal
+Confuse Ray;Ghost
+Withdraw;Water
+Defense Curl;Normal
+Barrier;Psychic
+Light Screen;Psychic
+Haze;Ice
+Reflect;Psychic
+Focus Energy;Normal
+Bide;Normal
+Metronome;Normal
+Mirror Move;Flying
+Self-Destruct;Normal
+Egg Bomb;Normal
+Lick;Ghost
+Smog;Poison
+Sludge;Poison
+Bone Club;Ground
+Fire Blast;Fire
+Waterfall;Water
+Clamp;Water
+Swift;Normal
+Skull Bash;Normal
+Spike Cannon;Normal
+Constrict;Normal
+Amnesia;Psychic
+Kinesis;Psychic
+Soft-Boiled;Normal
+High Jump Kick;Fighting
+Glare;Normal
+Dream Eater;Psychic
+Poison Gas;Poison
+Barrage;Normal
+Leech Life;Bug
+Lovely Kiss;Normal
+Sky Attack;Flying
+Transform;Normal
+Bubble;Water
+Dizzy Punch;Normal
+Spore;Grass
+Flash;Normal
+Psywave;Psychic
+Splash;Normal
+Acid Armor;Poison
+Crabhammer;Water
+Explosion;Normal
+Fury Swipes;Normal
+Bonemerang;Ground
+Rest;Psychic
+Rock Slide;Rock
+Hyper Fang;Normal
+Sharpen;Normal
+Conversion;Normal
+Tri Attack;Normal
+Super Fang;Normal
+Slash;Normal
+Substitute;Normal
+Struggle;Normal
+Sketch;Normal
+Triple Kick;Fighting
+Thief;Dark
+Spider Web;Bug
+Mind Reader;Normal
+Nightmare;Ghost
+Flame Wheel;Fire
+Snore;Normal
+Curse;Ghost
+Flail;Normal
+Conversion 2;Normal
+Aeroblast;Flying
+Cotton Spore;Grass
+Reversal;Fighting
+Spite;Ghost
+Powder Snow;Ice
+Protect;Normal
+Mach Punch;Fighting
+Scary Face;Normal
+Feint Attack;Dark
+Sweet Kiss;Fairy
+Belly Drum;Normal
+Sludge Bomb;Poison
+Mud-Slap;Ground
+Octazooka;Water
+Spikes;Ground
+Zap Cannon;Electric
+Foresight;Normal
+Destiny Bond;Ghost
+Perish Song;Normal
+Icy Wind;Ice
+Detect;Fighting
+Bone Rush;Ground
+Lock-On;Normal
+Outrage;Dragon
+Sandstorm;Rock
+Giga Drain;Grass
+Endure;Normal
+Charm;Fairy
+Rollout;Rock
+False Swipe;Normal
+Swagger;Normal
+Milk Drink;Normal
+Spark;Electric
+Fury Cutter;Bug
+Steel Wing;Steel
+Mean Look;Normal
+Attract;Normal
+Sleep Talk;Normal
+Heal Bell;Normal
+Return;Normal
+Present;Normal
+Frustration;Normal
+Safeguard;Normal
+Pain Split;Normal
+Sacred Fire;Fire
+Magnitude;Ground
+Dynamic Punch;Fighting
+Megahorn;Bug
+Dragon Breath;Dragon
+Baton Pass;Normal
+Encore;Normal
+Pursuit;Dark
+Rapid Spin;Normal
+Sweet Scent;Normal
+Iron Tail;Steel
+Metal Claw;Steel
+Vital Throw;Fighting
+Morning Sun;Normal
+Synthesis;Grass
+Moonlight;Fairy
+Hidden Power;Normal
+Cross Chop;Fighting
+Twister;Dragon
+Rain Dance;Water
+Sunny Day;Fire
+Crunch;Dark
+Mirror Coat;Psychic
+Psych Up;Normal
+Extreme Speed;Normal
+Ancient Power;Rock
+Shadow Ball;Ghost
+Future Sight;Psychic
+Rock Smash;Fighting
+Whirlpool;Water
+Beat Up;Dark
+Fake Out;Normal
+Uproar;Normal
+Stockpile;Normal
+Spit Up;Normal
+Swallow;Normal
+Heat Wave;Fire
+Hail;Ice
+Torment;Dark
+Flatter;Dark
+Will-O-Wisp;Fire
+Memento;Dark
+Facade;Normal
+Focus Punch;Fighting
+Smelling Salts;Normal
+Follow Me;Normal
+Nature Power;Normal
+Charge;Electric
+Taunt;Dark
+Helping Hand;Normal
+Trick;Psychic
+Role Play;Psychic
+Wish;Normal
+Assist;Normal
+Ingrain;Grass
+Superpower;Fighting
+Magic Coat;Psychic
+Recycle;Normal
+Revenge;Fighting
+Brick Break;Fighting
+Yawn;Normal
+Knock Off;Dark
+Endeavor;Normal
+Eruption;Fire
+Skill Swap;Psychic
+Imprison;Psychic
+Refresh;Normal
+Grudge;Ghost
+Snatch;Dark
+Secret Power;Normal
+Dive;Water
+Arm Thrust;Fighting
+Camouflage;Normal
+Tail Glow;Bug
+Luster Purge;Psychic
+Mist Ball;Psychic
+Feather Dance;Flying
+Teeter Dance;Normal
+Blaze Kick;Fire
+Mud Sport;Ground
+Ice Ball;Ice
+Needle Arm;Grass
+Slack Off;Normal
+Hyper Voice;Normal
+Poison Fang;Poison
+Crush Claw;Normal
+Blast Burn;Fire
+Hydro Cannon;Water
+Meteor Mash;Steel
+Astonish;Ghost
+Weather Ball;Normal
+Aromatherapy;Grass
+Fake Tears;Dark
+Air Cutter;Flying
+Overheat;Fire
+Odor Sleuth;Normal
+Rock Tomb;Rock
+Silver Wind;Bug
+Metal Sound;Steel
+Grass Whistle;Grass
+Tickle;Normal
+Cosmic Power;Psychic
+Water Spout;Water
+Signal Beam;Bug
+Shadow Punch;Ghost
+Extrasensory;Psychic
+Sky Uppercut;Fighting
+Sand Tomb;Ground
+Sheer Cold;Ice
+Muddy Water;Water
+Bullet Seed;Grass
+Aerial Ace;Flying
+Icicle Spear;Ice
+Iron Defense;Steel
+Block;Normal
+Howl;Normal
+Dragon Claw;Dragon
+Frenzy Plant;Grass
+Bulk Up;Fighting
+Bounce;Flying
+Mud Shot;Ground
+Poison Tail;Poison
+Covet;Normal
+Volt Tackle;Electric
+Magical Leaf;Grass
+Water Sport;Water
+Calm Mind;Psychic
+Leaf Blade;Grass
+Dragon Dance;Dragon
+Rock Blast;Rock
+Shock Wave;Electric
+Water Pulse;Water
+Doom Desire;Steel
+Psycho Boost;Psychic
+Roost;Flying
+Gravity;Psychic
+Miracle Eye;Psychic
+Wake-Up Slap;Fighting
+Hammer Arm;Fighting
+Gyro Ball;Steel
+Healing Wish;Psychic
+Brine;Water
+Natural Gift;Normal
+Feint;Normal
+Pluck;Flying
+Tailwind;Flying
+Acupressure;Normal
+Metal Burst;Steel
+U-turn;Bug
+Close Combat;Fighting
+Payback;Dark
+Assurance;Dark
+Embargo;Dark
+Fling;Dark
+Psycho Shift;Psychic
+Trump Card;Normal
+Heal Block;Psychic
+Wring Out;Normal
+Power Trick;Psychic
+Gastro Acid;Poison
+Lucky Chant;Normal
+Me First;Normal
+Copycat;Normal
+Power Swap;Psychic
+Guard Swap;Psychic
+Punishment;Dark
+Last Resort;Normal
+Worry Seed;Grass
+Sucker Punch;Dark
+Toxic Spikes;Poison
+Heart Swap;Psychic
+Aqua Ring;Water
+Magnet Rise;Electric
+Flare Blitz;Fire
+Force Palm;Fighting
+Aura Sphere;Fighting
+Rock Polish;Rock
+Poison Jab;Poison
+Dark Pulse;Dark
+Night Slash;Dark
+Aqua Tail;Water
+Seed Bomb;Grass
+Air Slash;Flying
+X-Scissor;Bug
+Bug Buzz;Bug
+Dragon Pulse;Dragon
+Dragon Rush;Dragon
+Power Gem;Rock
+Drain Punch;Fighting
+Vacuum Wave;Fighting
+Focus Blast;Fighting
+Energy Ball;Grass
+Brave Bird;Flying
+Earth Power;Ground
+Switcheroo;Dark
+Giga Impact;Normal
+Nasty Plot;Dark
+Bullet Punch;Steel
+Avalanche;Ice
+Ice Shard;Ice
+Shadow Claw;Ghost
+Thunder Fang;Electric
+Ice Fang;Ice
+Fire Fang;Fire
+Shadow Sneak;Ghost
+Mud Bomb;Ground
+Psycho Cut;Psychic
+Zen Headbutt;Psychic
+Mirror Shot;Steel
+Flash Cannon;Steel
+Rock Climb;Normal
+Defog;Flying
+Trick Room;Psychic
+Draco Meteor;Dragon
+Discharge;Electric
+Lava Plume;Fire
+Leaf Storm;Grass
+Power Whip;Grass
+Rock Wrecker;Rock
+Cross Poison;Poison
+Gunk Shot;Poison
+Iron Head;Steel
+Magnet Bomb;Steel
+Stone Edge;Rock
+Captivate;Normal
+Stealth Rock;Rock
+Grass Knot;Grass
+Chatter;Flying
+Judgment;Normal
+Bug Bite;Bug
+Charge Beam;Electric
+Wood Hammer;Grass
+Aqua Jet;Water
+Attack Order;Bug
+Defend Order;Bug
+Heal Order;Bug
+Head Smash;Rock
+Double Hit;Normal
+Roar of Time;Dragon
+Spacial Rend;Dragon
+Lunar Dance;Psychic
+Crush Grip;Normal
+Magma Storm;Fire
+Dark Void;Dark
+Seed Flare;Grass
+Ominous Wind;Ghost
+Shadow Force;Ghost
+Hone Claws;Dark
+Wide Guard;Rock
+Guard Split;Psychic
+Power Split;Psychic
+Wonder Room;Psychic
+Psyshock;Psychic
+Venoshock;Poison
+Autotomize;Steel
+Rage Powder;Bug
+Telekinesis;Psychic
+Magic Room;Psychic
+Smack Down;Rock
+Storm Throw;Fighting
+Flame Burst;Fire
+Sludge Wave;Poison
+Quiver Dance;Bug
+Heavy Slam;Steel
+Synchronoise;Psychic
+Electro Ball;Electric
+Soak;Water
+Flame Charge;Fire
+Coil;Poison
+Low Sweep;Fighting
+Acid Spray;Poison
+Foul Play;Dark
+Simple Beam;Normal
+Entrainment;Normal
+After You;Normal
+Round;Normal
+Echoed Voice;Normal
+Chip Away;Normal
+Clear Smog;Poison
+Stored Power;Psychic
+Quick Guard;Fighting
+Ally Switch;Psychic
+Scald;Water
+Shell Smash;Normal
+Heal Pulse;Psychic
+Hex;Ghost
+Sky Drop;Flying
+Shift Gear;Steel
+Circle Throw;Fighting
+Incinerate;Fire
+Quash;Dark
+Acrobatics;Flying
+Reflect Type;Normal
+Retaliate;Normal
+Final Gambit;Fighting
+Bestow;Normal
+Inferno;Fire
+Water Pledge;Water
+Fire Pledge;Fire
+Grass Pledge;Grass
+Volt Switch;Electric
+Struggle Bug;Bug
+Bulldoze;Ground
+Frost Breath;Ice
+Dragon Tail;Dragon
+Work Up;Normal
+Electroweb;Electric
+Wild Charge;Electric
+Drill Run;Ground
+Dual Chop;Dragon
+Heart Stamp;Psychic
+Horn Leech;Grass
+Sacred Sword;Fighting
+Razor Shell;Water
+Heat Crash;Fire
+Leaf Tornado;Grass
+Steamroller;Bug
+Cotton Guard;Grass
+Night Daze;Dark
+Psystrike;Psychic
+Tail Slap;Normal
+Hurricane;Flying
+Head Charge;Normal
+Gear Grind;Steel
+Searing Shot;Fire
+Techno Blast;Normal
+Relic Song;Normal
+Secret Sword;Fighting
+Glaciate;Ice
+Bolt Strike;Electric
+Blue Flare;Fire
+Fiery Dance;Fire
+Freeze Shock;Ice
+Ice Burn;Ice
+Snarl;Dark
+Icicle Crash;Ice
+V-create;Fire
+Fusion Flare;Fire
+Fusion Bolt;Electric
+Flying Press;Fighting
+Mat Block;Fighting
+Belch;Poison
+Rototiller;Ground
+Sticky Web;Bug
+Fell Stinger;Bug
+Phantom Force;Ghost
+Trick-or-Treat;Ghost
+Noble Roar;Normal
+Ion Deluge;Electric
+Parabolic Charge;Electric
+Forest's Curse;Grass
+Petal Blizzard;Grass
+Freeze-Dry;Ice
+Disarming Voice;Fairy
+Parting Shot;Dark
+Topsy-Turvy;Dark
+Draining Kiss;Fairy
+Crafty Shield;Fairy
+Flower Shield;Fairy
+Grassy Terrain;Grass
+Misty Terrain;Fairy
+Electrify;Electric
+Play Rough;Fairy
+Fairy Wind;Fairy
+Moonblast;Fairy
+Boomburst;Normal
+Fairy Lock;Fairy
+King's Shield;Steel
+Play Nice;Normal
+Confide;Normal
+Diamond Storm;Rock
+Steam Eruption;Water
+Hyperspace Hole;Psychic
+Water Shuriken;Water
+Mystical Fire;Fire
+Spiky Shield;Grass
+Aromatic Mist;Fairy
+Eerie Impulse;Electric
+Venom Drench;Poison
+Powder;Bug
+Geomancy;Fairy
+Magnetic Flux;Electric
+Happy Hour;Normal
+Electric Terrain;Electric
+Dazzling Gleam;Fairy
+Celebrate;Normal
+Hold Hands;Normal
+Baby-Doll Eyes;Fairy
+Nuzzle;Electric
+Hold Back;Normal
+Infestation;Bug
+Power-Up Punch;Fighting
+Oblivion Wing;Flying
+Thousand Arrows;Ground
+Thousand Waves;Ground
+Land's Wrath;Ground
+Light of Ruin;Fairy
+Origin Pulse;Water
+Precipice Blades;Ground
+Dragon Ascent;Flying
+Hyperspace Fury;Dark
+Breakneck Blitz;Normal
+Breakneck Blitz;Normal
+All-Out Pummeling;Fighting
+All-Out Pummeling;Fighting
+Supersonic Skystrike;Flying
+Supersonic Skystrike;Flying
+Acid Downpour;Poison
+Acid Downpour;Poison
+Tectonic Rage;Ground
+Tectonic Rage;Ground
+Continental Crush;Rock
+Continental Crush;Rock
+Savage Spin-Out;Bug
+Savage Spin-Out;Bug
+Never-Ending Nightmare;Ghost
+Never-Ending Nightmare;Ghost
+Corkscrew Crash;Steel
+Corkscrew Crash;Steel
+Inferno Overdrive;Fire
+Inferno Overdrive;Fire
+Hydro Vortex;Water
+Hydro Vortex;Water
+Bloom Doom;Grass
+Bloom Doom;Grass
+Gigavolt Havoc;Electric
+Gigavolt Havoc;Electric
+Shattered Psyche;Psychic
+Shattered Psyche;Psychic
+Subzero Slammer;Ice
+Subzero Slammer;Ice
+Devastating Drake;Dragon
+Devastating Drake;Dragon
+Black Hole Eclipse;Dark
+Black Hole Eclipse;Dark
+Twinkle Tackle;Fairy
+Twinkle Tackle;Fairy
+Catastropika;Electric
+Shore Up;Ground
+First Impression;Bug
+Baneful Bunker;Poison
+Spirit Shackle;Ghost
+Darkest Lariat;Dark
+Sparkling Aria;Water
+Ice Hammer;Ice
+Floral Healing;Fairy
+High Horsepower;Ground
+Strength Sap;Grass
+Solar Blade;Grass
+Leafage;Grass
+Spotlight;Normal
+Toxic Thread;Poison
+Laser Focus;Normal
+Gear Up;Steel
+Throat Chop;Dark
+Pollen Puff;Bug
+Anchor Shot;Steel
+Psychic Terrain;Psychic
+Lunge;Bug
+Fire Lash;Fire
+Power Trip;Dark
+Burn Up;Fire
+Speed Swap;Psychic
+Smart Strike;Steel
+Purify;Poison
+Revelation Dance;Normal
+Core Enforcer;Dragon
+Trop Kick;Grass
+Instruct;Psychic
+Beak Blast;Flying
+Clanging Scales;Dragon
+Dragon Hammer;Dragon
+Brutal Swing;Dark
+Aurora Veil;Ice
+Sinister Arrow Raid;Ghost
+Malicious Moonsault;Dark
+Oceanic Operetta;Water
+Guardian of Alola;Fairy
+Soul-Stealing 7-Star Strike;Ghost
+Stoked Sparksurfer;Electric
+Pulverizing Pancake;Normal
+Extreme Evoboost;Normal
+Genesis Supernova;Psychic
+Shell Trap;Fire
+Fleur Cannon;Fairy
+Psychic Fangs;Psychic
+Stomping Tantrum;Ground
+Shadow Bone;Ghost
+Accelerock;Rock
+Liquidation;Water
+Prismatic Laser;Psychic
+Spectral Thief;Ghost
+Sunsteel Strike;Steel
+Moongeist Beam;Ghost
+Tearful Look;Normal
+Zing Zap;Electric
+Nature's Madness;Fairy
+Multi-Attack;Normal
+"10;000;000 Volt Thunderbolt";Electric
+Mind Blown;Fire
+Plasma Fists;Electric
+Photon Geyser;Psychic
+Light That Burns the Sky;Psychic
+Searing Sunraze Smash;Steel
+Menacing Moonraze Maelstrom;Ghost
+Let's Snuggle Forever;Fairy
+Splintered Stormshards;Rock
+Clangorous Soulblaze;Dragon
+Zippy Zap;Electric
+Splishy Splash;Water
+Floaty Fall;Flying
+Pika Papow;Electric
+Bouncy Bubble;Water
+Buzzy Buzz;Electric
+Sizzly Slide;Fire
+Glitzy Glow;Psychic
+Baddy Bad;Dark
+Sappy Seed;Grass
+Freezy Frost;Ice
+Sparkly Swirl;Fairy
+Veevee Volley;Normal
+Double Iron Bash;Steel
+Max Guard;Normal
+Dynamax Cannon;Dragon
+Snipe Shot;Water
+Jaw Lock;Dark
+Stuff Cheeks;Normal
+No Retreat;Fighting
+Tar Shot;Rock
+Magic Powder;Psychic
+Dragon Darts;Dragon
+Teatime;Normal
+Octolock;Fighting
+Bolt Beak;Electric
+Fishious Rend;Water
+Court Change;Normal
+Max Flare;Fire
+Max Flutterby;Bug
+Max Lightning;Electric
+Max Strike;Normal
+Max Knuckle;Fighting
+Max Phantasm;Ghost
+Max Hailstorm;Ice
+Max Ooze;Poison
+Max Geyser;Water
+Max Airstream;Flying
+Max Starfall;Fairy
+Max Wyrmwind;Dragon
+Max Mindstorm;Psychic
+Max Rockfall;Rock
+Max Quake;Ground
+Max Darkness;Dark
+Max Overgrowth;Grass
+Max Steelspike;Steel
+Clangorous Soul;Dragon
+Body Press;Fighting
+Decorate;Fairy
+Drum Beating;Grass
+Snap Trap;Grass
+Pyro Ball;Fire
+Behemoth Blade;Steel
+Behemoth Bash;Steel
+Aura Wheel;Electric
+Breaking Swipe;Dragon
+Branch Poke;Grass
+Overdrive;Electric
+Apple Acid;Grass
+Grav Apple;Grass
+Spirit Break;Fairy
+Strange Steam;Fairy
+Life Dew;Water
+Obstruct;Dark
+False Surrender;Dark
+Meteor Assault;Fighting
+Eternabeam;Dragon
+Steel Beam;Steel
+Expanding Force;Psychic
+Steel Roller;Steel
+Scale Shot;Dragon
+Meteor Beam;Rock
+Shell Side Arm;Poison
+Misty Explosion;Fairy
+Grassy Glide;Grass
+Rising Voltage;Electric
+Terrain Pulse;Normal
+Skitter Smack;Bug
+Burning Jealousy;Fire
+Lash Out;Dark
+Poltergeist;Ghost
+Corrosive Gas;Poison
+Coaching;Fighting
+Flip Turn;Water
+Triple Axel;Ice
+Dual Wingbeat;Flying
+Scorching Sands;Ground
+Jungle Healing;Grass
+Wicked Blow;Dark
+Surging Strikes;Water
+Thunder Cage;Electric
+Dragon Energy;Dragon
+Freezing Glare;Psychic
+Fiery Wrath;Dark
+Thunderous Kick;Fighting
+Glacial Lance;Ice
+Astral Barrage;Ghost
+Eerie Spell;Psychic
+Dire Claw;Poison
+Psyshield Bash;Psychic
+Power Shift;Normal
+Stone Axe;Rock
+Springtide Storm;Fairy
+Mystical Power;Psychic
+Raging Fury;Fire
+Wave Crash;Water
+Chloroblast;Grass
+Mountain Gale;Ice
+Victory Dance;Fighting
+Headlong Rush;Ground
+Barb Barrage;Poison
+Esper Wing;Psychic
+Bitter Malice;Ghost
+Shelter;Steel
+Triple Arrows;Fighting
+Infernal Parade;Ghost
+Ceaseless Edge;Dark
+Bleakwind Storm;Flying
+Wildbolt Storm;Electric
+Sandsear Storm;Ground
+Lunar Blessing;Psychic
+Take Heart;Psychic
+Tera Blast;Normal
+Silk Trap;Bug
+Axe Kick;Fighting
+Last Respects;Ghost
+Lumina Crash;Psychic
+Order Up;Dragon
+Jet Punch;Water
+Spicy Extract;Grass
+Spin Out;Steel
+Population Bomb;Normal
+Ice Spinner;Ice
+Glaive Rush;Dragon
+Revival Blessing;Normal
+Salt Cure;Rock
+Triple Dive;Water
+Mortal Spin;Poison
+Doodle;Normal
+Fillet Away;Normal
+Kowtow Cleave;Dark
+Flower Trick;Grass
+Torch Song;Fire
+Aqua Step;Water
+Raging Bull;Normal
+Make It Rain;Steel
+Psyblade;Psychic
+Hydro Steam;Water
+Ruination;Dark
+Collision Course;Fighting
+Electro Drift;Electric
+Shed Tail;Normal
+Chilly Reception;Ice
+Tidy Up;Normal
+Snowscape;Ice
+Pounce;Bug
+Trailblaze;Grass
+Chilling Water;Water
+Hyper Drill;Normal
+Twin Beam;Psychic
+Rage Fist;Ghost
+Armor Cannon;Fire
+Bitter Blade;Fire
+Double Shock;Electric
+Gigaton Hammer;Steel
+Comeuppance;Dark
+Aqua Cutter;Water
+Blazing Torque;Fire
+Wicked Torque;Dark
+Noxious Torque;Poison
+Combat Torque;Fighting
+Magical Torque;Fairy
+Blood Moon;Normal
+Matcha Gotcha;Grass
+Syrup Bomb;Grass
+Ivy Cudgel;Grass
+Electro Shot;Electric
+Thunderclap;Electric
+Tachyon Cutter;Steel
+Upper Hand;Fighting
+Psychic Noise;Psychic
