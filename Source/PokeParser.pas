@@ -209,7 +209,7 @@ begin
   for I := 0 to Length(DATA_ITEMS) - 1 do
     Assert(Assigned(FData[DATA_ITEMS[I]]), Format('%s data missing.', [DATA_ITEMS[I]]));
 
-  Assert((FList.Text <> '') and Assigned(FList), 'Pokepaste missing/empty.');
+  Assert(Assigned(FList) and (FList.Text <> ''), 'Pokepaste missing/empty.');
 end;
 
 constructor TPokepaste.Create(const AUrl: TUrl; const ADataFileNames: array of TFileName;
@@ -499,20 +499,13 @@ var
   LPng: TPngImage;
 
   procedure SetOffsets;
-    procedure SetOffset(const AX, AY: Integer);
-    begin
-      LOffsetX := AX;
-      LOffsetY := AY;
-    end;
   begin
-    case AIndex of
-      0: SetOffset(10, 75);
-      1: SetOffset(480, 75);
-      2: SetOffset(10, 405);
-      3: SetOffset(480, 405);
-      4: SetOffset(10, 735);
-      5: SetOffset(480, 735);
-    end;
+    if Odd(AIndex) then
+      LOffsetX := 480
+    else
+      LOffsetX := 10;
+
+    LOffsetY := 75 + (330 * Floor(AIndex / 2));
   end;
 
   function SpritePath(const ASpriteType: string; const ADimension: Integer): string;
