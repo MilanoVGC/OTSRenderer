@@ -4,7 +4,7 @@
         <ProjectVersion>19.2</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
@@ -113,6 +113,8 @@
         <DCCReference Include="..\..\Source\PokeUtils.pas"/>
         <DCCReference Include="..\..\Source\AkLib\AkUtils.pas"/>
         <DCCReference Include="..\..\Source\AkLib\CsvParser.pas"/>
+        <DCCReference Include="..\..\Source\AkLib\AkUtilsVcl.pas"/>
+        <DCCReference Include="..\..\Source\PokeParserVcl.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

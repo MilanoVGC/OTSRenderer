@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Variants, System.Classes, System.ImageList,
   Winapi.Windows, Winapi.Messages,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ImgList, Vcl.ExtCtrls, Vcl.Imaging.pngimage, Vcl.ComCtrls,
-  AkUtils, PokeParser;
+  AkUtils, PokeParserVcl;
 
 type
   TInput = record
@@ -19,7 +19,7 @@ type
   TMainForm = class(TForm)
   private
     FDataFiles: array of TFileName;
-    FPokepaste: TPokepaste;
+    FPokepaste: TPokepasteVcl;
     FCsvColumnNames: array of string;
     FCsvDelimiter: Char;
     FAddedInputs: array of TInput;
@@ -185,7 +185,7 @@ implementation
 
 uses
   StrUtils, UITypes, IOUtils,
-  CsvParser;
+  CsvParser, AkUtilsVcl;
 
 {$R *.dfm}
 
@@ -339,13 +339,13 @@ procedure TMainForm.CheckAndSetData;
 var
   I: Integer;
 begin
-  SetLength(FDataFiles, Length(DATA_ITEMS));
-  for I := 0 to Length(DATA_ITEMS) - 1 do
+  SetLength(FDataFiles, TPokepasteVcl.DataItemsCount);
+  for I := 0 to TPokepasteVcl.DataItemsCount - 1 do
   begin
-    Assert(FileExists(EdtDataPath.Text + DATA_ITEMS[I] + '.csv'),
-      Format('Missing data file "%s".', [DATA_ITEMS[I] + '.csv']));
+    Assert(FileExists(EdtDataPath.Text + TPokepasteVcl.DataItems[I] + '.csv'),
+      Format('Missing data file "%s".', [TPokepasteVcl.DataItems[I] + '.csv']));
 
-    FDataFiles[I] := EdtDataPath.Text + DATA_ITEMS[I] + '.csv';
+    FDataFiles[I] := EdtDataPath.Text + TPokepasteVcl.DataItems[I] + '.csv';
   end;
   Assert(DirectoryExists(EdtAssetsPath.Text),
     Format('Assets folder "%s" not found.', [EdtAssetsPath.Text]));
@@ -480,7 +480,7 @@ procedure TMainForm.CreatePokepaste(const AUrl: TUrl; const ADataFileNames: arra
 begin
   if Assigned(FPokepaste) then
     FreeAndNil(FPokepaste);
-  FPokepaste := TPokepaste.Create(AUrl, ADataFileNames, AAssetsPath);
+  FPokepaste := TPokepasteVcl.Create(AUrl, ADataFileNames, AAssetsPath);
 end;
 
 procedure TMainForm.DeleteAllInputs;

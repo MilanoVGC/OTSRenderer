@@ -6,7 +6,9 @@ uses
   PokeParser in '..\..\Source\PokeParser.pas',
   PokeUtils in '..\..\Source\PokeUtils.pas',
   AkUtils in '..\..\Source\AkLib\AkUtils.pas',
-  CsvParser in '..\..\Source\AkLib\CsvParser.pas';
+  CsvParser in '..\..\Source\AkLib\CsvParser.pas',
+  AkUtilsVcl in '..\..\Source\AkLib\AkUtilsVcl.pas',
+  PokeParserVcl in '..\..\Source\PokeParserVcl.pas';
 
 {$R *.res}
 
