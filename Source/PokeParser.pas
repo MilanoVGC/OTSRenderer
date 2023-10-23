@@ -190,7 +190,7 @@ uses
   IdHttp, IdBaseComponent, IdComponent, IdIOHandler, IdIOHandlerSocket,
   IdIOHandlerStack, IdSSL, IdSSLOpenSSL,
   Skia, Skia.Vcl,
-  AKUtils;
+  AkUtils;
 
 { TPokepaste }
 
@@ -877,7 +877,7 @@ var
     Result := Trim(ARow.Substring(LStart, LCount));
   end;
 
-  function ยง(const AAttribute: string): string;
+  function ง(const AAttribute: string): string;
   var
     J: Integer;
   begin
@@ -898,7 +898,7 @@ var
         , ':', '', []));
 
     if SameText(AAttribute, 'Evs') then
-      Result := Result + sLineBreak + ยง('Nature');
+      Result := Result + sLineBreak + ง('Nature');
   end;
 begin
   Init(AData);
@@ -930,13 +930,13 @@ begin
       LSkipIvs := 0;
 
 
-    FNickName := ยง('Nickname');
-    FName := ยง('Name');
-    FItem := ยง('Item');
-    FAbility := ยง('Ability');
-    FTeraTyping := StrToTyping(ยง('Tera type'));
-    FMoveList := ยง('Moves');
-    FEvSpread := TranslateEvs(ยง('Evs'));
+    FNickName := ง('Nickname');
+    FName := ง('Name');
+    FItem := ง('Item');
+    FAbility := ง('Ability');
+    FTeraTyping := StrToTyping(ง('Tera type'));
+    FMoveList := ง('Moves');
+    FEvSpread := TranslateEvs(ง('Evs'));
   finally
     LList.Free;
   end;

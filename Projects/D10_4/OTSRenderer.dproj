@@ -111,8 +111,8 @@
         </DCCReference>
         <DCCReference Include="..\..\Source\PokeParser.pas"/>
         <DCCReference Include="..\..\Source\PokeUtils.pas"/>
-        <DCCReference Include="..\..\Source\CsvParser.pas"/>
-        <DCCReference Include="..\..\Source\AKUtils.pas"/>
+        <DCCReference Include="..\..\Source\AkLib\AkUtils.pas"/>
+        <DCCReference Include="..\..\Source\AkLib\CsvParser.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -142,6 +142,12 @@
             </Delphi.Personality>
             <Deployment Version="3">
                 <DeployFile LocalName="..\..\Home\OTSRenderer.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>OTSRenderer.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\..\Home\OTSRenderer.exe" Configuration="Release" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>OTSRenderer.exe</RemoteName>
                         <Overwrite>true</Overwrite>

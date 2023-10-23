@@ -39,7 +39,7 @@ implementation
 uses
   SysUtils, StrUtils,
   TypInfo,
-  AKUtils;
+  AkUtils;
 
 function TypingToStr(const AType: TTyping): string;
 begin

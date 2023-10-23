@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Variants, System.Classes, System.ImageList,
   Winapi.Windows, Winapi.Messages,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ImgList, Vcl.ExtCtrls, Vcl.Imaging.pngimage, Vcl.ComCtrls,
-  AKUtils, PokeParser;
+  AkUtils, PokeParser;
 
 type
   TInput = record
@@ -423,7 +423,8 @@ begin
             while LFullNames.IndexOf(LInput.FullName) >= 0 do
             begin
               Inc(LDuplicateIndex);
-              LInput.Surname := LInput.Surname + '_' + IntToStr(LDuplicateIndex);
+              LInput.Surname := StringReplace(LInput.Surname,
+                '_' + IntToStr(LDuplicateIndex - 1),  '_' + IntToStr(LDuplicateIndex), [rfIgnoreCase]);
             end;
             LFullNames.Add(LInput.FullName);
             Log('Processing file entry ' + LInput.FullName + ' - ' + LInput.Link);
@@ -449,7 +450,8 @@ begin
       while LFullNames.IndexOf(FAddedInputs[I].FullName) >= 0 do
       begin
         Inc(LDuplicateIndex);
-        FAddedInputs[I].Surname := FAddedInputs[I].Surname + '_' + IntToStr(LDuplicateIndex);
+        FAddedInputs[I].Surname := StringReplace(FAddedInputs[I].Surname,
+          '_' + IntToStr(LDuplicateIndex - 1),  '_' + IntToStr(LDuplicateIndex), [rfIgnoreCase]);
       end;
       LFullNames.Add(FAddedInputs[I].FullName);
       Log('Processing manual entry ' + FAddedInputs[I].FullName + ' - ' + FAddedInputs[I].Link);

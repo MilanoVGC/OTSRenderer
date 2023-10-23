@@ -5,8 +5,8 @@ uses
   MainFormUnit in '..\..\Source\MainFormUnit.pas' {MainForm},
   PokeParser in '..\..\Source\PokeParser.pas',
   PokeUtils in '..\..\Source\PokeUtils.pas',
-  CsvParser in '..\..\Source\CsvParser.pas',
-  AKUtils in '..\..\Source\AKUtils.pas';
+  AkUtils in '..\..\Source\AkLib\AkUtils.pas',
+  CsvParser in '..\..\Source\AkLib\CsvParser.pas';
 
 {$R *.res}
 
