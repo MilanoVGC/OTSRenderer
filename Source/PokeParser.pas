@@ -110,13 +110,16 @@ type
     function GetPaste: string;
     function GetSprite(const ASpriteType: string; const AIndex: Integer): TFileName;
     function GetCustomPaste: string;
+    function GetOutputName: string;
     class function GetDataItem(const AIndex: Integer): string; static;
     class function GetDataItemCount: Integer; static;
 
     procedure Init(const ADataFileNames: array of TFileName;
       const AAssetsPath: string);
     procedure CreatePokemons;
+    procedure FreePokemons;
     procedure CheckData;
+    procedure StartPokepaste;
   strict protected
     function RetrieveSprite(const ASpriteName, ASpriteType: string; const AForceReload: Boolean = False): TFileName; virtual;
 
@@ -132,6 +135,7 @@ type
     property Paste: string read GetPaste;
     property CustomPaste: string read GetCustomPaste;
     property Sprite[const ASpriteType: string; const AIndex: Integer]: TFileName read GetSprite;
+    property OutputName: string read GetOutputName;
     class property DataItems[const AIndex: Integer]: string read GetDataItem;
     class property DataItemsCount: Integer read GetDataItemCount;
 
@@ -149,7 +153,11 @@ type
     constructor Create(const AUrl: TUrl; const ADataFileNames: array of TFileName;
       const AAssetsPath: string); overload;
 
-    procedure AfterConstruction; override;
+    procedure LoadPokepaste(const AText: string; const ADataFileNames: array of TFileName;
+      const AAssetsPath: string); overload;
+
+    procedure LoadPokepaste(const AUrl: TUrl; const ADataFileNames: array of TFileName;
+      const AAssetsPath: string); overload;
 
     /// <summary>
     ///  Forces the pokepaste to reload from the text. If something has been
@@ -197,14 +205,6 @@ uses
 
 { TPokepaste }
 
-procedure TPokepaste.AfterConstruction;
-begin
-  inherited;
-
-  CheckData;
-  CreatePokemons;
-end;
-
 procedure TPokepaste.CheckData;
 var
   I: Integer;
@@ -217,36 +217,19 @@ end;
 
 constructor TPokepaste.Create(const AUrl: TUrl; const ADataFileNames: array of TFileName;
   const AAssetsPath: string);
-var
-  LIdHttp: TIdHttp;
-  LJsonResponse: string;
-  LJson: TJsonValue;
 begin
-  Init(ADataFileNames, AAssetsPath);
-  FLink := AUrl;
-  if not SameText(FLink.Substring(Length(FLink) - 4), 'json') then
-    FLink := FLink + '/json';
-
-  LIdHttp := TIdHttp.Create(nil);
-  try
-    LJsonResponse := LIdHttp.Get(FLink);
-  finally
-    FreeAndNil(LIdHttp);
-  end;
-  LJson := TJsonObject.ParseJSONValue(LJsonResponse);
-  FList.Text := LJson.GetValue<string>('paste');
-end;
-
-procedure TPokepaste.CreateEmptyPng(const ABaseColorHex: string);
-begin
-
+  LoadPokepaste(AUrl, ADataFileNames, AAssetsPath);
 end;
 
 constructor TPokepaste.Create(const AText: string; const ADataFileNames: array of TFileName;
   const AAssetsPath: string);
 begin
-  Init(ADataFileNames, AAssetsPath);
-  FList.Text := AText;
+  LoadPokepaste(AText, ADataFileNames, AAssetsPath);
+end;
+
+procedure TPokepaste.CreateEmptyPng(const ABaseColorHex: string);
+begin
+
 end;
 
 procedure TPokepaste.CreatePokemons;
@@ -285,6 +268,16 @@ begin
   inherited;
 end;
 
+procedure TPokepaste.FreePokemons;
+var
+  I: Integer;
+begin
+  for I := 0 to Count - 1 do
+    FreeAndNil(FPokemons[I]);
+  SetLength(FPokemons, 0);
+  FPokemonCount := 0;
+end;
+
 function TPokepaste.GetCustomPaste: string;
 var
   I: Integer;
@@ -301,6 +294,11 @@ end;
 class function TPokepaste.GetDataItemCount: Integer;
 begin
   Result := Length(DATA_ITEMS);
+end;
+
+function TPokepaste.GetOutputName: string;
+begin
+  Result := OwnerClean + '_' + FormatDateTime('yyyymmdd', Now);
 end;
 
 function TPokepaste.GetOwnerClean: string;
@@ -338,8 +336,60 @@ begin
   FData.Add(ADataFileNames);
   FList := TStringList.Create;
   FAssetsPath := AAssetsPath;
+  FPokemonCount := 0;
   if not DirectoryExists(FAssetsPath) then
     raise Exception.CreateFmt('Assets directory "%s" not found.', [AAssetsPath]);
+end;
+
+procedure TPokepaste.LoadPokepaste(const AUrl: TUrl;
+  const ADataFileNames: array of TFileName; const AAssetsPath: string);
+var
+  LIdHttp: TIdHttp;
+  LJsonResponse: string;
+  LJson: TJsonValue;
+begin
+  if Assigned(FData) then
+    FreeAndNil(FData);
+  if Assigned(FList) then
+    FreeAndNil(FList);
+
+  Init(ADataFileNames, AAssetsPath);
+
+  FLink := AUrl;
+  if not SameText(FLink.Substring(Length(FLink) - 4), 'json') then
+    FLink := FLink + '/json';
+
+  LIdHttp := TIdHttp.Create(nil);
+  try
+    LJsonResponse := LIdHttp.Get(FLink);
+  finally
+    FreeAndNil(LIdHttp);
+  end;
+  LJson := TJsonObject.ParseJSONValue(LJsonResponse);
+  FList.Text := LJson.GetValue<string>('paste');
+
+  StartPokepaste;
+end;
+
+procedure TPokepaste.LoadPokepaste(const AText: string;
+  const ADataFileNames: array of TFileName; const AAssetsPath: string);
+begin
+  if Assigned(FData) then
+    FreeAndNil(FData);
+  if Assigned(FList) then
+    FreeAndNil(FList);
+
+  Init(ADataFileNames, AAssetsPath);
+  FList.Text := AText;
+
+  StartPokepaste;
+end;
+
+procedure TPokepaste.StartPokepaste;
+begin
+  FreePokemons;
+  CheckData;
+  CreatePokemons;
 end;
 
 function TPokepaste.PaintPastePng(const AColorCSSName, AHeaderColorHex, AOutputPath: string): string;
@@ -357,12 +407,7 @@ var
   LSvgName: string;
 
 begin
-  LOutputPath := AOutputPath;
-  if LOutputPath = '' then
-    LOutputPath := IncludeTrailingPathDelimiter(ExtractFilePath(ParamStr(0)) + 'Output');
-  if not MakeDir(LOutputPath) then
-    raise Exception.CreateFmt('Could not create directory "%s", try creating it manually.', [LOutputPath]);
-  LOutputPath := IncludeTrailingPathDelimiter(IncludeTrailingPathDelimiter(LOutputPath) + 'HTML');
+  LOutputPath := IncludeTrailingPathDelimiter(IncludeTrailingPathDelimiter(AOutputPath) + 'HTML');
   if not MakeDir(LOutputPath) then
     raise Exception.CreateFmt('Could not create directory "%s", try creating it manually.', [LOutputPath]);
 
@@ -394,7 +439,7 @@ begin
       ExpandFileMacros(LHtml, [RetrieveSprite(LSvgName, 'Types')], '@svg@');
       ExpandFileMacros(LHtml, [RetrieveSprite(TypingToStr(LTyping) + '.svg', 'Types')], '@svg@');
     end;
-  Result := LOutputPath + OwnerClean + '_' + FormatDateTime('yyyymmdd', Now) + '.html';
+  Result := LOutputPath + OutputName + '.html';
   TFile.WriteAllText(Result, LHtml);
 end;
 
@@ -406,13 +451,7 @@ var
   LHeaderColor: string;
   LBaseColor: string;
 begin
-  LOutputPath := AOutputPath;
-  if LOutputPath = '' then
-    LOutputPath := IncludeTrailingPathDelimiter(ExtractFilePath(ParamStr(0)) + 'Output');
-  if not MakeDir(LOutputPath) then
-    raise Exception.CreateFmt('Could not create directory "%s", try creating it manually.', [LOutputPath]);
-
-  LOutputPath := IncludeTrailingPathDelimiter(IncludeTrailingPathDelimiter(LOutputPath) + 'PNG');
+  LOutputPath := IncludeTrailingPathDelimiter(IncludeTrailingPathDelimiter(AOutputPath) + 'PNG');
   if not MakeDir(LOutputPath) then
     raise Exception.CreateFmt('Could not create directory "%s", try creating it manually.', [LOutputPath]);
 
@@ -429,7 +468,8 @@ begin
 
   Result := PaintPastePng(AColorCSSName, LHeaderColor, LOutputPath);
 
-  DeleteFile(IncludeTrailingPathDelimiter(FAssetsPath + '..') + 'empty_pokepaste.png');
+  if FileExists(IncludeTrailingPathDelimiter(FAssetsPath + '..') + 'empty_pokepaste.png') then
+    DeleteFile(IncludeTrailingPathDelimiter(FAssetsPath + '..') + 'empty_pokepaste.png');
 end;
 
 procedure TPokepaste.PrintSVGs;

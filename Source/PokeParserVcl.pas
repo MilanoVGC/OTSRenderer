@@ -12,7 +12,6 @@ type
   private
     procedure PrintPlayerOnPng(const AColor: TColor; var APng: TPngImage); virtual;
     procedure PrintPokemonOnPng(const AIndex: Integer; const AColorCSSName: string; var APng: TPngImage);
-
   strict protected
     function RetrieveSprite(const ASpriteName, ASpriteType: string; const AForceReload: Boolean = False): TFileName; override;
     procedure CreateEmptyPng(const ABaseColorHex: string); override;
@@ -358,7 +357,7 @@ begin
     for I := 0 to Count - 1 do
       PrintPokemonOnPng(I, AColorCSSName, LPng);
     PrintPlayerOnPng(HexToColor(AHeaderColorHex), LPng);
-    Result := AOutputPath + OwnerClean + '_' + FormatDateTime('yyyymmdd', Now) + '.png';
+    Result := AOutputPath + OutputName + '.png';
     LPng.SaveToFile(Result);
   finally
     FreeAndNil(LPng);

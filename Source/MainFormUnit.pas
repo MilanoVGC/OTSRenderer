@@ -6,16 +6,9 @@ uses
   System.SysUtils, System.Variants, System.Classes, System.ImageList,
   Winapi.Windows, Winapi.Messages,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ImgList, Vcl.ExtCtrls, Vcl.Imaging.pngimage, Vcl.ComCtrls,
-  AkUtils, PokeParserVcl;
+  AkUtils, PokeParserVcl, PokepasteProcessor;
 
 type
-  TInput = record
-    Name: string;
-    Surname: string;
-    Link: TUrl;
-    function FullName: string;
-  end;
-
   TMainForm = class(TForm)
   private
     FDataFiles: array of TFileName;
@@ -55,11 +48,6 @@ type
     procedure ClearSprites;
     procedure DisplayPreview(const AShow: Boolean);
 
-    { Pokepaste }
-    procedure CreatePokepaste(const AUrl: TUrl; const ADataFileNames: array of TFileName;
-      const AAssetsPath: string);
-    procedure ProcessPokepaste(const AInput: TInput; const AAssetsPath, AColorPaletteName: string;
-      const AOutputPath: string = '');
   protected
     { Dialogs }
     procedure GeneralDlg(const ADlgType: TMsgDlgType; const AMessage: string);
@@ -67,6 +55,7 @@ type
     procedure InfoDlg(const AMessage: string);
     function ConfirmDlg(const AMessage: string): Boolean;
     function YesNoDlg(const AMessage: string): Boolean;
+    function YesNoAllDlg(const AMessage: string): string;
 
     { Utilities }
     function AppTitle: string;
@@ -185,7 +174,7 @@ implementation
 
 uses
   StrUtils, UITypes, IOUtils,
-  CsvParser, AkUtilsVcl;
+  CsvParser, AkUtilsVcl, PokeParser;
 
 {$R *.dfm}
 
@@ -397,90 +386,115 @@ procedure TMainForm.CreateAll(const AInputFileName: TFileName;
   const AAssetsPath, AColorPaletteName, AOutputPath: string);
 var
   LCsv: TCsv;
-  LFullNames: TStringList;
-  LDuplicateIndex: Integer;
-  I: Integer;
+  LFullNames: string;
+  LErrors: string;
+  LDlgResult: string;
+  LNeverOverwrite: Boolean;
+  LAlwaysOverwrite: Boolean;
+  LProcessor: TPokepasteProcessor;
+
 begin
   if Assigned(FOutputs) then
     FOutputs.Free;
 
+  LAlwaysOverwrite := False;
+  LNeverOverwrite := False;
+
   FOutputs := TStringList.Create;
-  LFullNames := TStringList.Create;
+  LProcessor := TPokepasteProcessor.Create(FDataFiles,
+    AAssetsPath, AColorPaletteName, AOutputPath,
+    FPokepaste, FHtmlOutput, FPngOutput, FLogger);
   try
+    LProcessor.StopOnErrors := FStopOnErrors;
+    LProcessor.OnRender :=
+      function(APokepaste: TPokepaste): Boolean
+      var
+        LOutputName: string;
+      begin
+        if FPreviewEnabled then
+          SetAllSprites;
+        Result := True;
+        LOutputName := IncludeTrailingPathDelimiter(LProcessor.OutputPath + 'HTML') + APokepaste.OutputName + '.html';
+        if FHtmlOutput and FileExists(LOutputName) then
+        begin
+          if LAlwaysOverwrite then
+            Exit;
+          if LNeverOverwrite then
+          begin
+            Result := False;
+            Exit;
+          end;
+          LDlgResult := YesNoAllDlg(Format('The file "%s" already exists: overwrite it?', [LOutputName]));
+
+          if SameText(LDlgResult, 'YesAll') then
+            LAlwaysOverwrite := True
+          else if SameText(LDlgResult, 'NoAll') then
+            LNeverOverwrite := True;
+
+          if Pos('YES', AnsiUpperCase(LDlgResult)) > 0  then
+            Result := True
+          else
+            Result := False;
+        end;
+        LOutputName := IncludeTrailingPathDelimiter(LProcessor.OutputPath + 'PNG') + APokepaste.OutputName + '.png';
+        if FPngOutput and FileExists(LOutputName) then
+        begin
+          if LAlwaysOverwrite then
+            Exit;
+          if LNeverOverwrite then
+          begin
+            Result := False;
+            Exit;
+          end;
+          LDlgResult := YesNoAllDlg(Format('The file "%s" already exists: overwrite it?', [LOutputName]));
+
+          if SameText(LDlgResult, 'YesAll') then
+            LAlwaysOverwrite := True
+          else if SameText(LDlgResult, 'NoAll') then
+            LNeverOverwrite := True;
+
+          if Pos('YES', AnsiUpperCase(LDlgResult)) > 0  then
+            Result := True
+          else
+            Result := False;
+        end;
+      end;
+
+    if FPreviewEnabled then
+      LProcessor.AfterRender :=
+        procedure(APokepaste: TPokepaste; AOutputs: TStringList)
+        begin
+          Sleep(1000);
+          ClearSprites;
+        end;
+
     if FileExists(AInputFileName) then
     begin
       LCsv := TCsv.Create(AInputFileName, FCsvDelimiter, True);
       try
-        LCsv.ForEach(FCsvColumnNames,
-          procedure(const AValues: TArray<string>)
-          var
-            LInput: TInput;
-          begin
-            LInput.Name := AValues[0];
-            LInput.Surname := AValues[1];
-            LInput.Link := AValues[2];
-            LDuplicateIndex := 1;
-            while LFullNames.IndexOf(LInput.FullName) >= 0 do
-            begin
-              Inc(LDuplicateIndex);
-              LInput.Surname := StringReplace(LInput.Surname,
-                '_' + IntToStr(LDuplicateIndex - 1),  '_' + IntToStr(LDuplicateIndex), [rfIgnoreCase]);
-            end;
-            LFullNames.Add(LInput.FullName);
-            Log('Processing file entry ' + LInput.FullName + ' - ' + LInput.Link);
-            try
-              ProcessPokepaste(LInput, AAssetsPath, AColorPaletteName, AOutputPath);
-            except
-              on E: Exception do
-              begin
-                Log('ERROR - ' + E.Message);
-                if FStopOnErrors then
-                  raise E;
-              end;
-            end;
-          end
-        );
+        FOutputs.Text := LProcessor.CreateFromFile(LCsv, FCsvColumnNames, LFullNames, LErrors);
+        if FOutputs.Text <> '' then
+          FOutputs.Text := FOutputs.Text + sLineBreak;
       finally
         FreeAndNil(LCsv);
       end;
     end;
-    for I := 0 to Length(FAddedInputs) - 1 do
-    begin
-      LDuplicateIndex := 1;
-      while LFullNames.IndexOf(FAddedInputs[I].FullName) >= 0 do
-      begin
-        Inc(LDuplicateIndex);
-        FAddedInputs[I].Surname := StringReplace(FAddedInputs[I].Surname,
-          '_' + IntToStr(LDuplicateIndex - 1),  '_' + IntToStr(LDuplicateIndex), [rfIgnoreCase]);
-      end;
-      LFullNames.Add(FAddedInputs[I].FullName);
-      Log('Processing manual entry ' + FAddedInputs[I].FullName + ' - ' + FAddedInputs[I].Link);
-      try
-        ProcessPokepaste(FAddedInputs[I], AAssetsPath, AColorPaletteName, AOutputPath);
-      except
-        on E: Exception do
-        begin
-          Log('ERROR - ' + E.Message);
-          if FStopOnErrors then
-            raise E;
-        end;
-      end;
-    end;
-    if FOutputs.Count > 0 then
-      InfoDlg('Operation completed, created following output files:' + sLineBreak + FOutputs.Text)
-    else
-      InfoDlg('No output selected, nothing has been created.');
-  finally
-    LFullNames.Free;
-  end;
-end;
 
-procedure TMainForm.CreatePokepaste(const AUrl: TUrl; const ADataFileNames: array of TFileName;
-  const AAssetsPath: string);
-begin
-  if Assigned(FPokepaste) then
-    FreeAndNil(FPokepaste);
-  FPokepaste := TPokepasteVcl.Create(AUrl, ADataFileNames, AAssetsPath);
+    FOutputs.Text := FOutputs.Text + (LProcessor.CreateFromInputList(FAddedInputs, LFullNames, LErrors));
+    if (FOutputs.Count > 0) and (LErrors = '') then
+      if YesNoDlg('Operation completed without errors, show complete output?') then
+        InfoDlg(FOutputs.Text)
+      else
+        InfoDlg('The complete output is detailed in the log file')
+    else if (LErrors <> '') then
+      WarningDlg('Operation completed, there are the following errors:' + sLineBreak + LErrors)
+    else
+      InfoDlg('Nothing has been created.');
+    if FPreviewEnabled then
+      ClearSprites;
+  finally
+    FreeAndNil(LProcessor);
+  end;
 end;
 
 procedure TMainForm.DeleteAllInputs;
@@ -576,6 +590,7 @@ begin
     WarningDlg('Error creating log folder.' + sLineBreak + 'Log file will be placed in the application directory.');
     LLogPath := IncludeTrailingPathDelimiter(AppPath);
   end;
+  FPokepaste := TPokepasteVcl.Create;
   FLogger := TAkLogger.Create(AppTitle, LLogPath + AppTitle);
 end;
 
@@ -620,34 +635,6 @@ end;
 procedure TMainForm.LstInputListClick(Sender: TObject);
 begin
   UpdateInputRemoveBtn;
-end;
-
-procedure TMainForm.ProcessPokepaste(const AInput: TInput; const AAssetsPath,
-  AColorPaletteName, AOutputPath: string);
-var
-  LOutput: string;
-begin
-  ClearSprites;
-  CreatePokepaste(AInput.Link, FDataFiles, AAssetsPath);
-  FPokepaste.Owner := AInput.FullName;
-  if FPreviewEnabled then
-    SetAllSprites;
-
-  if FHtmlOutput then
-  begin
-    LOutput := FPokepaste.PrintHtml(AColorPaletteName, AOutputPath);
-    FOutputs.Add('- ' + ExtractFileName(LOutput));
-    Log('Processed ' + AInput.FullName + ' -> ' + LOutput);
-  end;
-  if FPngOutput then
-  begin
-    LOutput := FPokepaste.PrintPng(AColorPaletteName, AOutputPath);
-    FOutputs.Add('- ' + ExtractFileName(LOutput));
-    Log('Processed ' + AInput.FullName + ' -> ' + LOutput);
-  end;
-
-  if FPreviewEnabled then
-    Sleep(1000);
 end;
 
 procedure TMainForm.PaintCombobox;
@@ -786,6 +773,32 @@ begin
   GeneralDlg(mtWarning, AMessage);
 end;
 
+function TMainForm.YesNoAllDlg(const AMessage: string): string;
+var
+  LForm: TForm;
+  LLabel: TLabel;
+  LResult: Integer;
+begin
+  LForm := CreateMessageDialog(AMessage, mtInformation, [mbYes, mbYesToAll, mbNo, mbNoToAll]);
+  try
+    LLabel := LForm.FindComponent('Message') as TLabel;
+    LLabel.Width := LLabel.Width;
+    LForm.ClientWidth := lForm.ClientWidth;
+    LForm.Position := poScreenCenter;
+    LResult := LForm.ShowModal;
+    if LResult = mrYes then
+      Result := 'Yes'
+    else if LResult = mrYesToAll then
+      Result := 'YesAll'
+    else if LResult = mrNoToAll then
+      Result := 'NoAll'
+    else
+      Result := 'No';
+  finally
+    LForm.Free;
+  end;
+end;
+
 function TMainForm.YesNoDlg(const AMessage: string): Boolean;
 var
   LForm: TForm;
@@ -818,13 +831,6 @@ begin
   finally
     LForm.Free;
   end;
-end;
-
-{ TInput }
-
-function TInput.FullName: string;
-begin
-  Result := CapitalFirst(Name) + ' ' + CapitalFirst(Surname);
 end;
 
 end.

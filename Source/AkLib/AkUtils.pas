@@ -9,6 +9,16 @@ type
   TUrl = type string;
 
   TStringsHelper = class Helper for TStringList
+  private
+    function ContainsCaseSensitive(const AString: string; const AOffset: Integer): Integer;
+    function ContainsCaseInsensitive(const AString: string; const AOffset: Integer): Integer;
+    function GetObjectCount: Integer;
+    function GetObjectText: string;
+    function GetAssignedObject(const AIndex: Integer): TObject;
+  public
+    property ObjectCount: Integer read GetObjectCount;
+    property ObjectText: string read GetObjectText;
+    property AssignedObjects[const AIndex: Integer]: TObject read GetAssignedObject;
     /// <summary>
     ///  Returns the index of the line which contains the first appearance of
     ///  the given string, starting from the specified offset. If none is found
@@ -21,9 +31,6 @@ type
     ///  The index of the first line searched.
     /// </param>
     function Contains(const AString: string; const AOffset: Integer = 0): Integer;
-  private
-    function ContainsCaseSensitive(const AString: string; const AOffset: Integer): Integer;
-    function ContainsCaseInsensitive(const AString: string; const AOffset: Integer): Integer;
   end;
 
   TAkLogger = class
@@ -254,6 +261,45 @@ begin
       Result := I;
       Exit;
     end;
+end;
+
+function TStringsHelper.GetAssignedObject(const AIndex: Integer): TObject;
+var
+  LIndex: Integer;
+  I: Integer;
+begin
+  Result := nil;
+  LIndex := 0;
+  for I := 0 to Count - 1 do
+    if Assigned(Objects[I]) then
+    begin
+      if AIndex = LIndex then
+      begin
+        Result := Objects[I];
+        Exit;
+      end;
+      Inc(LIndex);
+    end;
+end;
+
+function TStringsHelper.GetObjectCount: Integer;
+var
+  I: Integer;
+begin
+  Result := 0;
+  for I := 0 to Count - 1 do
+    if Assigned(Objects[I]) then
+      Inc(Result);
+end;
+
+function TStringsHelper.GetObjectText: string;
+var
+  I: Integer;
+begin
+  for I := 0 to Count - 1 do
+    if Assigned(Objects[I]) then
+      Result := Result + sLineBreak + Strings[I];
+  Result := StringReplace(Result, sLineBreak, '', [rfIgnoreCase]);
 end;
 
 { TAkLogger }
