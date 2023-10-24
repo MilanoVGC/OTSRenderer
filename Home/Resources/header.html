@@ -3,8 +3,23 @@
   <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+3">
     <link rel="stylesheet" href="%main.css%">
-	<link rel="stylesheet" href="%animations.css%">
+    <link rel="stylesheet" href="%animations.css%">
     <link rel="stylesheet" href="%colors.css%">
+	
+	<!-- I'm too lazy to create a separate .js file to include this few lines of code into the pages...even if I should. I know. -->
+    <script type="text/javascript">
+      function hideEmptyTypeSpriteShadow() {
+        let shadows = document.getElementsByClassName('type-shadow');
+        if(shadows === undefined) return;
+        let sprite;
+        for(let i = 0; i < shadows.length; i++) {
+          sprite = shadows[i].parentElement.getElementsByTagName('img')[0];
+          if((sprite === undefined) || sprite.src.includes('empty.png'))
+            shadows[i].style.display = 'none';
+        }
+      }
+      window.onload = hideEmptyTypeSpriteShadow;
+    </script>
   </head>
   <body>
     <div id="OTS" class="teamsheet">
