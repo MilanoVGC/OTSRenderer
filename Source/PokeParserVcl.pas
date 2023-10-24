@@ -34,9 +34,9 @@ procedure TPokepasteVcl.CreateEmptyPng(const ABaseColorHex: string);
 var
   LTraspBmp: TBitmap;
   LTraspPng: TPngImage;
-  LFgColor: TColor;
+  LBgColor: TColor;
 
-  function FgColor(const AColorHex: string): TColor;
+  function BgColor(const AColorHex: string): TColor;
   var
     LColorHex: string;
     LHex: string;
@@ -48,9 +48,9 @@ var
     LHex[2] := AColorHex[Length(AColorHex)];
     LValue := HexToInt(LHex);
     if LValue = 0 then
-      LValue := 1
+      LValue := 2
     else
-      LValue := LValue - 1;
+      LValue := LValue - 2;
     LHex := IntToHex(LValue);
     LColorHex[Length(LColorHex) - 1] := LHex[Length(LHex) - 1];
     LColorHex[Length(LColorHex)] := LHex[Length(LHex)];
@@ -59,14 +59,14 @@ var
   end;
 begin
   inherited;
-  LFgColor := FgColor(ABaseColorHex);
+  LBgColor := BgColor(ABaseColorHex);
   LTraspBmp := TBitmap.Create;
   LTraspPng := TPngImage.Create;
   try
     LTraspBmp.SetSize(960, 1080);
-    LTraspBmp.TransparentColor := LFgColor;
+    LTraspBmp.TransparentColor := LBgColor;
     LTraspBmp.Transparent := True;
-    LTraspBmp.Canvas.Brush.Color := LFgColor;
+    LTraspBmp.Canvas.Brush.Color := LBgColor;
     LTraspBmp.Canvas.FillRect(Rect(0, 0, 960, 1080));
     LTraspPng.Assign(LTraspBmp);
     LTraspPng.SaveToFile(IncludeTrailingPathDelimiter(AssetsPath + '..') + 'empty_pokepaste.png');
