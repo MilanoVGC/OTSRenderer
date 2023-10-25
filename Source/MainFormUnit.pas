@@ -141,6 +141,8 @@ type
     ChkPngOutput: TCheckBox;
     CbxDelimiter: TComboBox;
     LblDelimiter: TLabel;
+    { App info components }
+    LblInfo: TLabel;
     { Event handlers }
     procedure FormCreate(Sender: TObject);
     procedure EdtResourcePathChange(Sender: TObject);
@@ -407,7 +409,7 @@ begin
   try
     LProcessor.StopOnErrors := FStopOnErrors;
     LProcessor.OnRender :=
-      function(APokepaste: TPokepaste): Boolean
+      function(APokepaste: TPokepaste; AInput: TInput): Boolean
       var
         LOutputName: string;
       begin
@@ -462,7 +464,7 @@ begin
 
     if FPreviewEnabled then
       LProcessor.AfterRender :=
-        procedure(APokepaste: TPokepaste; AOutputs: TStringList)
+        procedure(APokepaste: TPokepaste; AInput: TInput; AOutputs: string)
         begin
           Sleep(1000);
           ClearSprites;
@@ -591,7 +593,7 @@ begin
     LLogPath := IncludeTrailingPathDelimiter(AppPath);
   end;
   FPokepaste := TPokepasteVcl.Create;
-  FLogger := TAkLogger.Create(AppTitle, LLogPath + AppTitle);
+  FLogger := TAkLogger.CreateAndInit(AppTitle, LLogPath + AppTitle, 'Y', 'dd-mm-yy_hh:nn:ss');
 end;
 
 procedure TMainForm.FormDestroy(Sender: TObject);

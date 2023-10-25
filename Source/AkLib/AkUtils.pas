@@ -40,9 +40,12 @@ type
     FFileName: string;
     FHeader: string;
     FInterval: Char;
+    FDateTimeFormat: string;
     FSaveOnLog: Boolean;
     FOnLog: TProc<string>;
     FLog: TStringList;
+    FInitialized: Boolean;
+    procedure SetInterval(const AInterval: Char);
     procedure SetHeader;
     function GetFileName: string;
     function GetFilePath: string;
@@ -52,12 +55,16 @@ type
     property Title: string read FTitle;
     property FileName: string read GetFileName;
     property FilePath: string read GetFilePath;
-    property Interval: Char read FInterval write FInterval;
+    property Interval: Char read FInterval write SetInterval;
+    property DateTimeFormat: string read FDateTimeFormat write FDateTimeFormat;
     property IntervalSuffix: string read GetIntervalSuffix;
     property SaveOnLog: Boolean read FSaveOnLog write FSaveOnLog;
     property OnLog: TProc<string> write FOnLog;
-    constructor Create(const ATitle, AFileName: string; const AInterval: Char = 'Y');
-    procedure AfterConstruction; override;
+    constructor CreateAndInit(const ATitle, AFileName: string; const AInterval: Char = 'Y';
+      const ADateTimeFormat: string = 'yyyymmdd_hh:nn:ss');
+    constructor Create(const ATitle, AFileName: string; const AInterval: Char = #0;
+      const ADateTimeFormat: string = '');
+    procedure Initialize;
     procedure Log(const AString: string);
     destructor Destroy; override;
   end;
@@ -308,7 +315,9 @@ procedure TAkLogger.Log(const AString: string);
 var
   LString: string;
 begin
-  LString := '[' + FormatDateTime('dd-mm-yy_hh:nn:ss', Now) + ']: ' + AString;
+  Assert(FInitialized, 'AkLogger not initialized. Initialize it first.');
+
+  LString := '[' + FormatDateTime(DateTimeFormat, Now) + ']: ' + AString;
 
   if Assigned(FOnLog) then
     FOnLog(LString);
@@ -319,48 +328,74 @@ begin
     FLog.SaveToFile(FFileName);
 end;
 
-procedure TAkLogger.AfterConstruction;
+procedure TAkLogger.Initialize;
+var
+  LOldLogName: string;
 begin
-  inherited;
+  if FInitialized then
+    Exit;
 
-  if FLog.Count < 1 then
-    FLog.Add(FHeader)
+  Assert(FInterval <> #0, 'Cannot initialize AkLogger: interval not set.');
+  Assert(FDateTimeFormat <> '', 'Cannot initialize AkLogger: date-time format not set.');
+
+  LOldLogName := FFileName;
+
+  FLog := TStringList.Create;
+
+  ///  Remove other possible extensions and add interval suffix (if not already
+  ///  present in filename)
+  if Pos(IntervalSuffix, FFileName) > 0 then
+    FFileName := StringReplace(FFileName, ExtractFileExt(FFileName), '', [rfIgnoreCase])
   else
-    FLog.Add('');
-
-  Log(Format('== New session started (%s). ==', [Id]));
-end;
-
-constructor TAkLogger.Create(const ATitle, AFileName: string; const AInterval: Char);
-begin
-  FId := RandomString(32);
-  FTitle := ATitle;
-  FInterval := UpCase(AInterval);
-  FSaveOnLog := True;
-
-  if Pos(IntervalSuffix, AFileName) > 0 then
-    FFileName := StringReplace(AFileName, ExtractFileExt(AFileName), '', [rfIgnoreCase])
-  else
-    FFileName := StringReplace(AFileName, ExtractFileExt(AFileName), '', [rfIgnoreCase]) + IntervalSuffix;
-
+    FFileName := StringReplace(FFileName, ExtractFileExt(FFileName), '', [rfIgnoreCase]) + IntervalSuffix;
   FFileName := FFileName + '.log';
 
   SetHeader;
 
-  FLog := TStringList.Create;
   if FileExists(FFileName) then
     FLog.LoadFromFile(FFileName)
-  else if FileExists(AFileName) then
-    FLog.LoadFromFile(AFileName);
+  else if FileExists(LOldLogName) then
+    FLog.LoadFromFile(LOldLogName)
+  else
+    FLog.Add(FHeader);
+
+  FLog.Add('');
+  Log(Format('== New session started (%s). ==', [Id]));
+
+  FInitialized := True;
+end;
+
+constructor TAkLogger.Create(const ATitle, AFileName: string;
+  const AInterval: Char; const ADateTimeFormat: string);
+begin
+  FId := RandomString(32);
+  FTitle := ATitle;
+  FFileName := AFileName;
+  FSaveOnLog := True;
+  FInterval := AInterval;
+  FDateTimeFormat := FDateTimeFormat;
+  FInitialized := False;
+end;
+
+constructor TAkLogger.CreateAndInit(const ATitle, AFileName: string;
+  const AInterval: Char; const ADateTimeFormat: string);
+begin
+  Create(ATitle, AFileName);
+  FInterval := UpCase(AInterval);
+  FDateTimeFormat := ADateTimeFormat;
+  Initialize;
 end;
 
 destructor TAkLogger.Destroy;
 begin
-  Assert(Assigned(FLog), 'AkLogger error: log was not initialized.');
+  if FInitialized then
+  begin
+    Assert(Assigned(FLog), 'AkLogger error: log was not initialized.');
 
-  Log(Format('== Session concluded (%s). ==', [Id]));
-  FLog.SaveToFile(FFileName);
-  FLog.Free;
+    Log(Format('== Session concluded (%s). ==', [Id]));
+    FLog.SaveToFile(FFileName);
+    FLog.Free;
+  end;
   inherited;
 end;
 
@@ -388,6 +423,11 @@ end;
 procedure TAkLogger.SetHeader;
 begin
   FHeader := Format('========== %s log ==========', [FTitle]);
+end;
+
+procedure TAkLogger.SetInterval(const AInterval: Char);
+begin
+  FInterval := UpCase(AInterval);
 end;
 
 end.

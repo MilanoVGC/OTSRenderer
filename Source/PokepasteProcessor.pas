@@ -26,28 +26,36 @@ type
     FPngOutput: Boolean;
     FLog: TAkLogger;
     FLogOwner: Boolean;
-    FOnRender: TFunc<TPokepaste, Boolean>;
-    FAfterRender: TProc<TPokepaste, TStringList>;
+    FOnRender: TFunc<TPokepaste, TInput, Boolean>;
+    FAfterRender: TProc<TPokepaste, TInput, string>;
     FStopOnErrors: Boolean;
-    procedure CreateFromInput(const AInput: TInput; const AOutputs: TStringList);
+    procedure CreateFromInput(const AInput: TInput; var AErrors: string;
+      const AOutputs: TStringList = nil);
   public
     property OutputPath: string read FOutputPath;
 
     /// <summary>
     ///  The function that will be called before rendering but after having
     ///  loaded the pokepaste (which is given to the function).
-    ///  The pokepaste rendering will be affected by any edit done in this function.
+    ///  The rendering will be affected by any edit done either on the pokepaste
+    ///  or the input in this function.
     ///  If the result of the function is False, the rendering of the pokepaste
     ///  will be skipped.
     /// </summary>
-    property OnRender: TFunc<TPokepaste, Boolean> write FOnRender;
+    property OnRender: TFunc<TPokepaste, TInput, Boolean> write FOnRender;
 
     /// <summary>
     ///  The function that will be called after rendering occurs.
-    ///  The pokepaste is then editable without affecting the rendering.
+    ///  The pokepaste and the input are editable without affecting the rendering.
+    ///  The output file names (without the path) are given as a list separed
+    ///  by line breaks.
     /// </summary>
-    property AfterRender: TProc<TPokepaste, TStringList> write FAfterRender;
+    property AfterRender: TProc<TPokepaste, TInput, string> write FAfterRender;
 
+    /// <summary>
+    ///  Determines if exceptions catched during the rendering process are
+    ///  to be logged and raised or just logged.
+    /// </summary>
     property StopOnErrors: Boolean read FStopOnErrors write FStopOnErrors;
 
     /// <summary>
@@ -67,7 +75,7 @@ type
     ///  from a given CSV file. If a list of full names is given, it appends a
     ///  index on every full name already present on the list.
     ///  Returns the list of outputted files and fills AErrors with the list of
-    ///  exception that are raised, separated by a line break.
+    ///  exception that are raised, both lists are separated by a line break.
     /// </summary>
     function CreateFromFile(const ACsvFile: TCsv; const AColumnNames: array of string;
       var AFullNameList: string; var AErrors: string): string;
@@ -77,10 +85,18 @@ type
     ///  from a given TInput array. If a list of full names is given, it appends a
     ///  index on every full name already present on the list.
     ///  Returns the list of outputted files and fills AErrors with the list of
-    ///  exception that are raised, separated by a line break.
+    ///  exception that are raised, both lists are separated by a line break.
     /// </summary>
     function CreateFromInputList(var AInputList: array of TInput;
       var AFullNameList: string; var AErrors: string): string;
+
+    /// <summary>
+    ///  Renders the outputs (specified on Create) reading and loading the pokepaste
+    ///  from a given TInput.
+    ///  Returns the list of outputted files and fills AErrors with the list of
+    ///  exception that are raised, both lists are separated by a line break.
+    /// </summary>
+    function CreateFromSingleInput(const AInput: TInput; var AErrors: string): string;
 
     destructor Destroy; override;
   end;
@@ -144,7 +160,8 @@ begin
     raise Exception.CreateFmt('Could not create directory "%s", try creating it manually.', [FOutputPath]);
   if not Assigned(FLog) then
   begin
-    FLog := TAkLogger.Create(AppTitle, IncludeTrailingPathDelimiter(AppPath + 'Log') + AppTitle);
+    FLog := TAkLogger.CreateAndInit(AppTitle, IncludeTrailingPathDelimiter(AppPath + 'Log') + AppTitle,
+      'Y', 'dd-mm-yy_hh:nn:ss');
     FLogOwner := True;
   end;
 end;
@@ -184,17 +201,7 @@ begin
         end;
         LFullNames.Add(LInput.FullName);
         FLog.Log('Processing file entry ' + LInput.FullName + ' - ' + LInput.Link);
-        try
-          CreateFromInput(LInput, LOutputs);
-        except
-          on E: Exception do
-          begin
-            FLog.Log('ERROR - ' + E.Message);
-            LErrors := LErrors + 'ERROR - ' + E.Message + sLineBreak;
-            if StopOnErrors then
-              raise E;
-          end;
-        end;
+        CreateFromInput(LInput, LErrors, LOutputs);
       end
     );
     Result := LOutputs.Text;
@@ -206,23 +213,30 @@ begin
   end;
 end;
 
-procedure TPokepasteProcessor.CreateFromInput(const AInput: TInput;
+procedure TPokepasteProcessor.CreateFromInput(const AInput: TInput; var AErrors: string;
   const AOutputs: TStringList);
 var
   LOutput: string;
   LDoIt: Boolean;
+  LErrorText: string;
 begin
-  LDoIt := True;
   try
     FPokepaste.LoadPokepaste(AInput.Link, FDataFiles, FAssetsPath);
     FPokepaste.Owner := AInput.FullName;
   except
     on E: Exception do
-      raise Exception.CreateFmt('Loading Pokepaste of "%s": %s', [AInput.FullName, E.Message]);
+    begin
+      LErrorText := Format('Loading Pokepaste of "%s": %s', [AInput.FullName, E.Message]);
+      FLog.Log('ERROR - ' + LErrorText);
+      AErrors := AErrors + LErrorText + sLineBreak;
+      if StopOnErrors then
+        raise Exception.Create(LErrorText);
+    end;
   end;
   if Assigned(FOnRender) then
-    LDoIt := FOnRender(FPokepaste);
-
+    LDoIt := FOnRender(FPokepaste, AInput)
+  else
+    LDoIt := True;
   if not LDoIt then
   begin
     FLog.Log('Skipped ' + AInput.FullName + '.');
@@ -237,7 +251,13 @@ begin
         AOutputs.Add(ExtractFileName(LOutput));
     except
       on E: Exception do
-        raise Exception.CreateFmt('Rendering HTML of "%s": %s', [AInput.FullName, E.Message]);
+      begin
+        LErrorText := Format('Rendering HTML of "%s": %s', [AInput.FullName, E.Message]);
+        FLog.Log('ERROR - ' + LErrorText);
+        AErrors := AErrors + LErrorText + sLineBreak;
+        if StopOnErrors then
+          raise Exception.Create(LErrorText);
+      end;
     end;
   end;
   if FPngOutput then
@@ -249,11 +269,17 @@ begin
         AOutputs.Add(ExtractFileName(LOutput));
     except
       on E: Exception do
-        raise Exception.CreateFmt('Rendering PNG of "%s": %s', [AInput.FullName, E.Message]);
+      begin
+        LErrorText := Format('Rendering PNG of "%s": %s', [AInput.FullName, E.Message]);
+        FLog.Log('ERROR - ' + LErrorText);
+        AErrors := AErrors + LErrorText + sLineBreak;
+        if StopOnErrors then
+          raise Exception.Create(LErrorText);
+      end;
     end;
   end;
   if Assigned(FAfterRender) then
-    FAfterRender(FPokepaste, AOutputs);
+    FAfterRender(FPokepaste, AInput, AOutputs.Text);
 end;
 
 function TPokepasteProcessor.CreateFromInputList(var AInputList: array of TInput;
@@ -282,23 +308,27 @@ begin
       end;
       LFullNames.Add(AInputList[I].FullName);
       FLog.Log('Processing manual entry ' + AInputList[I].FullName + ' - ' + AInputList[I].Link);
-      try
-        CreateFromInput(AInputList[I], LOutputs);
-      except
-        on E: Exception do
-        begin
-          FLog.Log('ERROR - ' + E.Message);
-          AErrors := AErrors + 'ERROR - ' + E.Message + sLineBreak;
-          if StopOnErrors then
-            raise E;
-        end;
-      end;
+      CreateFromInput(AInputList[I], AErrors, LOutputs);
     end;
     Result := LOutputs.Text;
   finally
     LOutputs.Free;
     AFullNameList := LFullNames.Text;
     LFullNames.Free;
+  end;
+end;
+
+function TPokepasteProcessor.CreateFromSingleInput(const AInput: TInput;
+  var AErrors: string): string;
+var
+  LOutput: TStringList;
+begin
+  LOutput := TStringList.Create;
+  try
+    CreateFromInput(AInput, AErrors, LOutput);
+    Result := LOutput.Text;
+  finally
+    LOutput.Free;
   end;
 end;
 

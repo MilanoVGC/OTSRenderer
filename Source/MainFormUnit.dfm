@@ -200,12 +200,31 @@ object MainForm: TMainForm
     Font.Style = []
     ParentFont = False
   end
+  object LblInfo: TLabel
+    Left = 410
+    Top = 6
+    Width = 175
+    Height = 11
+    Caption = 'OTSRenderer by relder (github/relderDev)'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
   object Page: TPageControl
     Left = 8
     Top = 1
     Width = 584
     Height = 371
     ActivePage = TabInputOutput
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 0
     object TabInputOutput: TTabSheet
       Caption = 'Home'
