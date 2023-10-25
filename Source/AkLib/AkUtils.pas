@@ -359,10 +359,10 @@ begin
   else
     FLog.Add(FHeader);
 
+  FInitialized := True;
+
   FLog.Add('');
   Log(Format('== New session started (%s). ==', [Id]));
-
-  FInitialized := True;
 end;
 
 constructor TAkLogger.Create(const ATitle, AFileName: string;
