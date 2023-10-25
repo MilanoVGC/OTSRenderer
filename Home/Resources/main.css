@@ -1,6 +1,6 @@
 body {
     font-family: 'Source Sans 3', sans-serif;
-    font-weight: 600;	
+    font-weight: 600;
     color: var(--textColor);
 }
 img {
@@ -9,39 +9,39 @@ img {
     height: 100%;
 }
 .teamsheet {
-	display: inline-flex;
-	flex-direction: column;
-	justify-content: center;
-	width: 960px;
-	height: 1080px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 960px;
+    height: 1080px;
 }
 
 .player {
     height: 60px;
-	font-size: 28pt;
-	background-color: var(--headerColor);
-	text-align: center;
-	border-top-right-radius: 23px;
-	border-top-left-radius: 23px;
-	display: flex;
-	flex-wrap: wrap;
-	align-content: center;
-	padding-left: 15px;
-	padding-right: 15px;
-	margin-left: 15px;
-	margin-right: 15px;
-	margin-top: 5px;
-	width: fit-content;
-	width: -moz-fit-content;
-	align-self: center;
+    font-size: 28pt;
+    background-color: var(--headerColor);
+    text-align: center;
+    border-top-right-radius: 23px;
+    border-top-left-radius: 23px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 5px;
+    width: fit-content;
+    width: -moz-fit-content;
+    align-self: center;
 }
 
 .team {
     display: flex;
-	flex-wrap: wrap;
-	margin-top: 5px;
-	margin-left: 10px;
-	margin-right: 10px;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .container {
@@ -50,7 +50,7 @@ img {
     height: 320px;
     background-color: var(--baseColor);
     overflow: hidden;
-	margin: 5px;
+    margin: 5px;
 }
 
 .container-header {
@@ -158,34 +158,27 @@ img {
 }
 
 svg {
-	position: relative;
-	width: 33px;
-	top: -46px;
-	left: 3px;
+    position: relative;
+    width: 33px;
+    top: -46px;
+    left: 3px;
 }
 
 .svg-teratype {
-	position: static;
+    position: static;
     width: 100%;
-	height: 100%;
+    height: 100%;
+    -webkit-filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
 }
 
 .type-sprite {
-	position: relative;
-	top: -32px;
+    position: relative;
+    border-radius: 50%;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
 }
 
-.type-shadow {
-	position: relative;
-	top: 2px;
-	right: 2px;
-	width: 32px;
-	height: 32px;
-	background-color: #000000;
-	opacity: 0.2;
-	border-radius: 50%;
-}
-
-.last-type-shadow {
-	top: 9px;
+.last-type .type-sprite {
+    height: 32px;
+    top: 7px;
 }

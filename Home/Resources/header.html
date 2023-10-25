@@ -5,17 +5,14 @@
     <link rel="stylesheet" href="%main.css%">
     <link rel="stylesheet" href="%animations.css%">
     <link rel="stylesheet" href="%colors.css%">
-	
     <!-- I'm too lazy to create a separate .js file to include this few lines of code into the pages...even if I should. I know. -->
     <script type="text/javascript">
       function hideEmptyTypeSpriteShadow() {
-        let shadows = document.getElementsByClassName('type-shadow');
-        if(shadows === undefined) return;
-        let sprite;
-        for(let i = 0; i < shadows.length; i++) {
-          sprite = shadows[i].parentElement.getElementsByTagName('img')[0];
-          if((sprite === undefined) || sprite.src.includes('empty.png'))
-            shadows[i].style.display = 'none';
+        let sprites = document.getElementsByClassName('type-sprite');
+        if(sprites === undefined) return;
+        for(let i = 0; i < sprites.length; i++) {
+          if(sprites[i].src.includes('empty.png'))
+            sprites[i].style.boxShadow = 'none';
         }
       }
       window.onload = hideEmptyTypeSpriteShadow;
