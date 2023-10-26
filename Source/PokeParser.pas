@@ -25,7 +25,9 @@ type
     FItem: string;
     FNickname: string;
     FTeraTyping: TTyping;
+    FLevel: Integer;
     FEvSpread: TEvSpread;
+    FIvSpread: TIvSpread;
     procedure Init(const AData: TCsvArchive);
     function GetTyping: string;
     function GetMove(const AIndex: Integer): TMove;
@@ -42,6 +44,11 @@ type
     function GetSpriteName(const ASpriteType: string): string;
     function GetQualifier(const AQualifier: string): string;
     function GetDisplayName: string;
+    function GetStatIndex(const AStatName: string): Integer;
+    function GetEv(const AStatName: string): Integer;
+    function GetIv(const AStatName: string): Integer;
+    function GetNatureFactor(const AStatName: string): Double;
+    function GetStat(const AStatName: string): Integer;
     procedure SetTypes;
     procedure SetSpecies;
     procedure SetMoves;
@@ -56,13 +63,22 @@ type
     property Item: string read FItem;
     property Nickname: string read FNickname;
     property TeraTyping: string read GetTeraTyping;
-    property Hp: Integer read FEvSpread.Hp;
-    property Atk: Integer read FEvSpread.Atk;
-    property Def: Integer read FEvSpread.Def;
-    property SpA: Integer read FEvSpread.SpA;
-    property SpD: Integer read FEvSpread.SpD;
-    property Spe: Integer read FEvSpread.Spe;
+    property EvHp: Integer read FEvSpread.Hp;
+    property EvAtk: Integer read FEvSpread.Atk;
+    property EvDef: Integer read FEvSpread.Def;
+    property EvSpA: Integer read FEvSpread.SpA;
+    property EvSpD: Integer read FEvSpread.SpD;
+    property EvSpe: Integer read FEvSpread.Spe;
+    property Ev[const AStatName: string]: Integer read GetEv;
     property Nature: string read FEvSpread.Nature;
+    property IvHp: Integer read FIvSpread.Hp;
+    property IvAtk: Integer read FIvSpread.Atk;
+    property IvDef: Integer read FIvSpread.Def;
+    property IvSpA: Integer read FIvSpread.SpA;
+    property IvSpD: Integer read FIvSpread.SpD;
+    property IvSpe: Integer read FIvSpread.Spe;
+    property Iv[const AStatName: string]: Integer read GetIv;
+    property NatureFactor[const AStatName: string]: Double read GetNatureFactor;
     property PokemonSpriteName: string read GetPokemonSpriteName;
     property ItemSpriteName: string read GetItemSpriteName;
     property FirstTypingSpriteName: string read GetFirstTypingSpriteName;
@@ -73,6 +89,7 @@ type
     property Qualifier[const AQualifier: string]: string read GetQualifier;
     property Text: string read GetText;
     property DisplayName: string read GetDisplayName;
+    property Stat[const AStatName: string]: Integer read GetStat;
 
     /// <summary>
     ///  Creates a pokemon from a pokepaste section of text, with the help of
@@ -587,6 +604,11 @@ var
         Result := -1
       else
         Result := 3 + LSkipLevel + LSkipShiny + LSkipEvs
+    else if SameText(AAttribute, 'Ivs') then
+      if LSkipIvs = 0 then
+        Result := -1
+      else
+        Result := 3 + LSkipLevel + LSkipShiny + LSkipEvs + LSkipNature
     else if SameText(AAttribute, 'Moves') then
       Result := 3 + LSkipLevel + LSkipShiny + LSkipEvs + LSkipNature + LSkipIvs
     else
@@ -679,8 +701,10 @@ begin
     FItem := §('Item');
     FAbility := §('Ability');
     FTeraTyping := StrToTyping(§('Tera type'));
+    FLevel := StrToInt(IfThen(§('Level') = '', '100', §('Level')));
     FMoveList := §('Moves');
     FEvSpread := TranslateEvs(§('Evs'));
+    FIvSpread := TranslateIvs(§('Ivs'));
   finally
     LList.Free;
   end;
@@ -746,6 +770,19 @@ begin
     Result := Name;
 end;
 
+function TPokemon.GetEv(const AStatName: string): Integer;
+begin
+  Result := 0;
+  case GetStatIndex(AStatName) of
+    0: Result := IvHp;
+    1: Result := IvAtk;
+    2: Result := IvDef;
+    3: Result := IvSpA;
+    4: Result := IvSpD;
+    5: Result := IvSpe;
+  end;
+end;
+
 function TPokemon.GetFirstTypingSpriteName: string;
 begin
   Result := '';
@@ -756,6 +793,19 @@ end;
 function TPokemon.GetItemSpriteName: string;
 begin
   Result := 'item_' + FData['Items'].FindByValue(Item, 0, 1) + '.png';
+end;
+
+function TPokemon.GetIv(const AStatName: string): Integer;
+begin
+  Result := 31;
+  case GetStatIndex(AStatName) of
+    0: Result := IvHp;
+    1: Result := IvAtk;
+    2: Result := IvDef;
+    3: Result := IvSpA;
+    4: Result := IvSpD;
+    5: Result := IvSpe;
+  end;
 end;
 
 function TPokemon.GetMove(const AIndex: Integer): TMove;
@@ -782,6 +832,49 @@ begin
   Result := '';
   if AIndex < Length(FMoveset) then
     Result := MoveTyping[AIndex] + '.png';
+end;
+
+function TPokemon.GetNatureFactor(const AStatName: string): Double;
+begin
+  Result := 1.0;
+  case GetStatIndex(AStatName) of
+    0: Exit;
+    1:
+    begin
+      if MatchText(Nature, ['Adamant', 'Brave', 'Lonely', 'Naughty']) then
+        Result := 1.1
+      else if MatchText(Nature, ['Bold', 'Calm', 'Modest', 'Timid']) then
+        Result := 0.9;
+    end;
+    2:
+    begin
+      if MatchText(Nature, ['Bold', 'Impish', 'Lax', 'Relaxed']) then
+        Result := 1.1
+      else if MatchText(Nature, ['Gentle', 'Hasty', 'Lonely', 'Mild']) then
+        Result := 0.9;
+    end;
+    3:
+    begin
+      if MatchText(Nature, ['Mild', 'Modest', 'Quiet', 'Rash']) then
+        Result := 1.1
+      else if MatchText(Nature, ['Adamant', 'Careful', 'Impish', 'Jolly']) then
+        Result := 0.9;
+    end;
+    4:
+    begin
+      if MatchText(Nature, ['Calm', 'Careful', 'Gentle', 'Sassy']) then
+        Result := 1.1
+      else if MatchText(Nature, ['Lax', 'Naive', 'Naughty', 'Rash']) then
+        Result := 0.9;
+    end;
+    5:
+    begin
+      if MatchText(Nature, ['Hasty', 'Jolly', 'Naive', 'Timid']) then
+        Result := 1.1
+      else if MatchText(Nature, ['Brave', 'Quiet', 'Relaxed', 'Sassy']) then
+        Result := 0.9;
+    end;
+  end;
 end;
 
 function TPokemon.GetPokemonSpriteName: string;
@@ -843,6 +936,38 @@ begin
     raise Exception.CreateFmt('Unknown sprite type "%s".', [ASpriteType]);
 end;
 
+function TPokemon.GetStat(const AStatName: string): Integer;
+var
+  LStatIndex: Integer;
+  LBaseStat: Integer;
+begin
+  LStatIndex := GetStatIndex(AStatName);
+  LBaseStat := StrToInt(FData['Pokemon'].FindByValue(Name, LStatIndex + 5));
+  Result := (Floor(0.01 * (2 * LBaseStat + Iv[AStatName] + Floor(0.25 * Ev[AStatName])) * FLevel) + 5);
+  if LStatIndex = 0 then
+    Result := Result + 5 + FLevel
+  else
+    Result := Floor(Result * NatureFactor[AStatName]);
+end;
+
+function TPokemon.GetStatIndex(const AStatName: string): Integer;
+begin
+  if MatchText(AStatName, ['Hp', 'Health points', 'HealthPoints', 'Health']) then
+    Result := 0
+  else if MatchText(AStatName, ['Atk', 'Attack']) then
+    Result := 1
+  else if MatchText(AStatName, ['Def', 'Defense']) then
+    Result := 2
+  else if MatchText(AStatName, ['SpA', 'Special Attack', 'SpecialAttack']) then
+    Result := 3
+  else if MatchText(AStatName, ['SpD', 'Special Defense', 'SpecialDefense']) then
+    Result := 4
+  else if MatchText(AStatName, ['Spe', 'Speed']) then
+    Result := 5
+  else
+    raise Exception.CreateFmt('Unknown stat name "%s".', [AStatName]);
+end;
+
 function TPokemon.GetTeraTyping: string;
 begin
   Result := TypingToStr(FTeraTyping);
@@ -866,9 +991,11 @@ begin
       LList.Add(Nickname + ' (' + Name + ') @ ' + Item);
     LList.Add('Ability: ' + Ability);
     LList.Add('Tera type: ' + TeraTyping);
-    LList.Add('EVs: ' + IntToStr(Hp) + ' HP / ' + IntToStr(Atk) + ' Atk / ' + IntToStr(Def) + ' Def / ' +
-      IntToStr(SpA) + ' SpA / ' + IntToStr(SpD) + ' SpD / ' + IntToStr(Spe) + ' Spe');
+    LList.Add('EVs: ' + IntToStr(EvHp) + ' HP / ' + IntToStr(EvAtk) + ' Atk / ' + IntToStr(EvDef) + ' Def / ' +
+      IntToStr(EvSpA) + ' SpA / ' + IntToStr(EvSpD) + ' SpD / ' + IntToStr(EvSpe) + ' Spe');
     LList.Add(Nature + ' Nature');
+    LList.Add('IVs: ' + IntToStr(IvHp) + ' HP / ' + IntToStr(IvAtk) + ' Atk / ' + IntToStr(IvDef) + ' Def / ' +
+      IntToStr(IvSpA) + ' SpA / ' + IntToStr(IvSpD) + ' SpD / ' + IntToStr(IvSpe) + ' Spe');
     for I := 0 to Length(FMoveset) - 1 do
       LList.Add('- ' + Move[I].Name);
     LList.Add('');

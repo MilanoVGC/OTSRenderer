@@ -17,6 +17,16 @@ type
     Nature: string;
   end;
 
+  TIvSpread = record
+    Hp: Integer;
+    Atk: Integer;
+    Def: Integer;
+    SpA: Integer;
+    SpD: Integer;
+    Spe: Integer;
+    procedure Default;
+  end;
+
   TTyping = (tNone,
     tWater, tFire, tGrass, tFlying, tRock, tGround,
     tFighting, tPsychic, tDark, tGhost, tNormal, tPoison,
@@ -31,6 +41,7 @@ type
   function StrToTyping(const AType: string): TTyping;
   function GetMoveInfo(const AMoveName: string; const AMovesCsv: TCsv): TMove;
   function TranslateEvs(const AEvs: string): TEvSpread;
+  function TranslateIvs(const AIvs: string): TIvSpread;
   function TypingSpriteName(const AType: TTyping; const AIsTera: Boolean = False): string;
   function RandomString(const ALength: Integer): string;
 
@@ -110,6 +121,46 @@ begin
   end;
 end;
 
+function TranslateIvs(const AIvs: string): TIvSpread;
+var
+  LIvsList: TStringList;
+
+  function EvalIv(const AStat: string): Integer;
+  var
+    LIvIndex: Integer;
+    LIvStr: string;
+  begin
+    LIvIndex := LIvsList.Contains(AStat);
+    if LIvIndex < 0 then
+    begin
+      Result := 31;
+      Exit;
+    end;
+    LIvStr := Trim(StringReplace(Trim(LIvsList[LIvIndex]), AStat, '', [rfReplaceAll, rfIgnoreCase]));
+    Result := StrToInt(LIvStr);
+  end;
+begin
+  Result.Default;
+  if AIvs = '' then
+    Exit;
+
+  LIvsList := TStringList.Create;
+  try
+    LIvsList.Delimiter := '/';
+    LIvsList.StrictDelimiter := True;
+    LIvsList.CaseSensitive := False;
+    LIvsList.DelimitedText := AIvs;
+    Result.Hp := EvalIv('Hp');
+    Result.Atk := EvalIv('Atk');
+    Result.Def := EvalIv('Def');
+    Result.SpA := EvalIv('SpA');
+    Result.SpD := EvalIv('SpD');
+    Result.Spe := EvalIv('Spe');
+  finally
+    LIvsList.Free;
+  end;
+end;
+
 function RandomString(const ALength: Integer): string;
 const
   CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
@@ -120,6 +171,18 @@ begin
   SetLength(Result, ALength);
   for I := 1 to ALength do
     Result[I] := CHARS[Random(Length(CHARS)) + 1];
+end;
+
+{ TIvSpread }
+
+procedure TIvSpread.Default;
+begin
+  Hp := 31;
+  Atk := 31;
+  Def := 31;
+  SpA := 31;
+  SpD := 31;
+  Spe := 31;
 end;
 
 end.
