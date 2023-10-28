@@ -270,6 +270,14 @@ begin
       else
         LPokemonText.Add(FList[I]);
     end;
+    if LPokemonText.Text <> '' then
+    begin
+      Inc(LPokemonIndex);
+      SetLength(FPokemons, Length(FPokemons) + 1);
+      FPokemons[LPokemonIndex] := TPokemon.CreateFromText(LPokemonText.Text, FData);
+      LPokemonText.Text := '';
+    end;
+
   finally
     LPokemonText.Free;
   end;
