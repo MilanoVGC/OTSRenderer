@@ -2,7 +2,7 @@
 
 OTSRenderer is a program targeted at creating Pokémon open teamsheets for Pokémon Scarlet and Violet.
 
-![image](https://github.com/MilanoVGC/OTSRenderer/assets/148351831/b8771c6b-53d8-4cbd-bdf4-e3d01d1ef66c)
+![image](https://i.imgur.com/3JUKNtL.png)
 
 
 Features:
