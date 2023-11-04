@@ -71,8 +71,8 @@ begin
     LTraspPng.Assign(LTraspBmp);
     LTraspPng.SaveToFile(IncludeTrailingPathDelimiter(AssetsPath + '..') + 'empty_pokepaste.png');
   finally
-    FreeAndNil(LTraspBmp);
-    FreeAndNil(LTraspPng);
+    LTraspBmp.Free;
+    LTraspPng.Free;
   end;
 end;
 
@@ -164,7 +164,7 @@ var
           SmoothResize(LSprite, 32, 32);
         Draw(25, 140 + (40 * I), LSprite);
       finally
-        FreeAndNil(LSprite);
+        LSprite.Free;
       end;
     end;
   end;
@@ -188,8 +188,8 @@ var
         SmoothResize(LSecondSprite, 32, 32);
       Draw(362, 19, LSecondSprite);
     finally
-      FreeAndNil(LFirstSprite);
-      FreeAndNil(LSecondSprite);
+      LFirstSprite.Free;
+      LSecondSprite.Free;
     end;
   end;
   procedure DrawTera;
@@ -247,8 +247,8 @@ var
       // draw the png on the main one
       Draw(406, 12, LSpritePng);
     finally
-      FreeAndNil(LSprite);
-      FreeAndNil(LSpritePng);
+      LSprite.Free;
+      LSpritePng.Free;
     end;
   end;
   procedure DrawSprite;
@@ -262,7 +262,7 @@ var
         SmoothResize(LSprite, 128, 128);
       Draw(297, 93, LSprite);
     finally
-      FreeAndNil(LSprite);
+      LSprite.Free;
     end;
   end;
   procedure DrawItem;
@@ -276,7 +276,7 @@ var
         SmoothResize(LSprite, 40, 40);
       Draw(341, 231, LSprite);
     finally
-      FreeAndNil(LSprite);
+      LSprite.Free;
     end;
   end;
 begin
@@ -286,7 +286,7 @@ begin
     LPng.LoadFromFile(IncludeTrailingPathDelimiter(AssetsPath + '..') + AColorCSSName + '_template.png');
     APng.Canvas.Draw(LOffsetX, LOffsetY, LPng);
   finally
-    FreeAndNil(LPng);
+    LPng.Free;
   end;
   WriteName;
   WriteAbility;
@@ -334,9 +334,9 @@ begin
     LImage.LoadFromStream(LPngStream);
     LImage.SaveToFile(Result);
   finally
-    FreeAndNil(LIdHttp);
+    LIdHttp.Free;
     LPngStream.Free;
-    FreeAndNil(LImage);
+    LImage.Free;
   end;
 end;
 
@@ -360,7 +360,7 @@ begin
     Result := AOutputPath + OutputName + '.png';
     LPng.SaveToFile(Result);
   finally
-    FreeAndNil(LPng);
+    LPng.Free;
   end;
 end;
 

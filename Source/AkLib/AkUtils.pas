@@ -42,6 +42,7 @@ type
     FInterval: Char;
     FDateTimeFormat: string;
     FSaveOnLog: Boolean;
+    FEncoding: TEncoding;
     FOnLog: TProc<string>;
     FLog: TStringList;
     FInitialized: Boolean;
@@ -59,6 +60,7 @@ type
     property DateTimeFormat: string read FDateTimeFormat write FDateTimeFormat;
     property IntervalSuffix: string read GetIntervalSuffix;
     property SaveOnLog: Boolean read FSaveOnLog write FSaveOnLog;
+    property Encoding: TEncoding read FEncoding write FEncoding;
     property OnLog: TProc<string> write FOnLog;
     constructor CreateAndInit(const ATitle, AFileName: string; const AInterval: Char = 'Y';
       const ADateTimeFormat: string = 'yyyymmdd_hh:nn:ss');
@@ -171,6 +173,8 @@ var
   function CapitalFirstItem(const AString: string): string;
   begin
     Result := AnsiLowerCase(AString);
+    if MatchText(Result, [' ', '']) then
+      Exit;
     Delete(Result, 1, 1);
     Result := AnsiUpperCase(AString)[1] + Result;
   end;
@@ -325,7 +329,7 @@ begin
   FLog.Add(LString);
 
   if SaveOnLog then
-    FLog.SaveToFile(FFileName);
+    FLog.SaveToFile(FFileName, FEncoding);
 end;
 
 procedure TAkLogger.Initialize;
@@ -375,6 +379,7 @@ begin
   FInterval := AInterval;
   FDateTimeFormat := FDateTimeFormat;
   FInitialized := False;
+  FEncoding := TEncoding.UTF8;
 end;
 
 constructor TAkLogger.CreateAndInit(const ATitle, AFileName: string;
@@ -393,7 +398,7 @@ begin
     Assert(Assigned(FLog), 'AkLogger error: log was not initialized.');
 
     Log(Format('== Session concluded (%s). ==', [Id]));
-    FLog.SaveToFile(FFileName);
+    FLog.SaveToFile(FFileName, FEncoding);
     FLog.Free;
   end;
   inherited;

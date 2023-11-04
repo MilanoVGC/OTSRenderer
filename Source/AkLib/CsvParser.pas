@@ -296,7 +296,7 @@ begin
     FNames.Free;
   for I := 0 to Length(FData) - 1 do
     if Assigned(FData[I]) then
-      FreeAndNil(FData[I]);
+      FData[I].Free;
   inherited;
 end;
 

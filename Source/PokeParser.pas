@@ -289,7 +289,7 @@ begin
   if Assigned(FList) then
     FList.Free;
   if Assigned(FData) then
-    FreeAndNil(FData);
+    FData.Free;
   inherited;
 end;
 
@@ -380,7 +380,7 @@ begin
 
   Init(ADataFileNames, AAssetsPath);
 
-  FLink := AUrl;
+  FLink := Trim(AUrl);
   if not SameText(FLink.Substring(Length(FLink) - 4), 'json') then
     FLink := FLink + '/json';
 
@@ -388,7 +388,7 @@ begin
   try
     LJsonResponse := LIdHttp.Get(FLink);
   finally
-    FreeAndNil(LIdHttp);
+    LIdHttp.Free;
   end;
   LJson := TJsonObject.ParseJSONValue(LJsonResponse);
   FList.Text := LJson.GetValue<string>('paste');
@@ -529,16 +529,8 @@ begin
 end;
 
 procedure TPokepaste.ReloadPokemons;
-var
-  I: Integer;
 begin
-  for I := 0 to Length(FPokemons) - 1 do
-    FreeAndNil(FPokemons[I]);
-  SetLength(FPokemons, 0);
-
-  CheckData;
-
-  CreatePokemons;
+  StartPokepaste;
 end;
 
 function TPokepaste.RetrieveSprite(const ASpriteName, ASpriteType: string;

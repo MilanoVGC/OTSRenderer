@@ -204,7 +204,8 @@ begin
   BtnCreate.Enabled := False;
   AddFontResource(PWideChar(IncludeTrailingPathDelimiter(EdtResourcePath.Text) + 'SourceSansPro-Semibold.ttf'));
   try
-    SendMessage(HWND_BROADCAST, WM_FONTCHANGE, 0, 0);
+    // This is probably unnecessary, should test it in an environment where the font is not installed
+    SendMessage(Application.Handle, WM_FONTCHANGE, 0, 0);
     CheckAndSetData;
     if not FHtmlOutput and not FPngOutput then
       if not ConfirmDlg('You have not selected any output, nothing will be created.' + sLineBreak + 'Proceed anyway?') then
@@ -478,7 +479,7 @@ begin
         if FOutputs.Text <> '' then
           FOutputs.Text := FOutputs.Text + sLineBreak;
       finally
-        FreeAndNil(LCsv);
+        LCsv.Free;
       end;
     end;
 
@@ -495,7 +496,7 @@ begin
     if FPreviewEnabled then
       ClearSprites;
   finally
-    FreeAndNil(LProcessor);
+    LProcessor.Free;
   end;
 end;
 
@@ -599,11 +600,11 @@ end;
 procedure TMainForm.FormDestroy(Sender: TObject);
 begin
   if Assigned(FPokepaste) then
-    FreeAndNil(FPokepaste);
+    FPokepaste.Free;
   if Assigned(FOutputs) then
     FOutputs.Free;
   if Assigned(FLogger) then
-    FreeAndNil(FLogger);
+    FLogger.Free;
 end;
 
 procedure TMainForm.GeneralDlg(const ADlgType: TMsgDlgType;

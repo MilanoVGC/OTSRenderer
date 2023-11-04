@@ -335,7 +335,7 @@ end;
 destructor TPokepasteProcessor.Destroy;
 begin
   if Assigned(FLog) and FLogOwner then
-    FreeAndNil(FLog);
+    FLog.Free;
   inherited;
 end;
 
