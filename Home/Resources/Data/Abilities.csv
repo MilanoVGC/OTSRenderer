@@ -1,0 +1,305 @@
+﻿Index;English;German;French;Spanish;Italian;Japanese;Korean;Chinese
+1;Stench;Duftnote;Puanteur;Hedor;Tanfo;あくしゅう;악취;惡臭 / 恶臭
+2;Drizzle;Niesel;Crachin;Llovizna;Piovischio;あめふらし;잔비;降雨
+3;Speed Boost;Temposchub;Turbo;Impulso;Acceleratore;かそく;가속;加速
+4;Battle Armor;Kampfpanzer;Armurbaston;Armadura Batalla*;Lottascudo;カブトアーマー;전투 무장;戰鬥盔甲 / 战斗盔甲
+5;Sturdy;Robustheit;Fermeté;Robustez;Vigore;がんじょう;옹골참;結實 / 结实
+6;Damp;Feuchtigkeit;Moiteur;Humedad;Umidità;しめりけ;습기;濕氣 / 湿气
+7;Limber;Flexibilität;Échauffement;Flexibilidad;Scioltezza;じゅうなん;유연;柔軟 / 柔软
+8;Sand Veil;Sandschleier;Voile Sable;Velo Arena;Sabbiavelo;すながくれ;모래숨기;沙隱 / 沙隐
+9;Static;Statik;Statik;Elec. Estática*;Statico;せいでんき;정전기;靜電 / 静电
+10;Volt Absorb;Voltabsorber;Absorb Volt;Absorbe Elec*;Assorbivolt;ちくでん;축전;蓄電 / 蓄电
+11;Water Absorb;H2O-Absorber;Absorb Eau;Absorbe Agua*;Assorbacqua;ちょすい;저수;儲水 / 储水
+12;Oblivious;Dösigkeit;Benêt;Despiste;Indifferenza;どんかん;둔감;遲鈍 / 迟钝
+13;Cloud Nine;Wolke Sieben;Ciel Gris;Aclimatación;Antimeteo;ノーてんき;날씨 부정;無關天氣 / 无关天气
+14;Compound Eyes;Facettenauge;Œil Composé;Ojo Compuesto*;Insettocchi;ふくがん;복안;複眼 / 复眼
+15;Insomnia;Insomnia;Insomnia;Insomnio;Insonnia;ふみん;불면;不眠
+16;Color Change;Farbwechsel;Déguisement;Cambio Color;Cambiacolore;へんしょく;변색;變色 / 变色
+17;Immunity;Immunität;Vaccin;Inmunidad;Immunità;めんえき;면역;免疫
+18;Flash Fire;Feuerfänger;Torche;Absorbe Fuego*;Fuocardore;もらいび;타오르는 불꽃;引火
+19;Shield Dust;Puderabwehr;Écran Poudre;Polvo Escudo;Polvoscudo;りんぷん;인분;鱗粉 / 鳞粉
+20;Own Tempo;Tempomacher;Tempo Perso;Ritmo Propio;Mente Locale;マイペース;마이페이스;我行我素
+21;Suction Cups;Saugnapf;Ventouse;Ventosas;Ventose;きゅうばん;흡반;吸盤 / 吸盘
+22;Intimidate;Bedroher;Intimidation;Intimidación;Prepotenza;いかく;위협;威嚇 / 威吓
+23;Shadow Tag;Wegsperre;Marque Ombre;Sombra Trampa*;Pedinombra;かげふみ;그림자 밟기;踩影
+24;Rough Skin;Rauhaut;Peau Dure;Piel Tosca;Cartavetro;さめはだ;까칠한 피부;粗糙皮膚 / 粗糙皮肤
+25;Wonder Guard;Wunderwache;Garde Mystik;Superguarda;Magidifesa;ふしぎなまもり;불가사의 부적;神奇守護 / 神奇守护
+26;Levitate;Schwebe;Lévitation;Levitación;Levitazione;ふゆう;부유;飄浮 / 飘浮
+27;Effect Spore;Sporenwirt;Pose Spore;Efecto Espora*;Spargispora;ほうし;포자;孢子
+28;Synchronize;Synchro;Synchro;Sincronía;Sincronismo;シンクロ;싱크로;同步
+29;Clear Body;Neutraltorso;Corps Sain;Cuerpo Puro;Corpochiaro;クリアボディ;클리어 바디;恆淨之軀 / 恒净之躯
+30;Natural Cure;Innere Kraft;Médic Nature;Cura Natural;Alternacura;しぜんかいふく;자연회복;自然回復 / 自然回复
+31;Lightning Rod;Blitzfänger;Paratonnerre;Pararrayos;Parafulmine;ひらいしん;피뢰침;避雷針 / 避雷针
+32;Serene Grace;Edelmut;Sérénité;Dicha;Leggiadro;てんのめぐみ;하늘의 은총;天恩
+33;Swift Swim;Wassertempo;Glissade;Nado Rápido;Nuotovelox;すいすい;쓱쓱;悠游自如
+34;Chlorophyll;Chlorophyll;Chlorophylle*;Clorofila;Clorofilla;ようりょくそ;엽록소;葉綠素 / 叶绿素
+35;Illuminate;Erleuchtung;Lumiattirance;Iluminación;Risplendi;はっこう;발광;發光 / 发光
+36;Trace;Fährte;Calque;Rastro;Traccia;トレース;트레이스;複製 / 复制
+37;Huge Power;Kraftkoloss;Coloforce;Potencia;Macroforza;ちからもち;천하장사;大力士
+38;Poison Point;Giftdorn;Point Poison;Punto Tóxico;Velenopunto;どくのトゲ;독가시;毒刺
+39;Inner Focus;Konzentrator;Attention;Foco Interno;Forza Interiore*;せいしんりょく;정신력;精神力
+40;Magma Armor;Magmapanzer;Armumagma;Escudo Magma;Magmascudo;マグマのよろい;마그마의 무장;熔岩鎧甲 / 熔岩铠甲
+41;Water Veil;Aquahülle;Ignifu-Voile;Velo Agua;Idrovelo;みずのベール;수의 베일;水幕
+42;Magnet Pull;Magnetfalle;Magnépiège;Imán;Magnetismo;じりょく;자력;磁力
+43;Soundproof;Lärmschutz;Anti-Bruit;Insonorizar;Antisuono;ぼうおん;방음;隔音
+44;Rain Dish;Regengenuss;Cuvette;Cura Lluvia;Copripioggia;あめうけざら;젖은접시;雨盤 / 雨盘
+45;Sand Stream;Sandsturm;Sable Volant;Chorro Arena;Sabbiafiume;すなおこし;모래날림;揚沙 / 扬沙
+46;Pressure;Erzwinger;Pression;Presión;Pressione;プレッシャー;프레셔;壓迫感 / 压迫感
+47;Thick Fat;Speckschicht;Isograisse;Sebo;Grassospesso;あついしぼう;두꺼운 지방;厚脂肪
+48;Early Bird;Frühwecker;Matinal;Madrugar;Sveglialampo;はやおき;일찍 기상;早起
+49;Flame Body;Flammkörper;Corps Ardent;Cuerpo Llama;Corpodifuoco;ほのおのからだ;불꽃몸;火焰之軀 / 火焰之躯
+50;Run Away;Angsthase;Fuite;Fuga;Fugafacile;にげあし;도주;逃跑
+51;Keen Eye;Adlerauge;Regard Vif;Vista Lince;Sguardofermo;するどいめ;날카로운 눈;銳利目光 / 锐利目光
+52;Hyper Cutter;Scherenmacht;Hyper Cutter;Corte Fuerte;Ipertaglio;かいりきバサミ;괴력집게;怪力鉗 / 怪力钳
+53;Pickup;Mitnahme;Ramassage;Recogida;Raccolta;ものひろい;픽업;撿拾 / 捡拾
+54;Truant;Schnarchnase;Absentéisme;Ausente;Pigrone;なまけ;게으름;懶惰 / 懒惰
+55;Hustle;Übereifer;Agitation;Entusiasmo;Tuttafretta;はりきり;의욕;活力
+56;Cute Charm;Charmebolzen;Joli Sourire;Gran Encanto;Incantevole;メロメロボディ;헤롱헤롱 바디;迷人之軀 / 迷人之躯
+57;Plus;Plus;Plus;Más;Più;プラス;플러스;正電 / 正电
+58;Minus;Minus;Minus;Menos;Meno;マイナス;마이너스;負電 / 负电
+59;Forecast;Prognose;Météo;Predicción;Previsioni;てんきや;기분파;陰晴不定 / 阴晴不定
+60;Sticky Hold;Wertehalter;Glue;Viscosidad;Antifurto;ねんちゃく;점착;黏著 / 黏着
+61;Shed Skin;Expidermis;Mue;Mudar;Muta;だっぴ;탈피;蛻皮 / 蜕皮
+62;Guts;Adrenalin;Cran;Agallas;Dentistretti;こんじょう;근성;毅力
+63;Marvel Scale;Notschutz;Écaille Spéciale*;Escama Especial*;Pelledura;ふしぎなうろこ;이상한 비늘;神奇鱗片 / 神奇鳞片
+64;Liquid Ooze;Kloakensoße;Suintement;Lodo Líquido;Melma;ヘドロえき;해감액;污泥漿 / 污泥浆
+65;Overgrow;Notdünger;Engrais;Espesura;Erbaiuto;しんりょく;심록;茂盛
+66;Blaze;Großbrand;Brasier;Mar Llamas;Aiutofuoco;もうか;맹화;猛火
+67;Torrent;Sturzbach;Torrent;Torrente;Acquaiuto;げきりゅう;급류;激流
+68;Swarm;Hexaplaga;Essaim;Enjambre;Aiutinsetto;むしのしらせ;벌레의 알림;蟲之預感 / 虫之预感
+69;Rock Head;Steinhaupt;Tête de Roc;Cabeza Roca;Testadura;いしあたま;돌머리;堅硬腦袋 / 坚硬脑袋
+70;Drought;Dürre;Sécheresse;Sequía;Siccità;ひでり;가뭄;日照
+71;Arena Trap;Ausweglos;Piège Sable*;Trampa Arena;Trappoarena;ありじごく;개미지옥;沙穴
+72;Vital Spirit;Munterkeit;Esprit Vital;Espíritu Vital*;Spiritovivo;やるき;의기양양;幹勁 / 干劲
+73;White Smoke;Pulverrauch;Écran Fumée;Humo Blanco;Fumochiaro;しろいけむり;하얀연기;白色煙霧 / 白色烟雾
+74;Pure Power;Mentalkraft;Force Pure;Energía pura;Forzapura;ヨガパワー;순수한힘;瑜伽之力
+75;Shell Armor;Panzerhaut;Coque Armure;Caparazón;Guscioscudo;シェルアーマー;조가비 갑옷;硬殼盔甲 / 硬壳盔甲
+--;Cacophony;Energieaufladung;Cacophonie;Cacofonía;Cacofonia;そうおん;--;--
+76;Air Lock;Klimaschutz;Air Lock;Bucle Aire;Riparo;エアロック;에어록;氣閘 / 气闸
+77;Tangled Feet;Fußangel;Pieds Confus;Tumbos;Intricopiedi;ちどりあし;갈지자걸음;蹣跚 / 蹒跚
+78;Motor Drive;Starthilfe;Motorisé;Electromotor;Elettrorapid;でんきエンジン;전기엔진;電氣引擎 / 电气引擎
+79;Rivalry;Rivalität;Rivalité;Rivalidad;Antagonismo;とうそうしん;투쟁심;鬥爭心 / 斗争心
+80;Steadfast;Felsenfest;Impassible;Impasible;Cuordeciso;ふくつのこころ;불굴의 마음;不屈之心
+81;Snow Cloak;Schneemantel;Rideau Neige;Manto Níveo;Mantelneve;ゆきがくれ;눈숨기;雪隱 / 雪隐
+82;Gluttony;Völlerei;Gloutonnerie;Gula;Voracità;くいしんぼう;먹보;貪吃鬼 / 贪吃鬼
+83;Anger Point;Kurzschluss;Colérique;Irascible;Grancollera;いかりのつぼ;분노의 경혈;憤怒穴位 / 愤怒穴位
+84;Unburden;Entlastung;Délestage;Liviano;Agiltecnica;かるわざ;곡예;輕裝 / 轻装
+85;Heatproof;Hitzeschutz;Ignifugé;Ignífugo;Antifuoco;たいねつ;내열;耐熱 / 耐热
+86;Simple;Wankelmut;Simple;Simple;Disinvoltura;たんじゅん;단순;單純 / 单纯
+87;Dry Skin;Trockenheit;Peau Sèche;Piel Seca;Pellearsa;かんそうはだ;건조피부;乾燥皮膚 / 干燥皮肤
+88;Download;Download;Télécharge;Descarga;Download;ダウンロード;다운로드;下載 / 下载
+89;Iron Fist;Eisenfaust;Poing de Fer;Puño Férreo;Ferropugno;てつのこぶし;철주먹;鐵拳 / 铁拳
+90;Poison Heal;Aufheber;Soin Poison;Antídoto;Velencura;ポイズンヒール;포이즌힐;毒療 / 毒疗
+91;Adaptability;Anpassung;Adaptabilité;Adaptable;Adattabilità;てきおうりょく;적응력;適應力 / 适应力
+92;Skill Link;Wertelink;Multi-Coups;Encadenado;Abillegame;スキルリンク;스킬링크;連續攻擊 / 连续攻击
+93;Hydration;Hydration;Hydratation;Hidratación;Idratazione;うるおいボディ;촉촉바디;濕潤之軀 / 湿润之躯
+94;Solar Power;Solarkraft;Force Soleil;Poder Solar;Solarpotere;サンパワー;선파워;太陽之力 / 太阳之力
+95;Quick Feet;Rasanz;Pied Véloce;Pies Rápidos;Piedisvelti;はやあし;속보;飛毛腿 / 飞毛腿
+96;Normalize;Regulierung;Normalise;Normalidad;Normalità;ノーマルスキン;노말스킨;一般皮膚 / 一般皮肤
+97;Sniper;Superschütze;Sniper;Francotirador*;Cecchino;スナイパー;스나이퍼;狙擊手 / 狙击手
+98;Magic Guard;Magieschild;Garde Magik;Muro Mágico;Magicscudo;マジックガード;매직가드;魔法防守
+99;No Guard;Schildlos;Annule Garde;Indefenso;Nullodifesa;ノーガード;노가드;無防守 / 无防守
+100;Stall;Zeitspiel;Frein;Rezagado;Rallentatore;あとだし;시간벌기;慢出
+101;Technician;Techniker;Technicien;Experto;Tecnico;テクニシャン;테크니션;技術高手 / 技术高手
+102;Leaf Guard;Floraschild;Feuille Garde*;Defensa Hoja;Fogliamanto;リーフガード;리프가드;葉子防守 / 叶子防守
+103;Klutz;Tollpatsch;Maladresse;Zoquete;Impaccio;ぶきよう;서투름;笨拙
+104;Mold Breaker;Überbrückung;Brise Moule;Rompemoldes;Rompiforma;かたやぶり;틀깨기;破格
+105;Super Luck;Glückspilz;Chanceux;Afortunado;Supersorte;きょううん;대운;超幸運 / 超幸运
+106;Aftermath;Finalschlag;Boom Final;Resquicio;Scoppio;ゆうばく;유폭;引爆
+107;Anticipation;Vorahnung;Anticipation;Anticipación;Presagio;きけんよち;위험예지;危險預知 / 危险预知
+108;Forewarn;Vorwarnung;Prédiction;Alerta;Premonizione;よちむ;예지몽;預知夢 / 预知梦
+109;Unaware;Unkenntnis;Inconscient;Ignorante;Imprudenza;てんねん;천진;純樸 / 纯朴
+110;Tinted Lens;Aufwertung;Lentiteintée;Cromolente;Lentifumé;いろめがね;색안경;有色眼鏡 / 有色眼镜
+111;Filter;Filter;Filtre;Filtro;Filtro;フィルター;필터;過濾 / 过滤
+112;Slow Start;Saumselig;Début Calme;Inicio Lento;Lentoinizio;スロースタート;슬로스타트;慢啟動 / 慢启动
+113;Scrappy;Rauflust;Querelleur;Intrépido;Nervisaldi;きもったま;배짱;膽量 / 胆量
+114;Storm Drain;Sturmsog;Lavabo;Colector;Acquascolo;よびみず;마중물;引水
+115;Ice Body;Eishaut;Corps Gel;Gélido;Corpogelo;アイスボディ;아이스바디;冰凍之軀 / 冰冻之躯
+116;Solid Rock;Felskern;Solide Roc;Roca Sólida;Solidroccia;ハードロック;하드록;堅硬岩石 / 坚硬岩石
+117;Snow Warning;Hagelalarm;Alerte Neige;Nevada;Scendineve;ゆきふらし;눈퍼뜨리기;降雪
+118;Honey Gather;Honigmaul;Cherche Miel;Recogemiel;Mielincetta;みつあつめ;꿀모으기;採蜜 / 采蜜
+119;Frisk;Schnüffler;Fouille;Cacheo;Indagine;おみとおし;통찰;察覺 / 察觉
+120;Reckless;Achtlos;Téméraire;Audaz;Temerarietà;すてみ;이판사판;捨身 / 舍身
+121;Multitype;Variabilität;Multitype;Multitipo;Multitipo;マルチタイプ;멀티타입;多屬性 / 多属性
+122;Flower Gift;Pflanzengabe;Don Floral;Don Floral;Regalfiore;フラワーギフト;플라워기프트;花之禮 / 花之礼
+123;Bad Dreams;Alptraum;Mauvais Rêve;Mal Sueño;Sogniamari;ナイトメア;나이트메어;夢魘 / 梦魇
+124;Pickpocket;Langfinger;Pickpocket;Hurto;Arraffalesto;わるいてぐせ;나쁜손버릇;順手牽羊 / 顺手牵羊
+125;Sheer Force;Rohe Gewalt;Sans Limite;Potencia Bruta*;Forzabruta;ちからずく;우격다짐;強行 / 强行
+126;Contrary;Umkehrung;Contestation;Respondón;Inversione;あまのじゃく;심술꾸러기;唱反調 / 唱反调
+127;Unnerve;Anspannung;Tension;Nerviosismo;Agitazione;きんちょうかん;긴장감;緊張感 / 紧张感
+128;Defiant;Siegeswille;Acharné;Competitivo;Agonismo;まけんき;오기;不服輸 / 不服输
+129;Defeatist;Schwächling;Défaitiste;Flaqueza;Sconforto;よわき;무기력;軟弱 / 软弱
+130;Cursed Body;Tastfluch;Corps Maudit;Cuerpo Maldito*;Corpofunesto;のろわれボディ;저주받은바디;詛咒之軀 / 诅咒之躯
+131;Healer;Heilherz;Cœur Soin;Alma Cura;Curacuore;いやしのこころ;치유의마음;治癒之心 / 治愈之心
+132;Friend Guard;Freundeshut;Garde Amie;Compiescolta;Amicoscudo;フレンドガード;프렌드가드;友情防守
+133;Weak Armor;Bruchrüstung;Armurouillée;Armadura Frágil*;Sottilguscio;くだけるよろい;깨어진갑옷;碎裂鎧甲 / 碎裂铠甲
+134;Heavy Metal;Schwermetall;Heavy Metal;Metal Pesado*;Metalpesante;ヘヴィメタル;헤비메탈;重金屬 / 重金属
+135;Light Metal;Leichtmetall;Light Metal;Metal Liviano*;Metalleggero;ライトメタル;라이트메탈;輕金屬 / 轻金属
+136;Multiscale;Multischuppe;Multiécaille;Compensación;Multisquame;マルチスケイル;멀티스케일;多重鱗片 / 多重鳞片
+137;Toxic Boost;Giftwahn;Rage Poison;Ímpetu Tóxico*;Velenimpeto;どくぼうそう;독폭주;中毒激升
+138;Flare Boost;Hitzewahn;Rage Brûlure;Ímpetu Ardiente*;Bruciaimpeto;ねつぼうそう;열폭주;受熱激升 / 受热激升
+139;Harvest;Reiche Ernte;Récolte;Cosecha;Coglibacche;しゅうかく;수확;收穫 / 收获
+140;Telepathy;Telepathie;Télépathe;Telepatía;Telepatia;テレパシー;텔레파시;心靈感應 / 心灵感应
+141;Moody;Gefühlswippe;Lunatique;Veleta;Altalena;ムラっけ;변덕쟁이;心情不定
+142;Overcoat;Partikelschutz;Envelocape;Funda;Copricapo;ぼうじん;방진;防塵 / 防尘
+143;Poison Touch;Giftgriff;Toxitouche;Toque Tóxico;Velentocco;どくしゅ;독수;毒手
+144;Regenerator;Belebekraft;Régé-Force;Regeneración;Rigenergia;さいせいりょく;재생력;再生力
+145;Big Pecks;Brustbieter;Cœur de Coq;Sacapecho;Pettinfuori;はとむね;부풀린가슴;健壯胸肌 / 健壮胸肌
+146;Sand Rush;Sandscharrer;Baigne Sable;Ímpetu Arena;Remasabbia;すなかき;모래헤치기;撥沙 / 拨沙
+147;Wonder Skin;Wunderhaut;Peau Miracle;Piel Milagro;Splendicute;ミラクルスキン;미라클스킨;奇跡皮膚 / 奇迹皮肤
+148;Analytic;Analyse;Analyste;Cálculo Final*;Ponderazione;アナライズ;애널라이즈;分析
+149;Illusion;Trugbild;Illusion;Ilusión;Illusione;イリュージョン;일루전;幻覺 / 幻觉
+150;Imposter;Doppelgänger;Imposteur;Impostor;Sosia;かわりもの;괴짜;變身者 / 变身者
+151;Infiltrator;Schwebedurch;Infiltration;Allanamiento;Intrapasso;すりぬけ;틈새포착;穿透
+152;Mummy;Mumie;Momie;Momia;Mummia;ミイラ;미라;木乃伊
+153;Moxie;Hochmut;Impudence;Autoestima;Arroganza;じしんかじょう;자기과신;自信過度 / 自信过度
+154;Justified;Redlichkeit;Cœur Noble;Justiciero;Giustizia;せいぎのこころ;정의의마음;正義之心 / 正义之心
+155;Rattled;Hasenfuß;Phobique;Cobardía;Paura;びびり;주눅;膽怯 / 胆怯
+156;Magic Bounce;Magiespiegel;Miroir Magik;Espejo Mágico*;Magispecchio;マジックミラー;매직미러;魔法鏡 / 魔法镜
+157;Sap Sipper;Vegetarier;Herbivore;Herbívoro;Mangiaerba;そうしょく;초식;食草
+158;Prankster;Strolch;Farceur;Bromista;Burla;いたずらごころ;짓궂은마음;惡作劇之心 / 恶作剧之心
+159;Sand Force;Sandgewalt;Force Sable;Poder Arena;Silicoforza;すなのちから;모래의힘;沙之力
+160;Iron Barbs;Eisenstachel;Épine de Fer;Punta Acero;Spineferrate;てつのトゲ;철가시;鐵刺 / 铁刺
+161;Zen Mode;Trance-Modus;Mode Transe;Modo Daruma;Stato Zen;ダルマモード;달마모드;達摩模式 / 达摩模式
+162;Victory Star;Triumphstern;Victorieux;Tinovictoria;Vittorstella;しょうりのほし;승리의별;勝利之星 / 胜利之星
+163;Turboblaze;Turbobrand;TurboBrasier;Turbollama;Piroturbina;ターボブレイズ;터보블레이즈;渦輪火焰 / 涡轮火焰
+164;Teravolt;Teravolt;Téra-Voltage;Terravoltaje;Teravolt;テラボルテージ;테라볼티지;兆級電壓 / 兆级电压
+165;Aroma Veil;Dufthülle;Aroma-Voile;Velo Aroma;Aromavelo;アロマベール;아로마베일;芳香幕
+166;Flower Veil;Blütenhülle;Flora-Voile;Velo Flor;Fiorvelo;フラワーベール;플라워베일;花幕
+167;Cheek Pouch;Backentaschen;Bajoues;Carrillo;Guancegonfie;ほおぶくろ;볼주머니;頰囊 / 颊囊
+168;Protean;Wandlungskunst;Protéen;Mutatipo;Mutatipo;へんげんじざい;변환자재;變幻自如 / 变幻自如
+169;Fur Coat;Fellkleid;Toison Épaisse;Pelaje Recio;Foltopelo;ファーコート;퍼코트;毛皮大衣
+170;Magician;Zauberer;Magicien;Prestidigitador;Prestigiatore;マジシャン;매지션;魔術師 / 魔术师
+171;Bulletproof;Kugelsicher;Pare-Balles;Antibalas;Antiproiettile;ぼうだん;방탄;防彈 / 防弹
+172;Competitive;Unbeugsamkeit;Battant;Tenacidad;Tenacia;かちき;승기;好勝 / 好胜
+173;Strong Jaw;Titankiefer;Prognathe;Mandíbula Fuerte;Ferromascella;がんじょうあご;옹골찬턱;強壯之顎 / 强壮之颚
+174;Refrigerate;Frostschicht;Peau Gelée;Piel Helada;Pellegelo;フリーズスキン;프리즈스킨;冰凍皮膚 / 冰冻皮肤
+175;Sweet Veil;Zuckerhülle;Gluco-Voile;Velo Dulce;Dolcevelo;スイートベール;스위트베일;甜幕
+176;Stance Change;Taktikwechsel;Déclic Tactique;Cambio Táctico;Accendilotta;バトルスイッチ;배틀스위치;戰鬥切換 / 战斗切换
+177;Gale Wings;Orkanschwingen;Ailes Bourrasque;Alas Vendaval;Aliraffica;はやてのつばさ;질풍날개;疾風之翼 / 疾风之翼
+178;Mega Launcher;Megawumme;Méga Blaster;Megadisparador;Megalancio;メガランチャー;메가런처;超級發射器 / 超级发射器
+179;Grass Pelt;Pflanzenpelz;Toison Herbue;Manto Frondoso;Peloderba;くさのけがわ;풀모피;草之毛皮
+180;Symbiosis;Nutznießer;Symbiose;Simbiosis;Simbiosi;きょうせい;공생;共生
+181;Tough Claws;Krallenwucht;Griffe Dure;Garra Dura;Unghiedure;かたいツメ;단단한 발톱;硬爪
+182;Pixilate;Feenschicht;Peau Féérique;Piel Feérica;Pellefolletto;フェアリースキン;페어리스킨;妖精皮膚 / 妖精皮肤
+183;Gooey;Viskosität;Poisseux;Baba;Viscosità;ぬめぬめ;미끈미끈;黏滑
+184;Aerilate;Zenithaut;Peau Céleste;Piel Celeste;Pellecielo;スカイスキン;스카이스킨;飛行皮膚 / 飞行皮肤
+185;Parental Bond;Familienbande;Amour Filial;Amor Filial;Amorefiliale;おやこあい;부자유친;親子愛 / 亲子爱
+186;Dark Aura;Dunkelaura;Aura Ténébreuse;Aura Oscura;Auratetra;ダークオーラ;다크오라;暗黑氣場 / 暗黑气场
+187;Fairy Aura;Feenaura;Aura Féérique;Aura Feérica;Aurafolletto;フェアリーオーラ;페어리오라;妖精氣場 / 妖精气场
+188;Aura Break;Aura-Umkehr;Aura Inversée;Rompeaura;Frangiaura;オーラブレイク;오라브레이크;氣場破壞 / 气场破坏
+189;Primordial Sea;Urmeer;Mer Primaire;Mar del Albor;Mare Primordiale;はじまりのうみ;시작의바다;始源之海
+190;Desolate Land;Endland;Terre Finale;Tierra del Ocaso;Terra Estrema;おわりのだいち;끝의대지;終結之地 / 终结之地
+191;Delta Stream;Delta-Wind;Souffle Delta;Ráfaga Delta;Flusso Delta;デルタストリーム;델타스트림;德爾塔氣流 / 德尔塔气流
+192;Stamina;Zähigkeit;Endurance;Firmeza;Sopportazione;じきゅうりょく;지구력;持久力
+193;Wimp Out;Reißaus;Escampette;Huida;Fuggifuggi;にげごし;도망태세;躍躍欲逃 / 跃跃欲逃
+194;Emergency Exit;Rückzug;Repli Tactique;Retirada;Passoindietro;ききかいひ;위기회피;危險迴避 / 危险回避
+195;Water Compaction;Verklumpen;Sable Humide;Hidrorrefuerzo;Idrorinforzo;みずがため;꾸덕꾸덕굳기;遇水凝固
+196;Merciless;Quälerei;Cruauté;Ensañamiento;Spietatezza;ひとでなし;무도한행동;不仁不義 / 不仁不义
+197;Shields Down;Limitschild;Bouclier-Carcan;Escudo Limitado;Scudosoglia;リミットシールド;리밋실드;界限盾殼 / 界限盾壳
+198;Stakeout;Beschattung;Filature;Vigilante;Sorveglianza;はりこみ;잠복;"監視*
+蹲守*"
+199;Water Bubble;Wasserblase;Aquabulle;Pompa;Bolladacqua;すいほう;수포;水泡
+200;Steelworker;Stahlprofi;Expert Acier;Acero Templado;Tempracciaio;はがねつかい;강철술사;鋼能力者 / 钢能力者
+201;Berserk;Wutausbruch;Dracolère;Cólera;Furore;ぎゃくじょう;발끈;怒火沖天 / 怒火冲天
+202;Slush Rush;Schneescharrer;Chasse-Neige;Quitanieves;Spalaneve;ゆきかき;눈치우기;撥雪 / 拨雪
+203;Long Reach;Langstrecke;Longue Portée;Remoto;Distacco;えんかく;원격;遠隔 / 远隔
+204;Liquid Voice;Plätscherstimme;Hydrata-Son;Voz Fluida;Idrovoce;うるおいボイス;촉촉보이스;濕潤之聲 / 湿润之声
+205;Triage;Heilwandel;Prioguérison;Primer Auxilio;Primacura;ヒーリングシフト;힐링시프트;先行治療 / 先行治疗
+206;Galvanize;Elektrohaut;Peau Électrique;Piel Eléctrica;Pellelettro;エレキスキン;일렉트릭스킨;電氣皮膚 / 电气皮肤
+207;Surge Surfer;Surf-Schweif;Surf Caudal;Cola Surf;Codasurf;サーフテール;서핑테일;衝浪之尾 / 冲浪之尾
+208;Schooling;Fischschwarm;Banc;Banco;Banco;ぎょぐん;어군;魚群 / 鱼群
+209;Disguise;Kostümspuk;Fantômasque;Disfraz;Fantasmanto;ばけのかわ;탈;畫皮 / 画皮
+210;Battle Bond;Freundschaftsakt;Synergie;Fuerte Afecto;Morfosintonia;きずなへんげ;유대변화;牽絆變身 / 牵绊变身
+211;Power Construct;Scharwandel;Rassemblement;Agrupamiento;Sciamefusione;スワームチェンジ;스웜체인지;群聚變形 / 群聚变形
+212;Corrosion;Korrosion;Corrosion;Corrosión;Corrosione;ふしょく;부식;腐蝕 / 腐蚀
+213;Comatose;Dauerschlaf;Hypersommeil;Letargo Perenne;Sonno Assoluto;ぜったいねむり;절대안깸;絕對睡眠 / 绝对睡眠
+214;Queenly Majesty;Majestät;Prestance Royale;Regia Presencia;Regalità;じょおうのいげん;여왕의위엄;女王的威嚴 / 女王的威严
+215;Innards Out;Magenkrempler;Expuls'Organes;Revés;Espellinterno;とびだすなかみ;내용물분출;飛出的內在物 / 飞出的内在物
+216;Dancer;Tänzer;Danseuse;Pareja de Baile;Sincrodanza;おどりこ;무희;舞者
+217;Battery;Batterie;Batterie;Batería;Batteria;バッテリー;배터리;蓄電池 / 蓄电池
+218;Fluffy;Flauschigkeit;Boule de Poils;Peluche;Morbidone;もふもふ;복슬복슬;毛茸茸
+219;Dazzling;Buntkörper;Corps Coloré;Cuerpo Vívido;Corposgargiante;ビビッドボディ;비비드바디;鮮艷之軀 / 鲜艳之躯
+220;Soul-Heart;Seelenherz;Animacœur;Coránima;Cuoreanima;ソウルハート;소울하트;魂心
+221;Tangling Hair;Lockenkopf;Mèche Rebelle;Rizos Rebeldes;Boccolidoro;カーリーヘアー;컬리헤어;捲髮 / 卷发
+222;Receiver;Receiver;Receveur;Receptor;Ricezione;レシーバー;리시버;接球手
+223;Power of Alchemy;Chemiekraft;Osmose;Reacción Química;Forza Chimica;かがくのちから;과학의힘;化學之力 / 化学之力
+224;Beast Boost;Bestien-Boost;Boost Chimère;Ultraimpulso;Ultraboost;ビーストブースト;비스트부스트;異獸提升 / 异兽提升
+225;RKS System;Alpha-System;Système Alpha;Sistema Alfa;Sistema Primevo;ＡＲシステム;AR시스템;ＡＲ系統 / ＡＲ系统
+226;Electric Surge;Elektro-Erzeuger;Créa-Élec;Electrogénesis;Elettrogenesi;エレキメイカー;일렉트릭메이커;電氣製造者 / 电气制造者
+227;Psychic Surge;Psycho-Erzeuger;Créa-Psy;Psicogénesis;Psicogenesi;サイコメイカー;사이코메이커;精神製造者 / 精神制造者
+228;Misty Surge;Nebel-Erzeuger;Créa-Brume;Nebulogénesis;Nebbiogenesi;ミストメイカー;미스트메이커;薄霧製造者 / 薄雾制造者
+229;Grassy Surge;Gras-Erzeuger;Créa-Herbe;Herbogénesis;Erbogenesi;グラスメイカー;그래스메이커;青草製造者 / 青草制造者
+230;Full Metal Body;Metallprotektor;Métallo-Garde;Guardia Metálica;Metalprotezione;メタルプロテクト;메탈프로텍트;金屬防護 / 金属防护
+231;Shadow Shield;Phantomschutz;Spectro-Bouclier;Guardia Espectro;Spettroguardia;ファントムガード;스펙터가드;幻影防守
+232;Prism Armor;Prismarüstung;Prisme-Armure;Armadura Prisma;Scudoprisma;プリズムアーマー;프리즘아머;稜鏡裝甲 / 棱镜装甲
+233;Neuroforce;Zerebralmacht;Cérébro-Force;Fuerza Cerebral;Cerebroforza;ブレインフォース;브레인포스;腦核之力 / 脑核之力
+234;Intrepid Sword;Kühnes Schwert;Lame Indomptable;Espada Indómita;Spada Indomita;ふとうのけん;불요의검;不撓之劍 / 不挠之剑
+235;Dauntless Shield;Wackerer Schild;Égide Inflexible;Escudo Recio;Scudo Saldo;ふくつのたて;불굴의방패;不屈之盾 / 不屈之盾
+236;Libero;Libero;Libéro;Líbero;Libero;リベロ;리베로;自由者
+237;Ball Fetch;Apport;Ramasse Ball;Recogebolas;Raccattapalle;たまひろい;볼줍기;撿球 / 捡球
+238;Cotton Down;Wollflaum;Effilochage;Pelusa;Lanugine;わたげ;솜털;棉絮
+239;Propeller Tail;Schraubflosse;Propulseur;Hélice Caudal;Elicopinna;スクリューおびれ;스크루지느러미;螺旋尾鰭 / 螺旋尾鳍
+240;Mirror Armor;Spiegelrüstung;Armure Miroir;Coraza Reflejo;Blindospecchio;ミラーアーマー;미러아머;鏡甲 / 镜甲
+241;Gulp Missile;Würggeschoss;Dégobage;Tragamisil;Inghiottimissile;うのミサイル;그대로꿀꺽미사일;一口飛彈 / 一口导弹
+242;Stalwart;Stahlrückgrat;Nerfs d’Acier;Acérrimo;Volontà di Ferro;すじがねいり;굳건한신념;堅毅 / 坚毅
+243;Steam Engine;Dampfantrieb;Turbine;Combustible;Vapormacchina;じょうききかん;증기기관;蒸汽機 / 蒸汽机
+244;Punk Rock;Punk Rock;Punk Rock;Punk Rock;Punk Rock;パンクロック;펑크록;龐克搖滾 / 庞克摇滚
+245;Sand Spit;Sandspeier;Expul’Sable;Expulsarena;Sputasabbia;すなはき;모래뿜기;吐沙
+246;Ice Scales;Eisflügelstaub;Écailles Glacées;Escama de Hielo;Geloscaglie;こおりのりんぷん;얼음인분;冰鱗粉 / 冰鳞粉
+247;Ripen;Heranreifen;Mûrissement;Maduración;Maturazione;じゅくせい;숙성;熟成
+248;Ice Face;Tiefkühlkopf;Tête de Gel;Cara de Hielo;Gelofaccia;アイスフェイス;아이스페이스;結凍頭 / 结冻头
+249;Power Spot;Kraftquelle;Cercle d’Énergie;Fuente Energía;Fonte Energetica;パワースポット;파워스폿;能量點 / 能量点
+250;Mimicry;Mimese;Mimétisme;Mimetismo;Mimetismo;ぎたい;의태;擬態 / 拟态
+251;Screen Cleaner;Hemmungslos;Brise-Barrière;Antibarrera;Annullabarriere;バリアフリー;배리어프리;除障
+252;Steely Spirit;Stählerner Wille;Boost Acier;Alma Acerada;Spiritoferreo;はがねのせいしん;강철정신;鋼之意志 / 钢之意志
+253;Perish Body;Unheilskörper;Corps Condamné;Cuerpo Mortal;Ultimotocco;ほろびのボディ;멸망의바디;滅亡之軀 / 灭亡之躯
+254;Wandering Spirit;Rastlose Seele;Âme Vagabonde;Alma Errante;Anima Errante;さまようたましい;떠도는영혼;遊魂 / 游魂
+255;Gorilla Tactics;Affenfokus;Entêtement;Monotema;Vigorilla;ごりむちゅう;무아지경;一猩一意
+256;Neutralizing Gas;Reaktionsgas;Gaz Inhibiteur;Gas Reactivo;Gas Reagente;かがくへんかガス;화학변화가스;化學變化氣體 / 化学变化气体
+257;Pastel Veil;Pastellhülle;Voile Pastel;Velo Pastel;Pastelvelo;パステルベール;파스텔베일;粉彩護幕 / 粉彩护幕
+258;Hunger Switch;Heißhunger;Déclic Fringale;Mutapetito;Pancialterna;はらぺこスイッチ;꼬르륵스위치;飽了又餓 / 饱了又饿
+259;Quick Draw;Schnellschuss;Tir Vif;Mano Rápida;Colpolesto;クイックドロウ;퀵드로;速擊 / 速击
+260;Unseen Fist;Verborgene Faust;Poing Invisible;Puño Invisible;Pugni Invisibili;ふかしのこぶし;보이지않는주먹;無形拳 / 无形拳
+261;Curious Medicine;Kuriose Arznei;Breuvage Suspect;Medicina Extraña;Stranofarmaco;きみょうなくすり;기묘한약;怪藥 / 怪药
+262;Transistor;Transistor;Transistor;Transistor;Transistor;トランジスタ;트랜지스터;電晶體 / 电晶体
+263;Dragon's Maw;Drachenkiefer;Dent de Dragon;Mandíbula Dragón;Dragomascelle;りゅうのあぎと;용의턱;龍顎 / 龙颚
+264;Chilling Neigh;Helles Wiehern;Blanche Ruade;Relincho Blanco;Nitrito Bianco;しろのいななき;백의울음;蒼白嘶鳴 / 苍白嘶鸣
+265;Grim Neigh;Dunkles Wiehern;Sombre Ruade;Relincho Negro;Nitrito Nero;くろのいななき;흑의울음;漆黑嘶鳴 / 漆黑嘶鸣
+266/267;As One;Reitgespann;Osmose Équine;Unidad Ecuestre;Sintonia Equina;じんばいったい;혼연일체;人馬一體 / 人马一体
+268;Lingering Aroma;Duftschwade;Odeur Tenace;Olor Persistente;Odore Tenace;とれないにおい;가시지않는향기;甩不掉的氣味 / 甩不掉的气味
+269;Seed Sower;Streusaat;Semencier;Disemillar;Spargisemi;こぼれダネ;넘치는씨;掉出種子 / 掉出种子
+270;Thermal Exchange;Thermowandel;Thermodynamique;Termoconversión;Termoscambio;ねつこうかん;열교환;熱交換 / 热交换
+271;Anger Shell;Wutpanzer;Courroupace;Coraza Ira;Iraguscio;いかりのこうら;분노의껍질;憤怒甲殼 / 愤怒甲壳
+272;Purifying Salt;Läutersalz;Sel Purificateur;Sal Purificadora;Sale Purificante;きよめのしお;정화의소금;潔淨之鹽 / 洁净之盐
+273;Well-Baked Body;Knusperkruste;Bien Cuit;Cuerpo Horneado;Bentostato;こんがりボディ;노릇노릇바디;焦香之軀 / 焦香之躯
+274;Wind Rider;Windreiter;Aéroporté;Surcavientos;Vento Propizio;かぜのり;바람타기;乘風 / 乘风
+275;Guard Dog;Wachhund;Chien de Garde;Perro Guardián;Cane da Guardia;ばんけん;파수견;看門犬 / 看门犬
+276;Rocky Payload;Steinträger;Porte-Roche;Transportarrocas;Portamassi;いわはこび;바위나르기;搬岩
+277;Wind Power;Windkraft;Turbine Éolienne;Energía Eólica;Energia Eolica;ふうりょくでんき;풍력발전;風力發電 / 风力发电
+278;Zero to Hero;Superwechsel;Supermutation;Cambio Heroico;Supercambio;マイティチェンジ;마이티체인지;全能變身 / 全能变身
+279;Commander;Kommandant;Commandant;Comandar;Torre di Comando;しれいとう;사령탑;發號施令 / 发号施令
+280;Electromorphosis;Dynamo;Grecharge;Dinamo;Convertivolt;でんきにかえる;전기로바꾸기;電力轉換 / 电力转换
+281;Protosynthesis;Paläosynthese;Paléosynthèse;Paleosíntesis;Paleoattivazione;こだいかっせい;고대활성;古代活性
+282;Quark Drive;Quantenantrieb;Charge Quantique;Carga Cuark;Carica Quark;クォークチャージ;쿼크차지;夸克充能
+283;Good as Gold;Goldkörper;Corps en Or;Cuerpo Áureo;Corpo Aureo;おうごんのからだ;황금몸;黃金之軀 / 黄金之躯
+284;Vessel of Ruin;Unheilsgefäß;Urne du Fléau;Caldero Debacle;Vaso Nefasto;わざわいのうつわ;재앙의그릇;災禍之鼎 / 灾祸之鼎
+285;Sword of Ruin;Unheilsschwert;Épée du Fléau;Espada Debacle;Spada Nefasta;わざわいのつるぎ;재앙의검;災禍之劍 / 灾祸之剑
+286;Tablets of Ruin;Unheilstafeln;Bois du Fléau;Tablilla Debacle;Amuleto Nefasto;わざわいのおふだ;재앙의목간;災禍之簡 / 灾祸之简
+287;Beads of Ruin;Unheilsjuwelen;Perles du Fléau;Abalorio Debacle;Monile Nefasto;わざわいのたま;재앙의구슬;災禍之玉 / 灾祸之玉
+288;Orichalcum Pulse;Orichalkum-Puls;Pouls Orichalque;Latido Oricalco;Ritmo d’Oricalco;ひひいろのこどう;진홍빛고동;緋紅脈動 / 绯红脉动
+289;Hadron Engine;Hadronen-Motor;Moteur à Hadrons;Motor Hadrónico;Motore Adronico;ハドロンエンジン;하드론엔진;強子引擎 / 强子引擎
+290;Opportunist;Profiteur;Opportuniste;Oportunista;Scrocco;びんじょう;편승;跟風 / 跟风
+291;Cud Chew;Wiederkäuer;Ruminant;Rumia;Ruminante;はんすう;되새김질;反芻 / 反刍
+292;Sharpness;Scharfkantig;Incisif;Cortante;Affilama;きれあじ;예리함;鋒銳 / 锋锐
+293;Supreme Overlord;Feldherr;Général Suprême;General Supremo;Generale Supremo;そうだいしょう;총대장;大將 / 大将
+294;Costar;Synchronauftritt;Collab;Unísono;Coprotagonismo;きょうえん;협연;同台共演
+295;Toxic Debris;Giftbelag;Dépôt Toxique;Capa Tóxica;Mantossina;どくげしょう;독치장;毒滿地 / 毒满地
+296;Armor Tail;Schweifrüstung;Armure Caudale;Cola Armadura;Codarmatura;テイルアーマー;테일아머;尾甲
+297;Earth Eater;Bodenschmaus;Absorbe-Terre;Geofagia;Mangiaterra;どしょく;흙먹기;食土
+298;Mycelium Might;Myzelienkraft;Force Fongique;Poder Fúngico;Micoforza;きんしのちから;균사의힘;菌絲之力 / 菌丝之力
+299;Hospitality;Gastlichkeit;Aux Petits Soins;Hospitalidad;Ospitalità;おもてなし;대접;款待
+300;Mind's Eye;Geistiges Auge;Œil Révélateur;Ojo Mental;Occhio Interiore;しんがん;심안;心眼
+301/302/303/304;Embody Aspect;Erinnerungskraft;Force Mémorielle;Evocarrecuerdos;Albergamemorie;おもかげやどし;초상투영;面影辉映 / 面影輝映
+305;Toxic Chain;Giftkette;Chaîne Toxique;Cadena Tóxica;Catena Tossica;どくのくさり;독사슬;毒鎖鏈 / 毒锁链
+306;Supersweet Syrup;Süßer Nektar;Nectar Mielleux;Néctar Dulce;Sciroppo Sublime;かんろなミツ;감미로운꿀;甘露之蜜
