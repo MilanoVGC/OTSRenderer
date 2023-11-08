@@ -1,910 +1,910 @@
-Move;Type
-Pound;Normal
-Karate Chop;Fighting
-Double Slap;Normal
-Comet Punch;Normal
-Mega Punch;Normal
-Pay Day;Normal
-Fire Punch;Fire
-Ice Punch;Ice
-Thunder Punch;Electric
-Scratch;Normal
-Vise Grip;Normal
-Guillotine;Normal
-Razor Wind;Normal
-Swords Dance;Normal
-Cut;Normal
-Gust;Flying
-Wing Attack;Flying
-Whirlwind;Normal
-Fly;Flying
-Bind;Normal
-Slam;Normal
-Vine Whip;Grass
-Stomp;Normal
-Double Kick;Fighting
-Mega Kick;Normal
-Jump Kick;Fighting
-Rolling Kick;Fighting
-Sand Attack;Ground
-Headbutt;Normal
-Horn Attack;Normal
-Fury Attack;Normal
-Horn Drill;Normal
-Tackle;Normal
-Body Slam;Normal
-Wrap;Normal
-Take Down;Normal
-Thrash;Normal
-Double-Edge;Normal
-Tail Whip;Normal
-Poison Sting;Poison
-Twineedle;Bug
-Pin Missile;Bug
-Leer;Normal
-Bite;Dark
-Growl;Normal
-Roar;Normal
-Sing;Normal
-Supersonic;Normal
-Sonic Boom;Normal
-Disable;Normal
-Acid;Poison
-Ember;Fire
-Flamethrower;Fire
-Mist;Ice
-Water Gun;Water
-Hydro Pump;Water
-Surf;Water
-Ice Beam;Ice
-Blizzard;Ice
-Psybeam;Psychic
-Bubble Beam;Water
-Aurora Beam;Ice
-Hyper Beam;Normal
-Peck;Flying
-Drill Peck;Flying
-Submission;Fighting
-Low Kick;Fighting
-Counter;Fighting
-Seismic Toss;Fighting
-Strength;Normal
-Absorb;Grass
-Mega Drain;Grass
-Leech Seed;Grass
-Growth;Normal
-Razor Leaf;Grass
-Solar Beam;Grass
-Poison Powder;Poison
-Stun Spore;Grass
-Sleep Powder;Grass
-Petal Dance;Grass
-String Shot;Bug
-Dragon Rage;Dragon
-Fire Spin;Fire
-Thunder Shock;Electric
-Thunderbolt;Electric
-Thunder Wave;Electric
-Thunder;Electric
-Rock Throw;Rock
-Earthquake;Ground
-Fissure;Ground
-Dig;Ground
-Toxic;Poison
-Confusion;Psychic
-Psychic;Psychic
-Hypnosis;Psychic
-Meditate;Psychic
-Agility;Psychic
-Quick Attack;Normal
-Rage;Normal
-Teleport;Psychic
-Night Shade;Ghost
-Mimic;Normal
-Screech;Normal
-Double Team;Normal
-Recover;Normal
-Harden;Normal
-Minimize;Normal
-Smokescreen;Normal
-Confuse Ray;Ghost
-Withdraw;Water
-Defense Curl;Normal
-Barrier;Psychic
-Light Screen;Psychic
-Haze;Ice
-Reflect;Psychic
-Focus Energy;Normal
-Bide;Normal
-Metronome;Normal
-Mirror Move;Flying
-Self-Destruct;Normal
-Egg Bomb;Normal
-Lick;Ghost
-Smog;Poison
-Sludge;Poison
-Bone Club;Ground
-Fire Blast;Fire
-Waterfall;Water
-Clamp;Water
-Swift;Normal
-Skull Bash;Normal
-Spike Cannon;Normal
-Constrict;Normal
-Amnesia;Psychic
-Kinesis;Psychic
-Soft-Boiled;Normal
-High Jump Kick;Fighting
-Glare;Normal
-Dream Eater;Psychic
-Poison Gas;Poison
-Barrage;Normal
-Leech Life;Bug
-Lovely Kiss;Normal
-Sky Attack;Flying
-Transform;Normal
-Bubble;Water
-Dizzy Punch;Normal
-Spore;Grass
-Flash;Normal
-Psywave;Psychic
-Splash;Normal
-Acid Armor;Poison
-Crabhammer;Water
-Explosion;Normal
-Fury Swipes;Normal
-Bonemerang;Ground
-Rest;Psychic
-Rock Slide;Rock
-Hyper Fang;Normal
-Sharpen;Normal
-Conversion;Normal
-Tri Attack;Normal
-Super Fang;Normal
-Slash;Normal
-Substitute;Normal
-Struggle;Normal
-Sketch;Normal
-Triple Kick;Fighting
-Thief;Dark
-Spider Web;Bug
-Mind Reader;Normal
-Nightmare;Ghost
-Flame Wheel;Fire
-Snore;Normal
-Curse;Ghost
-Flail;Normal
-Conversion 2;Normal
-Aeroblast;Flying
-Cotton Spore;Grass
-Reversal;Fighting
-Spite;Ghost
-Powder Snow;Ice
-Protect;Normal
-Mach Punch;Fighting
-Scary Face;Normal
-Feint Attack;Dark
-Sweet Kiss;Fairy
-Belly Drum;Normal
-Sludge Bomb;Poison
-Mud-Slap;Ground
-Octazooka;Water
-Spikes;Ground
-Zap Cannon;Electric
-Foresight;Normal
-Destiny Bond;Ghost
-Perish Song;Normal
-Icy Wind;Ice
-Detect;Fighting
-Bone Rush;Ground
-Lock-On;Normal
-Outrage;Dragon
-Sandstorm;Rock
-Giga Drain;Grass
-Endure;Normal
-Charm;Fairy
-Rollout;Rock
-False Swipe;Normal
-Swagger;Normal
-Milk Drink;Normal
-Spark;Electric
-Fury Cutter;Bug
-Steel Wing;Steel
-Mean Look;Normal
-Attract;Normal
-Sleep Talk;Normal
-Heal Bell;Normal
-Return;Normal
-Present;Normal
-Frustration;Normal
-Safeguard;Normal
-Pain Split;Normal
-Sacred Fire;Fire
-Magnitude;Ground
-Dynamic Punch;Fighting
-Megahorn;Bug
-Dragon Breath;Dragon
-Baton Pass;Normal
-Encore;Normal
-Pursuit;Dark
-Rapid Spin;Normal
-Sweet Scent;Normal
-Iron Tail;Steel
-Metal Claw;Steel
-Vital Throw;Fighting
-Morning Sun;Normal
-Synthesis;Grass
-Moonlight;Fairy
-Hidden Power;Normal
-Cross Chop;Fighting
-Twister;Dragon
-Rain Dance;Water
-Sunny Day;Fire
-Crunch;Dark
-Mirror Coat;Psychic
-Psych Up;Normal
-Extreme Speed;Normal
-Ancient Power;Rock
-Shadow Ball;Ghost
-Future Sight;Psychic
-Rock Smash;Fighting
-Whirlpool;Water
-Beat Up;Dark
-Fake Out;Normal
-Uproar;Normal
-Stockpile;Normal
-Spit Up;Normal
-Swallow;Normal
-Heat Wave;Fire
-Hail;Ice
-Torment;Dark
-Flatter;Dark
-Will-O-Wisp;Fire
-Memento;Dark
-Facade;Normal
-Focus Punch;Fighting
-Smelling Salts;Normal
-Follow Me;Normal
-Nature Power;Normal
-Charge;Electric
-Taunt;Dark
-Helping Hand;Normal
-Trick;Psychic
-Role Play;Psychic
-Wish;Normal
-Assist;Normal
-Ingrain;Grass
-Superpower;Fighting
-Magic Coat;Psychic
-Recycle;Normal
-Revenge;Fighting
-Brick Break;Fighting
-Yawn;Normal
-Knock Off;Dark
-Endeavor;Normal
-Eruption;Fire
-Skill Swap;Psychic
-Imprison;Psychic
-Refresh;Normal
-Grudge;Ghost
-Snatch;Dark
-Secret Power;Normal
-Dive;Water
-Arm Thrust;Fighting
-Camouflage;Normal
-Tail Glow;Bug
-Luster Purge;Psychic
-Mist Ball;Psychic
-Feather Dance;Flying
-Teeter Dance;Normal
-Blaze Kick;Fire
-Mud Sport;Ground
-Ice Ball;Ice
-Needle Arm;Grass
-Slack Off;Normal
-Hyper Voice;Normal
-Poison Fang;Poison
-Crush Claw;Normal
-Blast Burn;Fire
-Hydro Cannon;Water
-Meteor Mash;Steel
-Astonish;Ghost
-Weather Ball;Normal
-Aromatherapy;Grass
-Fake Tears;Dark
-Air Cutter;Flying
-Overheat;Fire
-Odor Sleuth;Normal
-Rock Tomb;Rock
-Silver Wind;Bug
-Metal Sound;Steel
-Grass Whistle;Grass
-Tickle;Normal
-Cosmic Power;Psychic
-Water Spout;Water
-Signal Beam;Bug
-Shadow Punch;Ghost
-Extrasensory;Psychic
-Sky Uppercut;Fighting
-Sand Tomb;Ground
-Sheer Cold;Ice
-Muddy Water;Water
-Bullet Seed;Grass
-Aerial Ace;Flying
-Icicle Spear;Ice
-Iron Defense;Steel
-Block;Normal
-Howl;Normal
-Dragon Claw;Dragon
-Frenzy Plant;Grass
-Bulk Up;Fighting
-Bounce;Flying
-Mud Shot;Ground
-Poison Tail;Poison
-Covet;Normal
-Volt Tackle;Electric
-Magical Leaf;Grass
-Water Sport;Water
-Calm Mind;Psychic
-Leaf Blade;Grass
-Dragon Dance;Dragon
-Rock Blast;Rock
-Shock Wave;Electric
-Water Pulse;Water
-Doom Desire;Steel
-Psycho Boost;Psychic
-Roost;Flying
-Gravity;Psychic
-Miracle Eye;Psychic
-Wake-Up Slap;Fighting
-Hammer Arm;Fighting
-Gyro Ball;Steel
-Healing Wish;Psychic
-Brine;Water
-Natural Gift;Normal
-Feint;Normal
-Pluck;Flying
-Tailwind;Flying
-Acupressure;Normal
-Metal Burst;Steel
-U-turn;Bug
-Close Combat;Fighting
-Payback;Dark
-Assurance;Dark
-Embargo;Dark
-Fling;Dark
-Psycho Shift;Psychic
-Trump Card;Normal
-Heal Block;Psychic
-Wring Out;Normal
-Power Trick;Psychic
-Gastro Acid;Poison
-Lucky Chant;Normal
-Me First;Normal
-Copycat;Normal
-Power Swap;Psychic
-Guard Swap;Psychic
-Punishment;Dark
-Last Resort;Normal
-Worry Seed;Grass
-Sucker Punch;Dark
-Toxic Spikes;Poison
-Heart Swap;Psychic
-Aqua Ring;Water
-Magnet Rise;Electric
-Flare Blitz;Fire
-Force Palm;Fighting
-Aura Sphere;Fighting
-Rock Polish;Rock
-Poison Jab;Poison
-Dark Pulse;Dark
-Night Slash;Dark
-Aqua Tail;Water
-Seed Bomb;Grass
-Air Slash;Flying
-X-Scissor;Bug
-Bug Buzz;Bug
-Dragon Pulse;Dragon
-Dragon Rush;Dragon
-Power Gem;Rock
-Drain Punch;Fighting
-Vacuum Wave;Fighting
-Focus Blast;Fighting
-Energy Ball;Grass
-Brave Bird;Flying
-Earth Power;Ground
-Switcheroo;Dark
-Giga Impact;Normal
-Nasty Plot;Dark
-Bullet Punch;Steel
-Avalanche;Ice
-Ice Shard;Ice
-Shadow Claw;Ghost
-Thunder Fang;Electric
-Ice Fang;Ice
-Fire Fang;Fire
-Shadow Sneak;Ghost
-Mud Bomb;Ground
-Psycho Cut;Psychic
-Zen Headbutt;Psychic
-Mirror Shot;Steel
-Flash Cannon;Steel
-Rock Climb;Normal
-Defog;Flying
-Trick Room;Psychic
-Draco Meteor;Dragon
-Discharge;Electric
-Lava Plume;Fire
-Leaf Storm;Grass
-Power Whip;Grass
-Rock Wrecker;Rock
-Cross Poison;Poison
-Gunk Shot;Poison
-Iron Head;Steel
-Magnet Bomb;Steel
-Stone Edge;Rock
-Captivate;Normal
-Stealth Rock;Rock
-Grass Knot;Grass
-Chatter;Flying
-Judgment;Normal
-Bug Bite;Bug
-Charge Beam;Electric
-Wood Hammer;Grass
-Aqua Jet;Water
-Attack Order;Bug
-Defend Order;Bug
-Heal Order;Bug
-Head Smash;Rock
-Double Hit;Normal
-Roar of Time;Dragon
-Spacial Rend;Dragon
-Lunar Dance;Psychic
-Crush Grip;Normal
-Magma Storm;Fire
-Dark Void;Dark
-Seed Flare;Grass
-Ominous Wind;Ghost
-Shadow Force;Ghost
-Hone Claws;Dark
-Wide Guard;Rock
-Guard Split;Psychic
-Power Split;Psychic
-Wonder Room;Psychic
-Psyshock;Psychic
-Venoshock;Poison
-Autotomize;Steel
-Rage Powder;Bug
-Telekinesis;Psychic
-Magic Room;Psychic
-Smack Down;Rock
-Storm Throw;Fighting
-Flame Burst;Fire
-Sludge Wave;Poison
-Quiver Dance;Bug
-Heavy Slam;Steel
-Synchronoise;Psychic
-Electro Ball;Electric
-Soak;Water
-Flame Charge;Fire
-Coil;Poison
-Low Sweep;Fighting
-Acid Spray;Poison
-Foul Play;Dark
-Simple Beam;Normal
-Entrainment;Normal
-After You;Normal
-Round;Normal
-Echoed Voice;Normal
-Chip Away;Normal
-Clear Smog;Poison
-Stored Power;Psychic
-Quick Guard;Fighting
-Ally Switch;Psychic
-Scald;Water
-Shell Smash;Normal
-Heal Pulse;Psychic
-Hex;Ghost
-Sky Drop;Flying
-Shift Gear;Steel
-Circle Throw;Fighting
-Incinerate;Fire
-Quash;Dark
-Acrobatics;Flying
-Reflect Type;Normal
-Retaliate;Normal
-Final Gambit;Fighting
-Bestow;Normal
-Inferno;Fire
-Water Pledge;Water
-Fire Pledge;Fire
-Grass Pledge;Grass
-Volt Switch;Electric
-Struggle Bug;Bug
-Bulldoze;Ground
-Frost Breath;Ice
-Dragon Tail;Dragon
-Work Up;Normal
-Electroweb;Electric
-Wild Charge;Electric
-Drill Run;Ground
-Dual Chop;Dragon
-Heart Stamp;Psychic
-Horn Leech;Grass
-Sacred Sword;Fighting
-Razor Shell;Water
-Heat Crash;Fire
-Leaf Tornado;Grass
-Steamroller;Bug
-Cotton Guard;Grass
-Night Daze;Dark
-Psystrike;Psychic
-Tail Slap;Normal
-Hurricane;Flying
-Head Charge;Normal
-Gear Grind;Steel
-Searing Shot;Fire
-Techno Blast;Normal
-Relic Song;Normal
-Secret Sword;Fighting
-Glaciate;Ice
-Bolt Strike;Electric
-Blue Flare;Fire
-Fiery Dance;Fire
-Freeze Shock;Ice
-Ice Burn;Ice
-Snarl;Dark
-Icicle Crash;Ice
-V-create;Fire
-Fusion Flare;Fire
-Fusion Bolt;Electric
-Flying Press;Fighting
-Mat Block;Fighting
-Belch;Poison
-Rototiller;Ground
-Sticky Web;Bug
-Fell Stinger;Bug
-Phantom Force;Ghost
-Trick-or-Treat;Ghost
-Noble Roar;Normal
-Ion Deluge;Electric
-Parabolic Charge;Electric
-Forest's Curse;Grass
-Petal Blizzard;Grass
-Freeze-Dry;Ice
-Disarming Voice;Fairy
-Parting Shot;Dark
-Topsy-Turvy;Dark
-Draining Kiss;Fairy
-Crafty Shield;Fairy
-Flower Shield;Fairy
-Grassy Terrain;Grass
-Misty Terrain;Fairy
-Electrify;Electric
-Play Rough;Fairy
-Fairy Wind;Fairy
-Moonblast;Fairy
-Boomburst;Normal
-Fairy Lock;Fairy
-King's Shield;Steel
-Play Nice;Normal
-Confide;Normal
-Diamond Storm;Rock
-Steam Eruption;Water
-Hyperspace Hole;Psychic
-Water Shuriken;Water
-Mystical Fire;Fire
-Spiky Shield;Grass
-Aromatic Mist;Fairy
-Eerie Impulse;Electric
-Venom Drench;Poison
-Powder;Bug
-Geomancy;Fairy
-Magnetic Flux;Electric
-Happy Hour;Normal
-Electric Terrain;Electric
-Dazzling Gleam;Fairy
-Celebrate;Normal
-Hold Hands;Normal
-Baby-Doll Eyes;Fairy
-Nuzzle;Electric
-Hold Back;Normal
-Infestation;Bug
-Power-Up Punch;Fighting
-Oblivion Wing;Flying
-Thousand Arrows;Ground
-Thousand Waves;Ground
-Land's Wrath;Ground
-Light of Ruin;Fairy
-Origin Pulse;Water
-Precipice Blades;Ground
-Dragon Ascent;Flying
-Hyperspace Fury;Dark
-Breakneck Blitz;Normal
-Breakneck Blitz;Normal
-All-Out Pummeling;Fighting
-All-Out Pummeling;Fighting
-Supersonic Skystrike;Flying
-Supersonic Skystrike;Flying
-Acid Downpour;Poison
-Acid Downpour;Poison
-Tectonic Rage;Ground
-Tectonic Rage;Ground
-Continental Crush;Rock
-Continental Crush;Rock
-Savage Spin-Out;Bug
-Savage Spin-Out;Bug
-Never-Ending Nightmare;Ghost
-Never-Ending Nightmare;Ghost
-Corkscrew Crash;Steel
-Corkscrew Crash;Steel
-Inferno Overdrive;Fire
-Inferno Overdrive;Fire
-Hydro Vortex;Water
-Hydro Vortex;Water
-Bloom Doom;Grass
-Bloom Doom;Grass
-Gigavolt Havoc;Electric
-Gigavolt Havoc;Electric
-Shattered Psyche;Psychic
-Shattered Psyche;Psychic
-Subzero Slammer;Ice
-Subzero Slammer;Ice
-Devastating Drake;Dragon
-Devastating Drake;Dragon
-Black Hole Eclipse;Dark
-Black Hole Eclipse;Dark
-Twinkle Tackle;Fairy
-Twinkle Tackle;Fairy
-Catastropika;Electric
-Shore Up;Ground
-First Impression;Bug
-Baneful Bunker;Poison
-Spirit Shackle;Ghost
-Darkest Lariat;Dark
-Sparkling Aria;Water
-Ice Hammer;Ice
-Floral Healing;Fairy
-High Horsepower;Ground
-Strength Sap;Grass
-Solar Blade;Grass
-Leafage;Grass
-Spotlight;Normal
-Toxic Thread;Poison
-Laser Focus;Normal
-Gear Up;Steel
-Throat Chop;Dark
-Pollen Puff;Bug
-Anchor Shot;Steel
-Psychic Terrain;Psychic
-Lunge;Bug
-Fire Lash;Fire
-Power Trip;Dark
-Burn Up;Fire
-Speed Swap;Psychic
-Smart Strike;Steel
-Purify;Poison
-Revelation Dance;Normal
-Core Enforcer;Dragon
-Trop Kick;Grass
-Instruct;Psychic
-Beak Blast;Flying
-Clanging Scales;Dragon
-Dragon Hammer;Dragon
-Brutal Swing;Dark
-Aurora Veil;Ice
-Sinister Arrow Raid;Ghost
-Malicious Moonsault;Dark
-Oceanic Operetta;Water
-Guardian of Alola;Fairy
-Soul-Stealing 7-Star Strike;Ghost
-Stoked Sparksurfer;Electric
-Pulverizing Pancake;Normal
-Extreme Evoboost;Normal
-Genesis Supernova;Psychic
-Shell Trap;Fire
-Fleur Cannon;Fairy
-Psychic Fangs;Psychic
-Stomping Tantrum;Ground
-Shadow Bone;Ghost
-Accelerock;Rock
-Liquidation;Water
-Prismatic Laser;Psychic
-Spectral Thief;Ghost
-Sunsteel Strike;Steel
-Moongeist Beam;Ghost
-Tearful Look;Normal
-Zing Zap;Electric
-Nature's Madness;Fairy
-Multi-Attack;Normal
-"10;000;000 Volt Thunderbolt";Electric
-Mind Blown;Fire
-Plasma Fists;Electric
-Photon Geyser;Psychic
-Light That Burns the Sky;Psychic
-Searing Sunraze Smash;Steel
-Menacing Moonraze Maelstrom;Ghost
-Let's Snuggle Forever;Fairy
-Splintered Stormshards;Rock
-Clangorous Soulblaze;Dragon
-Zippy Zap;Electric
-Splishy Splash;Water
-Floaty Fall;Flying
-Pika Papow;Electric
-Bouncy Bubble;Water
-Buzzy Buzz;Electric
-Sizzly Slide;Fire
-Glitzy Glow;Psychic
-Baddy Bad;Dark
-Sappy Seed;Grass
-Freezy Frost;Ice
-Sparkly Swirl;Fairy
-Veevee Volley;Normal
-Double Iron Bash;Steel
-Max Guard;Normal
-Dynamax Cannon;Dragon
-Snipe Shot;Water
-Jaw Lock;Dark
-Stuff Cheeks;Normal
-No Retreat;Fighting
-Tar Shot;Rock
-Magic Powder;Psychic
-Dragon Darts;Dragon
-Teatime;Normal
-Octolock;Fighting
-Bolt Beak;Electric
-Fishious Rend;Water
-Court Change;Normal
-Max Flare;Fire
-Max Flutterby;Bug
-Max Lightning;Electric
-Max Strike;Normal
-Max Knuckle;Fighting
-Max Phantasm;Ghost
-Max Hailstorm;Ice
-Max Ooze;Poison
-Max Geyser;Water
-Max Airstream;Flying
-Max Starfall;Fairy
-Max Wyrmwind;Dragon
-Max Mindstorm;Psychic
-Max Rockfall;Rock
-Max Quake;Ground
-Max Darkness;Dark
-Max Overgrowth;Grass
-Max Steelspike;Steel
-Clangorous Soul;Dragon
-Body Press;Fighting
-Decorate;Fairy
-Drum Beating;Grass
-Snap Trap;Grass
-Pyro Ball;Fire
-Behemoth Blade;Steel
-Behemoth Bash;Steel
-Aura Wheel;Electric
-Breaking Swipe;Dragon
-Branch Poke;Grass
-Overdrive;Electric
-Apple Acid;Grass
-Grav Apple;Grass
-Spirit Break;Fairy
-Strange Steam;Fairy
-Life Dew;Water
-Obstruct;Dark
-False Surrender;Dark
-Meteor Assault;Fighting
-Eternabeam;Dragon
-Steel Beam;Steel
-Expanding Force;Psychic
-Steel Roller;Steel
-Scale Shot;Dragon
-Meteor Beam;Rock
-Shell Side Arm;Poison
-Misty Explosion;Fairy
-Grassy Glide;Grass
-Rising Voltage;Electric
-Terrain Pulse;Normal
-Skitter Smack;Bug
-Burning Jealousy;Fire
-Lash Out;Dark
-Poltergeist;Ghost
-Corrosive Gas;Poison
-Coaching;Fighting
-Flip Turn;Water
-Triple Axel;Ice
-Dual Wingbeat;Flying
-Scorching Sands;Ground
-Jungle Healing;Grass
-Wicked Blow;Dark
-Surging Strikes;Water
-Thunder Cage;Electric
-Dragon Energy;Dragon
-Freezing Glare;Psychic
-Fiery Wrath;Dark
-Thunderous Kick;Fighting
-Glacial Lance;Ice
-Astral Barrage;Ghost
-Eerie Spell;Psychic
-Dire Claw;Poison
-Psyshield Bash;Psychic
-Power Shift;Normal
-Stone Axe;Rock
-Springtide Storm;Fairy
-Mystical Power;Psychic
-Raging Fury;Fire
-Wave Crash;Water
-Chloroblast;Grass
-Mountain Gale;Ice
-Victory Dance;Fighting
-Headlong Rush;Ground
-Barb Barrage;Poison
-Esper Wing;Psychic
-Bitter Malice;Ghost
-Shelter;Steel
-Triple Arrows;Fighting
-Infernal Parade;Ghost
-Ceaseless Edge;Dark
-Bleakwind Storm;Flying
-Wildbolt Storm;Electric
-Sandsear Storm;Ground
-Lunar Blessing;Psychic
-Take Heart;Psychic
-Tera Blast;Normal
-Silk Trap;Bug
-Axe Kick;Fighting
-Last Respects;Ghost
-Lumina Crash;Psychic
-Order Up;Dragon
-Jet Punch;Water
-Spicy Extract;Grass
-Spin Out;Steel
-Population Bomb;Normal
-Ice Spinner;Ice
-Glaive Rush;Dragon
-Revival Blessing;Normal
-Salt Cure;Rock
-Triple Dive;Water
-Mortal Spin;Poison
-Doodle;Normal
-Fillet Away;Normal
-Kowtow Cleave;Dark
-Flower Trick;Grass
-Torch Song;Fire
-Aqua Step;Water
-Raging Bull;Normal
-Make It Rain;Steel
-Psyblade;Psychic
-Hydro Steam;Water
-Ruination;Dark
-Collision Course;Fighting
-Electro Drift;Electric
-Shed Tail;Normal
-Chilly Reception;Ice
-Tidy Up;Normal
-Snowscape;Ice
-Pounce;Bug
-Trailblaze;Grass
-Chilling Water;Water
-Hyper Drill;Normal
-Twin Beam;Psychic
-Rage Fist;Ghost
-Armor Cannon;Fire
-Bitter Blade;Fire
-Double Shock;Electric
-Gigaton Hammer;Steel
-Comeuppance;Dark
-Aqua Cutter;Water
-Blazing Torque;Fire
-Wicked Torque;Dark
-Noxious Torque;Poison
-Combat Torque;Fighting
-Magical Torque;Fairy
-Blood Moon;Normal
-Matcha Gotcha;Grass
-Syrup Bomb;Grass
-Ivy Cudgel;Grass
-Electro Shot;Electric
-Thunderclap;Electric
-Tachyon Cutter;Steel
-Upper Hand;Fighting
-Psychic Noise;Psychic
+﻿Move;Type;German;French;Spanish;Italian;Japanese;Korean;Chinese
+Pound;Normal;Klaps;Écras;Destructor;Botta;はたく;막치기;拍擊
+Karate Chop;Fighting;Karateschlag;Poing;Golpe;Colpokarate;からてチョップ;태권당수;空手劈
+Double Slap;Normal;Duplexhieb;Torgnoles;Doble;Doppiasberla;おうふくビンタ;연속뺨치기;連環巴掌
+Comet Punch;Normal;Kometenhieb;Poing;Puño;Cometapugno;れんぞくパンチ;연속펀치;連續拳
+Mega Punch;Normal;Megahieb;Ultimapoing;Megapuño;Megapugno;メガトンパンチ;메가톤펀치;百萬噸重拳
+Pay Day;Normal;Zahltag;Jackpot;Día;Giornopaga;ネコにこばん;고양이돈받기;聚寶功
+Fire Punch;Fire;Feuerschlag;Poing;Puño;Fuocopugno;ほのおのパンチ;불꽃펀치;火焰拳
+Ice Punch;Ice;Eishieb;Poing;Puño;Gelopugno;れいとうパンチ;냉동펀치;冰凍拳
+Thunder Punch;Electric;Donnerschlag;Poing;Puño;Tuonopugno;かみなりパンチ;번개펀치;雷電拳
+Scratch;Normal;Kratzer;Griffe;Arañazo;Graffio;ひっかく;할퀴기;抓
+Vise Grip;Normal;Klammer;Force;Agarre;Presa;はさむ;찝기;夾住
+Guillotine;Normal;Guillotine;Guillotine;Guillotina;Ghigliottina;ハサミギロチン;가위자르기;斷頭鉗
+Razor Wind;Normal;Klingensturm;Coupe-Vent;Viento;Ventagliente;かまいたち;칼바람;旋風刀
+Swords Dance;Normal;Schwerttanz;Danse;Danza;Danzaspada;つるぎのまい;칼춤;劍舞
+Cut;Normal;Zerschneider;Coupe;Corte;Taglio;いあいぎり;풀베기;居合斬
+Gust;Flying;Windstoß;Tornade;Tornado;Raffica;かぜおこし;바람일으키기;起風
+Wing Attack;Flying;Flügelschlag;Cru-Ailes;Ataque;Attacco;つばさでうつ;날개치기;翅膀攻擊
+Whirlwind;Normal;Wirbelwind;Cyclone;Remolino;Turbine;ふきとばし;날려버리기;吹飛
+Fly;Flying;Fliegen;Vol;Vuelo;Volo;そらをとぶ;공중날기;飛翔
+Bind;Normal;Klammergriff;Étreinte;Atadura;Legatutto;しめつける;조이기;綁緊
+Slam;Normal;Slam;Souplesse;Atizar;Schianto;たたきつける;힘껏치기;摔打
+Vine Whip;Grass;Rankenhieb;Fouet;Látigo;Frustata;つるのムチ;덩굴채찍;藤鞭
+Stomp;Normal;Stampfer;Écrasement;Pisotón;Pestone;ふみつけ;짓밟기;踩踏
+Double Kick;Fighting;Doppelkick;Double;Doble;Doppiocalcio;にどげり;두번치기;二連踢
+Mega Kick;Normal;Megakick;Ultimawashi;Megapatada;Megacalcio;メガトンキック;메가톤킥;百萬噸重踢
+Jump Kick;Fighting;Sprungkick;Pied;Patada;Calciosalto;とびげり;점프킥;飛踢
+Rolling Kick;Fighting;Fegekick;Mawashi;Patada;Calciorullo;まわしげり;돌려차기;迴旋踢
+Sand Attack;Ground;Sandwirbel;Jet;Ataque;Turbosabbia;すなかけ;모래뿌리기;潑沙
+Headbutt;Normal;Kopfnuss;Coup;Golpe;Bottintesta;ずつき;박치기;頭錘
+Horn Attack;Normal;Hornattacke;Koud;Cornada;Incornata;つのでつく;뿔찌르기;角撞
+Fury Attack;Normal;Furienschlag;Furie;Ataque;Furia;みだれづき;마구찌르기;亂擊
+Horn Drill;Normal;Hornbohrer;Empal;Perforador;Perforcorno;つのドリル;뿔드릴;角鑽
+Tackle;Normal;Tackle;Charge;Placaje;Azione;たいあたり;몸통박치기;撞擊
+Body Slam;Normal;Bodyslam;Plaquage;Golpe;Corposcontro;のしかかり;누르기;泰山壓頂
+Wrap;Normal;Wickel;Ligotage;Constricción;Avvolgibotta;まきつく;김밥말이;緊束
+Take Down;Normal;Bodycheck;Bélier;Derribo;Riduttore;とっしん;돌진;猛撞
+Thrash;Normal;Fuchtler;Mania;Saña;Colpo;あばれる;난동부리기;大鬧一番
+Double-Edge;Normal;Risikotackle;Damoclès;Doble;Sdoppiatore;すてみタックル;이판사판태클;捨身衝撞
+Tail Whip;Normal;Rutenschlag;Mimi-Queue;Látigo;Colpocoda;しっぽをふる;꼬리흔들기;搖尾巴
+Poison Sting;Poison;Giftstachel;Dard-Venin;Picotazo;Velenospina;どくばり;독침;毒針
+Twineedle;Bug;Duonadel;Double;Doble;Doppio;ダブルニードル;더블니들;雙針
+Pin Missile;Bug;Nadelrakete;Dard-Nuée;Pin;Missilspillo;ミサイルばり;바늘미사일;飛彈針
+Leer;Normal;Silberblick;Groz;Malicioso;Fulmisguardo;にらみつける;째려보기;瞪眼
+Bite;Dark;Biss;Morsure;Mordisco;Morso;かみつく;물기;咬住
+Growl;Normal;Heuler;Rugissement;Gruñido;Ruggito;なきごえ;울음소리;叫聲
+Roar;Normal;Brüller;Hurlement;Rugido;Boato;ほえる;울부짖기;吼叫
+Sing;Normal;Gesang;Berceuse;Canto;Canto;うたう;노래하기;唱歌
+Supersonic;Normal;Superschall;Ultrason;Supersónico;Supersuono;ちょうおんぱ;초음파;超音波
+Sonic Boom;Normal;Ultraschall;Sonic;Bomba;Sonicboom;ソニックブーム;소닉붐;音爆
+Disable;Normal;Aussetzer;Entrave;Anulación;Inibitore;かなしばり;사슬묶기;定身法
+Acid;Poison;Säure;Acide;Ácido;Acido;ようかいえき;용해액;溶解液
+Ember;Fire;Glut;Flammèche;Ascuas;Braciere;ひのこ;불꽃세례;火花
+Flamethrower;Fire;Flammenwurf;Lance-Flammes;Lanzallamas;Lanciafiamme;かえんほうしゃ;화염방사;噴射火焰
+Mist;Ice;Weißnebel;Brume;Neblina;Nebbia;しろいきり;흰안개;白霧
+Water Gun;Water;Aquaknarre;Pistolet;Pistola;Pistolacqua;みずでっぽう;물대포;水槍
+Hydro Pump;Water;Hydropumpe;Hydrocanon;Hidrobomba;Idropompa;ハイドロポンプ;하이드로펌프;水炮
+Surf;Water;Surfer;Surf;Surf;Surf;なみのり;파도타기;衝浪
+Ice Beam;Ice;Eisstrahl;Laser;Rayo;Geloraggio;れいとうビーム;냉동빔;冰凍光束
+Blizzard;Ice;Blizzard;Blizzard;Ventisca;Bora;ふぶき;눈보라;暴風雪
+Psybeam;Psychic;Psystrahl;Rafale;Psicorrayo;Psicoraggio;サイケこうせん;환상빔;幻象光線
+Bubble Beam;Water;Blubbstrahl;Bulles;Rayo;Bollaraggio;バブルこうせん;거품광선;泡沫光線
+Aurora Beam;Ice;Aurorastrahl;Onde;Rayo;Raggiaurora;オーロラビーム;오로라빔;極光束
+Hyper Beam;Normal;Hyperstrahl;Ultralaser;Hiperrayo;Iper;はかいこうせん;파괴광선;破壞光線
+Peck;Flying;Pikser;Picpic;Picotazo;Beccata;つつく;쪼기;啄
+Drill Peck;Flying;Bohrschnabel;Bec;Pico;Perforbecco;ドリルくちばし;회전부리;啄鑽
+Submission;Fighting;Überroller;Sacrifice;Sumisión;Sottomissione;じごくぐるま;지옥의바퀴;地獄翻滾
+Low Kick;Fighting;Fußkick;Balayage;Patada;Colpo;けたぐり;안다리걸기;踢倒
+Counter;Fighting;Konter;Riposte;Contraataque;Contrattacco;カウンター;카운터;雙倍奉還
+Seismic Toss;Fighting;Geowurf;Frappe;Sísmico;Movim.;ちきゅうなげ;지구던지기;地球上投
+Strength;Normal;Stärke;Force;Fuerza;Forza;かいりき;괴력;怪力
+Absorb;Grass;Absorber;Vole-Vie;Absorber;Assorbimento;すいとる;흡수;吸取
+Mega Drain;Grass;Megasauger;Méga-Sangsue;Megaagotar;Megassorbimento;メガドレイン;메가드레인;超級吸取
+Leech Seed;Grass;Egelsamen;Vampigraine;Drenadoras;Parassiseme;やどりぎのタネ;씨뿌리기;寄生種子
+Growth;Normal;Wachstum;Croissance;Desarrollo;Crescita;せいちょう;성장;生長
+Razor Leaf;Grass;Rasierblatt;Tranch;Hoja;Foglielama;はっぱカッター;잎날가르기;飛葉快刀
+Solar Beam;Grass;Solarstrahl;Lance-Soleil;Rayo;Solarraggio;ソーラービーム;솔라빔;日光束
+Poison Powder;Poison;Giftpuder;Poudre;Polvo;Velenpolvere;どくのこな;독가루;毒粉
+Stun Spore;Grass;Stachelspore;Para-Spore;Paralizador;Paralizzante;しびれごな;저리가루;麻痺粉
+Sleep Powder;Grass;Schlafpuder;Poudre;Somnífero;Sonnifero;ねむりごな;수면가루;催眠粉
+Petal Dance;Grass;Blättertanz;Danse;Danza;Petalodanza;はなびらのまい;꽃잎댄스;花瓣舞
+String Shot;Bug;Fadenschuss;Sécrétion;Disparo;Millebave;いとをはく;실뿜기;吐絲
+Dragon Rage;Dragon;Drachenwut;Draco-Rage;Furia;Ira;りゅうのいかり;용의분노;龍之怒
+Fire Spin;Fire;Feuerwirbel;Danse;Giro;Turbofuoco;ほのおのうず;회오리불꽃;火焰旋渦
+Thunder Shock;Electric;Donnerschock;Éclair;Impactrueno;Tuonoshock;でんきショック;전기쇼크;電擊
+Thunderbolt;Electric;Donnerblitz;Tonnerre;Rayo;Fulmine;１０まんボルト;１０만볼트;十萬伏特
+Thunder Wave;Electric;Donnerwelle;Cage;Onda;Tuononda;でんじは;전기자석파;電磁波
+Thunder;Electric;Donner;Fatal-Foudre;Trueno;Tuono;かみなり;번개;打雷
+Rock Throw;Rock;Steinwurf;Jet-Pierres;Lanzarrocas;Sassata;いわおとし;돌떨구기;落石
+Earthquake;Ground;Erdbeben;Séisme;Terremoto;Terremoto;じしん;지진;地震
+Fissure;Ground;Geofissur;Abîme;Fisura;Abisso;じわれ;땅가르기;地裂
+Dig;Ground;Schaufler;Tunnel;Excavar;Fossa;あなをほる;구멍파기;挖洞
+Toxic;Poison;Toxin;Toxik;Tóxico;Tossina;どくどく;맹독;劇毒
+Confusion;Psychic;Konfusion;Choc;Confusión;Confusione;ねんりき;염동력;念力
+Psychic;Psychic;Psychokinese;Psyko;Psíquico;Psichico;サイコキネシス;사이코키네시스;精神強念
+Hypnosis;Psychic;Hypnose;Hypnose;Hipnosis;Ipnosi;さいみんじゅつ;최면술;催眠術
+Meditate;Psychic;Meditation;Yoga;Meditación;Meditazione;ヨガのポーズ;요가포즈;瑜伽姿勢
+Agility;Psychic;Agilität;Hâte;Agilidad;Agilità;こうそくいどう;고속이동;高速移動
+Quick Attack;Normal;Ruckzuckhieb;Vive-attaque;Ataque;Attacco;でんこうせっか;전광석화;電光一閃
+Rage;Normal;Raserei;Frénésie;Furia;Ira;いかり;분노;憤怒
+Teleport;Psychic;Teleport;Téléport;Teletransporte;Teletrasporto;テレポート;순간이동;瞬間移動
+Night Shade;Ghost;Nachtnebel;Ombre;Tinieblas;Ombra;ナイトヘッド;나이트헤드;黑夜魔影
+Mimic;Normal;Mimikry;Copie;Mimético;Mimica;ものまね;흉내내기;模仿
+Screech;Normal;Kreideschrei;Grincement;Chirrido;Stridio;いやなおと;싫은소리;刺耳聲
+Double Team;Normal;Doppelteam;Reflet;Doble;Doppioteam;かげぶんしん;그림자분신;影子分身
+Recover;Normal;Genesung;Soin;Recuperación;Ripresa;じこさいせい;HP회복;自我再生
+Harden;Normal;Härtner;Armure;Fortaleza;Rafforzatore;かたくなる;단단해지기;變硬
+Minimize;Normal;Komprimator;Lilliput;Reducción;Minimizzato;ちいさくなる;작아지기;變小
+Smokescreen;Normal;Rauchwolke;Brouillard;Pantalla;Muro;えんまく;연막;煙幕
+Confuse Ray;Ghost;Konfusstrahl;Onde;Rayo;Stordiraggio;あやしいひかり;이상한빛;奇異之光
+Withdraw;Water;Panzerschutz;Repli;Refugio;Ritirata;からにこもる;껍질에숨기;縮入殼中
+Defense Curl;Normal;Einigler;Boul;Rizo;Ricciolscudo;まるくなる;웅크리기;變圓
+Barrier;Psychic;Barriere;Bouclier;Barrera;Barriera;バリアー;배리어;屏障
+Light Screen;Psychic;Lichtschild;Mur;Pantalla;Schermoluce;ひかりのかべ;빛의장막;光牆
+Haze;Ice;Dunkelnebel;Buée;Niebla;Nube;くろいきり;흑안개;黑霧
+Reflect;Psychic;Reflektor;Protection;Reflejo;Riflesso;リフレクター;리플렉터;反射壁
+Focus Energy;Normal;Energiefokus;Puissance;Foco;Focalenergia;きあいだめ;기충전;聚氣
+Bide;Normal;Geduld;Patience;Venganza;Pazienza;がまん;참기;忍耐
+Metronome;Normal;Metronom;Métronome;Metrónomo;Metronomo;ゆびをふる;손가락흔들기;揮指
+Mirror Move;Flying;Spiegeltrick;Mimique;Espejo;Speculmossa;オウムがえし;따라하기;鸚鵡學舌
+Self-Destruct;Normal;Finale;Destruction;Autodestrucción;Autodistruzione;じばく;자폭;自爆
+Egg Bomb;Normal;Eierbombe;Bombe;Bomba;Uovobomba;タマゴばくだん;알폭탄;炸蛋
+Lick;Ghost;Schlecker;Léchouille;Lengüetazo;Leccata;したでなめる;핥기;舌舔
+Smog;Poison;Smog;Purédpois;Polución;Smog;スモッグ;스모그;濁霧
+Sludge;Poison;Schlammbad;Détritus;Residuos;Fango;ヘドロこうげき;오물공격;污泥攻擊
+Bone Club;Ground;Knochenkeule;Massd;Hueso;Ossoclava;ホネこんぼう;뼈다귀치기;骨棒
+Fire Blast;Fire;Feuersturm;Déflagration;Llamarada;Fuocobomba;だいもんじ;불대문자;大字爆炎
+Waterfall;Water;Kaskade;Cascade;Cascada;Cascata;たきのぼり;폭포오르기;攀瀑
+Clamp;Water;Schnapper;Claquoir;Tenaza;Tenaglia;からではさむ;껍질끼우기;貝殼夾擊
+Swift;Normal;Sternschauer;Météores;Meteoros;Comete;スピードスター;스피드스타;高速星星
+Skull Bash;Normal;Schädelwumme;Coud;Cabezazo;Capocciata;ロケットずつき;로케트박치기;火箭頭錘
+Spike Cannon;Normal;Dornkanone;Picanon;Clavo;Sparalance;とげキャノン;가시대포;尖刺加農炮
+Constrict;Normal;Umklammerung;Constriction;Restricción;Limitazione;からみつく;휘감기;纏繞
+Amnesia;Psychic;Amnesie;Amnésie;Amnesia;Amnesia;ドわすれ;망각술;瞬間失憶
+Kinesis;Psychic;Psykraft;Télékinésie;Kinético;Cinèsi;スプーンまげ;숟가락휘기;折彎湯匙
+Soft-Boiled;Normal;Weichei;E-Coque;Ovocuración;Covauova;タマゴうみ;알낳기;生蛋
+High Jump Kick;Fighting;Turmkick;Pied;Pat.;Calcinvolo;とびひざげり;무릎차기;飛膝踢
+Glare;Normal;Schlangenblick;Regard;Deslumbrar;Sguardo;へびにらみ;뱀눈초리;大蛇瞪眼
+Dream Eater;Psychic;Traumfresser;Dévorêve;Comesueños;Mangiasogni;ゆめくい;꿈먹기;食夢
+Poison Gas;Poison;Giftwolke;Gaz;Gas;Velenogas;どくガス;독가스;毒瓦斯
+Barrage;Normal;Stakkato;Pilonnage;Bombardeo;Attacco;たまなげ;구슬던지기;投球
+Leech Life;Bug;Blutsauger;Vampirisme;Chupavidas;Sanguisuga;きゅうけつ;흡혈;吸血
+Lovely Kiss;Normal;Todeskuss;Grobisou;Beso;Demonbacio;あくまのキッス;악마의키스;惡魔之吻
+Sky Attack;Flying;Himmelsfeger;Piqué;Ataque;Aeroattacco;ゴッドバード;불새;神鳥猛擊
+Transform;Normal;Wandler;Morphing;Transformación;Trasformazione;へんしん;변신;變身
+Bubble;Water;Blubber;Écume;Burbuja;Bolla;あわ;거품;泡沫
+Dizzy Punch;Normal;Irrschlag;Uppercut;Puño;Stordipugno;ピヨピヨパンチ;잼잼펀치;迷昏拳
+Spore;Grass;Pilzspore;Spore;Espora;Spora;キノコのほうし;버섯포자;蘑菇孢子
+Flash;Normal;Blitz;Flash;Destello;Flash;フラッシュ;플래시;閃光
+Psywave;Psychic;Psywelle;Vague;Psicoonda;Psiconda;サイコウェーブ;사이코웨이브;精神波
+Splash;Normal;Platscher;Trempette;Salpicadura;Splash;はねる;튀어오르기;躍起
+Acid Armor;Poison;Säurepanzer;Acidarmure;Armadura;Scudo;とける;녹기;溶化
+Crabhammer;Water;Krabbhammer;Pince-Masse;Martillazo;Martellata;クラブハンマー;찝게햄머;蟹鉗錘
+Explosion;Normal;Explosion;Explosion;Explosión;Esplosione;だいばくはつ;대폭발;大爆炸
+Fury Swipes;Normal;Kratzfurie;Combo-Griffe;Golpes;Sfuriate;みだれひっかき;마구할퀴기;亂抓
+Bonemerang;Ground;Knochmerang;Osmerang;Huesomerang;Ossomerang;ホネブーメラン;뼈다귀부메랑;骨頭回力鏢
+Rest;Psychic;Erholung;Repos;Descanso;Riposo;ねむる;잠자기;睡覺
+Rock Slide;Rock;Steinhagel;Éboulement;Avalancha;Frana;いわなだれ;스톤샤워;岩崩
+Hyper Fang;Normal;Hyperzahn;Croc;Hipercolmillo;Iperzanna;ひっさつまえば;필살앞니;必殺門牙
+Sharpen;Normal;Schärfer;Affûtage;Afilar;Affilatore;かくばる;각지기;棱角化
+Conversion;Normal;Umwandlung;Conversion;Conversión;Conversione;テクスチャー;텍스처;紋理
+Tri Attack;Normal;Triplette;Triplattaque;Triataque;Tripletta;トライアタック;트라이어택;三重攻擊
+Super Fang;Normal;Superzahn;Croc;Superdiente;Superzanna;いかりのまえば;분노의앞니;憤怒門牙
+Slash;Normal;Schlitzer;Tranche;Cuchillada;Lacerazione;きりさく;베어가르기;劈開
+Substitute;Normal;Delegator;Clonage;Sustituto;Sostituto;みがわり;대타출동;替身
+Struggle;Normal;Verzweifler;Lutte;Forcejeo;Scontro;わるあがき;발버둥;掙扎
+Sketch;Normal;Nachahmer;Gribouille;Esquema;Schizzo;スケッチ;스케치;寫生
+Triple Kick;Fighting;Dreifachkick;Triple;Triple;Triplocalcio;トリプルキック;트리플킥;三連踢
+Thief;Dark;Raub;Larcin;Ladrón;Furto;どろぼう;도둑질;小偷
+Spider Web;Bug;Spinnennetz;Toile;Telaraña;Ragnatela;クモのす;거미집;蛛網
+Mind Reader;Normal;Willensleser;Lire-Esprit;Telépata;Leggimente;こころのめ;마음의눈;心之眼
+Nightmare;Ghost;Nachtmahr;Cauchemar;Pesadilla;Incubo;あくむ;악몽;惡夢
+Flame Wheel;Fire;Flammenrad;Roue;Rueda;Ruotafuoco;かえんぐるま;화염자동차;火焰輪
+Snore;Normal;Schnarcher;Ronflement;Ronquido;Russare;いびき;코골기;打鼾
+Curse;Ghost;Fluch;Malédiction;Maldición;Maledizione;のろい;저주;詛咒
+Flail;Normal;Dreschflegel;Gigotage;Azote;Flagello;じたばた;바둥바둥;抓狂
+Conversion 2;Normal;Umwandlung2;Conversion2;Conversión2;Conversione2;テクスチャー２;텍스처２;紋理２
+Aeroblast;Flying;Luftstoß;Aéroblast;Aerochorro;Aerocolpo;エアロブラスト;에어로블라스트;氣旋攻擊
+Cotton Spore;Grass;Baumwollsaat;Spore;Esporagodón;Cottonspora;わたほうし;목화포자;棉孢子
+Reversal;Fighting;Gegenschlag;Contre;Inversión;Contropiede;きしかいせい;기사회생;起死回生
+Spite;Ghost;Groll;Dépit;Rencor;Dispetto;うらみ;원한;怨恨
+Powder Snow;Ice;Pulverschnee;Poudreuse;Nieve;Polneve;こなゆき;눈싸라기;細雪
+Protect;Normal;Schutzschild;Abri;Protección;Protezione;まもる;방어;守住
+Mach Punch;Fighting;Tempohieb;Mach;Ultrapuño;Pugnorapido;マッハパンチ;마하펀치;音速拳
+Scary Face;Normal;Grimasse;Grimace;Cara;Visotruce;こわいかお;겁나는얼굴;鬼面
+Feint Attack;Dark;Finte;Feinte;Finta;Finta;だましうち;속여때리기;出奇一擊
+Sweet Kiss;Fairy;Bitterkuss;Doux;Beso;Dolcebacio;てんしのキッス;천사의키스;天使之吻
+Belly Drum;Normal;Bauchtrommel;Cognobidon;Tambor;Panciamburo;はらだいこ;배북;腹鼓
+Sludge Bomb;Poison;Matschbombe;Bombe;Bomba;Fangobomba;ヘドロばくだん;오물폭탄;污泥炸彈
+Mud-Slap;Ground;Lehmschelle;Coud;Bofetón;Fangosberla;どろかけ;진흙뿌리기;擲泥
+Octazooka;Water;Octazooka;Octazooka;Pulpocañón;Octazooka;オクタンほう;대포무노포;章魚桶炮
+Spikes;Ground;Stachler;Picots;Púas;Punte;まきびし;압정뿌리기;撒菱
+Zap Cannon;Electric;Blitzkanone;Élecanon;Electrocañón;Falcecannone;でんじほう;전자포;電磁炮
+Foresight;Normal;Scharfblick;Clairvoyance;Profecía;Preveggenza;みやぶる;꿰뚫어보기;識破
+Destiny Bond;Ghost;Abgangsbund;Lien;Mismo;Destinobbligato;みちづれ;길동무;同命
+Perish Song;Normal;Abgesang;Requiem;Canto;Ultimocanto;ほろびのうた;멸망의노래;滅亡之歌
+Icy Wind;Ice;Eissturm;Vent;Viento;Ventogelato;こごえるかぜ;얼다바람;冰凍之風
+Detect;Fighting;Scanner;Détection;Detección;Individua;みきり;판별;看穿
+Bone Rush;Ground;Knochenhatz;Charge;Ataque;Ossoraffica;ボーンラッシュ;본러쉬;骨棒亂打
+Lock-On;Normal;Zielschuss;Verrouillage;Fijar;Localizza;ロックオン;록온;鎖定
+Outrage;Dragon;Wutanfall;Colère;Enfado;Oltraggio;げきりん;역린;逆鱗
+Sandstorm;Rock;Sandsturm;Tempête;Tormenta;Terrempesta;すなあらし;모래바람;沙暴
+Giga Drain;Grass;Gigasauger;Giga-Sangsue;Gigadrenado;Gigassorbimento;ギガドレイン;기가드레인;終極吸取
+Endure;Normal;Ausdauer;Ténacité;Aguante;Resistenza;こらえる;버티기;挺住
+Charm;Fairy;Charme;Charme;Encanto;Fascino;あまえる;애교부리기;撒嬌
+Rollout;Rock;Walzer;Roulade;Rodar;Rotolamento;ころがる;구르기;滾動
+False Swipe;Normal;Trugschlag;Faux-Chage;FALSO;Falsofinale;みねうち;칼등치기;點到為止
+Swagger;Normal;Angeberei;Vantardise;Contoneo;Bullo;いばる;뽐내기;虛張聲勢
+Milk Drink;Normal;Milchgetränk;Lait;Batido;Buonlatte;ミルクのみ;우유마시기;喝牛奶
+Spark;Electric;Funkensprung;Étincelle;Chispa;Scintilla;スパーク;스파크;電光
+Fury Cutter;Bug;Zornklinge;Taillade;Corte;Tagliofuria;れんぞくぎり;연속자르기;連斬
+Steel Wing;Steel;Stahlflügel;Ailes;Ala;Alacciaio;はがねのつばさ;강철날개;鋼翼
+Mean Look;Normal;Horrorblick;Regard;Mal;Malosguardo;くろいまなざし;검은눈빛;黑色目光
+Attract;Normal;Anziehung;Attraction;Atracción;Attrazione;メロメロ;헤롱헤롱;迷人
+Sleep Talk;Normal;Schlafrede;Blabla;Sonámbulo;Sonnolalia;ねごと;잠꼬대;夢話
+Heal Bell;Normal;Vitalglocke;Glas;Cascabel;Rintoccasana;いやしのすず;치료방울;治癒鈴聲
+Return;Normal;Rückkehr;Retour;Retribución;Ritorno;おんがえし;은혜갚기;報恩
+Present;Normal;Geschenk;Cadeau;Presente;Regalino;プレゼント;프레젠트;禮物
+Frustration;Normal;Frustration;Frustration;Frustración;Frustrazione;やつあたり;화풀이;遷怒
+Safeguard;Normal;Bodyguard;Rune;Velo;Salvaguardia;しんぴのまもり;신비의부적;神秘守護
+Pain Split;Normal;Leidteiler;Balance;Divide;Malcomune;いたみわけ;아픔나누기;分擔痛楚
+Sacred Fire;Fire;Läuterfeuer;Feu;Fuego;Magifuoco;せいなるほのお;성스러운불꽃;神聖之火
+Magnitude;Ground;Intensität;Ampleur;Magnitud;Magnitudo;マグニチュード;매그니튜드;震級
+Dynamic Punch;Fighting;Wuchtschlag;Dynamo-Poing;Puño;Dinamipugno;ばくれつパンチ;폭발펀치;爆裂拳
+Megahorn;Bug;Vielender;Mégacorne;Megacuerno;Megacorno;メガホーン;메가폰;超級角擊
+Dragon Breath;Dragon;Feuerodem;Draco-Souffle;Dragoaliento;Dragospiro;りゅうのいぶき;용의숨결;龍息
+Baton Pass;Normal;Stafette;Relais;Relevo;Staffetta;バトンタッチ;바톤터치;接棒
+Encore;Normal;Zugabe;Encore;Otra;Ripeti;アンコール;앵콜;再來一次
+Pursuit;Dark;Verfolgung;Poursuite;Persecución;Inseguimento;おいうち;따라가때리기;追打
+Rapid Spin;Normal;Turbodreher;Tour;Giro;Rapigiro;こうそくスピン;고속스핀;高速旋轉
+Sweet Scent;Normal;Lockduft;Doux;Dulce;Profumino;あまいかおり;달콤한향기;甜甜香氣
+Iron Tail;Steel;Eisenschweif;Queue;Cola;Codacciaio;アイアンテール;아이언테일;鐵尾
+Metal Claw;Steel;Metallklaue;Griffe;Garra;Ferrartigli;メタルクロー;메탈크로우;金屬爪
+Vital Throw;Fighting;Überwurf;Corps;Llave;Vitaltiro;あてみなげ;받아던지기;借力摔
+Morning Sun;Normal;Morgengrauen;Aurore;Sol;Mattindoro;あさのひざし;아침햇살;晨光
+Synthesis;Grass;Synthese;Synthèse;Síntesis;Sintesi;こうごうせい;광합성;光合作用
+Moonlight;Fairy;Mondschein;Rayon;Luz;Lucelunare;つきのひかり;달의불빛;月光
+Hidden Power;Normal;Kraftreserve;Puissance;Poder;Introforza;めざめるパワー;잠재파워;覺醒力量
+Cross Chop;Fighting;Kreuzhieb;Coup;Tajo;Incrocolpo;クロスチョップ;크로스촙;十字劈
+Twister;Dragon;Windhose;Ouragan;Ciclón;Tornado;たつまき;회오리;龍捲風
+Rain Dance;Water;Regentanz;Danse;Danza;Pioggiadanza;あまごい;비바라기;求雨
+Sunny Day;Fire;Sonnentag;Zénith;Día;Giornodisole;にほんばれ;쾌청;大晴天
+Crunch;Dark;Knirscher;Mâchouille;Triturar;Sgranocchio;かみくだく;깨물어부수기;咬碎
+Mirror Coat;Psychic;Spiegelcape;Voile;Manto;Specchiovelo;ミラーコート;미러코트;鏡面反射
+Psych Up;Normal;Psycho-Plus;Boost;Autosugestión;Psicamisù;じこあんじ;자기암시;自我暗示
+Extreme Speed;Normal;Turbotempo;Vitesse;Veloc.;Extrarapido;しんそく;신속;神速
+Ancient Power;Rock;Antik-Kraft;Pouvoir;Poder;Forzantica;げんしのちから;원시의힘;原始之力
+Shadow Ball;Ghost;Spukball;Ball;Bola;Palla;シャドーボール;섀도볼;暗影球
+Future Sight;Psychic;Seher;Prescience;Premonición;Divinazione;みらいよち;미래예지;預知未來
+Rock Smash;Fighting;Zertrümmerer;Éclate-Roc;Golpe;Spaccaroccia;いわくだき;바위깨기;碎岩
+Whirlpool;Water;Whirlpool;Siphon;Torbellino;Mulinello;うずしお;바다회오리;潮旋
+Beat Up;Dark;Prügler;Baston;Paliza;Picchiaduro;ふくろだたき;집단구타;圍攻
+Fake Out;Normal;Mogelhieb;Bluff;Sorpresa;Bruciapelo;ねこだまし;속이다;擊掌奇襲
+Uproar;Normal;Aufruhr;Brouhaha;Alboroto;Baraonda;さわぐ;소란피기;吵鬧
+Stockpile;Normal;Horter;Stockage;Reserva;Accumulo;たくわえる;비축하기;蓄力
+Spit Up;Normal;Entfessler;Relâche;Escupir;Sfoghenergia;はきだす;토해내기;噴出
+Swallow;Normal;Verzehrer;Avale;Tragar;Intoenergia;のみこむ;꿀꺽;吞下
+Heat Wave;Fire;Hitzewelle;Canicule;Onda;Ondacalda;ねっぷう;열풍;熱風
+Hail;Ice;Hagelsturm;Grêle;Granizo;Grandine;あられ;싸라기눈;冰雹
+Torment;Dark;Folterknecht;Tourmente;Tormento;Attaccalite;いちゃもん;트집;無理取鬧
+Flatter;Dark;Schmeichler;Flatterie;Camelo;Adulazione;おだてる;부추기기;吹捧
+Will-O-Wisp;Fire;Irrlicht;Feu;Fuego;Fuocofatuo;おにび;도깨비불;鬼火
+Memento;Dark;Memento-Mori;Souvenir;Legado;Memento;おきみやげ;추억의선물;臨別禮物
+Facade;Normal;Fassade;Façade;Imagen;Facciata;からげんき;객기;硬撐
+Focus Punch;Fighting;Power-Punch;Mitra-Poing;Puño;Centripugno;きあいパンチ;힘껏펀치;真氣拳
+Smelling Salts;Normal;Riechsalz;Stimulant;Estímulo;Maniereforti;きつけ;정신차리기;清醒
+Follow Me;Normal;Spotlight;Par;Señuelo;Sonoqui;このゆびとまれ;날따름;看我嘛
+Nature Power;Normal;Natur-Kraft;Force;Adaptación;Naturforza;しぜんのちから;자연의힘;自然之力
+Charge;Electric;Ladevorgang;Chargeur;Carga;Sottocarica;じゅうでん;충전;充電
+Taunt;Dark;Verhöhner;Provoc;Mofa;Provocazione;ちょうはつ;도발;挑釁
+Helping Hand;Normal;Rechte;Coup;Refuerzo;Altruismo;てだすけ;도우미;幫助
+Trick;Psychic;Trickbetrug;Tour;Truco;Raggiro;トリック;트릭;戲法
+Role Play;Psychic;Rollenspiel;Imitation;Imitación;Giocodiruolo;なりきり;역할;扮演
+Wish;Normal;Wunschtraum;Vœu;Deseo;Desiderio;ねがいごと;희망사항;祈願
+Assist;Normal;Zuschuss;Assistance;Ayuda;Assistente;ねこのて;조수;借助
+Ingrain;Grass;Verwurzler;Racines;Arraigo;Radicamento;ねをはる;뿌리박기;扎根
+Superpower;Fighting;Kraftkoloss;Surpuissance;Fuerza;Troppoforte;ばかぢから;엄청난힘;蠻力
+Magic Coat;Psychic;Magiemantel;Reflet;Capa;Magivelo;マジックコート;매직코트;魔法反射
+Recycle;Normal;Aufbereitung;Recyclage;Reciclaje;Riciclo;リサイクル;리사이클;回收利用
+Revenge;Fighting;Vergeltung;Vendetta;Desquite;Vendetta;リベンジ;리벤지;報復
+Brick Break;Fighting;Durchbruch;Casse-Brique;Demolición;Breccia;かわらわり;깨트리다;劈瓦
+Yawn;Normal;Gähner;Bâillement;Bostezo;Sbadiglio;あくび;하품;哈欠
+Knock Off;Dark;Abschlag;Sabotage;Desarme;Privazione;はたきおとす;탁쳐서떨구기;拍落
+Endeavor;Normal;Notsituation;Effort;Esfuerzo;Rimonta;がむしゃら;죽기살기;蠻幹
+Eruption;Fire;Eruption;Éruption;Estallido;Eruzione;ふんか;분화;噴火
+Skill Swap;Psychic;Fähigkeitstausch;Échange;Intercambio;Baratto;スキルスワップ;스킬스웹;特性互換
+Imprison;Psychic;Begrenzer;Possessif;Sellar;Esclusiva;ふういん;봉인;封印
+Refresh;Normal;Heilung;Régénération;Alivio;Rinfrescata;リフレッシュ;리프레쉬;煥然一新
+Grudge;Ghost;Nachspiel;Rancune;Rabia;Rancore;おんねん;원념;怨念
+Snatch;Dark;Übernahme;Saisie;Robo;Scippo;よこどり;가로챔;搶奪
+Secret Power;Normal;Geheimpower;Force;Daño;Forzasegreta;ひみつのちから;비밀의힘;秘密之力
+Dive;Water;Taucher;Plongée;Buceo;Sub;ダイビング;다이빙;潛水
+Arm Thrust;Fighting;Armstoß;Cogne;Empujón;Sberletese;つっぱり;손바닥치기;猛推
+Camouflage;Normal;Tarnung;Camouflage;Camuflaje;Camuffamento;ほごしょく;보호색;保護色
+Tail Glow;Bug;Schweifglanz;Lumi-Queue;Luminicola;Codadiluce;ほたるび;반딧불;螢火
+Luster Purge;Psychic;Scheinwerfer;Lumi-Éclat;Resplandor;Abbagliante;ラスターパージ;라스트버지;潔淨光芒
+Mist Ball;Psychic;Nebelball;Ball;Bola;Foschisfera;ミストボール;미스트볼;薄霧球
+Feather Dance;Flying;Daunenreigen;Danse;Danza;Danzadipiume;フェザーダンス;깃털댄스;羽毛舞
+Teeter Dance;Normal;Taumeltanz;Danse;Danza;Strampadanza;フラフラダンス;흔들흔들댄스;搖晃舞
+Blaze Kick;Fire;Feuerfeger;Pied;Patada;Calciardente;ブレイズキック;브레이즈킥;火焰踢
+Mud Sport;Ground;Lehmsuhler;Lance-Boue;Chapoteo;Fangata;どろあそび;흙놀이;玩泥巴
+Ice Ball;Ice;Frostbeule;Ball;Bola;Palla;アイスボール;아이스볼;冰球
+Needle Arm;Grass;Nietenranke;Poing;Brazo;Pugnospine;ニードルアーム;바늘팔;尖刺臂
+Slack Off;Normal;Tagedieb;Paresse;Relajo;Pigro;なまける;태만함;偷懶
+Hyper Voice;Normal;Schallwelle;Mégaphone;Vozarrón;Granvoce;ハイパーボイス;하이퍼보이스;巨聲
+Poison Fang;Poison;Giftzahn;Crochet;Colmillo;Velenodenti;どくどくのキバ;독엄니;劇毒牙
+Crush Claw;Normal;Zermalmklaue;Éclate;Garra;Tritartigli;ブレイククロー;브레이크크루;撕裂爪
+Blast Burn;Fire;Lohekanonade;Rafale;Anillo;Incendio;ブラストバーン;블러스트번;爆炸烈焰
+Hydro Cannon;Water;Aquahaubitze;Hydroblast;Hidrocañón;Idrocannone;ハイドロカノン;하이드로캐논;加農水炮
+Meteor Mash;Steel;Sternenhieb;Poing;Puño;Meteorpugno;コメットパンチ;코멧펀치;彗星拳
+Astonish;Ghost;Erstauner;Étonnement;Impresionar;Sgomento;おどろかす;놀래키기;驚嚇
+Weather Ball;Normal;Meteorologe;Ball;Meteorobola;Palla;ウェザーボール;웨더볼;氣象球
+Aromatherapy;Grass;Aromakur;Aromathérapie;Aromaterapia;Aromaterapia;アロマセラピー;아로마테라피;芳香治療
+Fake Tears;Dark;Trugträne;Croco;Llanto;Falselacrime;うそなき;거짓울음;假哭
+Air Cutter;Flying;Windschnitt;Tranch;Aire;Aerasoio;エアカッター;에어컷터;空氣利刃
+Overheat;Fire;Hitzekoller;Surchauffe;Sofoco;Vampata;オーバーヒート;오버히트;過熱
+Odor Sleuth;Normal;Schnüffler;Flair;Rastreo;Segugio;かぎわける;냄새구별;氣味偵測
+Rock Tomb;Rock;Felsgrab;Tomberoche;Tumba;Rocciotomba;がんせきふうじ;암석봉인;岩石封鎖
+Silver Wind;Bug;Silberhauch;Vent;Viento;Ventargenteo;ぎんいろのかぜ;은빛바람;銀色旋風
+Metal Sound;Steel;Metallsound;Strido-Son;Eco;Ferrostrido;きんぞくおん;금속음;金屬音
+Grass Whistle;Grass;Grasflöte;Siffl;Silbato;Meloderba;くさぶえ;풀피리;草笛
+Tickle;Normal;Spaßkanone;Chatouille;Cosquillas;Solletico;くすぐる;간지르기;撓癢
+Cosmic Power;Psychic;Kosmik-Kraft;Force;Masa;Cosmoforza;コスモパワー;코스믹파워;宇宙力量
+Water Spout;Water;Fontränen;Giclédo;Salpicar;Zampillo;しおふき;해수스파우팅;噴水
+Signal Beam;Bug;Ampelleuchte;Rayon;Rayo;Segnoraggio;シグナルビーム;시그널빔;信號光束
+Shadow Punch;Ghost;Finsterfaust;Poing;Puño;Pugnodombra;シャドーパンチ;섀도펀치;暗影拳
+Extrasensory;Psychic;Sondersensor;Extrasenseur;Paranormal;Extrasenso;じんつうりき;신통력;神通力
+Sky Uppercut;Fighting;Himmelhieb;Stratopercut;Gancho;Stramontante;スカイアッパー;스카이업퍼;衝天拳
+Sand Tomb;Ground;Sandgrab;Tourbi-Sable;Bucle;Sabbiotomba;すなじごく;모래지옥;流沙地獄
+Sheer Cold;Ice;Eiseskälte;Glaciation;Frío;Purogelo;ぜったいれいど;절대영도;絕對零度
+Muddy Water;Water;Lehmbrühe;Ocroupi;Agua;Fanghiglia;だくりゅう;탁류;濁流
+Bullet Seed;Grass;Kugelsaat;Balle;Semilladora;Semitraglia;タネマシンガン;기관총;種子機關槍
+Aerial Ace;Flying;Aero-Ass;Aéropique;Golpe;Aeroassalto;つばめがえし;제비반환;燕返
+Icicle Spear;Ice;Eisspeer;Stalagtite;Carámbano;Gelolancia;つららばり;고드름침;冰錐
+Iron Defense;Steel;Eisenabwehr;Mur;Defensa;Ferroscudo;てっぺき;철벽;鐵壁
+Block;Normal;Rückentzug;Barrage;Bloqueo;Blocco;とおせんぼう;블록;擋路
+Howl;Normal;Jauler;Grondement;Aullido;Gridodilotta;とおぼえ;멀리짖음;長嚎
+Dragon Claw;Dragon;Drachenklaue;Draco-Griffe;Garra;Dragartigli;ドラゴンクロー;드래곤크루;龍爪
+Frenzy Plant;Grass;Flora-Statue;Végé-Attaque;Planta;Radicalbero;ハードプラント;하드플랜트;瘋狂植物
+Bulk Up;Fighting;Protzer;Gonflette;Corpulencia;Granfisico;ビルドアップ;벌크업;健美
+Bounce;Flying;Sprungfeder;Rebond;Bote;Rimbalzo;とびはねる;뛰어오르다;彈跳
+Mud Shot;Ground;Lehmschuss;Tir;Disparo;Colpodifango;マッドショット;머드숏;泥巴射擊
+Poison Tail;Poison;Giftschweif;Queue-Poison;Cola;Velenocoda;ポイズンテール;포이즌테일;毒尾
+Covet;Normal;Bezirzer;Implore;Antojo;Supplica;ほしがる;탐내다;渴望
+Volt Tackle;Electric;Volttackle;Électacle;Placaje;Locomovolt;ボルテッカー;볼트태클;伏特攻擊
+Magical Leaf;Grass;Zauberblatt;Feuille;Hoja;Fogliamagica;マジカルリーフ;메지컬리프;魔法葉
+Water Sport;Water;Nassmacher;Tourniquet;Hidrochorro;Docciascudo;みずあそび;물놀이;玩水
+Calm Mind;Psychic;Gedankengut;Plénitude;Paz;Calmamente;めいそう;명상;冥想
+Leaf Blade;Grass;Laubklinge;Lame;Hoja;Fendifoglia;リーフブレード;리프블레이드;葉刃
+Dragon Dance;Dragon;Drachentanz;Danse;Danza;Dragodanza;りゅうのまい;용의춤;龍之舞
+Rock Blast;Rock;Felswurf;Boule;Pedrada;Cadutamassi;ロックブラスト;락블레스트;岩石爆擊
+Shock Wave;Electric;Schockwelle;Onde;Onda;Ondashock;でんげきは;전격파;電擊波
+Water Pulse;Water;Aquawelle;Vibraqua;Hidropulso;Idropulsar;みずのはどう;물의파동;水之波動
+Doom Desire;Steel;Kismetwunsch;Vœu;Deseo;Obbliderio;はめつのねがい;파멸의소원;破滅之願
+Psycho Boost;Psychic;Psyschub;Psycho-Boost;Psicoataque;Psicoslancio;サイコブースト;사이코부스트;精神突進
+Roost;Flying;Ruheort;Atterrissage;Respiro;Trespolo;はねやすめ;날개쉬기;羽棲
+Gravity;Psychic;Erdanziehung;Gravité;Gravedad;Gravità;じゅうりょく;중력;重力
+Miracle Eye;Psychic;Wunderauge;Œil;Gran;Miracolvista;ミラクルアイ;미라클아이;奇跡之眼
+Wake-Up Slap;Fighting;Weckruf;Réveil;Espabila;Svegliopacca;めざましビンタ;잠깨움뺨치기;喚醒巴掌
+Hammer Arm;Fighting;Hammerarm;Marto-Poing;Machada;Martelpugno;アームハンマー;암해머;臂錘
+Gyro Ball;Steel;Gyroball;Gyroballe;Giro;Vortexpalla;ジャイロボール;자이로볼;陀螺球
+Healing Wish;Psychic;Heilopfer;Vœu;Deseo;Curardore;いやしのねがい;치유소원;治癒之願
+Brine;Water;Lake;Saumure;Salmuera;Acquadisale;しおみず;소금물;鹽水
+Natural Gift;Normal;Beerenkräfte;Don;Don;Dononaturale;しぜんのめぐみ;자연의은혜;自然之恩
+Feint;Normal;Offenlegung;Ruse;Amago;Fintoattacco;フェイント;페인트;佯攻
+Pluck;Flying;Pflücker;Picore;Picoteo;Spennata;ついばむ;쪼아대기;啄食
+Tailwind;Flying;Rückenwind;Vent;Viento;Ventoincoda;おいかぜ;순풍;順風
+Acupressure;Normal;Akupressur;Acupression;Acupresión;Acupressione;つぼをつく;경혈찌르기;點穴
+Metal Burst;Steel;Metallstoß;Fulmifer;Represión;Metalscoppio;メタルバースト;메탈버스트;金屬爆炸
+U-turn;Bug;Kehrtwende;Demi-Tour;Ida;Retromarcia;とんぼがえり;유턴;急速折返
+Close Combat;Fighting;Nahkampf;Close;A;Zuffa;インファイト;인파이트;近身戰
+Payback;Dark;Gegenstoß;Représailles;Vendetta;Rivincita;しっぺがえし;보복;以牙還牙
+Assurance;Dark;Gewissheit;Assurance;Buena;Garanzia;ダメおし;승부굳히기;惡意追擊
+Embargo;Dark;Itemsperre;Embargo;Embargo;Divieto;さしおさえ;금제;查封
+Fling;Dark;Schleuder;Dégommage;Lanzamiento;Lancio;なげつける;내던지기;投擲
+Psycho Shift;Psychic;Psybann;Échange;Psicocambio;Psicotrasfer;サイコシフト;사이코시프트;精神轉移
+Trump Card;Normal;Trumpfkarte;Atout;As;Asso;きりふだ;마지막수단;王牌
+Heal Block;Psychic;Heilblockade;Anti-Soin;Anticura;Anticura;かいふくふうじ;회복봉인;回復封鎖
+Wring Out;Normal;Auswringen;Essorage;Estrujón;Strizzata;しぼりとる;쥐어짜기;絞緊
+Power Trick;Psychic;Krafttrick;Astuce;Truco;Ingannoforza;パワートリック;파워트릭;力量戲法
+Gastro Acid;Poison;Magensäfte;Suc;Bilis;Gastroacido;いえき;위액;胃液
+Lucky Chant;Normal;Beschwörung;Air;Conjuro;Fortuncanto;おまじない;주술;幸運咒語
+Me First;Normal;Egotrip;Moi;Yo;Precedenza;さきどり;선취;搶先一步
+Copycat;Normal;Imitator;Photocopie;Copión;Copione;まねっこ;흉내쟁이;仿效
+Power Swap;Psychic;Krafttausch;Permuforce;Cambiafuerza;Barattoforza;パワースワップ;파워스웹;力量互換
+Guard Swap;Psychic;Schutztausch;Permugarde;Cambiadefensa;Barattoscudo;ガードスワップ;가드스웹;防守互換
+Punishment;Dark;Strafattacke;Punition;Castigo;Punizione;おしおき;혼내기;懲罰
+Last Resort;Normal;Zuflucht;Dernier;Última;Ultimascelta;とっておき;뒀다쓰기;珍藏
+Worry Seed;Grass;Sorgensamen;Soucigraine;Abatidoras;Affannoseme;なやみのタネ;고민씨;煩惱種子
+Sucker Punch;Dark;Tiefschlag;Coup;Golpe;Sbigoattacco;ふいうち;기습;突襲
+Toxic Spikes;Poison;Giftspitzen;Pics;Púas;Fielepunte;どくびし;독압정;毒菱
+Heart Swap;Psychic;Statustausch;Permucœur;Cambiaalmas;Cuorbaratto;ハートスワップ;하트스웹;心靈互換
+Aqua Ring;Water;Wasserring;Anneau;Acua;Acquanello;アクアリング;아쿠아링;水流環
+Magnet Rise;Electric;Magnetflug;Vol;Levitón;Magnetascesa;でんじふゆう;전자부유;電磁飄浮
+Flare Blitz;Fire;Flammenblitz;Boutefeu;Envite;Fuococarica;フレアドライブ;플레어드라이브;閃焰衝鋒
+Force Palm;Fighting;Kraftwelle;Forte-Paume;Palmeo;Palmoforza;はっけい;발경;發勁
+Aura Sphere;Fighting;Aurasphäre;Aurasphère;Esfera;Sferapulsar;はどうだん;파동탄;波導彈
+Rock Polish;Rock;Steinpolitur;Poliroche;Pulimento;Lucidatura;ロックカット;록커트;岩石打磨
+Poison Jab;Poison;Gifthieb;Direct;Puya;Velenpuntura;どくづき;독찌르기;毒擊
+Dark Pulse;Dark;Finsteraura;Vibrobscur;Pulso;Neropulsar;あくのはどう;악의파동;惡之波動
+Night Slash;Dark;Nachthieb;Tranche-Nuit;Tajo;Nottesferza;つじぎり;깜짝베기;暗襲要害
+Aqua Tail;Water;Nassschweif;Hydro-Queue;Acua;Idrondata;アクアテール;아쿠아테일;水流尾
+Seed Bomb;Grass;Samenbomben;Canon;Bomba;Semebomba;タネばくだん;씨폭탄;種子炸彈
+Air Slash;Flying;Luftschnitt;Lame;Tajo;Eterelama;エアスラッシュ;에어슬래시;空氣斬
+X-Scissor;Bug;Kreuzschere;Plaie;Tijera;Forbice;シザークロス;시저크로스;十字剪
+Bug Buzz;Bug;Käfergebrumm;Bourdon;Zumbido;Ronzio;むしのさざめき;벌레의야단법석;蟲鳴
+Dragon Pulse;Dragon;Drachenpuls;Draco-Choc;Pulso;Dragopulsar;りゅうのはどう;용의파동;龍之波動
+Dragon Rush;Dragon;Drachenstoß;Draco-Charge;Carga;Dragofuria;ドラゴンダイブ;드래곤다이브;龍之俯衝
+Power Gem;Rock;Juwelenkraft;Rayon;Joya;Gemmoforza;パワージェム;파워젬;力量寶石
+Drain Punch;Fighting;Ableithieb;Vampi-Poing;Puño;Assorbipugno;ドレインパンチ;드레인펀치;吸取拳
+Vacuum Wave;Fighting;Vakuumwelle;Onde;Onda;Vuotonda;しんくうは;진공파;真空波
+Focus Blast;Fighting;Fokusstoß;Exploforce;Onda;Focalcolpo;きあいだま;기합구슬;真氣彈
+Energy Ball;Grass;Energieball;Éco-Sphère;Energibola;Energipalla;エナジーボール;에너지볼;能量球
+Brave Bird;Flying;Sturzflug;Rapace;Pájaro;Baldeali;ブレイブバード;브레이브버드;勇鳥猛攻
+Earth Power;Ground;Erdkräfte;Telluriforce;Tierra;Geoforza;だいちのちから;대지의힘;大地之力
+Switcheroo;Dark;Wechseldich;Passe-Passe;Trapicheo;Rapidscambio;すりかえ;바꿔치기;掉包
+Giga Impact;Normal;Gigastoß;Giga;Gigaimpacto;Gigaimpatto;ギガインパクト;기가임팩트;終極衝擊
+Nasty Plot;Dark;Ränkeschmied;Machination;Maquinación;Congiura;わるだくみ;나쁜음모;詭計
+Bullet Punch;Steel;Patronenhieb;Pisto-Poing;Puño;Pugnoscarica;バレットパンチ;불릿펀치;子彈拳
+Avalanche;Ice;Lawine;Avalanche;Alud;Slavina;ゆきなだれ;눈사태;雪崩
+Ice Shard;Ice;Eissplitter;Éclats;Esquirla;Geloscheggia;こおりのつぶて;얼음뭉치;冰礫
+Shadow Claw;Ghost;Dunkelklaue;Griffe;Garra;Ombrartigli;シャドークロー;섀도크루;暗影爪
+Thunder Fang;Electric;Donnerzahn;Crocs;Colmillo;Fulmindenti;かみなりのキバ;번개엄니;雷電牙
+Ice Fang;Ice;Eiszahn;Crocs;Colmillo;Gelodenti;こおりのキバ;얼음엄니;冰凍牙
+Fire Fang;Fire;Feuerzahn;Crocs;Colmillo;Rogodenti;ほのおのキバ;불꽃엄니;火焰牙
+Shadow Sneak;Ghost;Schattenstoß;Ombre;Sombra;Furtivombra;かげうち;야습;影子偷襲
+Mud Bomb;Ground;Schlammbombe;Boue-Bombe;Bomba;Pantanobomba;どろばくだん;진흙폭탄;泥巴炸彈
+Psycho Cut;Psychic;Psychoklinge;Coupe;Psicocorte;Psicotaglio;サイコカッター;사이코커터;精神利刃
+Zen Headbutt;Psychic;Zen-Kopfstoß;Psykoud;Cabezazo;Cozzata;しねんのずつき;사념의박치기;意念頭錘
+Mirror Shot;Steel;Spiegelsalve;Miroi-Tir;Disparo;Cristalcolpo;ミラーショット;미러숏;鏡光射擊
+Flash Cannon;Steel;Lichtkanone;Luminocanon;Foco;Cannonflash;ラスターカノン;러스터캐논;加農光炮
+Rock Climb;Normal;Kraxler;Escalade;Treparrocas;Scalaroccia;ロッククライム;락클라임;攀岩
+Defog;Flying;Auflockern;Anti-Brume;Despejar;Scacciabruma;きりばらい;안개제거;清除濃霧
+Trick Room;Psychic;Bizarroraum;Distorsion;Espacio;Distortozona;トリックルーム;트릭룸;戲法空間
+Draco Meteor;Dragon;Draco;Draco-Météore;Cometa;Dragobolide;りゅうせいぐん;용성군;流星群
+Discharge;Electric;Ladungsstoß;Coup;Chispazo;Scarica;ほうでん;방전;放電
+Lava Plume;Fire;Flammensturm;Ébullilave;Humareda;Lavasbuffo;ふんえん;분연;噴煙
+Leaf Storm;Grass;Blättersturm;Tempête;Lluevahojas;Verdebufera;リーフストーム;리프스톰;飛葉風暴
+Power Whip;Grass;Blattgeißel;Mégafouet;Latigazo;Vigorcolpo;パワーウィップ;파워휩;強力鞭打
+Rock Wrecker;Rock;Felswerfer;Roc-Boulet;Romperrocas;Devastomasso;がんせきほう;암석포;岩石炮
+Cross Poison;Poison;Giftstreich;Poison;Veneno;Velenocroce;クロスポイズン;크로스포이즌;十字毒刃
+Gunk Shot;Poison;Mülltreffer;Détricanon;Lanzamugre;Sporcolancio;ダストシュート;더스트슈트;垃圾射擊
+Iron Head;Steel;Eisenschädel;Tête;Cabeza;Metaltestata;アイアンヘッド;아이언헤드;鐵頭
+Magnet Bomb;Steel;Magnetbombe;Bombe;Bomba;Bombagnete;マグネットボム;마그넷봄;磁鐵炸彈
+Stone Edge;Rock;Steinkante;Lame;Roca;Pietrataglio;ストーンエッジ;스톤에지;尖石攻擊
+Captivate;Normal;Liebreiz;Séduction;Seducción;Incanto;ゆうわく;유혹;誘惑
+Stealth Rock;Rock;Tarnsteine;Piège;Trampa;Levitoroccia;ステルスロック;스텔스록;隱形岩
+Grass Knot;Grass;Strauchler;Nœud;Hierba;Laccioerboso;くさむすび;풀묶기;打草結
+Chatter;Flying;Geschwätz;Babil;Cháchara;Schiamazzo;おしゃべり;수다;喋喋不休
+Judgment;Normal;Urteilskraft;Jugement;Sentencia;Giudizio;さばきのつぶて;심판의뭉치;制裁光礫
+Bug Bite;Bug;Käferbiss;Piqûre;Picadura;Coleomorso;むしくい;벌레먹음;蟲咬
+Charge Beam;Electric;Ladestrahl;Rayon;Rayo;Raggioscossa;チャージビーム;차지빔;充電光束
+Wood Hammer;Grass;Holzhammer;Martobois;Mazazo;Mazzuolegno;ウッドハンマー;우드해머;木槌
+Aqua Jet;Water;Wasserdüse;Aqua-Jet;Acua;Acquagetto;アクアジェット;아쿠아제트;水流噴射
+Attack Order;Bug;Schlagbefehl;Appel;Al;Comandourto;こうげきしれい;공격지령;攻擊指令
+Defend Order;Bug;Blockbefehl;Appel;A;Comandoscudo;ぼうぎょしれい;방어지령;防禦指令
+Heal Order;Bug;Heilbefehl;Appel;Auxilio;Comandocura;かいふくしれい;회복지령;回復指令
+Head Smash;Rock;Kopfstoß;Fracass;Testarazo;Zuccata;もろはのずつき;양날박치기;雙刃頭錘
+Double Hit;Normal;Doppelschlag;Coup;Doble;Doppiosmash;ダブルアタック;더블어택;二連擊
+Roar of Time;Dragon;Zeitenlärm;Hurle-Temps;Distorsión;Fragortempo;ときのほうこう;시간의포효;時光咆哮
+Spacial Rend;Dragon;Raumschlag;Spatio-Rift;Corte;Fendispazio;あくうせつだん;공간절단;亞空裂斬
+Lunar Dance;Psychic;Lunartanz;Danse;Danza;Lunardanza;みかづきのまい;초승달춤;新月舞
+Crush Grip;Normal;Quetschgriff;Presse;Agarrón;Sbriciolmano;にぎりつぶす;묵사발;捏碎
+Magma Storm;Fire;Lavasturm;Vortex;Lluvia;Magmaclisma;マグマストーム;마그마스톰;熔岩風暴
+Dark Void;Dark;Schlummerort;Trou;Brecha;Vuototetro;ダークホール;다크홀;暗黑洞
+Seed Flare;Grass;Schocksamen;Fulmigraine;Fulgor;Infuriaseme;シードフレア;시드플레어;種子閃光
+Ominous Wind;Ghost;Unheilböen;Vent;Viento;Funestovento;あやしいかぜ;괴상한바람;奇異之風
+Shadow Force;Ghost;Schemenkraft;Revenant;Golpe;Oscurotuffo;シャドーダイブ;섀도다이브;暗影潛襲
+Hone Claws;Dark;Klauenwetzer;Aiguisage;Afilagarras;Unghiaguzze;つめとぎ;손톱갈기;磨爪
+Wide Guard;Rock;Rundumschutz;Garde;Vasta;Bodyguard;ワイドガード;와이드가드;廣域防守
+Guard Split;Psychic;Schutzteiler;Partage;Isoguardia;Paridifesa;ガードシェア;가드셰어;防守平分
+Power Split;Psychic;Kraftteiler;Partage;Isofuerza;Pariattacco;パワーシェア;파워셰어;力量平分
+Wonder Room;Psychic;Wunderraum;Zone;Zona;Mirabilzona;ワンダールーム;원더룸;奇妙空間
+Psyshock;Psychic;Psychoschock;Choc;Psicocarga;Psicoshock;サイコショック;사이코쇼크;精神衝擊
+Venoshock;Poison;Giftschock;Choc;Carga;Velenoshock;ベノムショック;베놈쇼크;毒液衝擊
+Autotomize;Steel;Autotomie;Allègement;Aligerar;Sganciapesi;ボディパージ;바디퍼지;身體輕量化
+Rage Powder;Bug;Wutpulver;Poudre;Polvo;Polverabbia;いかりのこな;분노가루;憤怒粉
+Telekinesis;Psychic;Telekinese;Lévikinésie;Telequinesis;Telecinesi;テレキネシス;텔레키네시스;意念移物
+Magic Room;Psychic;Magieraum;Zone;Zona;Magicozona;マジックルーム;매직룸;魔法空間
+Smack Down;Rock;Katapult;Anti-Air;Antiaéreo;Abbattimento;うちおとす;떨어뜨리기;擊落
+Storm Throw;Fighting;Bergsturm;Yama;Llave;Tempestretta;やまあらし;업어후리기;山嵐摔
+Flame Burst;Fire;Funkenflug;Rebondifeu;Pirotecnia;Pirolancio;はじけるほのお;불꽃튀기기;烈焰濺射
+Sludge Wave;Poison;Schlammwoge;Cradovague;Onda;Fangonda;ヘドロウェーブ;오물웨이브;污泥波
+Quiver Dance;Bug;Falterreigen;Papillodanse;Danza;Eledanza;ちょうのまい;나비춤;蝶舞
+Heavy Slam;Steel;Rammboss;Tacle;Cuerpo;Pesobomba;ヘビーボンバー;헤비봄버;重磅衝撞
+Synchronoise;Psychic;Synchrolärm;Synchropeine;Sincrorruido;Sincrumore;シンクロノイズ;싱크로노이즈;同步干擾
+Electro Ball;Electric;Elektroball;Boule;Bola;Energisfera;エレキボール;일렉트릭볼;電球
+Soak;Water;Überflutung;Détrempage;Empapar;Inondazione;みずびたし;물붓기;浸水
+Flame Charge;Fire;Nitroladung;Nitrocharge;Nitrocarga;Nitrocarica;ニトロチャージ;니트로차지;蓄能焰襲
+Coil;Poison;Einrollen;Enroulement;Enrosque;Arrotola;とぐろをまく;똬리틀기;盤蜷
+Low Sweep;Fighting;Fußtritt;Balayette;Puntapié;Calciobasso;ローキック;로킥;下盤踢
+Acid Spray;Poison;Säurespeier;Bombe;Bomba;Acidobomba;アシッドボム;애시드봄;酸液炸彈
+Foul Play;Dark;Schmarotzer;Tricherie;Juego;Ripicca;イカサマ;속임수;欺詐
+Simple Beam;Normal;Wankelstrahl;Rayon;Onda;Ondisinvolta;シンプルビーム;심플빔;單純光束
+Entrainment;Normal;Zwango;Ten-Danse;Danza;Saltamicizia;なかまづくり;동료만들기;找夥伴
+After You;Normal;Galanterie;Après;Cede;Cortesia;おさきにどうぞ;당신먼저;您先請
+Round;Normal;Kanon;Chant;Canon;Coro;りんしょう;돌림노래;輪唱
+Echoed Voice;Normal;Widerhall;Écho;Eco;Echeggiavoce;エコーボイス;에코보이스;回聲
+Chip Away;Normal;Zermürben;Attrition;Guardia;Insidia;なしくずし;야금야금;逐步擊破
+Clear Smog;Poison;Klärsmog;Bain;Niebla;Pulifumo;クリアスモッグ;클리어스모그;清除之煙
+Stored Power;Psychic;Kraftvorrat;Force;Poder;Veicolaforza;アシストパワー;어시스트파워;輔助力量
+Quick Guard;Fighting;Rapidschutz;Prévention;Anticipo;Anticipo;ファストガード;퍼스트가드;快速防守
+Ally Switch;Psychic;Seitentausch;Interversion;Cambio;Cambiaposto;サイドチェンジ;사이드체인지;交換場地
+Scald;Water;Siedewasser;Ébullition;Escaldar;Idrovampata;ねっとう;열탕;熱水
+Shell Smash;Normal;Hausbruch;Exuviation;Rompecoraza;Gettaguscio;からをやぶる;껍질깨기;破殼
+Heal Pulse;Psychic;Heilwoge;Vibra;Pulso;Curapulsar;いやしのはどう;치유파동;治癒波動
+Hex;Ghost;Bürde;Châtiment;Infortunio;Sciagura;たたりめ;병상첨병;禍不單行
+Sky Drop;Flying;Freier;Chute;Caída;Cadutalibera;フリーフォール;프리폴;自由落體
+Shift Gear;Steel;Gangwechsel;Chgt;Cambio;Cambiomarcia;ギアチェンジ;기어체인지;換檔
+Circle Throw;Fighting;Überkopfwurf;Projection;Llave;Ribaltiro;ともえなげ;배대뒤치기;巴投
+Incinerate;Fire;Einäschern;Calcination;Calcinación;Bruciatutto;やきつくす;불태우기;燒盡
+Quash;Dark;Verzögerung;À;Último;Spintone;さきおくり;순서미루기;延後
+Acrobatics;Flying;Akrobatik;Acrobatie;Acróbata;Acrobazia;アクロバット;애크러뱃;雜技
+Reflect Type;Normal;Typenspiegel;Copie-Type;Clonatipo;Riflettipo;ミラータイプ;미러타입;鏡面屬性
+Retaliate;Normal;Heimzahlung;Vengeance;Represalia;Nemesi;かたきうち;원수갚기;報仇
+Final Gambit;Fighting;Wagemut;Tout;Sacrificio;Azzardo;いのちがけ;목숨걸기;搏命
+Bestow;Normal;Offerte;Passe-Cadeau;Ofrenda;Cediregalo;ギフトパス;기프트패스;傳遞禮物
+Inferno;Fire;Inferno;Feu;Infierno;Marchiatura;れんごく;연옥;煉獄
+Water Pledge;Water;Wassersäulen;Aire;Voto;Acquapatto;みずのちかい;물의맹세;水之誓約
+Fire Pledge;Fire;Feuersäulen;Aire;Voto;Fiammapatto;ほのおのちかい;불꽃의맹세;火之誓約
+Grass Pledge;Grass;Pflanzensäulen;Aire;Voto;Erbapatto;くさのちかい;풀의맹세;草之誓約
+Volt Switch;Electric;Voltwechsel;Change;Voltiocambio;Invertivolt;ボルトチェンジ;볼트체인지;伏特替換
+Struggle Bug;Bug;Käfertrutz;Survinsecte;Estoicismo;Entomoblocco;むしのていこう;벌레의저항;蟲之抵抗
+Bulldoze;Ground;Dampfwalze;Piétisol;Terratemblor;Battiterra;じならし;땅고르기;重踏
+Frost Breath;Ice;Eisesodem;Souffle;Vaho;Alitogelido;こおりのいぶき;얼음숨결;冰息
+Dragon Tail;Dragon;Drachenrute;Draco-Queue;Cola;Codadrago;ドラゴンテール;드래곤테일;龍尾
+Work Up;Normal;Kraftschub;Rengorgement;Avivar;Cuordileone;ふるいたてる;분발;自我激勵
+Electroweb;Electric;Elektronetz;Toile;Electrotela;Elettrotela;エレキネット;일렉트릭네트;電網
+Wild Charge;Electric;Stromstoß;Éclair;Voltio;Sprizzalampo;ワイルドボルト;와일드볼트;瘋狂伏特
+Drill Run;Ground;Schlagbohrer;Tunnelier;Taladradora;Giravvita;ドリルライナー;드릴라이너;直衝鑽
+Dual Chop;Dragon;Doppelhieb;Double;Golpe;Doppiocolpo;ダブルチョップ;더블촙;二連劈
+Heart Stamp;Psychic;Herzstempel;Crèvecœur;Arrumaco;Cuorestampo;ハートスタンプ;하트스탬프;愛心印章
+Horn Leech;Grass;Holzgeweih;Encornebois;Asta;Legnicorno;ウッドホーン;우드호른;木角
+Sacred Sword;Fighting;Sanctoklinge;Lame;Espada;Spadasolenne;せいなるつるぎ;성스러운칼;聖劍
+Razor Shell;Water;Kalkklinge;Coqui-Lame;Concha;Conchilama;シェルブレード;셸블레이드;貝殼刃
+Heat Crash;Fire;Brandstempel;Tacle;Golpe;Marchiafuoco;ヒートスタンプ;히트스탬프;高溫重壓
+Leaf Tornado;Grass;Grasmixer;Phytomixeur;Ciclón;Vorticerba;グラスミキサー;그래스믹서;青草攪拌器
+Steamroller;Bug;Quetschwalze;Bulldoboule;Rodillo;Rulloduro;ハードローラー;하드롤러;瘋狂滾壓
+Cotton Guard;Grass;Watteschild;Cotogarde;Rizo;Cotonscudo;コットンガード;코튼가드;棉花防守
+Night Daze;Dark;Nachtflut;Explonuit;Pulso;Urtoscuro;ナイトバースト;나이트버스트;暗黑爆破
+Psystrike;Psychic;Psychostoß;Frappe;Onda;Psicobotta;サイコブレイク;사이코브레이크;精神擊破
+Tail Slap;Normal;Kehrschelle;Plumo-Queue;Plumerazo;Spazzasberla;スイープビンタ;스위프뺨치기;掃尾拍打
+Hurricane;Flying;Orkan;Vent;Vendaval;Tifone;ぼうふう;폭풍;暴風
+Head Charge;Normal;Steinschädel;Peignée;Ariete;Ricciolata;アフロブレイク;아프로브레이크;爆炸頭突擊
+Gear Grind;Steel;Klikkdiskus;Lancécrou;Rueda;Ingracolpo;ギアソーサー;기어소서;齒輪飛盤
+Searing Shot;Fire;Flammenball;Incendie;Bomba;Sparafuoco;かえんだん;화염탄;火焰彈
+Techno Blast;Normal;Techblaster;Techno-Buster;Tecno;Tecnobotto;テクノバスター;테크노버스터;高科技光炮
+Relic Song;Normal;Urgesang;Chant;Canto;Cantoantico;いにしえのうた;옛노래;古老之歌
+Secret Sword;Fighting;Mystoschwert;Lame;Sable;Spadamistica;しんぴのつるぎ;신비의칼;神秘之劍
+Glaciate;Ice;Eiszeit;Ère;Mundo;Gelamondo;こごえるせかい;얼다세계;冰封世界
+Bolt Strike;Electric;Blitzschlag;Charge;Ataque;Lucesiluro;らいげき;뇌격;雷擊
+Blue Flare;Fire;Blauflammen;Flamme;Llama;Fuocoblu;あおいほのお;푸른불꽃;青焰
+Fiery Dance;Fire;Feuerreigen;Danse;Danza;Voldifuoco;ほのおのまい;불꽃춤;火之舞
+Freeze Shock;Ice;Frostvolt;Éclair;Rayo;Elettrogelo;フリーズボルト;프리즈볼트;冰凍伏特
+Ice Burn;Ice;Frosthauch;Feu;Llama;Vampagelida;コールドフレア;콜드플레어;極寒冷焰
+Snarl;Dark;Standpauke;Aboiement;Alarido;Urlorabbia;バークアウト;바크아웃;大聲咆哮
+Icicle Crash;Ice;Eiszapfhagel;Chute;Chuzos;Scagliagelo;つららおとし;고드름떨구기;冰柱墜擊
+V-create;Fire;V-Generator;Coup;V;Generatore;Ｖジェネレート;V제너레이트;Ｖ熱焰
+Fusion Flare;Fire;Kreuzflamme;Flamme;Llama;Incrofiamma;クロスフレイム;크로스플레임;交錯火焰
+Fusion Bolt;Electric;Kreuzdonner;Éclair;Rayo;Incrotuono;クロスサンダー;크로스썬더;交錯閃電
+Flying Press;Fighting;Flying;Flying;Plancha;Schiacciatuffo;フライングプレス;플라잉프레스;飛身重壓
+Mat Block;Fighting;Tatami-Schild;Tatamigaeshi;Escudo;Ribaltappeto;たたみがえし;마룻바닥세워막기;掀榻榻米
+Belch;Poison;Rülpser;Éructation;Eructo;Rutto;ゲップ;트림;打嗝
+Rototiller;Ground;Pflüger;Fertilisation;Fertilizante;Aracampo;たがやす;일구기;耕地
+Sticky Web;Bug;Klebenetz;Toile;Red;Rete;ねばねばネット;끈적끈적네트;黏黏網
+Fell Stinger;Bug;Stachelfinale;Dard;Aguijón;Pungiglione;とどめばり;마지막일침;致命針刺
+Phantom Force;Ghost;Phantomkraft;Hantise;Golpe;Spettrotuffo;ゴーストダイブ;고스트다이브;潛靈奇襲
+Trick-or-Treat;Ghost;Halloween;Halloween;Halloween;Halloween;ハロウィン;핼러윈;萬聖夜
+Noble Roar;Normal;Kampfgebrüll;Râle;Rugido;Urlo;おたけび;부르짖기;戰吼
+Ion Deluge;Electric;Plasmaschauer;Déluge;Cortina;Pioggiaplasma;プラズマシャワー;플라스마샤워;等離子浴
+Parabolic Charge;Electric;Parabolladung;Parabocharge;Carga;Caricaparabola;パラボラチャージ;파라볼라차지;拋物面充電
+Forest's Curse;Grass;Waldesfluch;Maléfice;Condena;Boscomalocchio;もりののろい;숲의저주;森林詛咒
+Petal Blizzard;Grass;Blütenwirbel;Tempête;Tormenta;Fiortempesta;はなふぶき;꽃보라;落英繽紛
+Freeze-Dry;Ice;Gefriertrockner;Lyophilisation;Liofilización;Liofilizzazione;フリーズドライ;프리즈드라이;冷凍乾燥
+Disarming Voice;Fairy;Säuselstimme;Voix;Voz;Incantavoce;チャームボイス;차밍보이스;魅惑之聲
+Parting Shot;Dark;Abgangstirade;Dernier;Última;Monito;すてゼリフ;막말내뱉기;拋下狠話
+Topsy-Turvy;Dark;Invertigo;Renversement;Reversión;Sottosopra;ひっくりかえす;뒤집어엎기;顛倒
+Draining Kiss;Fairy;Diebeskuss;Vampibaiser;Beso;Assorbibacio;ドレインキッス;드레인키스;吸取之吻
+Crafty Shield;Fairy;Trickschutz;Vigilance;Truco;Truccodifesa;トリックガード;트릭가드;戲法防守
+Flower Shield;Fairy;Floraschutz;Garde;Defensa;Fiordifesa;フラワーガード;플라워가드;鮮花防守
+Grassy Terrain;Grass;Grasfeld;Champ;Campo;Campo;グラスフィールド;그래스필드;青草場地
+Misty Terrain;Fairy;Nebelfeld;Champ;Campo;Campo;ミストフィールド;미스트필드;薄霧場地
+Electrify;Electric;Elektrifizierung;Électrisation;Electrificación;Elettrocontagio;そうでん;송전;輸電
+Play Rough;Fairy;Knuddler;Câlinerie;Carantoña;Carineria;じゃれつく;치근거리기;嬉鬧
+Fairy Wind;Fairy;Feenbrise;Vent;Viento;Vento;ようせいのかぜ;요정의바람;妖精之風
+Moonblast;Fairy;Mondgewalt;Pouvoir;Fuerza;Forza;ムーンフォース;문포스;月亮之力
+Boomburst;Normal;Überschallknall;Bang;Estruendo;Ondaboato;ばくおんぱ;폭음파;爆音波
+Fairy Lock;Fairy;Feenschloss;Verrou;Cerrojo;Blocco;フェアリーロック;페어리록;妖精之鎖
+King's Shield;Steel;Königsschild;Bouclier;Escudo;Scudo;キングシールド;킹실드;王者盾牌
+Play Nice;Normal;Kameradschaft;Camaraderie;Camaradería;Simpatia;なかよくする;친해지기;和睦相處
+Confide;Normal;Vertrauenssache;Confidence;Confidencia;Confidenza;ないしょばなし;비밀이야기;密語
+Diamond Storm;Rock;Diamantsturm;Orage;Torm.;Diamantempesta;ダイヤストーム;다이아스톰;鑽石風暴
+Steam Eruption;Water;Dampfschwall;Jet;Chorro;Vaporscoppio;スチームバースト;스팀버스트;蒸汽爆炸
+Hyperspace Hole;Psychic;Dimensionsloch;TrouDimensionnel;Paso;Forodimensionale;いじげんホール;다른차원홀;異次元洞
+Water Shuriken;Water;Wasser-Shuriken;Sheauriken;Shuriken;Acqualame;みずしゅりけん;물수리검;飛水手裡劍
+Mystical Fire;Fire;Magieflamme;Feu;Llama;Magifiamma;マジカルフレイム;매지컬플레임;魔法火焰
+Spiky Shield;Grass;Schutzstacheln;Pico-Défense;Barrera;Agodifesa;ニードルガード;니들가드;尖刺防守
+Aromatic Mist;Fairy;Duftwolke;Brume;Niebla;Nebularoma;アロマミスト;아로마미스트;芳香薄霧
+Eerie Impulse;Electric;Mystowellen;Ondes;Onda;Elettromistero;かいでんぱ;괴전파;怪異電波
+Venom Drench;Poison;Giftfalle;Piège;Trampa;Velenotrappola;ベノムトラップ;베놈트랩;毒液陷阱
+Powder;Bug;Pulverschleuder;Nuée;Polvo;Pulviscoppio;ふんじん;분진;粉塵
+Geomancy;Fairy;Geokontrolle;Géo-Contrôle;Geocontrol;Geocontrollo;ジオコントロール;지오컨트롤;大地掌控
+Magnetic Flux;Electric;Magnetregler;Magné-Contrôle;Aura;Controllo;じばそうさ;자기장조작;磁場操控
+Happy Hour;Normal;Goldene;Étrennes;Paga;Cuccagna;ハッピータイム;해피타임;歡樂時光
+Electric Terrain;Electric;Elektrofeld;Champ;Campo;Campo;エレキフィールド;일렉트릭필드;電氣場地
+Dazzling Gleam;Fairy;Zauberschein;Éclat;Brillo;Magibrillio;マジカルシャイン;매지컬샤인;魔法閃耀
+Celebrate;Normal;Ehrentag;Célébration;Celebración;Auguri;おいわい;축하;慶祝
+Hold Hands;Normal;Händchenhalten;Mains;Manos;Mano;てをつなぐ;손에손잡기;牽手
+Baby-Doll Eyes;Fairy;Kulleraugen;Regard;Ojitos;Occhioni;つぶらなひとみ;초롱초롱눈동자;圓瞳
+Nuzzle;Electric;Wangenrubbler;Frotte-Frimousse;Moflete;Elettrococcola;ほっぺすりすり;볼부비부비;蹭蹭臉頰
+Hold Back;Normal;Zurückhaltung;Retenue;Clemencia;Riguardo;てかげん;적당히손봐주기;手下留情
+Infestation;Bug;Plage;Harcèlement;Acoso;Assillo;まとわりつく;엉겨붙기;死纏爛打
+Power-Up Punch;Fighting;Steigerungshieb;Poing;Puño;Crescipugno;グロウパンチ;그로우펀치;增強拳
+Oblivion Wing;Flying;Unheilsschwingen;Mort;Ala;Ali;デスウイング;데스윙;死亡之翼
+Thousand Arrows;Ground;Tausend;Myria-Flèches;Mil;Mille;サウザンアロー;사우전드애로;千箭齊發
+Thousand Waves;Ground;Tausend;Myria-Vagues;Mil;Mille;サウザンウェーブ;사우전드웨이브;千波激盪
+Land's Wrath;Ground;Bodengewalt;Force;Fuerza;Forza;グランドフォース;그라운드포스;大地神力
+Light of Ruin;Fairy;Lux;Lumière;Luz;Luce;はめつのひかり;파멸의빛;破滅之光
+Origin Pulse;Water;Ursprungswoge;Onde;Pulso;Primopulsar;こんげんのはどう;근원의파동;根源波動
+Precipice Blades;Ground;Abgrundsklinge;Lame;Filo;Spade;だんがいのつるぎ;단애의칼;斷崖之劍
+Dragon Ascent;Flying;Zenitstürmer;Draco-Ascension;Ascenso;Ascesa;ガリョウテンセイ;화룡점정;畫龍點睛
+Hyperspace Fury;Dark;Dimensionswahn;Furie;Cerco;Urtodimensionale;いじげんラッシュ;다른차원러시;異次元猛攻
+Breakneck Blitz;Normal;Sandsammler;Amass;Recogearena;Sabbiaccumulo;すなあつめ;모래모으기;集沙
+Breakneck Blitz;Normal;Überrumpler;Escarmouche;Escaramuza;Schermaglia;であいがしら;만나자마자;迎頭一擊
+All-Out Pummeling;Fighting;Bunker;Blockhaus;Búnker;Fortino;トーチカ;토치카;碉堡
+All-Out Pummeling;Fighting;Schattenfessel;Tisse;Puntada;Cucitura;かげぬい;그림자꿰매기;縫影
+Supersonic Skystrike;Flying;Dark;Dark;Lariat;Braccioteso;ＤＤラリアット;DD래리어트;ＤＤ金勾臂
+Supersonic Skystrike;Flying;Schaumserenade;Aria;Aria;Canto;うたかたのアリア;물거품아리아;泡影的詠歎調
+Acid Downpour;Poison;Eishammer;Marteau;Martillo;Martelgelo;アイスハンマー;아이스해머;冰錘
+Acid Downpour;Poison;Florakur;Soin;Cura;Cura;フラワーヒール;플라워힐;花療
+Tectonic Rage;Ground;Pferdestärke;Cavalerie;Fuerza;Forza;１０まんばりき;10만마력;十萬馬力
+Tectonic Rage;Ground;Kraftabsorber;Vole-Force;Absorbefuerza;Assorbiforza;ちからをすいとる;힘흡수;吸取力量
+Continental Crush;Rock;Solarklinge;Lame;Cuchilla;Lama;ソーラーブレード;솔라블레이드;日光刃
+Continental Crush;Rock;Blattwerk;Feuillage;Follaje;Fogliame;このは;나뭇잎;樹葉
+Savage Spin-Out;Bug;Rampenlicht;Projecteur;Foco;Riflettore;スポットライト;스포트라이트;聚光燈
+Savage Spin-Out;Bug;Giftfaden;Fil;Hilo;Velenotela;どくのいと;독실;毒絲
+Never-Ending Nightmare;Ghost;Konzentration;Affilage;Aguzar;Concentrazione;とぎすます;예민해지기;磨礪
+Never-Ending Nightmare;Ghost;Hilfsmechanik;Engrenage;Piñón;Marciainpiù;アシストギア;어시스트기어;輔助齒輪
+Corkscrew Crash;Steel;Neck;Exécu-Son;Golpe;Colpo;じごくづき;지옥찌르기;地獄突刺
+Corkscrew Crash;Steel;Pollenknödel;Boule;Bola;Sferapolline;かふんだんご;꽃가루경단;花粉團
+Inferno Overdrive;Fire;Ankerschuss;Ancrage;Anclaje;Colpo;アンカーショット;앵커숏;擲錨
+Inferno Overdrive;Fire;Psychofeld;Champ;Campo;Campo;サイコフィールド;사이코필드;精神場地
+Hydro Vortex;Water;Anfallen;Furie-Bond;Plancha;Assalto;とびかかる;덤벼들기;猛撲
+Hydro Vortex;Water;Feuerpeitsche;Fouet;Látigo;Frusta;ほのおのムチ;불꽃채찍;火焰鞭
+Bloom Doom;Grass;Überheblichkeit;Arrogance;Chulería;Tracotanza;つけあがる;기어오르기;囂張
+Bloom Doom;Grass;Ausbrennen;Flamme;Llama;Ultima;もえつきる;불사르기;燃盡
+Gigavolt Havoc;Electric;Initiativetausch;Permuvitesse;Cambiavelocidad;Velociscambio;スピードスワップ;스피드스웹;速度互換
+Gigavolt Havoc;Electric;Schmalhorn;Estocorne;Cuerno;Sottilcorno;スマートホーン;스마트호른;修長之角
+Shattered Psyche;Psychic;Läuterung;Purification;Purificación;Purificazione;じょうか;정화;淨化
+Shattered Psyche;Psychic;Wecktanz;Danse;Danza;Mutadanza;めざめるダンス;잠재댄스;覺醒之舞
+Subzero Slammer;Ice;Sanktionskern;Sanction;Núcleo;Nucleocastigo;コアパニッシャー;코어퍼니셔;核心懲罰者
+Subzero Slammer;Ice;Tropenkick;Botte;Patada;Tropicalcio;トロピカルキック;트로피컬킥;熱帶踢
+Devastating Drake;Dragon;Kommando;Sommation;Mandato;Imposizione;さいはい;지휘;號令
+Devastating Drake;Dragon;Schnabelkanone;Bec-Canon;Pico;Cannonbecco;くちばしキャノン;부리캐논;鳥嘴加農炮
+Black Hole Eclipse;Dark;Schuppenrasseln;Vibrécaille;Fragor;Clamorsquame;スケイルノイズ;스케일노이즈;鱗片噪音
+Black Hole Eclipse;Dark;Drachenhammer;Draco-Marteau;Martillo;Marteldrago;ドラゴンハンマー;드래곤해머;龍錘
+Twinkle Tackle;Fairy;Wirbler;Centrifugifle;Giro;Vorticolpo;ぶんまわす;세차게휘두르기;狂舞揮打
+Twinkle Tackle;Fairy;Auroraschleier;Voile;Velo;Velaurora;オーロラベール;오로라베일;極光幕
+Catastropika;Electric;Panzerfalle;Carapiège;Coraza;Gusciotrappola;トラップシェル;트랩셸;陷阱甲殼
+Shore Up;Ground;Kanonenbouquet;Canon;Cañón;Cannonfiore;フルールカノン;플뢰르캐논;花朵加農炮
+First Impression;Bug;Psychobeißer;Psycho-Croc;Psicocolmillo;Psicozanna;サイコファング;사이코팽;精神之牙
+Baneful Bunker;Poison;Fruststampfer;Trépignement;Pataleta;Battipiedi;じだんだ;분함의발구르기;跺腳
+Spirit Shackle;Ghost;Schattenknochen;Os;Hueso;Ossotetro;シャドーボーン;섀도본;暗影之骨
+Darkest Lariat;Dark;Turbofelsen;Vif;Roca;Rocciarapida;アクセルロック;액셀록;衝岩
+Sparkling Aria;Water;Aquadurchstoß;Aqua-Brèche;Hidroariete;Idrobreccia;アクアブレイク;아쿠아브레이크;水流裂破
+Ice Hammer;Ice;Prisma-Laser;Laser;Láser;Prismalaser;プリズムレーザー;프리즘레이저;稜鏡鐳射
+Floral Healing;Fairy;Diebesschatten;Clepto-Mânes;Robasombra;Ombrafurto;シャドースチール;섀도스틸;暗影偷盜
+High Horsepower;Ground;Stahlgestirn;Choc;Meteoimpacto;Astrocarica;メテオドライブ;메테오드라이브;流星閃衝
+Strength Sap;Grass;Schattenstrahl;Rayon;Rayo;Raggio;シャドーレイ;섀도레이;暗影之光
+Solar Blade;Grass;Tränendrüse;Larme;Ojos;Occhionilucidi;なみだめ;눈물그렁그렁;淚眼汪汪
+Leafage;Grass;Elektropikser;Électrikipik;Electropunzada;Elettropizzico;びりびりちくちく;찌리리따끔따끔;麻麻刺刺
+Spotlight;Normal;Naturzorn;Ire;Furia;Ira;しぜんのいかり;자연의분노;自然之怒
+Toxic Thread;Poison;Multi-Angriff;Coup;Multiataque;Multiattacco;マルチアタック;멀티어택;多屬性攻擊
+Laser Focus;Normal;Knallkopf;Caboche-Kaboum;Cabeza;Sbalorditesta;ビックリヘッド;깜짝헤드;驚爆大頭
+Gear Up;Steel;Plasmafäuste;Plasma;Puños;Pugni;プラズマフィスト;플라스마피스트;等離子閃電拳
+Throat Chop;Dark;Photonen-Geysir;Photo-Geyser;Géiser;Geyser;フォトンゲイザー;포톤가이저;光子噴湧
+Pollen Puff;Bug;Britzelturbo;Pika-Sprint;Pikaturbo;Sprintaboom;ばちばちアクセル;파찌파찌액셀;電電加速
+Anchor Shot;Steel;Plätschersurfer;Pika-Splash;Salpikasurf;Surfasplash;ざぶざぶサーフ;참방참방서핑;滔滔衝浪
+Psychic Terrain;Psychic;Schwebesturz;Pika-Piqué;Pikapicado;Piombaflap;ふわふわフォール;둥실둥실폴;飄飄墜落
+Lunge;Bug;Pika-Flash;Pika-Fracas;Pikatormenta;Pikasaetta;ピカピカサンダー;피카피카썬더;閃閃雷光
+Fire Lash;Fire;Blubbsauger;Évo-Thalasso;Vapodrenaje;Bollaslurp;いきいきバブル;생생버블;活活氣泡
+Power Trip;Dark;Knisterladung;Évo-Dynamo;Joltioparálisis;Elettrozap;びりびりエレキ;찌릿찌릿일렉;麻麻電擊
+Burn Up;Fire;Flackerbrand;Évo-Flambo;Flarembestida;Fiammabam;めらめらバーン;이글이글번;熊熊火爆
+Speed Swap;Psychic;Pulsieraura;Évo-Psycho;Espeaura;Auraswoosh;どばどばオーラ;콸콸오라;嘩嘩氣場
+Smart Strike;Steel;Quälzone;Évo-Ténébro;Umbreozona;Zona;わるわるゾーン;아그아그존;壞壞領域
+Purify;Poison;Sprießomben;Évo-Écolo;Leafitobombas;Bombafrush;すくすくボンバー;쑥쑥봄버;茁茁轟炸
+Revelation Dance;Normal;Klirrfrost;Évo-Congélo;Glaceoprisma;Scricchiagelo;こちこちフロスト;꽁꽁프로스트;冰冰霜凍
+Core Enforcer;Dragon;Glitzersturm;Évo-Fabulo;Sylveotornado;Sbrilluccibufera;きらきらストーム;반짝반짝스톰;亮亮風暴
+Trop Kick;Grass;Evo-Crash;Évo-Chardasso;Eevimpacto;Eeveempatto;ブイブイブレイク;브이브이브레이크;砰砰擊破
+Instruct;Psychic;Panzerfäuste;Écrous;Ferropuño;Pugni;ダブルパンツァー;더블펀처;鋼拳雙擊
+Beak Blast;Flying;Dyna-Wall;Gardomax;Maxibarriera;Dynabarriera;ダイウォール;다이월;極巨防壁
+Clanging Scales;Dragon;Dynamax-Kanone;Canon;Cañón;Cannone;ダイマックスほう;다이맥스포;極巨炮
+Dragon Hammer;Dragon;Präisionsschuss;Tir;Disparo;Tiromirato;ねらいうち;노려맞히기;狙擊
+Brutal Swing;Dark;Fesselbiss;Croque;Presa;Morostretto;くらいつく;물고버티기;緊咬不放
+Aurora Veil;Ice;Backenstopfer;Garde-à-Joues;Atiborramiento;Riempiguance;ほおばる;볼가득넣기;大快朵頤
+Sinister Arrow Raid;Ghost;Finalformation;Ultime;Bastión;Spalle;はいすいのじん;배수의진;背水一戰
+Malicious Moonsault;Dark;Teerschuss;Goudronnage;Alquitranazo;Colpocatrame;タールショット;타르숏;瀝青射擊
+Oceanic Operetta;Water;Magiepuder;Poudre;Polvo;Magipolvere;まほうのこな;마법가루;魔法粉
+Guardian of Alola;Fairy;Drachenpfeile;Draco-Flèches;Dracoflechas;Dragofrecce;ドラゴンアロー;드래곤애로;龍箭
+Soul-Stealing 7-Star Strike;Ghost;Teatime;Thérémonie;Hora;Ora;おちゃかい;다과회;茶會
+Stoked Sparksurfer;Electric;Octoklammer;Octoprise;Octopresa;Tentacolock;たこがため;문어굳히기;蛸固
+Pulverizing Pancake;Normal;Schockschnabel;Prise;Electropico;Beccoshock;でんげきくちばし;전격부리;電喙
+Extreme Evoboost;Normal;Kiemenbiss;Branchicrok;Branquibocado;Branchiomorso;エラがみ;아가미물기;鰓咬
+Genesis Supernova;Psychic;Seitenwechsel;Change-Côté;Cambio;Cambiocampo;コートチェンジ;코트체인지;換場
+Shell Trap;Fire;Dyna-Brand;Pyromax;Maxignición;Dynafiammata;ダイバーン;다이번;極巨火爆
+Fleur Cannon;Fairy;Dyna-Schwarm;Insectomax;Maxinsecto;Dynainsetto;ダイワーム;다이웜;極巨蟲蠱
+Psychic Fangs;Psychic;Dyna-Gewitter;Fulguromax;Maxitormenta;Dynasaetta;ダイサンダー;다이썬더;極巨閃電
+Stomping Tantrum;Ground;Dyna-Angriff;Normalomax;Maxiataque;Dynattacco;ダイアタック;다이어택;極巨攻擊
+Shadow Bone;Ghost;Dyna-Faust;Pugilomax;Maxipuño;Dynapugno;ダイナックル;다이너클;極巨拳鬥
+Accelerock;Rock;Dyna-Spuk;Spectromax;Maxiespectro;Dynavuoto;ダイホロウ;다이할로우;極巨幽魂
+Liquidation;Water;Dyna-Frost;Cryomax;Maxihelada;Dynagelo;ダイアイス;다이아이스;極巨寒冰
+Prismatic Laser;Psychic;Dyna-Giftschwall;Toxinomax;Maxiácido;Dynacorrosione;ダイアシッド;다이애시드;極巨酸毒
+Spectral Thief;Ghost;Dyna-Flut;Hydromax;Maxichorro;Dynaflusso;ダイストリーム;다이스트림;極巨水流
+Sunsteel Strike;Steel;Dyna-Düse;Aéromax;Maxiciclón;Dynajet;ダイジェット;다이제트;極巨飛衝
+Moongeist Beam;Ghost;Dyna-Zauber;Enchantomax;Maxiestela;Dynafata;ダイフェアリー;다이페어리;極巨妖精
+Tearful Look;Normal;Dyna-Wyrm;Dracomax;Maxidraco;Dynadragone;ダイドラグーン;다이드라군;極巨龍騎
+Zing Zap;Electric;Dyna-Kinese;Psychomax;Maxionda;Dynapsiche;ダイサイコ;다이사이코;極巨超能
+Nature's Madness;Fairy;Dyna-Brocken;Lithomax;Maxilito;Dynamacigno;ダイロック;다이록;極巨岩石
+Multi-Attack;Normal;Dyna-Erdstoß;Sismomax;Maxitemblor;Dynasisma;ダイアース;다이어스;極巨大地
+"10;000;000 Volt Thunderbolt";Electric;Dyna-Dunkel;Sinistromax;Maxisombra;Dynatenebre;ダイアーク;다이아크;極巨惡霸
+Mind Blown;Fire;Dyna-Flora;Phytomax;Maxiflora;Dynaflora;ダイソウゲン;다이그래스;極巨草原
+Plasma Fists;Electric;Dyna-Stahlzacken;Métallomax;Maximetal;Dynametallo;ダイスチル;다이스틸;極巨鋼鐵
+Photon Geyser;Psychic;Seelentanz;Dracacophonie;Estruendo;Dracofonia;ソウルビート;소울비트;魂舞烈音爆
+Light That Burns the Sky;Psychic;Body;Big;Plancha;Schiacciacorpo;ボディプレス;바디프레스;撲擊
+Searing Sunraze Smash;Steel;Verzierung;Nappage;Decoración;Decorazione;デコレーション;데코레이션;裝飾
+Menacing Moonraze Maelstrom;Ghost;Trommelschläge;Tambour;Batería;Tamburattacco;ドラムアタック;드럼어택;鼓擊
+Let's Snuggle Forever;Fairy;Fangeisen;Troquenard;Cepo;Tagliola;トラバサミ;집게덫;捕獸夾
+Splintered Stormshards;Rock;Feuerball;Ballon;Balón;Palla;かえんボール;화염볼;火焰球
+Clangorous Soulblaze;Dragon;Gigantenhieb;Gladius;Tajo;Taglio;きょじゅうざん;거수참;巨獸斬
+Zippy Zap;Electric;Gigantenstoß;Aegis;Embate;Colpo;きょじゅうだん;거수탄;巨獸彈
+Splishy Splash;Water;Aura-Rad;Roue;Rueda;Ruota;オーラぐるま;오라휠;氣場輪
+Floaty Fall;Flying;Breitseite;Abattage;Vasto;Vastoimpatto;ワイドブレイカー;와이드브레이커;廣域破壞
+Pika Papow;Electric;Zweigstoß;Tapotige;Punzada;Ramostoccata;えだづき;가지찌르기;木枝突刺
+Bouncy Bubble;Water;Overdrive;Overdrive;Amplificador;Overdrive;オーバードライブ;오버드라이브;破音
+Buzzy Buzz;Electric;Apfelsäure;Acide;Ácido;Acido;りんごさん;사과산;蘋果酸
+Sizzly Slide;Fire;Gravitation;Force;Fuerza;Forza;Ｇのちから;G의힘;萬有引力
+Glitzy Glow;Psychic;Seelenbruch;Choc;Choque;Frantumanima;ソウルクラッシュ;소울크래시;靈魂衝擊
+Baddy Bad;Dark;Wunderdampf;Vapeur;Cautivapor;Vapore;ワンダースチーム;원더스팀;神奇蒸汽
+Sappy Seed;Grass;Lebenstropfen;Fontaine;Gota;Goccia;いのちのしずく;생명의물방울;生命水滴
+Freezy Frost;Ice;Abblocker;Blocage;Obstrucción;Sbarramento;ブロッキング;블로킹;攔堵
+Sparkly Swirl;Fairy;Kniefalltrick;Fourbette;Irreverencia;Supplicolpo;どげざつき;사죄의찌르기;假跪真撞
+Veevee Volley;Normal;Sternensturm;Joute;Asalto;Sfolgorassalto;スターアサルト;스타어설트;流星突擊
+Double Iron Bash;Steel;Unendynastrahlen;Laser;Rayo;Raggio;ムゲンダイビーム;무한다이빔;無極光束
+Max Guard;Normal;Stahlstrahl;Métalaser;Metaláser;Raggio;てっていこうせん;철제광선;鐵蹄光線
+Dynamax Cannon;Dragon;Flächenmacht;Vaste;Vasta;Vasterngia;ワイドフォース;와이드포스;廣域戰力
+Snipe Shot;Water;Eisenwalze;Métalliroue;Allanador;Ferrorullo;アイアンローラー;아이언롤러;鐵滾輪
+Jaw Lock;Dark;Schuppenschuss;Rafale;Ráfaga;Squamacolpo;スケイルショット;스케일샷;鱗射
+Stuff Cheeks;Normal;Meteorstrahl;Laser;Rayo;Raggiometeora;メテオビーム;메테오빔;流星光束
+No Retreat;Fighting;Muschelwaffe;Kokiyarme;Moluscañón;Armaguscio;シェルアームズ;셸암즈;臂貝武器
+Tar Shot;Rock;Nebelexplosion;Explo-Brume;Bruma;Nebbioscoppio;ミストバースト;미스트버스트;薄霧炸裂
+Magic Powder;Psychic;Grasrutsche;Gliss;Fitoimpulso;Erboscivolata;グラススライダー;그래스슬라이더﻿;青草滑梯
+Dragon Darts;Dragon;Hochspannung;Monte-Tension;Alto;Elettroimpennata;ライジングボルト;라이징볼트;電力上升
+Teatime;Normal;Feldimpuls;Champlification;Pulso;Campopulsar;だいちのはどう;대지의파동;大地波動
+Octolock;Fighting;Krabbelkracher;Ravage;Golpe;Strisciacolpo;はいよるいちげき;엄습하는일격;爬擊
+Bolt Beak;Electric;Neidflammen;Feu;Envidia;Fiamminvidia;しっとのほのお;질투의불꽃﻿;妒火
+Fishious Rend;Water;Frustventil;Cent;Desahogo;Sfogarabbia;うっぷんばらし;분풀이;洩憤
+Court Change;Normal;Poltergeist;Esprit;Poltergeist;Poltergeist;ポルターガイスト;폴터가이스트;靈騷
+Max Flare;Fire;Korrosionsgas;Gaz;Gas;Gas;ふしょくガス;부식가스;腐蝕氣體
+Max Flutterby;Bug;Coaching;Coaching;Motivación;Coaching;コーチング;코칭;指導
+Max Lightning;Electric;Rollwende;Eau;Viraje;Virata;クイックターン;퀵턴;快速折返
+Max Strike;Normal;Dreifach-Axel;Triple;Triple;Triplo;トリプルアクセル;트리플악셀;三旋擊
+Max Knuckle;Fighting;Doppelflügel;Double;Ala;Doppia;ダブルウイング;더블윙;雙翼
+Max Phantasm;Ghost;Brandsand;Sable;Arenas;Sabbiardente;ねっさのだいち;열사의대지;熱沙大地
+Max Hailstorm;Ice;Dschungelheilung;Selve;Cura;Giunglacura;ジャングルヒール;정글힐;叢林治療
+Max Ooze;Poison;Finstertreffer;Poing;Golpe;Pugnotenebra;あんこくきょうだ;암흑강타;暗冥強擊
+Max Geyser;Water;Trefferschwall;Torrent;Azote;Idroraffica;すいりゅうれんだ;수류연타;水流連打
+Max Airstream;Flying;Blitzgefängnis;Voltageôle;Electrojaula;Elettrogabbia;サンダープリズン;썬더프리즌;雷電囚籠
+Max Starfall;Fairy;Drachenkräfte;Draco-Énergie;Dracoenergía;Dragoenergia;ドラゴンエナジー;드래곤에너지;巨龍威能
+Max Wyrmwind;Dragon;Eisiger;Regard;Mirada;Sguardo;いてつくしせん;얼어붙는시선;冰冷視線
+Max Mindstorm;Psychic;Brennender;Fureur;Furia;Furia;もえあがるいかり;타오르는분노;怒火中燒
+Max Rockfall;Rock;Donnernder;Coup;Patada;Calcio;らいめいげり;천둥차기;雷鳴蹴擊
+Max Quake;Ground;Blizzardlanze;Lance;Lanza;Lancia;ブリザードランス;블리자드랜스;雪矛
+Max Darkness;Dark;Astralfragmente;Éclat;Orbes;Schegge;アストラルビット;아스트랄비트;星碎
+Max Overgrowth;Grass;Schauderspruch;Sort;Conjuro;Inquietantesimo;ぶきみなじゅもん;섬뜩한주문;詭異咒語
+Max Steelspike;Steel;Unheilsklauen;Griffes;Garra;Artigli;フェイタルクロー;페이탈클로;剋命爪
+Clangorous Soul;Dragon;Barrierenstoß;Sprint;Asalto;Barrierassalto;バリアーラッシュ;배리어러시;屏障猛攻
+Body Press;Fighting;Kraftwechsel;Échange;Cambiapoder;Scambioforza;パワーシフト;파워시프트;力量轉換
+Decorate;Fairy;Felsaxt;Hache;Hachazo;Rocciascure;がんせきアックス;암석액스;岩斧
+Drum Beating;Grass;Frühlingsorkan;Typhon;Ciclón;Tempesta;はるのあらし;봄의폭풍;陽春風暴
+Snap Trap;Grass;Mythenkraft;Force;Poder;Forza;しんぴのちから;신비의힘;神秘之力
+Pyro Ball;Fire;Flammenwut;Grand;Erupción;Ira;だいふんげき;대격분;大憤慨
+Behemoth Blade;Steel;Wellentackle;Aquatacle;Envite;Ondaschianto;ウェーブタックル;웨이브태클;波動衝
+Behemoth Bash;Steel;Chlorostrahl;Herblast;Clorofiláser;Clorofillaser;クロロブラスト;클로로블라스트;葉綠爆震
+Aura Wheel;Electric;Frostfallwind;Bise;Viento;Soffio;ひょうざんおろし;빙산바람;冰山風
+Breaking Swipe;Dragon;Siegestanz;Danse;Danza;Danzavittoria;しょうりのまい;승리의춤;勝利之舞
+Branch Poke;Grass;Schmetterramme;Assaut;Arremetida;Scontro;ぶちかまし;들이받기;突飛猛撲
+Overdrive;Electric;Giftstachelregen;Multitoxik;Mil;Mille;どくばりセンボン;독침천발;毒千針
+Apple Acid;Grass;Auraschwingen;Ailes;Ala;Ali;オーラウイング;오라윙;氣場之翼
+Grav Apple;Grass;Niedertracht;Cœur;Rencor;Livore;うらみつらみ;천추지한;冤冤相報
+Spirit Break;Fairy;Refugium;Mur;Retracción;Barricata;たてこもる;농성;閉關
+Strange Steam;Fairy;Drillingspfeile;Triple;Triple;Triplodardo;３ぼんのや;3연화살;三連箭
+Life Dew;Water;Phantomparade;Cortège;Marcha;Corteo;ひゃっきやこう;백귀야행;群魔亂舞
+Obstruct;Dark;Klingenschwall;Vagues;Tajo;Lama;ひけん・ちえなみ;비검천중파;秘劍・千重濤
+False Surrender;Dark;Polarorkan;Typhon;Vendaval;Tempesta;こがらしあらし;찬바람폭풍;枯葉風暴
+Meteor Assault;Fighting;Donnerorkan;Typhon;Electormenta;Tempesta;かみなりあらし;번개폭풍;鳴雷風暴
+Eternabeam;Dragon;Wüstenorkan;Typhon;Simún;Tempesta;ねっさのあらし;열사의폭풍;熱沙風暴
+Steel Beam;Steel;Lunargebet;Prière;Plegaria;Invocaluna;みかづきのいのり;초승달의기도;新月祈禱
+Expanding Force;Psychic;Mutschub;Extravaillance;Bálsamo;Baldimpulso;ブレイブチャージ;브레이브차지;勇氣填充
+Steel Roller;Steel;Tera-Ausbruch;Téra;Teraexplosión;Terascoppio;テラバースト;테라버스트;太晶爆發
+Scale Shot;Dragon;Fadenfalle;Piège;Telatrampa;Telatrappola;スレッドトラップ;스레드트랩;線阱
+Meteor Beam;Rock;Fersenkick;Talon-Marteau;Patada;Calcio;かかとおとし;발꿈치찍기;下壓踢
+Shell Side Arm;Poison;Letzte;Hommage;Homenaje;Omaggio;おはかまいり;성묘;掃墓
+Misty Explosion;Fairy;Lichteinschlag;Lumino-Impact;Fotocolisión;Fotocollisione;ルミナコリジョン;루미나콜리전;琉光衝激
+Grassy Glide;Grass;Auftischen;Plat;Oído;Alta;いっちょうあがり;한판내기;上菜
+Rising Voltage;Electric;Düsenhieb;Poing;Puño;Pugnojet;ジェットパンチ;제트펀치;噴射拳
+Terrain Pulse;Normal;Chili-Essenz;Habanerage;Extracto;Essenza;ハバネロエキス;하바네로엑기스;辣椒精華
+Skitter Smack;Bug;Reifendrehung;Dérapage;Quemarrueda;Slittaruote;ホイールスピン;휠스핀;疾速轉輪
+Burning Jealousy;Fire;Mäuseplage;Prolifération;Proliferación;Infestazione;ネズミざん;찍찍베기;鼠數兒
+Lash Out;Dark;Eiskreisel;Cryo-Pirouette;Pirueta;Vortighiaccio;アイススピナー;아이스스피너;冰旋
+Poltergeist;Ghost;Großklingenstoß;Charge;Asalto;Spadoncarica;きょけんとつげき;대검돌격;巨劍突擊
+Corrosive Gas;Poison;Vitalsegen;Second;Plegaria;Preghiera;さいきのいのり;회생의기도;復生祈禱
+Coaching;Fighting;Pökelsalz;Salaison;Salazón;Sotto;しおづけ;소금절이;鹽醃
+Flip Turn;Water;Tauchtriade;Triple;Triple;Triplo;トリプルダイブ;트리플다이브;三連鑽
+Triple Axel;Ice;Letalwirbler;Toupie;Giro;Glitturbine;キラースピン;킬러스핀;晶光轉轉
+Dual Wingbeat;Flying;Abpausen;Décalquage;Decalcomanía;Ricalco;うつしえ;베껴그리기;描繪
+Scorching Sands;Ground;Abspaltung;Décharnement;Deslome;Alleggerimento;みをけずる;제살깎기;甩肉
+Jungle Healing;Grass;Kniefallspalter;Génusection;Genufendiente;Genufendente;ドゲザン;도각참;仆斬
+Wicked Blow;Dark;Blumentrick;Magie;Truco;Prestigiafiore;トリックフラワー;트릭플라워;千變萬花
+Surging Strikes;Water;Loderlied;Chant;Canto;Canzone;フレアソング;플레어송;閃焰高歌
+Thunder Cage;Electric;Wogentanz;Danse;Danza;Idroballetto;アクアステップ;아쿠아스텝;流水旋舞
+Dragon Energy;Dragon;Rasender;Taurogne;Furia;Scatenatoro;レイジングブル;레이징불;怒牛
+Freezing Glare;Psychic;Goldrausch;Ruée;Fiebre;Corsa;ゴールドラッシュ;골드러시;淘金潮
+Fiery Wrath;Dark;Psychoschneide;Lame;Psicohojas;Psicolama;サイコブレイド;사이코블레이드;精神劍
+Thunderous Kick;Fighting;Hydrodampf;Hydrovapeur;Hidrovapor;Idrovapore;ハイドロスチーム;하이드로스팀;水蒸氣
+Glacial Lance;Ice;Verderben;Cataclysme;Calamidad;Catastrofe;カタストロフィ;카타스트로피;大災難
+Astral Barrage;Ghost;Kollisionskurs;Nitro;Nitrochoque;Turboschianto;アクセルブレイク;액셀브레이크;全開猛撞
+Eerie Spell;Psychic;Blitztour;Turbo;Electroderrape;Fulmiscatto;イナズマドライブ;라이트닝드라이브;閃電猛衝
+Dire Claw;Poison;Schwanzabwurf;Queulonage;Autotomía;Tagliacoda;しっぽきり;꼬리자르기;斷尾
+Psyshield Bash;Psychic;Eisige;Neigeux;Fría;Freddura;さむいギャグ;썰렁개그;冷笑話
+Power Shift;Normal;Aufräumen;Grand;Limpieza;Pulizie;おかたづけ;정리정돈;大掃除
+Stone Axe;Rock;Schneelandschaft;Chute;Paisaje;Vista;ゆきげしき;설경;雪景
+Springtide Storm;Fairy;Anspringen;Bond;Brinco;Balzo;とびつく;달려들기;蟲撲
+Mystical Power;Psychic;Wegbereiter;Désherbaffe;Abrecaminos;Apripista;くさわけ;개척하기;起草
+Raging Fury;Fire;Kalte;Douche;Agua;Doccia;ひやみず;찬물끼얹기;潑冷水
+Wave Crash;Water;Hyperbohrer;Hyperceuse;Hipertaladro;Ipertrapano;ハイパードリル;하이퍼드릴;強力鑽
+Chloroblast;Grass;Doppelstrahl;Double;Láser;Doppioraggio;ツインビーム;트윈빔;雙光束
+Mountain Gale;Ice;Zornesfaust;Poing;Puño;Pugno;ふんどのこぶし;분노의주먹;憤怒之拳
+Victory Dance;Fighting;Rüstungskanone;Canon;Cañón;Corazza;アーマーキャノン;아머캐논;鎧農炮
+Headlong Rush;Ground;Reueschwert;Lame;Espada;Lama;むねんのつるぎ;원념의칼;悔念劍
+Barb Barrage;Poison;Zweifachladung;Double;Electropalmas;Doppiolampo;でんこうそうげき;전광쌍격;電光雙擊
+Esper Wing;Psychic;Riesenhammer;Marteau;Martillo;Granmartello;デカハンマー;거대해머;巨力錘
+Bitter Malice;Ghost;Vendetta;Vindicte;Resarcimiento;Ritorsione;ほうふく;앙갚음;復仇
+Shelter;Steel;Aquaschnitt;Tranch;Tajo;Idrotaglio;アクアカッター;아쿠아커터;水波刀
+Triple Arrows;Fighting;Blutmond;Lune;Luna;Luna;ブラッドムーン;블러드문;血月
+Infernal Parade;Ghost;Quirlschuss;Mortier;Cañón;Spruzzatè;シャカシャカほう;휘적휘적포;刷刷茶炮
+Ceaseless Edge;Dark;Sirupbombe;Bombe;Bomba;Bomba;みずあめボム;시럽봄;糖漿炸彈
+Bleakwind Storm;Flying;Rankenkeule;Massue;Garrote;Clava;ツタこんぼう;덩굴방망이;棘藤棒
+Wildbolt Storm;Electric;;;;;;;
+Sandsear Storm;Ground;;;;;;;
+Lunar Blessing;Psychic;;;;;;;
+Take Heart;Psychic;;;;;;;
+Tera Blast;Normal;;;;;;;
+Silk Trap;Bug;;;;;;;
+Axe Kick;Fighting;;;;;;;
+Last Respects;Ghost;;;;;;;
+Lumina Crash;Psychic;;;;;;;
+Order Up;Dragon;;;;;;;
+Jet Punch;Water;;;;;;;
+Spicy Extract;Grass;;;;;;;
+Spin Out;Steel;;;;;;;
+Population Bomb;Normal;;;;;;;
+Ice Spinner;Ice;;;;;;;
+Glaive Rush;Dragon;;;;;;;
+Revival Blessing;Normal;;;;;;;
+Salt Cure;Rock;;;;;;;
+Triple Dive;Water;;;;;;;
+Mortal Spin;Poison;;;;;;;
+Doodle;Normal;;;;;;;
+Fillet Away;Normal;;;;;;;
+Kowtow Cleave;Dark;;;;;;;
+Flower Trick;Grass;;;;;;;
+Torch Song;Fire;;;;;;;
+Aqua Step;Water;;;;;;;
+Raging Bull;Normal;;;;;;;
+Make It Rain;Steel;;;;;;;
+Psyblade;Psychic;;;;;;;
+Hydro Steam;Water;;;;;;;
+Ruination;Dark;;;;;;;
+Collision Course;Fighting;;;;;;;
+Electro Drift;Electric;;;;;;;
+Shed Tail;Normal;;;;;;;
+Chilly Reception;Ice;;;;;;;
+Tidy Up;Normal;;;;;;;
+Snowscape;Ice;;;;;;;
+Pounce;Bug;;;;;;;
+Trailblaze;Grass;;;;;;;
+Chilling Water;Water;;;;;;;
+Hyper Drill;Normal;;;;;;;
+Twin Beam;Psychic;;;;;;;
+Rage Fist;Ghost;;;;;;;
+Armor Cannon;Fire;;;;;;;
+Bitter Blade;Fire;;;;;;;
+Double Shock;Electric;;;;;;;
+Gigaton Hammer;Steel;;;;;;;
+Comeuppance;Dark;;;;;;;
+Aqua Cutter;Water;;;;;;;
+Blazing Torque;Fire;;;;;;;
+Wicked Torque;Dark;;;;;;;
+Noxious Torque;Poison;;;;;;;
+Combat Torque;Fighting;;;;;;;
+Magical Torque;Fairy;;;;;;;
+Blood Moon;Normal;;;;;;;
+Matcha Gotcha;Grass;;;;;;;
+Syrup Bomb;Grass;;;;;;;
+Ivy Cudgel;Grass;;;;;;;
+Electro Shot;Electric;;;;;;;
+Thunderclap;Electric;;;;;;;
+Tachyon Cutter;Steel;;;;;;;
+Upper Hand;Fighting;;;;;;;
+Psychic Noise;Psychic;;;;;;;
