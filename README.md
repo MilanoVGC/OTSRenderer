@@ -22,5 +22,5 @@ While the HTML rendering does not need VCL use and it's therefore implemented di
 - Add support for macOS and Linux
 
 ### Contacts
-[shairaba](https://twitter.com/shairaba) - Project leader
-[relderVGC](https://twitter.com/reldervgc) - Developer (DMs are open!)
+- [shairaba](https://twitter.com/shairaba) - Project leader
+- [relderVGC](https://twitter.com/reldervgc) - Developer (DMs are open!)
