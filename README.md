@@ -6,7 +6,8 @@ OTSRenderer is a program targeted at creating Pokémon teamsheets for Pokémon S
 
 ### Features:
 - CSV or manual input
-- Outputs both HTML (with animations) or PNG
+- Outputs both HTML (with animations), PNG, PDF (both for open and closed teamsheets)
+- PDF contents translated in 8 languages
 - Has all SV Pokémons and Items
 - 5 different palette to choose from
 
