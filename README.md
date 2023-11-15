@@ -2,7 +2,7 @@
 
 OTSRenderer is a program targeted at creating Pokémon teamsheets for Pokémon Scarlet and Violet with just a [pokepast.es](http://pokepast.es).
 
-![image](https://i.imgur.com/3JUKNtL.png)
+![image](https://i.imgur.com/koDpKcp.png)
 
 ### Features:
 - CSV or manual input
