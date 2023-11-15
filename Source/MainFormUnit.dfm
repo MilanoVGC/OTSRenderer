@@ -410,7 +410,6 @@ object MainForm: TMainForm
           Width = 145
           Height = 21
           TabOrder = 0
-          Text = 'Ciccio'
           OnChange = UpdateInputAddBtn
         end
         object EdtInputSurname: TEdit
@@ -419,7 +418,6 @@ object MainForm: TMainForm
           Width = 145
           Height = 21
           TabOrder = 1
-          Text = 'Pasticcio'
           OnChange = UpdateInputAddBtn
         end
         object EdtInputUrl: TEdit
@@ -428,7 +426,6 @@ object MainForm: TMainForm
           Width = 145
           Height = 21
           TabOrder = 2
-          Text = 'https://pokepast.es/1b4fd6e826d58236'
           OnChange = UpdateInputAddBtn
         end
         object EdtInputTrainerName: TEdit
@@ -437,7 +434,6 @@ object MainForm: TMainForm
           Width = 145
           Height = 21
           TabOrder = 3
-          Text = 'ROBERTO'
           OnChange = UpdateInputAddBtn
         end
         object EdtInputBattleTeam: TEdit
@@ -453,7 +449,6 @@ object MainForm: TMainForm
           Width = 55
           Height = 21
           TabOrder = 5
-          Text = 'cotolotta'
         end
         object EdtInputPlayerId: TEdit
           Left = 315
@@ -461,7 +456,6 @@ object MainForm: TMainForm
           Width = 55
           Height = 21
           TabOrder = 6
-          Text = '994985'
         end
         object DtpInputBirthDate: TDateTimePicker
           Left = 90
