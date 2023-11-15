@@ -218,7 +218,7 @@ object MainForm: TMainForm
     Top = 1
     Width = 584
     Height = 383
-    ActivePage = TabInputOutput
+    ActivePage = TabConfig
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -660,6 +660,8 @@ object MainForm: TMainForm
         Height = 17
         Alignment = taLeftJustify
         Caption = 'PDF-CTS'
+        Checked = True
+        State = cbChecked
         TabOrder = 4
         OnClick = UpdateOutputs
       end
