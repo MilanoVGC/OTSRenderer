@@ -2,7 +2,7 @@ object MainForm: TMainForm
   Left = 0
   Top = 0
   BorderStyle = bsDialog
-  Caption = 'OTS Renderer'
+  Caption = 'OTSRenderer'
   ClientHeight = 756
   ClientWidth = 600
   Color = clBtnFace
@@ -19,175 +19,175 @@ object MainForm: TMainForm
   TextHeight = 13
   object ShpPreview: TShape
     Left = 8
-    Top = 378
+    Top = 384
     Width = 584
     Height = 370
   end
   object Pokemon1: TImage
     Left = 20
-    Top = 448
+    Top = 454
     Width = 128
     Height = 128
   end
   object Pokemon2: TImage
     Left = 238
-    Top = 448
+    Top = 454
     Width = 128
     Height = 128
   end
   object Pokemon3: TImage
     Left = 441
-    Top = 448
+    Top = 454
     Width = 128
     Height = 128
   end
   object Pokemon4: TImage
     Left = 20
-    Top = 614
+    Top = 620
     Width = 128
     Height = 128
   end
   object Pokemon5: TImage
     Left = 238
-    Top = 614
+    Top = 620
     Width = 128
     Height = 128
   end
   object Pokemon6: TImage
     Left = 441
-    Top = 614
+    Top = 620
     Width = 128
     Height = 128
   end
   object Item1: TImage
     Left = 132
-    Top = 433
+    Top = 439
     Width = 32
     Height = 32
     Stretch = True
   end
   object Item2: TImage
     Left = 352
-    Top = 433
+    Top = 439
     Width = 32
     Height = 32
     Stretch = True
   end
   object Item3: TImage
     Left = 553
-    Top = 433
+    Top = 439
     Width = 32
     Height = 32
     Stretch = True
   end
   object Item4: TImage
     Left = 132
-    Top = 601
+    Top = 607
     Width = 32
     Height = 32
     Stretch = True
   end
   object Item5: TImage
     Left = 352
-    Top = 601
+    Top = 607
     Width = 32
     Height = 32
     Stretch = True
   end
   object Item6: TImage
     Left = 553
-    Top = 601
+    Top = 607
     Width = 32
     Height = 32
     Stretch = True
   end
   object FirstTyping3: TImage
     Left = 439
-    Top = 416
+    Top = 422
     Width = 32
     Height = 32
     Stretch = True
   end
   object FirstTyping6: TImage
     Left = 439
-    Top = 584
+    Top = 590
     Width = 32
     Height = 32
     Stretch = True
   end
   object FirstTyping5: TImage
     Left = 238
-    Top = 584
+    Top = 590
     Width = 32
     Height = 32
     Stretch = True
   end
   object FirstTyping2: TImage
     Left = 238
-    Top = 416
+    Top = 422
     Width = 32
     Height = 32
     Stretch = True
   end
   object FirstTyping4: TImage
     Left = 18
-    Top = 584
+    Top = 590
     Width = 32
     Height = 32
     Stretch = True
   end
   object FirstTyping1: TImage
     Left = 18
-    Top = 416
+    Top = 422
     Width = 32
     Height = 32
     Stretch = True
   end
   object SecondTyping3: TImage
     Left = 473
-    Top = 416
+    Top = 422
     Width = 32
     Height = 32
     Stretch = True
   end
   object SecondTyping6: TImage
     Left = 473
-    Top = 584
+    Top = 590
     Width = 32
     Height = 32
     Stretch = True
   end
   object SecondTyping5: TImage
     Left = 272
-    Top = 584
+    Top = 590
     Width = 32
     Height = 32
     Stretch = True
   end
   object SecondTyping2: TImage
     Left = 272
-    Top = 416
+    Top = 422
     Width = 32
     Height = 32
     Stretch = True
   end
   object SecondTyping4: TImage
     Left = 52
-    Top = 584
+    Top = 590
     Width = 32
     Height = 32
     Stretch = True
   end
   object SecondTyping1: TImage
     Left = 52
-    Top = 416
+    Top = 422
     Width = 32
     Height = 32
     Stretch = True
   end
   object LblPlayerName: TLabel
     Left = 18
-    Top = 385
+    Top = 391
     Width = 561
     Height = 25
     Alignment = taCenter
@@ -217,7 +217,7 @@ object MainForm: TMainForm
     Left = 8
     Top = 1
     Width = 584
-    Height = 371
+    Height = 383
     ActivePage = TabInputOutput
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -230,38 +230,46 @@ object MainForm: TMainForm
       Caption = 'Home'
       object LblInputFile: TLabel
         Left = 8
-        Top = 30
+        Top = 8
         Width = 47
         Height = 13
         Caption = 'Input file:'
         Layout = tlCenter
       end
       object LblOutputPathSelect: TLabel
-        Left = 269
-        Top = 256
+        Left = 5
+        Top = 276
         Width = 69
         Height = 13
         Caption = 'Output folder:'
         Layout = tlCenter
       end
       object LblPalette: TLabel
-        Left = 3
-        Top = 255
+        Left = 8
+        Top = 248
         Width = 66
         Height = 13
         Caption = 'Color palette:'
         Layout = tlCenter
       end
       object LblInputList: TLabel
-        Left = 428
-        Top = 60
+        Left = 427
+        Top = 32
         Width = 111
         Height = 13
         Caption = 'Manually added inputs:'
       end
+      object LblOtsLanguage: TLabel
+        Left = 259
+        Top = 248
+        Width = 124
+        Height = 13
+        Caption = 'Second language on OTS:'
+        Layout = tlCenter
+      end
       object CbxPalette: TComboBox
-        Left = 75
-        Top = 252
+        Left = 80
+        Top = 245
         Width = 150
         Height = 22
         Style = csOwnerDrawVariable
@@ -271,7 +279,7 @@ object MainForm: TMainForm
       end
       object BtnInputFile: TButton
         Left = 550
-        Top = 24
+        Top = 4
         Width = 23
         Height = 23
         ImageAlignment = iaCenter
@@ -283,100 +291,200 @@ object MainForm: TMainForm
       end
       object EdtInputFile: TEdit
         Left = 61
-        Top = 25
+        Top = 5
         Width = 483
         Height = 21
         TabOrder = 0
         OnChange = EdtInputFileChange
       end
       object EdtOutputPathSelect: TEdit
-        Left = 344
-        Top = 253
-        Width = 200
+        Left = 80
+        Top = 273
+        Width = 464
         Height = 21
-        TabOrder = 8
+        TabOrder = 9
       end
       object BtnOutputPathSelect: TButton
         Left = 550
-        Top = 252
+        Top = 272
         Width = 23
         Height = 23
         ImageAlignment = iaCenter
         ImageIndex = 0
         ImageMargins.Left = 1
         Images = Icons
-        TabOrder = 9
+        TabOrder = 10
         OnClick = BtnOutputPathSelectClick
       end
       object BtnCreate: TButton
         Left = 3
-        Top = 288
+        Top = 300
         Width = 570
         Height = 52
         Caption = 'Create images!'
         Enabled = False
-        TabOrder = 10
+        TabOrder = 11
         OnClick = BtnCreateClick
       end
       object PnlInput: TPanel
         Left = 3
-        Top = 72
+        Top = 44
         Width = 382
-        Height = 120
+        Height = 160
         BorderStyle = bsSingle
-        Caption = 'Manually add inputs'
+        Caption = 'Manually add inputs (mandatory fields are marked with *)'
         TabOrder = 2
         VerticalAlignment = taAlignTop
         object LblInputName: TLabel
-          Left = 48
-          Top = 23
-          Width = 31
+          Left = 47
+          Top = 20
+          Width = 37
           Height = 13
-          Caption = 'Name:'
+          Caption = 'Name*:'
         end
         object LblInputSurname: TLabel
-          Left = 33
-          Top = 52
-          Width = 46
+          Left = 32
+          Top = 47
+          Width = 52
           Height = 13
-          Caption = 'Surname:'
+          Caption = 'Surname*:'
         end
         object LblInputUrl: TLabel
-          Left = 3
-          Top = 79
-          Width = 76
+          Left = 2
+          Top = 75
+          Width = 82
           Height = 13
-          Caption = 'Pokepaste URL:'
+          Caption = 'Pokepaste URL*:'
+        end
+        object LblInputTrainerName: TLabel
+          Left = 10
+          Top = 101
+          Width = 74
+          Height = 13
+          Caption = 'Trainer Name*:'
+          Layout = tlCenter
+        end
+        object LblInputBattleTeam: TLabel
+          Left = 249
+          Top = 20
+          Width = 60
+          Height = 13
+          Caption = 'Team Name:'
+          Layout = tlCenter
+        end
+        object LblInputProfile: TLabel
+          Left = 241
+          Top = 47
+          Width = 68
+          Height = 13
+          Caption = 'Switch Profile:'
+          Layout = tlCenter
+        end
+        object LblInputPlayerId: TLabel
+          Left = 261
+          Top = 75
+          Width = 48
+          Height = 13
+          Caption = 'Player ID:'
+          Layout = tlCenter
+        end
+        object LblInputBirthDate: TLabel
+          Left = 32
+          Top = 129
+          Width = 52
+          Height = 13
+          Caption = 'Birth Date:'
+          Layout = tlCenter
+        end
+        object LblInputGameLanguage: TLabel
+          Left = 192
+          Top = 129
+          Width = 81
+          Height = 13
+          Caption = 'Game Language:'
+          Layout = tlCenter
         end
         object EdtInputName: TEdit
-          Left = 85
-          Top = 20
-          Width = 280
+          Left = 90
+          Top = 17
+          Width = 145
           Height = 21
           TabOrder = 0
-          OnChange = EdtInputNameChange
+          Text = 'Ciccio'
+          OnChange = UpdateInputAddBtn
         end
         object EdtInputSurname: TEdit
-          Left = 85
-          Top = 47
-          Width = 280
+          Left = 90
+          Top = 44
+          Width = 145
           Height = 21
           TabOrder = 1
-          OnChange = EdtInputSurnameChange
+          Text = 'Pasticcio'
+          OnChange = UpdateInputAddBtn
         end
         object EdtInputUrl: TEdit
-          Left = 85
-          Top = 74
-          Width = 280
+          Left = 90
+          Top = 71
+          Width = 145
           Height = 21
           TabOrder = 2
-          OnChange = EdtInputUrlChange
+          Text = 'https://pokepast.es/1b4fd6e826d58236'
+          OnChange = UpdateInputAddBtn
+        end
+        object EdtInputTrainerName: TEdit
+          Left = 90
+          Top = 98
+          Width = 145
+          Height = 21
+          TabOrder = 3
+          Text = 'ROBERTO'
+          OnChange = UpdateInputAddBtn
+        end
+        object EdtInputBattleTeam: TEdit
+          Left = 315
+          Top = 17
+          Width = 55
+          Height = 21
+          TabOrder = 4
+        end
+        object EdtInputProfile: TEdit
+          Left = 315
+          Top = 44
+          Width = 55
+          Height = 21
+          TabOrder = 5
+          Text = 'cotolotta'
+        end
+        object EdtInputPlayerId: TEdit
+          Left = 315
+          Top = 71
+          Width = 55
+          Height = 21
+          TabOrder = 6
+          Text = '994985'
+        end
+        object DtpInputBirthDate: TDateTimePicker
+          Left = 90
+          Top = 125
+          Width = 96
+          Height = 22
+          Date = 45243.000000000000000000
+          Time = 0.760910949073149800
+          TabOrder = 7
+        end
+        object CbxInputGameLanguage: TComboBox
+          Left = 279
+          Top = 125
+          Width = 91
+          Height = 22
+          Style = csOwnerDrawVariable
+          TabOrder = 8
         end
       end
       object BtnInputRemove: TButton
-        Left = 435
-        Top = 200
-        Width = 66
+        Left = 389
+        Top = 208
+        Width = 90
         Height = 31
         Caption = 'Remove'
         Enabled = False
@@ -384,9 +492,9 @@ object MainForm: TMainForm
         OnClick = BtnInputRemoveClick
       end
       object BtnInputRemoveAll: TButton
-        Left = 507
-        Top = 200
-        Width = 66
+        Left = 483
+        Top = 208
+        Width = 90
         Height = 31
         Caption = 'Clear All'
         TabOrder = 6
@@ -394,16 +502,16 @@ object MainForm: TMainForm
       end
       object LstInputList: TListBox
         Left = 391
-        Top = 72
+        Top = 44
         Width = 182
-        Height = 118
+        Height = 158
         ItemHeight = 13
         TabOrder = 4
         OnClick = LstInputListClick
       end
       object BtnInputAdd: TButton
-        Left = 0
-        Top = 198
+        Left = 3
+        Top = 208
         Width = 382
         Height = 31
         Caption = 'Add'
@@ -411,13 +519,21 @@ object MainForm: TMainForm
         TabOrder = 3
         OnClick = BtnInputAddClick
       end
+      object CbxOtsLanguage: TComboBox
+        Left = 389
+        Top = 245
+        Width = 184
+        Height = 22
+        Style = csOwnerDrawVariable
+        TabOrder = 8
+      end
     end
     object TabConfig: TTabSheet
       Caption = 'Configuration'
       ImageIndex = 1
       object LblResourcePath: TLabel
         Left = 3
-        Top = 210
+        Top = 245
         Width = 79
         Height = 13
         Caption = 'Resources path:'
@@ -433,51 +549,27 @@ object MainForm: TMainForm
       end
       object LblAssetsPath: TLabel
         Left = 14
-        Top = 255
+        Top = 272
         Width = 68
         Height = 13
         Caption = 'Sprites folder:'
         Layout = tlCenter
       end
-      object LblColumnName: TLabel
-        Left = 48
-        Top = 18
-        Width = 154
+      object LblOutputs: TLabel
+        Left = 39
+        Top = 220
+        Width = 43
         Height = 13
-        Caption = 'Input CSV column name - Name:'
-        Layout = tlCenter
-      end
-      object LblColumnSurname: TLabel
-        Left = 33
-        Top = 51
-        Width = 169
-        Height = 13
-        Caption = 'Input CSV column name - Surname:'
-        Layout = tlCenter
-      end
-      object LblColumnPaste: TLabel
-        Left = 3
-        Top = 86
-        Width = 199
-        Height = 13
-        Caption = 'Input CSV column name - Pokepaste URL:'
-        Layout = tlCenter
-      end
-      object LblDelimiter: TLabel
-        Left = 107
-        Top = 122
-        Width = 95
-        Height = 13
-        Caption = 'Input CSV delimiter:'
+        Caption = 'Outputs:'
         Layout = tlCenter
       end
       object EdtResourcePath: TEdit
         Left = 88
-        Top = 207
+        Top = 242
         Width = 456
         Height = 21
         ReadOnly = True
-        TabOrder = 0
+        TabOrder = 5
         Text = '.\Resources\'
         OnChange = EdtResourcePathChange
       end
@@ -491,24 +583,24 @@ object MainForm: TMainForm
         ParentCtl3D = False
         ParentShowHint = False
         ShowHint = False
-        TabOrder = 1
+        TabOrder = 8
         Text = '.\Resources\Data\'
       end
       object BtnResourcePath: TButton
         Left = 550
-        Top = 206
+        Top = 241
         Width = 23
         Height = 23
         ImageAlignment = iaCenter
         ImageIndex = 0
         ImageMargins.Left = 1
         Images = Icons
-        TabOrder = 2
+        TabOrder = 6
         OnClick = BtnResourcePathClick
       end
       object EdtAssetsPath: TEdit
         Left = 88
-        Top = 252
+        Top = 269
         Width = 485
         Height = 21
         Ctl3D = True
@@ -516,87 +608,287 @@ object MainForm: TMainForm
         ParentCtl3D = False
         ParentShowHint = False
         ShowHint = False
-        TabOrder = 3
+        TabOrder = 7
         Text = '.\Resources\Assets\'
       end
       object ChkEnablePreview: TCheckBox
-        Left = 3
-        Top = 165
+        Left = 88
+        Top = 326
         Width = 100
         Height = 17
         Alignment = taLeftJustify
         Caption = 'Enable preview: '
         Checked = True
         State = cbChecked
-        TabOrder = 4
+        TabOrder = 9
         OnClick = ChkEnablePreviewClick
       end
-      object EdtColumnPaste: TEdit
-        Left = 208
-        Top = 83
-        Width = 149
-        Height = 21
-        TabOrder = 5
-        Text = 'Pokepaste OT'
-        OnChange = EdtColumnPasteChange
-      end
-      object EdtColumnSurname: TEdit
-        Left = 208
-        Top = 48
-        Width = 149
-        Height = 21
-        TabOrder = 6
-        Text = 'Surname'
-        OnChange = EdtColumnSurnameChange
-      end
-      object EdtColumnName: TEdit
-        Left = 208
-        Top = 15
-        Width = 149
-        Height = 21
-        TabOrder = 7
-        Text = 'Name'
-        OnChange = EdtColumnNameChange
-      end
       object ChkHtmlOutput: TCheckBox
-        Left = 232
-        Top = 165
-        Width = 100
+        Left = 88
+        Top = 219
+        Width = 45
         Height = 17
         Alignment = taLeftJustify
-        Caption = 'HTML output:'
+        Caption = 'HTML'
         Checked = True
         State = cbChecked
-        TabOrder = 8
-        OnClick = ChkHtmlOutputClick
+        TabOrder = 1
+        OnClick = UpdateOutputs
       end
       object ChkPngOutput: TCheckBox
-        Left = 444
-        Top = 165
-        Width = 100
+        Left = 180
+        Top = 219
+        Width = 40
         Height = 17
         Alignment = taLeftJustify
-        Caption = 'PNG Output: '
+        Caption = 'PNG'
         Checked = True
         State = cbChecked
-        TabOrder = 9
-        OnClick = ChkPngOutputClick
+        TabOrder = 2
+        OnClick = UpdateOutputs
       end
-      object CbxDelimiter: TComboBox
-        Left = 208
-        Top = 119
-        Width = 41
-        Height = 21
-        Style = csDropDownList
-        ItemIndex = 0
+      object ChkOtsOutput: TCheckBox
+        Left = 270
+        Top = 219
+        Width = 60
+        Height = 17
+        Alignment = taLeftJustify
+        Caption = 'PDF-OTS'
+        Checked = True
+        State = cbChecked
+        TabOrder = 3
+        OnClick = UpdateOutputs
+      end
+      object ChkCtsOutput: TCheckBox
+        Left = 384
+        Top = 219
+        Width = 60
+        Height = 17
+        Alignment = taLeftJustify
+        Caption = 'PDF-CTS'
+        TabOrder = 4
+        OnClick = UpdateOutputs
+      end
+      object PnlCsvColumns: TPanel
+        Left = 3
+        Top = 4
+        Width = 570
+        Height = 210
+        BevelOuter = bvNone
+        BorderStyle = bsSingle
+        Caption = 
+          'CSV File imput column names (mandatory columns for OTS are marke' +
+          'd with *)'
+        TabOrder = 0
+        VerticalAlignment = taAlignTop
+        object LblColumnName: TLabel
+          Left = 64
+          Top = 23
+          Width = 37
+          Height = 13
+          Caption = 'Name*:'
+          Layout = tlCenter
+        end
+        object LblColumnPaste: TLabel
+          Left = 19
+          Top = 50
+          Width = 82
+          Height = 13
+          Caption = 'Pokepaste URL*:'
+          Layout = tlCenter
+        end
+        object LblColumnSurname: TLabel
+          Left = 327
+          Top = 23
+          Width = 52
+          Height = 13
+          Caption = 'Surname*:'
+          Layout = tlCenter
+        end
+        object LblTrainerName: TLabel
+          Left = 305
+          Top = 50
+          Width = 74
+          Height = 13
+          Caption = 'Trainer Name*:'
+          Layout = tlCenter
+        end
+        object LblBattleTeam: TLabel
+          Left = 10
+          Top = 77
+          Width = 91
+          Height = 13
+          Caption = 'Battle Team Name:'
+          Layout = tlCenter
+        end
+        object LblPlayerId: TLabel
+          Left = 331
+          Top = 104
+          Width = 48
+          Height = 13
+          Caption = 'Player ID:'
+          Layout = tlCenter
+        end
+        object LblBirthDate: TLabel
+          Left = 49
+          Top = 104
+          Width = 52
+          Height = 13
+          Caption = 'Birth Date:'
+          Layout = tlCenter
+        end
+        object LblProfile: TLabel
+          Left = 281
+          Top = 77
+          Width = 98
+          Height = 13
+          Caption = 'Switch Profile Name:'
+          Layout = tlCenter
+        end
+        object LblGameLanguage: TLabel
+          Left = 27
+          Top = 131
+          Width = 352
+          Height = 13
+          Caption = 
+            'Game Language ID (written as in the first column of file "langua' +
+            'ges.csv"):'
+          Layout = tlCenter
+        end
+        object EdtColumnName: TEdit
+          Left = 107
+          Top = 20
+          Width = 160
+          Height = 21
+          TabOrder = 0
+          Text = 'Name'
+        end
+        object EdtColumnSurname: TEdit
+          Left = 385
+          Top = 20
+          Width = 160
+          Height = 21
+          TabOrder = 1
+          Text = 'Surname'
+        end
+        object EdtColumnPaste: TEdit
+          Left = 107
+          Top = 47
+          Width = 160
+          Height = 21
+          TabOrder = 2
+          Text = 'Pokepaste OT'
+        end
+        object EdtColumnTrainerName: TEdit
+          Left = 385
+          Top = 47
+          Width = 160
+          Height = 21
+          TabOrder = 3
+          Text = 'Trainer Name'
+        end
+        object EdtColumnBattleTeam: TEdit
+          Left = 107
+          Top = 74
+          Width = 160
+          Height = 21
+          TabOrder = 4
+        end
+        object EdtColumnPlayerId: TEdit
+          Left = 385
+          Top = 101
+          Width = 160
+          Height = 21
+          TabOrder = 7
+        end
+        object EdtColumnProfile: TEdit
+          Left = 385
+          Top = 74
+          Width = 160
+          Height = 21
+          TabOrder = 5
+        end
+        object EdtColumnBirthDate: TEdit
+          Left = 107
+          Top = 101
+          Width = 160
+          Height = 21
+          TabOrder = 6
+        end
+        object PnlCsvConfig: TPanel
+          Left = -2
+          Top = 158
+          Width = 570
+          Height = 50
+          BorderStyle = bsSingle
+          Caption = 'Other CSV File input configurations'
+          TabOrder = 9
+          VerticalAlignment = taAlignTop
+          object LblDateFormat: TLabel
+            Left = 103
+            Top = 20
+            Width = 62
+            Height = 13
+            Caption = 'Date format:'
+            Layout = tlCenter
+          end
+          object LblDelimiter: TLabel
+            Left = 334
+            Top = 20
+            Width = 45
+            Height = 13
+            Caption = 'Delimiter:'
+            Layout = tlCenter
+          end
+          object CbxDateFormat: TComboBox
+            Left = 171
+            Top = 17
+            Width = 96
+            Height = 21
+            Style = csDropDownList
+            ItemIndex = 0
+            TabOrder = 0
+            Text = 'yyyymmdd'
+            Items.Strings = (
+              'yyyymmdd'
+              'yyyy/mm/dd'
+              'dd/mm/yyyy'
+              'mm/dd/yyyy'
+              'dd/mm/yy'
+              'mm/dd/yy')
+          end
+          object CbxDelimiter: TComboBox
+            Left = 385
+            Top = 17
+            Width = 41
+            Height = 21
+            Style = csDropDownList
+            ItemIndex = 0
+            TabOrder = 1
+            Text = ','
+            Items.Strings = (
+              ','
+              ';'
+              '|'
+              '~')
+          end
+        end
+        object EdtColumnGameLanguage: TEdit
+          Left = 385
+          Top = 128
+          Width = 160
+          Height = 21
+          TabOrder = 8
+        end
+      end
+      object BtnReloadLanguages: TButton
+        Left = 396
+        Top = 323
+        Width = 177
+        Height = 25
+        Caption = 'Reload Language configuration'
         TabOrder = 10
-        Text = ','
-        OnChange = CbxDelimiterChange
-        Items.Strings = (
-          ','
-          ';'
-          '|'
-          '~')
+        OnClick = BtnReloadLanguagesClick
       end
     end
   end
@@ -611,7 +903,7 @@ object MainForm: TMainForm
     ColorDepth = cd32Bit
     DrawingStyle = dsTransparent
     Left = 579
-    Top = 377
+    Top = 383
     Bitmap = {
       494C010102000800040010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010

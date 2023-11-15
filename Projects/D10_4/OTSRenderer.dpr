@@ -9,7 +9,10 @@ uses
   CsvParser in '..\..\Source\AkLib\CsvParser.pas',
   AkUtilsVcl in '..\..\Source\AkLib\AkUtilsVcl.pas',
   PokeParserVcl in '..\..\Source\PokeParserVcl.pas',
-  PokepasteProcessor in '..\..\Source\PokepasteProcessor.pas';
+  PokepasteProcessor in '..\..\Source\PokepasteProcessor.pas',
+  BilingualTeamlist in '..\..\Source\BilingualTeamlist.pas' {BilingualTemplate: TFrame},
+  TeamlistTemplateFrame in '..\..\Source\TeamlistTemplateFrame.pas',
+  MonolingualTeamlist in '..\..\Source\MonolingualTeamlist.pas' {MonolingualTemplate: TFrame};
 
 {$R *.res}
 

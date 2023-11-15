@@ -13,32 +13,36 @@ type
   private
     FDataFiles: array of TFileName;
     FPokepaste: TPokepasteVcl;
+    FCsvColumnDefinitions: array of string;
     FCsvColumnNames: array of string;
     FCsvDelimiter: Char;
     FAddedInputs: array of TInput;
     FPreviewEnabled: Boolean;
     FOutputs: TStringList;
-    FHtmlOutput: Boolean;
-    FPngOutput: Boolean;
+    FOutputTypes: TStringList;
     FStopOnErrors: Boolean;
     FLogger: TAkLogger;
 
     { Setup / Enable / Disable components }
     procedure UpdateCreateBtn;
     procedure UpdateResourcesPath;
-    procedure UpdateInputAddBtn;
     procedure UpdateInputRemoveBtn;
-    procedure UpdateCsvColumnNames;
-    procedure UpdateCsvDelimiter;
-    procedure UpdateOutputs;
-    procedure PaintCombobox;
+    procedure SetCsvDelimiter;
+    procedure CalcCsvColumnNames;
+    procedure PaintComboboxPalette;
+    procedure PaintComboBoxLanguages;
 
     { Dependencies }
     procedure CalcPalette(const ACssPath: string; var AColorNames, AColorValues: TArray<string>);
     procedure CheckAndSetData;
+    function EvalDateTime(const ADateTime: TDateTime): TDateTime;
 
     { Manual inputs }
-    procedure AddInput(const AName, ASurname, AUrl: string);
+    procedure AddInput(const AName, ASurname, AUrl: string;
+      const ATrainerName: string = ''; const ABattleTeam: string = '';
+      const AProfile: string = ''; const APlayerId: string = '';
+      const AGameLanguageId: string = '';
+      const ABirthDate: TDateTime = NULL_DATETIME);
     procedure DeleteInput(const AIndex: Integer);
     procedure DeleteAllInputs;
 
@@ -58,8 +62,6 @@ type
     function YesNoAllDlg(const AMessage: string): string;
 
     { Utilities }
-    function AppTitle: string;
-    function AppPath: string;
     procedure Log(const AString: string);
   public
     { The main Create method }
@@ -70,15 +72,75 @@ type
     DlgPathSelect: TFileOpenDialog;
     DlgFileSelect: TFileOpenDialog;
     Icons: TImageList;
+    { Main components }
+    Page: TPageControl;
+    TabInputOutput: TTabSheet;
+    BtnInputFile: TButton;
+    EdtInputFile: TEdit;
+    LblInputFile: TLabel;
+    PnlInput: TPanel;
+    LblInputName: TLabel;
+    LblInputSurname: TLabel;
+    LblInputUrl: TLabel;
+    LblInputTrainerName: TLabel;
+    LblInputBattleTeam: TLabel;
+    LblInputProfile: TLabel;
+    LblInputPlayerId: TLabel;
+    LblInputBirthDate: TLabel;
+    LblInputGameLanguage: TLabel;
+    EdtInputName: TEdit;
+    EdtInputSurname: TEdit;
+    EdtInputUrl: TEdit;
+    EdtInputTrainerName: TEdit;
+    EdtInputBattleTeam: TEdit;
+    EdtInputProfile: TEdit;
+    EdtInputPlayerId: TEdit;
+    DtpInputBirthDate: TDateTimePicker;
+    CbxInputGameLanguage: TComboBox;
+    LstInputList: TListBox;
+    LblInputList: TLabel;
+    BtnInputAdd: TButton;
+    BtnInputRemove: TButton;
+    BtnInputRemoveAll: TButton;
+    CbxPalette: TComboBox;
+    LblPalette: TLabel;
+    BtnOutputPathSelect: TButton;
+    EdtOutputPathSelect: TEdit;
+    LblOutputPathSelect: TLabel;
+    CbxOtsLanguage: TComboBox;
+    LblOtsLanguage: TLabel;
+    BtnCreate: TButton;
     { Config components }
     TabConfig: TTabSheet;
+    PnlCsvColumns: TPanel;
     LblColumnName: TLabel;
     LblColumnSurname: TLabel;
     LblColumnPaste: TLabel;
+    LblTrainerName: TLabel;
+    LblBattleTeam: TLabel;
+    LblProfile: TLabel;
+    LblBirthDate: TLabel;
+    LblPlayerId: TLabel;
+    LblGameLanguage: TLabel;
     EdtColumnPaste: TEdit;
     EdtColumnSurname: TEdit;
     EdtColumnName: TEdit;
-    ChkEnablePreview: TCheckBox;
+    EdtColumnTrainerName: TEdit;
+    EdtColumnBattleTeam: TEdit;
+    EdtColumnProfile: TEdit;
+    EdtColumnBirthDate: TEdit;
+    EdtColumnPlayerId: TEdit;
+    EdtColumnGameLanguage: TEdit;
+    PnlCsvConfig: TPanel;
+    LblDateFormat: TLabel;
+    LblDelimiter: TLabel;
+    CbxDateFormat: TComboBox;
+    CbxDelimiter: TComboBox;
+    LblOutputs: TLabel;
+    ChkHtmlOutput: TCheckBox;
+    ChkPngOutput: TCheckBox;
+    ChkOtsOutput: TCheckBox;
+    ChkCtsOutput: TCheckBox;
     LblResourcePath: TLabel;
     BtnResourcePath: TButton;
     EdtResourcePath: TEdit;
@@ -86,6 +148,8 @@ type
     EdtAssetsPath: TEdit;
     LblDataPath: TLabel;
     EdtDataPath: TEdit;
+    ChkEnablePreview: TCheckBox;
+    BtnReloadLanguages: TButton;
     { Preview components }
     ShpPreview: TShape;
     LblPlayerName: TLabel;
@@ -113,58 +177,24 @@ type
     SecondTyping4: TImage;
     SecondTyping5: TImage;
     SecondTyping6: TImage;
-    { Main components }
-    Page: TPageControl;
-    TabInputOutput: TTabSheet;
-    BtnInputFile: TButton;
-    EdtInputFile: TEdit;
-    LblInputFile: TLabel;
-    PnlInput: TPanel;
-    EdtInputName: TEdit;
-    EdtInputSurname: TEdit;
-    EdtInputUrl: TEdit;
-    LblInputName: TLabel;
-    LblInputSurname: TLabel;
-    LblInputUrl: TLabel;
-    LstInputList: TListBox;
-    LblInputList: TLabel;
-    BtnInputAdd: TButton;
-    BtnInputRemove: TButton;
-    BtnInputRemoveAll: TButton;
-    CbxPalette: TComboBox;
-    LblPalette: TLabel;
-    BtnOutputPathSelect: TButton;
-    EdtOutputPathSelect: TEdit;
-    LblOutputPathSelect: TLabel;
-    BtnCreate: TButton;
-    ChkHtmlOutput: TCheckBox;
-    ChkPngOutput: TCheckBox;
-    CbxDelimiter: TComboBox;
-    LblDelimiter: TLabel;
     { App info components }
     LblInfo: TLabel;
     { Event handlers }
     procedure FormCreate(Sender: TObject);
+    procedure UpdateInputAddBtn(Sender: TObject);
     procedure EdtResourcePathChange(Sender: TObject);
     procedure BtnOutputPathSelectClick(Sender: TObject);
     procedure BtnInputFileClick(Sender: TObject);
     procedure BtnResourcePathClick(Sender: TObject);
     procedure CbxPaletteDrawItem(Control: TWinControl; Index: Integer; Rect:TRect; State: TOwnerDrawState);
-    procedure EdtInputNameChange(Sender: TObject);
-    procedure EdtInputSurnameChange(Sender: TObject);
-    procedure EdtInputUrlChange(Sender: TObject);
     procedure BtnInputRemoveAllClick(Sender: TObject);
     procedure EdtInputFileChange(Sender: TObject);
     procedure ChkEnablePreviewClick(Sender: TObject);
-    procedure EdtColumnNameChange(Sender: TObject);
-    procedure EdtColumnSurnameChange(Sender: TObject);
-    procedure EdtColumnPasteChange(Sender: TObject);
-    procedure CbxDelimiterChange(Sender: TObject);
-    procedure ChkHtmlOutputClick(Sender: TObject);
-    procedure ChkPngOutputClick(Sender: TObject);
+    procedure UpdateOutputs(Sender: TObject);
     procedure BtnInputAddClick(Sender: TObject);
     procedure LstInputListClick(Sender: TObject);
     procedure BtnInputRemoveClick(Sender: TObject);
+    procedure BtnReloadLanguagesClick(Sender: TObject);
     procedure BtnCreateClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   end;
@@ -180,34 +210,25 @@ uses
 
 {$R *.dfm}
 
-procedure TMainForm.AddInput(const AName, ASurname, AUrl: string);
+procedure TMainForm.AddInput(const AName, ASurname, AUrl, ATrainerName,
+  ABattleTeam, AProfile, APlayerId, AGameLanguageId: string; const ABirthDate: TDateTime);
 begin
   SetLength(FAddedInputs, Length(FAddedInputs) + 1);
-  FAddedInputs[Length(FAddedInputs) - 1].Name := AName;
-  FAddedInputs[Length(FAddedInputs) - 1].Surname := ASurname;
-  FAddedInputs[Length(FAddedInputs) - 1].Link := AUrl;
+  FAddedInputs[Length(FAddedInputs) - 1] := TInput.Create(AName, ASurname, AUrl,
+    ATrainerName, ABattleTeam, AProfile, APlayerId, AGameLanguageId, ABirthDate);
   LstInputList.AddItem(AName[1] + '. ' + ASurname, TObject(Length(FAddedInputs) - 1));
-end;
-
-function TMainForm.AppPath: string;
-begin
-  Result := ExtractFilePath(ParamStr(0));
-end;
-
-function TMainForm.AppTitle: string;
-begin
-  Result := StringReplace(ExtractFileName(ParamStr(0)), ExtractFileExt(ParamStr(0)), '', [rfIgnoreCase]);
 end;
 
 procedure TMainForm.BtnCreateClick(Sender: TObject);
 begin
   BtnCreate.Enabled := False;
   AddFontResource(PWideChar(IncludeTrailingPathDelimiter(EdtResourcePath.Text) + 'SourceSansPro-Semibold.ttf'));
+  AddFontResource(PWideChar(IncludeTrailingPathDelimiter(EdtResourcePath.Text) + 'SimSun.ttf'));
   try
     // This is probably unnecessary, should test it in an environment where the font is not installed
     SendMessage(Application.Handle, WM_FONTCHANGE, 0, 0);
     CheckAndSetData;
-    if not FHtmlOutput and not FPngOutput then
+    if FOutputTypes.Count = 0 then
       if not ConfirmDlg('You have not selected any output, nothing will be created.' + sLineBreak + 'Proceed anyway?') then
         Exit;
     {$IFDEF DEBUG}
@@ -218,16 +239,33 @@ begin
     CreateAll(EdtInputFile.Text, EdtAssetsPath.Text, CbxPalette.Items[CbxPalette.ItemIndex], EdtOutputPathSelect.Text);
   finally
     RemoveFontResource(PWideChar(IncludeTrailingPathDelimiter(EdtResourcePath.Text) + 'SourceSansPro-Semibold.ttf'));
+    RemoveFontResource(PWideChar(IncludeTrailingPathDelimiter(EdtResourcePath.Text) + 'SimSun.ttf'));
     UpdateCreateBtn;
   end;
 end;
 
 procedure TMainForm.BtnInputAddClick(Sender: TObject);
+var
+  I: Integer;
 begin
-  AddInput(EdtInputName.Text, EdtInputSurname.Text, EdtInputUrl.Text);
-  EdtInputName.Clear;
-  EdtInputSurname.Clear;
-  EdtInputUrl.Clear;
+  AddInput(
+    Trim(EdtInputName.Text),
+    Trim(EdtInputSurname.Text),
+    Trim(EdtInputUrl.Text),
+    Trim(EdtInputTrainerName.Text),
+    Trim(EdtInputBattleTeam.Text),
+    Trim(EdtInputProfile.Text),
+    Trim(EdtInputPlayerId.Text),
+    string(CbxInputGameLanguage.Items.Objects[CbxInputGameLanguage.ItemIndex]),
+    EvalDateTime(DtpInputBirthDate.DateTime)
+    );
+  for I := 0 to PnlInput.ControlCount - 1 do
+  begin
+    if PnlInput.Controls[I] is TEdit then
+      (PnlInput.Controls[I] as TEdit).Clear
+    else if PnlInput.Controls[I] is TDateTimePicker then
+      (PnlInput.Controls[I] as TDateTimePicker).DateTime := Date;
+  end;
   EdtInputName.SetFocus;
 end;
 
@@ -253,6 +291,12 @@ procedure TMainForm.BtnOutputPathSelectClick(Sender: TObject);
 begin
   if DlgPathSelect.Execute then
     EdtOutputPathSelect.Text := DlgPathSelect.FileName;
+end;
+
+procedure TMainForm.BtnReloadLanguagesClick(Sender: TObject);
+begin
+  TAkLanguageRegistry.Config := AppPath + 'languages.csv';
+  PaintComboBoxLanguages;
 end;
 
 procedure TMainForm.BtnResourcePathClick(Sender: TObject);
@@ -295,11 +339,6 @@ begin
   finally
     LFile.Free;
   end;
-end;
-
-procedure TMainForm.CbxDelimiterChange(Sender: TObject);
-begin
-  UpdateCsvDelimiter;
 end;
 
 procedure TMainForm.CbxPaletteDrawItem(Control: TWinControl; Index: Integer;
@@ -348,16 +387,6 @@ begin
   DisplayPreview(ChkEnablePreview.Checked);
 end;
 
-procedure TMainForm.ChkHtmlOutputClick(Sender: TObject);
-begin
-  UpdateOutputs;
-end;
-
-procedure TMainForm.ChkPngOutputClick(Sender: TObject);
-begin
-  UpdateOutputs;
-end;
-
 procedure TMainForm.ClearSprites;
 var
   I: Integer;
@@ -398,68 +427,50 @@ var
 
 begin
   if Assigned(FOutputs) then
-    FOutputs.Free;
+    FreeAndNil(FOutputs);
 
   LAlwaysOverwrite := False;
   LNeverOverwrite := False;
-
   FOutputs := TStringList.Create;
   LProcessor := TPokepasteProcessor.Create(FDataFiles,
     AAssetsPath, AColorPaletteName, AOutputPath,
-    FPokepaste, FHtmlOutput, FPngOutput, FLogger);
+    FPokepaste, FOutputTypes.Text, FLogger);
   try
     LProcessor.StopOnErrors := FStopOnErrors;
+    LProcessor.OTSLanguage := string(CbxOtsLanguage.Items.Objects[CbxOtsLanguage.ItemIndex]);
     LProcessor.OnRender :=
       function(APokepaste: TPokepaste; AInput: TInput): Boolean
       var
         LOutputName: string;
+        LOutputType: string;
       begin
         if FPreviewEnabled then
           SetAllSprites;
         Result := True;
-        LOutputName := IncludeTrailingPathDelimiter(LProcessor.OutputPath + 'HTML') + APokepaste.OutputName + '.html';
-        if FHtmlOutput and FileExists(LOutputName) then
+        for LOutputType in FOutputTypes do
         begin
-          if LAlwaysOverwrite then
-            Exit;
-          if LNeverOverwrite then
+          LOutputName := IncludeTrailingPathDelimiter(LProcessor.OutputPath + LOutputType) + APokepaste.OutputName + OutputExt(LOutputType);
+          if FileExists(LOutputName) then
           begin
-            Result := False;
-            Exit;
+            if LAlwaysOverwrite then
+              Exit;
+            if LNeverOverwrite then
+            begin
+              Result := False;
+              Exit;
+            end;
+            LDlgResult := YesNoAllDlg(Format('The file "%s" already exists: overwrite it?', [LOutputName]));
+
+            if SameText(LDlgResult, 'YesAll') then
+              LAlwaysOverwrite := True
+            else if SameText(LDlgResult, 'NoAll') then
+              LNeverOverwrite := True;
+
+            if Pos('YES', AnsiUpperCase(LDlgResult)) > 0  then
+              Result := True
+            else
+              Result := False;
           end;
-          LDlgResult := YesNoAllDlg(Format('The file "%s" already exists: overwrite it?', [LOutputName]));
-
-          if SameText(LDlgResult, 'YesAll') then
-            LAlwaysOverwrite := True
-          else if SameText(LDlgResult, 'NoAll') then
-            LNeverOverwrite := True;
-
-          if Pos('YES', AnsiUpperCase(LDlgResult)) > 0  then
-            Result := True
-          else
-            Result := False;
-        end;
-        LOutputName := IncludeTrailingPathDelimiter(LProcessor.OutputPath + 'PNG') + APokepaste.OutputName + '.png';
-        if FPngOutput and FileExists(LOutputName) then
-        begin
-          if LAlwaysOverwrite then
-            Exit;
-          if LNeverOverwrite then
-          begin
-            Result := False;
-            Exit;
-          end;
-          LDlgResult := YesNoAllDlg(Format('The file "%s" already exists: overwrite it?', [LOutputName]));
-
-          if SameText(LDlgResult, 'YesAll') then
-            LAlwaysOverwrite := True
-          else if SameText(LDlgResult, 'NoAll') then
-            LNeverOverwrite := True;
-
-          if Pos('YES', AnsiUpperCase(LDlgResult)) > 0  then
-            Result := True
-          else
-            Result := False;
         end;
       end;
 
@@ -473,9 +484,12 @@ begin
 
     if FileExists(AInputFileName) then
     begin
+      SetCsvDelimiter;
+      CalcCsvColumnNames;
       LCsv := TCsv.Create(AInputFileName, FCsvDelimiter, True);
       try
-        FOutputs.Text := LProcessor.CreateFromFile(LCsv, FCsvColumnNames, LFullNames, LErrors);
+        LCsv.DateFormat := CbxDateFormat.Items[CbxDateFormat.ItemIndex];
+        FOutputs.Text := LProcessor.CreateFromFile(LCsv, FCsvColumnDefinitions, FCsvColumnNames, LFullNames, LErrors);
         if FOutputs.Text <> '' then
           FOutputs.Text := FOutputs.Text + sLineBreak;
       finally
@@ -483,7 +497,7 @@ begin
       end;
     end;
 
-    FOutputs.Text := FOutputs.Text + (LProcessor.CreateFromInputList(FAddedInputs, LFullNames, LErrors));
+    FOutputs.Text := FOutputs.Text + LProcessor.CreateFromInputList(FAddedInputs, LFullNames, LErrors);
     if (FOutputs.Count > 0) and (LErrors = '') then
       if YesNoDlg('Operation completed without errors, show complete output?') then
         InfoDlg(FOutputs.Text)
@@ -537,39 +551,9 @@ begin
   FPreviewEnabled := AShow;
 end;
 
-procedure TMainForm.EdtColumnNameChange(Sender: TObject);
-begin
-  UpdateCsvColumnNames;
-end;
-
-procedure TMainForm.EdtColumnPasteChange(Sender: TObject);
-begin
-  UpdateCsvColumnNames;
-end;
-
-procedure TMainForm.EdtColumnSurnameChange(Sender: TObject);
-begin
-  UpdateCsvColumnNames;
-end;
-
 procedure TMainForm.EdtInputFileChange(Sender: TObject);
 begin
   UpdateCreateBtn;
-end;
-
-procedure TMainForm.EdtInputNameChange(Sender: TObject);
-begin
-  UpdateInputAddBtn;
-end;
-
-procedure TMainForm.EdtInputSurnameChange(Sender: TObject);
-begin
-  UpdateInputAddBtn;
-end;
-
-procedure TMainForm.EdtInputUrlChange(Sender: TObject);
-begin
-  UpdateInputAddBtn;
 end;
 
 procedure TMainForm.EdtResourcePathChange(Sender: TObject);
@@ -577,17 +561,24 @@ begin
   UpdateResourcesPath;
 end;
 
+function TMainForm.EvalDateTime(const ADateTime: TDateTime): TDateTime;
+begin
+  if ADateTime = Date then
+    Result := NULL_DATETIME
+  else
+    Result := ADateTime
+end;
+
 procedure TMainForm.FormCreate(Sender: TObject);
 var
   LLogPath: string;
 begin
-  PaintComboBox;
+  FOutputTypes := TStringList.Create;
+  PaintComboBoxPalette;
   DisplayPreview(ChkEnablePreview.Checked);
-  SetLength(FCsvColumnNames, 3);
-  UpdateCsvColumnNames;
-  UpdateCsvDelimiter;
-  UpdateOutputs;
+  UpdateOutputs(Sender);
   LLogPath := IncludeTrailingPathDelimiter(AppPath + 'Log');
+  DtpInputBirthDate.DateTime := Date;
   if not MakeDir(LLogPath) then
   begin
     WarningDlg('Error creating log folder.' + sLineBreak + 'Log file will be placed in the application directory.');
@@ -595,6 +586,9 @@ begin
   end;
   FPokepaste := TPokepasteVcl.Create;
   FLogger := TAkLogger.CreateAndInit(AppTitle, LLogPath + AppTitle, 'Y', 'dd-mm-yy_hh:nn:ss');
+
+  TAkLanguageRegistry.Config := AppPath + 'languages.csv';
+  PaintComboBoxLanguages;
 end;
 
 procedure TMainForm.FormDestroy(Sender: TObject);
@@ -605,6 +599,8 @@ begin
     FOutputs.Free;
   if Assigned(FLogger) then
     FLogger.Free;
+  if Assigned(FOutputTypes) then
+    FOutputTypes.Free;
 end;
 
 procedure TMainForm.GeneralDlg(const ADlgType: TMsgDlgType;
@@ -640,7 +636,22 @@ begin
   UpdateInputRemoveBtn;
 end;
 
-procedure TMainForm.PaintCombobox;
+procedure TMainForm.PaintComboBoxLanguages;
+begin
+  CbxOtsLanguage.Clear;
+  CbxInputGameLanguage.Clear;
+  TAkLanguageRegistry.Instance.ForEach(
+    procedure(ALanguage: TLanguage)
+    begin
+      CbxOtsLanguage.AddItem(ALanguage.Description, TObject(ALanguage.Id));
+      CbxInputGameLanguage.AddItem(ALanguage.Description, TObject(ALanguage.Id));
+    end
+  );
+  CbxOtsLanguage.ItemIndex := 0;
+  CbxInputGameLanguage.ItemIndex := 0;
+end;
+
+procedure TMainForm.PaintComboboxPalette;
 const
   ERR_NO_CSS = 'There are no palette css files (*_palette.css) in the selected resource path ' + sLineBreak +
     '("%s").' + sLineBreak +
@@ -726,23 +737,64 @@ begin
   BtnCreate.Enabled := (Length(FAddedInputs) <> 0) or (Trim(EdtInputFile.Text) <> '');
 end;
 
-procedure TMainForm.UpdateCsvColumnNames;
+procedure TMainForm.CalcCsvColumnNames;
+var
+  LColumnCount: Integer;
+
+  function CountColumns: Integer;
+  var
+    I: Integer;
+  begin
+    Result := 0;
+    for I := 0 to PnlCsvColumns.ControlCount - 1 do
+      if PnlCsvColumns.Controls[I] is TEdit then
+        if Trim((PnlCsvColumns.Controls[I] as TEdit).Text) <> '' then
+          Inc(Result);
+  end;
+
+  procedure SetColumns(const AEdits: array of TEdit);
+  var
+    LSkipCount: Integer;
+    I: Integer;
+  begin
+    LSkipCount := 0;
+    for I := 0 to Length(FCsvColumnNames) - 1 do
+    begin
+      while Trim(AEdits[I + LSkipCount].Text) = '' do
+        Inc(LSkipCount);
+      FCsvColumnNames[I] := AEdits[I + LSkipCount].Text;
+      FCsvColumnDefinitions[I] := RemoveStrings(AEdits[I + LSkipCount].Name, ['EdtColumn']);
+    end;
+  end;
 begin
-  FCsvColumnNames[0] := EdtColumnName.Text;
-  FCsvColumnNames[1] := EdtColumnSurname.Text;
-  FCsvColumnNames[2] := EdtColumnPaste.Text;
+  LColumnCount := CountColumns;
+  Assert(LColumnCount > 3, 'Columns Name, Surname, Pokepaste URL and Trainer Name are mandatory');
+  SetLength(FCsvColumnDefinitions, LColumnCount);
+  SetLength(FCsvColumnNames, LColumnCount);
+  SetColumns([
+    EdtColumnName,
+    EdtColumnSurname,
+    EdtColumnPaste,
+    EdtColumnTrainerName,
+    EdtColumnBattleTeam,
+    EdtColumnProfile,
+    EdtColumnPlayerId,
+    EdtColumnBirthDate,
+    EdtColumnGameLanguage
+  ]);
 end;
 
-procedure TMainForm.UpdateCsvDelimiter;
+procedure TMainForm.SetCsvDelimiter;
 begin
   FCsvDelimiter := CbxDelimiter.Text[1];
 end;
 
-procedure TMainForm.UpdateInputAddBtn;
+procedure TMainForm.UpdateInputAddBtn(Sender: TObject);
 begin
   if (Trim(EdtInputName.Text) = '')
   or (Trim(EdtInputSurname.Text) = '')
-  or (Trim(EdtInputUrl.Text) = '') then
+  or (Trim(EdtInputUrl.Text) = '')
+  or (Trim(EdtInputTrainerName.Text) = '') then
     BtnInputAdd.Enabled := False
   else
     BtnInputAdd.Enabled := True;
@@ -758,17 +810,24 @@ begin
   UpdateCreateBtn;
 end;
 
-procedure TMainForm.UpdateOutputs;
+procedure TMainForm.UpdateOutputs(Sender: TObject);
 begin
-  FHtmlOutput := ChkHtmlOutput.Checked;
-  FPngOutput := ChkPngOutput.Checked;
+  FOutputTypes.Clear;
+  if ChkHtmlOutput.Checked then
+    FOutputTypes.Add('HTML');
+  if ChkPngOutput.Checked then
+    FOutputTypes.Add('PNG');
+  if ChkOtsOutput.Checked then
+    FOutputTypes.Add('PDF_OTS');
+  if ChkCtsOutput.Checked then
+    FOutputTypes.Add('PDF_CTS');
 end;
 
 procedure TMainForm.UpdateResourcesPath;
 begin
   EdtAssetsPath.Text := IncludeTrailingPathDelimiter(IncludeTrailingPathDelimiter(EdtResourcePath.Text) + 'Assets');
   EdtDataPath.Text := IncludeTrailingPathDelimiter(IncludeTrailingPathDelimiter(EdtResourcePath.Text) + 'Data');
-  PaintComboBox;
+  PaintComboBoxPalette;
 end;
 
 procedure TMainForm.WarningDlg(const AMessage: string);

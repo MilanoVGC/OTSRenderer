@@ -9,12 +9,14 @@ uses
 
 const
   POKEMON_SPRITE_URL = 'https://projectpokemon.org/images/sprites-models/sv-sprites-home/';
-  DATA_ITEMS: array of string = ['Pokemon', 'Moves', 'Colors', 'Items'];
+  DATA_ITEMS: array of string = ['Pokemon', 'Moves', 'Colors', 'Items', 'Abilities'];
+
 
 type
   TPokemon = class
   strict private
     FData: TCsvArchive;
+    FLanguageId: string;
     FName: string;
     FSpecies: string;
     FFirstTyping: TTyping;
@@ -29,10 +31,13 @@ type
     FEvSpread: TEvSpread;
     FIvSpread: TIvSpread;
     procedure Init(const AData: TCsvArchive);
+    function GetLanguage: string;
     function GetTyping: string;
     function GetMove(const AIndex: Integer): TMove;
     function GetMoveName(const AIndex: Integer): string;
     function GetMoveTyping(const AIndex: Integer): string;
+    function GetAbility: string;
+    function GetItem: string;
     function GetTeraTyping: string;
     function GetText: string;
     function GetPokemonSpriteName: string;
@@ -44,6 +49,7 @@ type
     function GetSpriteName(const ASpriteType: string): string;
     function GetQualifier(const AQualifier: string): string;
     function GetDisplayName: string;
+    function GetStreamName: string;
     function GetStatIndex(const AStatName: string): Integer;
     function GetEv(const AStatName: string): Integer;
     function GetIv(const AStatName: string): Integer;
@@ -52,17 +58,21 @@ type
     procedure SetTypes;
     procedure SetSpecies;
     procedure SetMoves;
+  strict protected
+    function _(const AString: string; const AResource: TCsv = nil; const AOffset: Integer = 0): string;
   public
+    property Language: string read GetLanguage write FLanguageId;
     property Name: string read FName;
     property Species: string read FSpecies;
     property Typing: string read GetTyping;
     property Move[const AIndex: Integer]: TMove read GetMove;
     property MoveName[const AIndex: Integer]: string read GetMoveName;
     property MoveTyping[const AIndex: Integer]: string read GetMoveTyping;
-    property Ability: string read FAbility;
-    property Item: string read FItem;
+    property Ability: string read GetAbility;
+    property Item: string read GetItem;
     property Nickname: string read FNickname;
     property TeraTyping: string read GetTeraTyping;
+    property Level: Integer read FLevel;
     property EvHp: Integer read FEvSpread.Hp;
     property EvAtk: Integer read FEvSpread.Atk;
     property EvDef: Integer read FEvSpread.Def;
@@ -89,6 +99,7 @@ type
     property Qualifier[const AQualifier: string]: string read GetQualifier;
     property Text: string read GetText;
     property DisplayName: string read GetDisplayName;
+    property StreamName: string read GetStreamName;
     property Stat[const AStatName: string]: Integer read GetStat;
 
     /// <summary>
@@ -116,21 +127,34 @@ type
   TPokepaste = class
   strict private
     FData: TCsvArchive;
+    FLanguageId: string;
     FLink: string;
     FList: TStrings;
     FOwner: string;
+    FTrainerName: string;
+    FBattleTeam: string;
+    FProfile: string;
+    FPlayerId: string;
+    FBirthDate: TDateTime;
     FAssetsPath: string;
     FPokemons: array of TPokemon;
     FPokemonCount: Integer;
+    procedure SetLanguage(const ALanguage: TLanguage);
+    procedure SetLanguageId(const ALanguageId: string);
+    function GetLanguage: TLanguage;
     function GetOwnerClean: string;
+    function GetAgeDivision: Char;
+    function GetAgeDivisionLong: string;
     function GetPokemon(const AIndex: Integer): TPokemon;
     function GetPaste: string;
     function GetSprite(const ASpriteType: string; const AIndex: Integer): TFileName;
     function GetCustomPaste: string;
     function GetOutputName: string;
+    function GetIsOTSPrintable: Boolean;
+    function GetIsCTSPrintable: Boolean;
+    function GetQualifier(const AName: string): string;
     class function GetDataItem(const AIndex: Integer): string; static;
     class function GetDataItemCount: Integer; static;
-
     procedure Init(const ADataFileNames: array of TFileName;
       const AAssetsPath: string);
     procedure CreatePokemons;
@@ -139,13 +163,24 @@ type
     procedure StartPokepaste;
   strict protected
     function RetrieveSprite(const ASpriteName, ASpriteType: string; const AForceReload: Boolean = False): TFileName; virtual;
-
     procedure CreateEmptyPng(const ABaseColorHex: string); virtual;
     function PaintPastePng(const AColorCSSName, AHeaderColorHex, AOutputPath: string): string; virtual;
+    function PrintOTSPdf(const ALanguageId, AOutputPath: string): string; virtual;
+    function PrintCTSPdf(const ALanguageId, AOutputPath: string): string; virtual;
+    function _(const AString: string; const AResource: TCsv = nil; const AOffset: Integer = 0): string;
   public
+    property Language: TLanguage read GetLanguage write SetLanguage;
+    property LanguageId: string read FLanguageId write SetLanguageId;
     property Link: string read FLink;
     property Owner: string read FOwner write FOwner;
     property OwnerClean: string read GetOwnerClean;
+    property TrainerName: string read FTrainerName write FTrainerName;
+    property BattleTeam: string read FBattleTeam write FBattleTeam;
+    property Profile: string read FProfile write FProfile;
+    property PlayerId: string read FPlayerId write FPlayerId;
+    property BirthDate: TDateTime read FBirthDate write FBirthDate;
+    property AgeDivision: Char read GetAgeDivision;
+    property AgeDivisionLong: string read GetAgeDivisionLong;
     property AssetsPath: string read FAssetsPath;
     property Pokemon[const AIndex: Integer]: TPokemon read GetPokemon;
     property Count: Integer read FPokemonCount;
@@ -153,6 +188,9 @@ type
     property CustomPaste: string read GetCustomPaste;
     property Sprite[const ASpriteType: string; const AIndex: Integer]: TFileName read GetSprite;
     property OutputName: string read GetOutputName;
+    property IsOTSPrintable: Boolean read GetIsOTSPrintable;
+    property Qualifier[const AName: string]: string read GetQualifier; default;
+    property IsCTSPrintable: Boolean read GetIsCTSPrintable;
     class property DataItems[const AIndex: Integer]: string read GetDataItem;
     class property DataItemsCount: Integer read GetDataItemCount;
 
@@ -205,10 +243,24 @@ type
 
     /// <summary>
     ///  Prints the PNG image containing the rendering of the pokepaste as OTS.
-    ///  Implementation depends on the children class used
+    ///  Implementation depends on the children class used.
     ///  Returns the printed output's full name.
     /// </summary>
     function PrintPng(const AColorCSSName: string; const AOutputPath: string = ''): string;
+
+    /// <summary>
+    ///  Prints the PDF Open Team List of the pokepaste (for opponents).
+    ///  Implementation depends on the children class used.
+    ///  Returns the printed output's full name.
+    /// </summary>
+    function PrintOpenPdf(const ALanguageId: string; const AOutputPath: string = ''): string;
+
+    /// <summary>
+    ///  Prints the PDF full Team List of the pokepaste (for tournament staff).
+    ///  Implementation depends on the children class used.
+    ///  Returns the printed output's full name.
+    /// </summary>
+    function PrintClosedPdf(const ALanguageId: string; const AOutputPath: string = ''): string;
 
     destructor Destroy; override;
   end;
@@ -303,6 +355,39 @@ begin
   FPokemonCount := 0;
 end;
 
+function TPokepaste.GetAgeDivision: Char;
+var
+  LBirthYear: Integer;
+  LNowYear: Integer;
+  LSeasonCorrection: Integer;
+begin
+  Result := #0;
+  if BirthDate = NULL_DATETIME then
+    Exit;
+  LBirthYear := StrToInt(FormatDateTime('yyyy', BirthDate));
+  LNowYear := StrToInt(FormatDateTime('yyyy', Now));
+  if StrToInt(FormatDateTime('mm', Now)) > 8 then
+    LSeasonCorrection := 0
+  else
+    LSeasonCorrection := 1;
+  if LBirthYear > LNowYear - 11 - LSeasonCorrection then
+    Result := 'J'
+  else if LBirthYear > LNowYear - 14 - LSeasonCorrection then
+    Result := 'S'
+  else
+    Result := 'M';
+end;
+
+function TPokepaste.GetAgeDivisionLong: string;
+begin
+  case AgeDivision of
+    'J': Result := 'Junior';
+    'S': Result := 'Senior';
+  else
+    Result := 'Master';
+  end;
+end;
+
 function TPokepaste.GetCustomPaste: string;
 var
   I: Integer;
@@ -319,6 +404,28 @@ end;
 class function TPokepaste.GetDataItemCount: Integer;
 begin
   Result := Length(DATA_ITEMS);
+end;
+
+function TPokepaste.GetIsCTSPrintable: Boolean;
+begin
+  Result := False;
+  if (TrainerName <> '') and (BattleTeam <> '')
+  and (Profile <> '') and (PlayerId <> '')
+  and (BirthDate <> NULL_DATETIME) then
+    Result := True;
+end;
+
+function TPokepaste.GetIsOTSPrintable: Boolean;
+begin
+  Result := False;
+  if (TrainerName <> '') and (BattleTeam <> '')
+  and (Profile <> '') and (AgeDivision <> '') then
+    Result := True;
+end;
+
+function TPokepaste.GetLanguage: TLanguage;
+begin
+  Result := TAkLanguageRegistry.Instance[FLanguageId];
 end;
 
 function TPokepaste.GetOutputName: string;
@@ -338,9 +445,27 @@ end;
 
 function TPokepaste.GetPokemon(const AIndex: Integer): TPokemon;
 begin
-  Assert(Length(FPokemons) > AIndex);
+  Result := nil;
+  if Length(FPokemons) > AIndex then
+    Result := FPokemons[AIndex];
+end;
 
-  Result := FPokemons[AIndex];
+function TPokepaste.GetQualifier(const AName: string): string;
+begin
+  if MatchText(AName, ['Owner', 'Player', 'PlayerName']) then
+    Result := Owner
+  else if MatchText(AName, ['Trainer', 'TrainerName']) then
+    Result := TrainerName
+  else if MatchText(AName, ['Birth', 'BirthDate']) then
+    Result := FormatDateTime('yyyy/mm/dd', BirthDate)
+  else if MatchText(AName, ['Id', 'PlayerId']) then
+    Result := PlayerId
+  else if MatchText(AName, ['BattleTeam', 'BattleTeamName', 'Battle']) then
+    Result := BattleTeam
+  else if MatchText(AName, ['Profile', 'SwitchProfile', 'SwitchId']) then
+    Result := Profile
+  else if MatchText(AName, ['Division', 'AgeDivision']) then
+    Result := AgeDivisionLong
 end;
 
 function TPokepaste.GetSprite(const ASpriteType: string;
@@ -410,6 +535,20 @@ begin
   StartPokepaste;
 end;
 
+procedure TPokepaste.SetLanguage(const ALanguage: TLanguage);
+begin
+  SetLanguageId(ALanguage.Id);
+end;
+
+procedure TPokepaste.SetLanguageId(const ALanguageId: string);
+var
+  I: Integer;
+begin
+  FLanguageId := ALanguageId;
+  for I := 0 to Count - 1 do
+    Pokemon[I].Language := FLanguageId;
+end;
+
 procedure TPokepaste.StartPokepaste;
 begin
   FreePokemons;
@@ -417,9 +556,46 @@ begin
   CreatePokemons;
 end;
 
+function TPokepaste._(const AString: string; const AResource: TCsv;
+  const AOffset: Integer): string;
+var
+  LResource: TCsv;
+  LOffset: Integer;
+begin
+  if FLanguageId = '' then
+  begin
+    Result := AString;
+    Exit;
+  end;
+
+  LResource := AResource;
+  if not Assigned(LResource) then
+    LResource := FData['Generics'];
+
+  LOffset := ResourceTranslationOffset(LResource, FData);
+
+  Result := TranslateFromCsv(AString, FLanguageId, LResource, LOffset, AOffset);
+end;
+
 function TPokepaste.PaintPastePng(const AColorCSSName, AHeaderColorHex, AOutputPath: string): string;
 begin
+  Result := '';
+end;
 
+function TPokepaste.PrintClosedPdf(const ALanguageId, AOutputPath: string): string;
+var
+  LOutputPath: string;
+begin
+  LOutputPath := IncludeTrailingPathDelimiter(IncludeTrailingPathDelimiter(AOutputPath) + 'PDF_CTS');
+  if not MakeDir(LOutputPath) then
+    raise Exception.CreateFmt('Could not create directory "%s", try creating it manually.', [LOutputPath]);
+
+  Result := PrintCTSPdf(ALanguageId, LOutputPath);
+end;
+
+function TPokepaste.PrintCTSPdf(const ALanguageId, AOutputPath: string): string;
+begin
+  Result := '';
 end;
 
 function TPokepaste.PrintHtml(const AColorCSSName, AOutputPath: string): string;
@@ -466,6 +642,22 @@ begin
     end;
   Result := LOutputPath + OutputName + '.html';
   TFile.WriteAllText(Result, LHtml);
+end;
+
+function TPokepaste.PrintOpenPdf(const ALanguageId, AOutputPath: string): string;
+var
+  LOutputPath: string;
+begin
+  LOutputPath := IncludeTrailingPathDelimiter(IncludeTrailingPathDelimiter(AOutputPath) + 'PDF_OTS');
+  if not MakeDir(LOutputPath) then
+    raise Exception.CreateFmt('Could not create directory "%s", try creating it manually.', [LOutputPath]);
+
+  Result := PrintOTSPdf(ALanguageId, LOutputPath);
+end;
+
+function TPokepaste.PrintOTSPdf(const ALanguageId, AOutputPath: string): string;
+begin
+  Result := '';
 end;
 
 function TPokepaste.PrintPng(const AColorCSSName,
@@ -535,6 +727,16 @@ end;
 
 function TPokepaste.RetrieveSprite(const ASpriteName, ASpriteType: string;
   const AForceReload: Boolean): TFileName;
+
+  function SpriteBaseFormName: string;
+  var
+    LOffset: Integer;
+  begin
+    Result := ASpriteName;
+    LOffset := Pos('_', Result);
+    SetLength(Result, LOffset - 1);
+    Result := Result + ExtractFileExt(ASpriteName);
+  end;
 begin
   if ASpriteName = '' then
   begin
@@ -546,6 +748,11 @@ begin
 
   if FileExists(Result) and not AForceReload then
     Exit;
+
+  // If a Pokemon sprite is not found chances are that is an alternative form
+  // without an unique sprite: use the base form instead
+  if SameText(ASpriteType, 'Pokemon') and (Pos('_', ExtractFileName(Result)) > 0) then
+    Result := IncludeTrailingPathDelimiter(FAssetsPath + ASpriteType) + SpriteBaseFormName;
 
   // Handle SVG sprites
   if SameText(ExtractFileExt(Result), '.svg') then
@@ -763,23 +970,30 @@ begin
   end;
 end;
 
+function TPokemon.GetAbility: string;
+begin
+  Result := _(FAbility, FData['Abilities']);
+end;
+
 function TPokemon.GetDisplayName: string;
 begin
   Result := FData['Pokemon'].FindByValue(Name, 4);
+  Result := _(Result, FData['Pokemon'], 4);
   if Result = '' then
     Result := Name;
+  Result := _(Result);
 end;
 
 function TPokemon.GetEv(const AStatName: string): Integer;
 begin
   Result := 0;
   case GetStatIndex(AStatName) of
-    0: Result := IvHp;
-    1: Result := IvAtk;
-    2: Result := IvDef;
-    3: Result := IvSpA;
-    4: Result := IvSpD;
-    5: Result := IvSpe;
+    0: Result := EvHp;
+    1: Result := EvAtk;
+    2: Result := EvDef;
+    3: Result := EvSpA;
+    4: Result := EvSpD;
+    5: Result := EvSpe;
   end;
 end;
 
@@ -790,9 +1004,14 @@ begin
     Result := TypingToStr(FFirstTyping) + '.png';
 end;
 
+function TPokemon.GetItem: string;
+begin
+  Result := _(FItem, FData['Items'], 1);
+end;
+
 function TPokemon.GetItemSpriteName: string;
 begin
-  Result := 'item_' + FData['Items'].FindByValue(Item, 0, 1) + '.png';
+  Result := 'item_' + FData['Items'].FindByValue(FItem, 0, 1) + '.png';
 end;
 
 function TPokemon.GetIv(const AStatName: string): Integer;
@@ -808,6 +1027,11 @@ begin
   end;
 end;
 
+function TPokemon.GetLanguage: string;
+begin
+  Result := FLanguageId;
+end;
+
 function TPokemon.GetMove(const AIndex: Integer): TMove;
 begin
   Assert(Length(FMoveset) > AIndex);
@@ -819,7 +1043,7 @@ function TPokemon.GetMoveName(const AIndex: Integer): string;
 begin
   Result := '';
   if AIndex < Length(FMoveset) then
-    Result := Move[AIndex].Name;
+    Result := _(Move[AIndex].Name, FData['Moves']);
 end;
 
 function TPokemon.GetMoveTyping(const AIndex: Integer): string;
@@ -884,8 +1108,12 @@ end;
 
 function TPokemon.GetQualifier(const AQualifier: string): string;
 begin
-  if MatchText(AQualifier, ['Pokemon', 'Name', 'DisplayName']) then
+  if SameText(AQualifier, 'Name') then
+    Result := Name
+  else if MatchText(AQualifier, ['Pokemon', 'DisplayName']) then
     Result := DisplayName
+  else if SameText(AQualifier, 'StreamName') then
+    Result := StreamName
   else if Pos('SPRITENAME', AnsiUpperCase(AQualifier)) > 0 then
   begin
     Result := SpriteName[StringReplace(AQualifier, 'SpriteName', '', [rfReplaceAll, rfIgnoreCase])];
@@ -908,6 +1136,10 @@ begin
     Result := MoveTypingSpriteName[StrToInt(StringReplace(AQualifier, 'MoveTyping', '', [rfReplaceAll, rfIgnoreCase])) - 1]
   else if Pos('MOVE', AnsiUpperCase(AQualifier)) > 0 then
     Result := MoveName[StrToInt(StringReplace(AQualifier, 'Move', '', [rfReplaceAll, rfIgnoreCase])) - 1]
+  else if MatchText(AQualifier, ['Hp', 'Atk', 'Def', 'SpA', 'SpD', 'Spe']) then
+    Result := IntToStr(Stat[AQualifier])
+  else if SameText(AQualifier, 'Level') then
+    Result := IntToStr(Level)
   else
     raise Exception.CreateFmt('Unknown qualifier type "%s".', [AQualifier]);
 end;
@@ -943,7 +1175,7 @@ var
 begin
   LStatIndex := GetStatIndex(AStatName);
   LBaseStat := StrToInt(FData['Pokemon'].FindByValue(Name, LStatIndex + 5));
-  Result := (Floor(0.01 * (2 * LBaseStat + Iv[AStatName] + Floor(0.25 * Ev[AStatName])) * FLevel) + 5);
+  Result := (Floor(FLevel * 0.01 * (2 * LBaseStat + Iv[AStatName] + Floor(0.25 * Ev[AStatName]))) + 5);
   if LStatIndex = 0 then
     Result := Result + 5 + FLevel
   else
@@ -958,9 +1190,9 @@ begin
     Result := 1
   else if MatchText(AStatName, ['Def', 'Defense']) then
     Result := 2
-  else if MatchText(AStatName, ['SpA', 'Special Attack', 'SpecialAttack']) then
+  else if MatchText(AStatName, ['SpA', 'Sp. Atk', 'Special Attack', 'SpecialAttack']) then
     Result := 3
-  else if MatchText(AStatName, ['SpD', 'Special Defense', 'SpecialDefense']) then
+  else if MatchText(AStatName, ['SpD', 'Sp. Def', 'Special Defense', 'SpecialDefense']) then
     Result := 4
   else if MatchText(AStatName, ['Spe', 'Speed']) then
     Result := 5
@@ -968,9 +1200,18 @@ begin
     raise Exception.CreateFmt('Unknown stat name "%s".', [AStatName]);
 end;
 
+function TPokemon.GetStreamName: string;
+begin
+  Result := FData['Pokemon'].FindByValue(Name, 4);
+  Result := _(Result, FData['Pokemon'], 4);
+  if Result = '' then
+    Result := Name;
+  Result := _(Result);
+end;
+
 function TPokemon.GetTeraTyping: string;
 begin
-  Result := TypingToStr(FTeraTyping);
+  Result := _(TypingToStr(FTeraTyping), FData['Colors']);
 end;
 
 function TPokemon.GetTeraTypingSpriteName: string;
@@ -1041,6 +1282,27 @@ procedure TPokemon.SetTypes;
 begin
   FFirstTyping := StrToTyping(Trim(FData['Pokemon'].FindByValue(Name, 2)));
   FSecondTyping := StrToTyping(Trim(FData['Pokemon'].FindByValue(Name, 3)));
+end;
+
+function TPokemon._(const AString: string; const AResource: TCsv;
+  const AOffset: Integer): string;
+var
+  LResource: TCsv;
+  LOffset: Integer;
+begin
+  if FLanguageId = '' then
+  begin
+    Result := AString;
+    Exit;
+  end;
+
+  LResource := AResource;
+  if not Assigned(LResource) then
+    LResource := FData['Pokemon'];
+
+  LOffset := ResourceTranslationOffset(LResource, FData);
+
+  Result := TranslateFromCsv(AString, FLanguageId, LResource, LOffset, AOffset);
 end;
 
 end.

@@ -5,13 +5,14 @@ interface
 uses
   SysUtils,
   Winapi.Windows,
-  Vcl.Graphics, Vcl.Imaging.pngimage;
+  Vcl.Graphics, Vcl.Imaging.pngimage, Vcl.Controls;
 
 function ColorToHex(const AColor: TColor): string;
 function HexToColor(const AHex: string): TColor;
 procedure SmoothResize(apng:tpngimage; NuWidth,NuHeight:integer);
 
 implementation
+
 
 function ColorToHex(const AColor: TColor): string;
 var

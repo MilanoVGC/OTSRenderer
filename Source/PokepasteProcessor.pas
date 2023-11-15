@@ -6,13 +6,32 @@ uses
   SysUtils, Classes,
   PokeParser, AkUtils, CsvParser;
 
+const
+  SUPPORTED_OUTPUTS = 'HTML' + sLineBreak +
+    'PNG' + sLineBreak +
+    'PDF_OTS' + sLineBreak +
+    'PDF_CTS';
 type
   TInput = record
     Name: string;
     Surname: string;
     Link: TUrl;
+    TrainerName: string;
+    BattleTeam: string;
+    Profile: string;
+    PlayerId: string;
+    BirthDate: TDateTime;
+    GameLanguageId: string;
     function FullName: string;
-    constructor Create(const AName, ASurname, ALink: string);
+    constructor Create(const AName, ASurname, ALink: string;
+      const ATrainerName: string = ''; const ABattleTeam: string = '';
+      const AProfile: string = ''; const APlayerId: string = '';
+      const AGameLanguageId: string = '';
+      const ABirthDate: TDateTime = NULL_DATETIME);
+    constructor CreateFromOrderedValues(const AValues: array of string;
+      const ADateFormat: string);
+    constructor CreateFromNamedValues(const ANames, AValues: array of string;
+      const ADateFormat: string);
   end;
 
   TPokepasteProcessor = class
@@ -20,10 +39,12 @@ type
     FDataFiles: array of TFileName;
     FAssetsPath: string;
     FColorPaletteName: string;
+    FOTSLanguageId: string;
+    FGameLanguageId: string;
     FOutputPath: string;
     FPokepaste: TPokepaste;
-    FHtmlOutput: Boolean;
-    FPngOutput: Boolean;
+    FOutputList: string;
+    FOutputs: TStringList;
     FLog: TAkLogger;
     FLogOwner: Boolean;
     FOnRender: TFunc<TPokepaste, TInput, Boolean>;
@@ -31,8 +52,16 @@ type
     FStopOnErrors: Boolean;
     procedure CreateFromInput(const AInput: TInput; var AErrors: string;
       const AOutputs: TStringList = nil);
+    procedure ResetOutputs;
+    procedure SetOutputs(const AOutputList: string);
+    function GetOutput(const AOutputName: string): Boolean;
+    function Print(const AOutputType: string): string;
   public
+    property OTSLanguage: string read FOTSLanguageId write FOTSLanguageId;
+    property GameLanguage: string read FGameLanguageId write FGameLanguageId;
     property OutputPath: string read FOutputPath;
+    property Output[const AOutputName: string]: Boolean read GetOutput;
+    property Outputs: string read FOutputList write SetOutputs;
 
     /// <summary>
     ///  The function that will be called before rendering but after having
@@ -68,7 +97,7 @@ type
     /// </summary>
     constructor Create(const ADataFiles: array of TFileName;
       const AAssetsPath, AColorPaletteName, AOutputPath: string; const APokepaste: TPokepaste;
-      const AHtmlOutput: Boolean = True; const APngOutput: Boolean = True; const ALog: TAkLogger = nil);
+      const AOutputList: string = SUPPORTED_OUTPUTS; const ALog: TAkLogger = nil);
 
     /// <summary>
     ///  Renders the outputs (specified on Create) reading and loading the pokepaste
@@ -77,7 +106,7 @@ type
     ///  Returns the list of outputted files and fills AErrors with the list of
     ///  exception that are raised, both lists are separated by a line break.
     /// </summary>
-    function CreateFromFile(const ACsvFile: TCsv; const AColumnNames: array of string;
+    function CreateFromFile(const ACsvFile: TCsv; const AColumnDefinitions, AColumnNames: array of string;
       var AFullNameList: string; var AErrors: string): string;
 
     /// <summary>
@@ -101,28 +130,83 @@ type
     destructor Destroy; override;
   end;
 
-  function AppTitle: string;
-  function AppPath: string;
+
+function OutputExt(const AOutputType: string): string;
 
 implementation
 
-function AppTitle: string;
+function OutputExt(const AOutputType: string): string;
 begin
-  Result := StringReplace(ExtractFileName(ParamStr(0)), ExtractFileExt(ParamStr(0)), '', [rfReplaceAll, rfIgnoreCase]);
-end;
-
-function AppPath: string;
-begin
-  Result := ExtractFilePath(ParamStr(0));
+  Result := '.' + AnsiLowerCase(AOutputType);
+  if Pos('PDF', AnsiUpperCase(AOutputType)) > 0 then
+    Result := '.pdf';
 end;
 
 { TInput }
 
-constructor TInput.Create(const AName, ASurname, ALink: string);
+constructor TInput.Create(const AName, ASurname, ALink: string;
+  const ATrainerName, ABattleTeam, AProfile, APlayerId, AGameLanguageId: string;
+  const ABirthDate: TDateTime);
 begin
   Name := AName;
   Surname := ASurname;
   Link := ALink;
+  TrainerName := ATrainerName;
+  BattleTeam := ABattleTeam;
+  Profile := AProfile;
+  PlayerId := APlayerId;
+  BirthDate := ABirthDate;
+  if TAkLanguageRegistry.Instance.IsIn(AGameLanguageId) then
+    GameLanguageId := AGameLanguageId
+  else
+    GameLanguageId := TAkLanguageRegistry.Instance.DefaultLanguage.Id;
+end;
+
+constructor TInput.CreateFromNamedValues(const ANames, AValues: array of string;
+  const ADateFormat: string);
+
+  function EvalValue(const AName: string): string;
+  var
+    I: Integer;
+  begin
+    Result := '';
+    for I := 0 to Length(ANames) - 1 do
+    begin
+      if SameText(Trim(ANames[I]), Trim(AName)) then
+        Result := AValues[I];
+    end;
+  end;
+begin
+  Name := EvalValue('Name');
+  Surname := EvalValue('Surname');
+  Link := EvalValue('Paste');
+  TrainerName := EvalValue('TrainerName');
+  BattleTeam := EvalValue('BattleTeam');
+  Profile := EvalValue('Profile');
+  PlayerId := EvalValue('PlayerId');
+  BirthDate := StringToDate(EvalValue('BirthDate'), ADateFormat);
+  GameLanguageId := EvalValue('GameLanguage');
+end;
+
+constructor TInput.CreateFromOrderedValues(const AValues: array of string;
+  const ADateFormat: string);
+
+  function EvalValue(const AIndex: Integer): string;
+  begin
+    Result := '';
+    if AIndex < Length(AValues) then
+      Result := AValues[AIndex];
+  end;
+begin
+  Name := AValues[0];
+  Surname := AValues[1];
+  Link := AValues[2];
+  TrainerName := EvalValue(3);
+  BattleTeam := EvalValue(4);
+  Profile := EvalValue(5);
+  PlayerId := EvalValue(6);
+  BirthDate := StringToDate(EvalValue(7), ADateFormat);
+  GameLanguageId := EvalValue(8);
 end;
 
 function TInput.FullName: string;
@@ -133,14 +217,12 @@ end;
 { TPokepasteProcessor }
 
 constructor TPokepasteProcessor.Create(const ADataFiles: array of TFileName;
-  const AAssetsPath, AColorPaletteName, AOutputPath: string;
-  const APokepaste: TPokepaste; const AHtmlOutput, APngOutput: Boolean;
-  const ALog: TAkLogger);
+  const AAssetsPath, AColorPaletteName, AOutputPath: string; const APokepaste: TPokepaste;
+  const AOutputList: string; const ALog: TAkLogger);
 var
   I: Integer;
 begin
   Assert(Assigned(APokepaste));
-
   SetLength(FDataFiles, Length(ADataFiles));
   for I := 0 to Length(ADataFiles) - 1 do
     FDataFiles[I] := ADataFiles[I];
@@ -149,8 +231,7 @@ begin
   FColorPaletteName := AColorPaletteName;
   FOutputPath := AOutputPath;
   FPokepaste := APokepaste;
-  FHtmlOutput := AHtmlOutput;
-  FPngOutput := APngOutput;
+  Outputs := AOutputList;
   FStopOnErrors := True;
   FLog := ALog;
   FLogOwner := False;
@@ -166,17 +247,19 @@ begin
   end;
 end;
 
-function TPokepasteProcessor.CreateFromFile(const ACsvFile: TCsv; const AColumnNames: array of string;
+function TPokepasteProcessor.CreateFromFile(const ACsvFile: TCsv;
+  const AColumnDefinitions, AColumnNames: array of string;
   var AFullNameList: string; var AErrors: string): string;
 var
   LOutputs: TStringList;
   LFullNames: TStringList;
+  LColumnDefinitions: TArray<string>;
   LDuplicateIndex: Integer;
   LErrors: string;
 begin
   Assert(Assigned(ACsvFile), 'Input file has not been initialized.');
+  LColumnDefinitions := StrArrayClone(AColumnDefinitions);
   LErrors := AErrors;
-
   LOutputs := TStringList.Create;
   LFullNames := TStringList.Create;
   try
@@ -186,9 +269,7 @@ begin
       var
         LInput: TInput;
       begin
-        LInput.Name := AValues[0];
-        LInput.Surname := AValues[1];
-        LInput.Link := AValues[2];
+        LInput := TInput.CreateFromNamedValues(LColumnDefinitions, AValues, ACsvFile.DateFormat);
         LDuplicateIndex := 1;
         while LFullNames.IndexOf(LInput.FullName) >= 0 do
         begin
@@ -218,11 +299,17 @@ procedure TPokepasteProcessor.CreateFromInput(const AInput: TInput; var AErrors:
 var
   LOutput: string;
   LDoIt: Boolean;
+  LOutputType: string;
   LErrorText: string;
 begin
   try
     FPokepaste.LoadPokepaste(AInput.Link, FDataFiles, FAssetsPath);
     FPokepaste.Owner := AInput.FullName;
+    FPokepaste.TrainerName := AInput.TrainerName;
+    FPokepaste.BattleTeam := AInput.BattleTeam;
+    FPokepaste.Profile := AInput.Profile;
+    FPokepaste.PlayerId := AInput.PlayerId;
+    FPokepaste.BirthDate := AInput.BirthDate;
   except
     on E: Exception do
     begin
@@ -242,35 +329,21 @@ begin
     FLog.Log('Skipped ' + AInput.FullName + '.');
     Exit;
   end;
-  if FHtmlOutput then
+  for LOutputType in FOutputs do
   begin
     try
-      LOutput := FPokepaste.PrintHtml(FColorPaletteName, FOutputPath);
-      FLog.Log('Processed ' + AInput.FullName + ' -> ' + LOutput);
-      if Assigned(AOutputs) then
-        AOutputs.Add(ExtractFileName(LOutput));
-    except
-      on E: Exception do
+      GameLanguage := AInput.GameLanguageId;
+      LOutput := Print(LOutputType);
+      if LOutput <> '' then
       begin
-        LErrorText := Format('Rendering HTML of "%s": %s', [AInput.FullName, E.Message]);
-        FLog.Log('ERROR - ' + LErrorText);
-        AErrors := AErrors + LErrorText + sLineBreak;
-        if StopOnErrors then
-          raise Exception.Create(LErrorText);
+        FLog.Log('Processed ' + AInput.FullName + ' -> ' + LOutput);
+        if Assigned(AOutputs) then
+          AOutputs.Add(ExtractFileName(LOutput));
       end;
-    end;
-  end;
-  if FPngOutput then
-  begin
-    try
-      LOutput := FPokepaste.PrintPng(FColorPaletteName, FOutputPath);
-      FLog.Log('Processed ' + AInput.FullName + ' -> ' + LOutput);
-      if Assigned(AOutputs) then
-        AOutputs.Add(ExtractFileName(LOutput));
     except
       on E: Exception do
       begin
-        LErrorText := Format('Rendering PNG of "%s": %s', [AInput.FullName, E.Message]);
+        LErrorText := Format('Rendering %s of "%s": %s', [LOutputType, AInput.FullName, E.Message]);
         FLog.Log('ERROR - ' + LErrorText);
         AErrors := AErrors + LErrorText + sLineBreak;
         if StopOnErrors then
@@ -336,7 +409,43 @@ destructor TPokepasteProcessor.Destroy;
 begin
   if Assigned(FLog) and FLogOwner then
     FLog.Free;
+  if Assigned(FOutputs) then
+    FOutputs.Free;
   inherited;
+end;
+
+function TPokepasteProcessor.GetOutput(const AOutputName: string): Boolean;
+begin
+  Result := FOutputs.Contains(AOutputName) > -1;
+end;
+
+function TPokepasteProcessor.Print(const AOutputType: string): string;
+begin
+  Result := '';
+  if SameText(AOutputType, 'HTML') then
+    Result := FPokepaste.PrintHtml(FColorPaletteName, FOutputPath)
+  else if SameText(AOutputType, 'PNG') then
+    Result := FPokepaste.PrintPng(FColorPaletteName, FOutputPath)
+  else if SameText(AOutputType, 'PDF_OTS') then
+    Result := FPokepaste.PrintOpenPdf(OTSLanguage, FOutputPath)
+  else if SameText(AOutputType, 'PDF_CTS') then
+    Result := FPokepaste.PrintClosedPdf(GameLanguage, FOutputPath)
+  else
+    raise Exception.CreateFmt('Unknown output type "%s"', [AOutputType]);
+end;
+
+procedure TPokepasteProcessor.ResetOutputs;
+begin
+  if Assigned(FOutputs) then
+    FreeAndNil(FOutputs);
+  FOutputs := TStringList.Create;
+  FOutputs.Text := FOutputList;
+end;
+
+procedure TPokepasteProcessor.SetOutputs(const AOutputList: string);
+begin
+  FOutputList := StringReplace(AOutputList, sLineBreak + sLineBreak, sLineBreak, [rfReplaceAll]);
+  ResetOutputs;
 end;
 
 end.

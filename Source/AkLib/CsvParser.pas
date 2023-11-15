@@ -15,12 +15,15 @@ type
     FText: TStringList;
     FHeader: TStringList;
     FColumnCount: Integer;
+    FDateFormat: string;
     procedure Init(const ADelimiter: Char = ';';
       const AHasHeader: Boolean = False);
     function GetHeaderColumn(const AColumnTitle: string): Integer;
   public
     property Delimiter: Char read FDelimiter;
     property Header[const AColumnTitle: string]: Integer read GetHeaderColumn;
+    property ColumnCount: Integer read FColumnCount;
+    property DateFormat: string read FDateFormat write FDateFormat;
     constructor Create(const AFileName: TFileName; const ADelimiter: Char = ';';
       const AHasHeader: Boolean = False); overload;
     constructor Create(const AText: string; const ADelimiter: Char = ';';
@@ -44,9 +47,11 @@ type
     FDelimiter: Char;
     FHasHeader: Boolean;
     function GetItem(const AName: string): TCsv;
+    function GetName(const ACsv: TCsv): string;
     procedure PrepareAdd(const AName: string);
   public
     property Item[const AName: string]: TCsv read GetItem; default;
+    property Name[const ACsv: TCsv]: string read GetName;
     property Delimiter: Char read FDelimiter write FDelimiter;
     property HasHeader: Boolean read FHasHeader write FHasHeader;
     constructor Create(const ADelimiter: Char = ';'; const AHasHeader: Boolean = False);
@@ -56,6 +61,9 @@ type
     function Find(const AName, AValue: string; const AColumnToFindIndex: Integer;
       const AColumnWhereSearchIndex: Integer = 0): string; overload;
     function Find(const AName, AValue, AColumnToFindTitle, AColumnWhereSearchTitle: string): string; overload;
+    function FindAll(const AValue: string; const AColumnToFindIndex: Integer;
+      const AColumnWhereSearchIndex: Integer = 0): string; overload;
+    function FindAll(const AValue, AColumnToFindTitle, AColumnWhereSearchTitle: string): string; overload;
     destructor Destroy; override;
   end;
 
@@ -87,10 +95,29 @@ begin
 end;
 
 procedure TCsv.AfterConstruction;
+
+  function EndsWithDelimiter: Boolean;
+  var
+    I: Integer;
+  begin
+    Result := True;
+    for I := 0 to FText.Count -1 do
+      if FText[I][Length(FText[I])] <> FDelimiter then
+      begin
+        Result := False;
+        Exit;
+      end;
+  end;
+
 begin
   inherited;
 
-  FColumnCount := Occurrences(FDelimiter, FText[0]) + 1;
+  if EndsWithDelimiter then
+    FColumnCount := Occurrences(FDelimiter, FText[0])
+  else
+    FColumnCount := Occurrences(FDelimiter, FText[0]) + 1;
+
+  FDateFormat := 'yyyymmdd';
 
   if FHeaderIndex < 0 then
     Exit;
@@ -312,11 +339,58 @@ begin
   Result := Item[AName].FindByValue(AValue, AColumnToFindIndex, AColumnWhereSearchIndex);
 end;
 
+function TCsvArchive.FindAll(const AValue, AColumnToFindTitle,
+  AColumnWhereSearchTitle: string): string;
+var
+  I: Integer;
+begin
+  Result := '';
+  for I := 0 to FNames.Count - 1 do
+  begin
+    try
+      Result := Find(FNames[I], AValue, AColumnToFindTitle, AColumnWhereSearchTitle);
+    except
+      Continue;
+    end;
+  end;
+  if Result = '' then
+    raise Exception.CreateFmt('Value "%s" not found in any resource file.', [AValue]);
+end;
+
+function TCsvArchive.FindAll(const AValue: string; const AColumnToFindIndex,
+  AColumnWhereSearchIndex: Integer): string;
+var
+  I: Integer;
+begin
+  Result := '';
+  for I := 0 to FNames.Count - 1 do
+  begin
+    try
+      Result := Find(FNames[I], AValue, AColumnToFindindex, AColumnWhereSearchIndex);
+    except
+      Continue;
+    end;
+  end;
+  if Result = '' then
+    raise Exception.CreateFmt('Value "%s" not found in any data file.', [AValue]);
+
+end;
+
 function TCsvArchive.GetItem(const AName: string): TCsv;
 begin
   if FNames.IndexOf(AName) < 0 then
     raise Exception.CreateFmt('No data item found with name "%s"', [AName]);
   Result := FData[FNames.IndexOf(AName)];
+end;
+
+function TCsvArchive.GetName(const ACsv: TCsv): string;
+var
+  I: Integer;
+begin
+  Result := '';
+  for I := 0 to Length(FData) - 1 do
+    if FData[I].Equals(ACsv) then
+      Result := FNames[I];
 end;
 
 procedure TCsvArchive.PrepareAdd(const AName: string);

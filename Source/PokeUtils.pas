@@ -3,7 +3,8 @@ unit PokeUtils;
 interface
 
 uses
-  Classes, CsvParser;
+  SysUtils, Classes,
+  CsvParser, AkUtils;
 
 type
 
@@ -43,14 +44,13 @@ type
   function TranslateEvs(const AEvs: string): TEvSpread;
   function TranslateIvs(const AIvs: string): TIvSpread;
   function TypingSpriteName(const AType: TTyping; const AIsTera: Boolean = False): string;
-  function RandomString(const ALength: Integer): string;
+  function ResourceTranslationOffset(const AResource: TCsv; const AArchive: TCsvArchive): Integer;
 
 implementation
 
 uses
-  SysUtils, StrUtils,
-  TypInfo,
-  AkUtils;
+  StrUtils,
+  TypInfo;
 
 function TypingToStr(const AType: TTyping): string;
 begin
@@ -161,16 +161,26 @@ begin
   end;
 end;
 
-function RandomString(const ALength: Integer): string;
-const
-  CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+function ResourceTranslationOffset(const AResource: TCsv; const AArchive: TCsvArchive): Integer;
 var
-  I: Integer;
+  LResourceName: string;
 begin
-  Randomize;
-  SetLength(Result, ALength);
-  for I := 1 to ALength do
-    Result[I] := CHARS[Random(Length(CHARS)) + 1];
+  Result := 0;
+  LResourceName := AArchive.Name[AResource];
+  if LResourceName = '' then
+    Exit;
+  if SameText(LResourceName, 'Pokemon') then
+    Result := 11
+  else if SameText(LResourceName, 'Items') then
+    Result := 2
+  else if SameText(LResourceName, 'Moves') then
+    Result := 2
+  else if SameText(LResourceName, 'Colors') then
+    Result := 3
+  else if SameText(LResourceName, 'Abilities') then
+    Result := 1
+  else
+    raise Exception.CreateFmt('Unknown resource name "%s"', [LResourceName]);
 end;
 
 { TIvSpread }

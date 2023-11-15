@@ -4,18 +4,22 @@ interface
 
 uses
   SysUtils,
-  Vcl.Graphics, Vcl.Imaging.PngImage,
-  PokeParser;
+  Vcl.Graphics, Vcl.Imaging.PngImage, Vcl.Forms,
+  PokeParser, TeamlistTemplateFrame;
 
 type
   TPokepasteVcl = class(TPokepaste)
   private
     procedure PrintPlayerOnPng(const AColor: TColor; var APng: TPngImage); virtual;
     procedure PrintPokemonOnPng(const AIndex: Integer; const AColorCSSName: string; var APng: TPngImage);
+    function GetMonolingualOTSTemplate: TFrame;
+    function GetBilingualOTSTemplate(const ALanguageId: string): TFrame;
   strict protected
     function RetrieveSprite(const ASpriteName, ASpriteType: string; const AForceReload: Boolean = False): TFileName; override;
     procedure CreateEmptyPng(const ABaseColorHex: string); override;
     function PaintPastePng(const AColorCSSName, AHeaderColorHex, AOutputPath: string): string; override;
+    function PrintOTSPdf(const ALanguageId, AOutputPath: string): string; override;
+    function PrintCTSPdf(const ALanguageId, AOutputPath: string): string; override;
   end;
 
 
@@ -23,10 +27,12 @@ implementation
 
 uses
   Classes, Math, IOUtils, Types, UITypes,
+  Vcl.Controls,
   IdHttp, IdBaseComponent, IdComponent, IdIOHandler, IdIOHandlerSocket,
   IdIOHandlerStack, IdSSL, IdSSLOpenSSL,
   Skia, Skia.Vcl,
-  AkUtils, AkUtilsVcl;
+  SynPdf,
+  BilingualTeamlist, MonolingualTeamlist, AkUtils, AkUtilsVcl;
 
 { TPokepasteVcl }
 
@@ -73,6 +79,78 @@ begin
   finally
     LTraspBmp.Free;
     LTraspPng.Free;
+  end;
+end;
+
+function TPokepasteVcl.PrintCTSPdf(const ALanguageId, AOutputPath: string): string;
+var
+  LPdf: TPdfDocumentGDI;
+  LTemplate: TMonolingualTemplate;
+begin
+  Result := inherited;
+  LTemplate := TMonolingualTemplate.Create(nil);
+  LPdf := TPdfDocumentGDI.Create;
+  try
+    LanguageId := ALanguageId;
+    LTemplate.Pokepaste := Self;
+    LTemplate.IsOpen := False;
+    Result := AOutputPath + OutputName + '.pdf';
+    LPdf.ScreenLogPixels := 72;
+    LPdf.UseUniscribe := True;
+    LPdf.AddPage;
+    LTemplate.PaintCanvas(LPdf.VCLCanvas);
+    LPdf.SaveToFile(Result);
+  finally
+    LTemplate.Free;
+    LPdf.Free;
+  end;
+end;
+
+
+function TPokepasteVcl.GetMonolingualOTSTemplate: TFrame;
+var
+  LTemplate: TMonolingualTemplate;
+begin
+  Self.Language := TAkLanguageRegistry.Instance.DefaultLanguage;
+  LTemplate := TMonolingualTemplate.Create(nil);
+  LTemplate.Pokepaste := Self;
+  LTemplate.IsOpen := True;
+  Result := LTemplate;
+end;
+
+function TPokepasteVcl.GetBilingualOTSTemplate(const ALanguageId: string): TFrame;
+var
+  LTemplate: TBilingualTemplate;
+begin
+  LTemplate := TBilingualTemplate.Create(nil);
+  LTemplate.Pokepaste := Self;
+  LTemplate.SecondLanguage := ALanguageId;
+  Result := LTemplate;
+end;
+
+function TPokepasteVcl.PrintOTSPdf(const ALanguageId, AOutputPath: string): string;
+var
+  LPdf: TPdfDocumentGDI;
+  LPage: TPdfPage;
+  LTemplate: TFrame;
+begin
+  Result := inherited;
+  if (ALanguageId <> '') and not TAkLanguageRegistry.Instance.IsDefaultLanguage(ALanguageId) then
+    LTemplate := GetBilingualOTSTemplate(ALanguageId)
+  else
+    LTemplate := GetMonolingualOTSTemplate;
+  LPdf := TPdfDocumentGDI.Create;
+  try
+    Result := AOutputPath + OutputName + '.pdf';
+    LPdf.ScreenLogPixels := 72;
+    LPdf.UseUniscribe := True;
+    LPage := LPdf.AddPage;
+    LPage.PageLandscape := LTemplate is TBilingualTemplate;
+    LTemplate.PaintCanvas(LPdf.VCLCanvas);
+    LPdf.SaveToFile(Result);
+  finally
+    LTemplate.Free;
+    LPdf.Free;
   end;
 end;
 
@@ -133,7 +211,7 @@ var
   procedure WriteName;
   begin
     APng.Canvas.Font.Size := 22;
-    Write(26, 16, Pokemon[AIndex].Name);
+    Write(26, 16, Pokemon[AIndex].StreamName);
   end;
   procedure WriteAbility;
   begin
@@ -200,7 +278,7 @@ var
     LSpriteFgFileName: string;
   begin
     LSpriteBgFileName := RetrieveSprite(Pokemon[AIndex].TeraTypingSpriteName, 'Types');
-    LSpriteFgFileName := RetrieveSprite(Pokemon[AIndex].TeraTyping + '.svg', 'Types');
+    LSpriteFgFileName := RetrieveSprite(RemoveStrings(Pokemon[AIndex].TeraTypingSpriteName, ['teratype_']), 'Types');
     LSprite := TBitmap.Create;
     LSpritePng := TPngImage.Create;
     try
@@ -346,7 +424,7 @@ var
   LPng: TPngImage;
   I: Integer;
 begin
-  inherited;
+  Result := inherited;
   LPng := TPngImage.Create;
   try
     LPng.LoadFromFile(IncludeTrailingPathDelimiter(AssetsPath + '..') + 'empty_pokepaste.png');

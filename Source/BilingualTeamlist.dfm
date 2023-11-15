@@ -1,0 +1,275 @@
+object BilingualTemplate: TBilingualTemplate
+  Left = 0
+  Top = 0
+  Width = 844
+  Height = 598
+  TabOrder = 0
+  object PnlPageLayout: TPanel
+    Left = 0
+    Top = 0
+    Width = 844
+    Height = 598
+    Caption = 'PnlPageLayout'
+    TabOrder = 0
+    object LblPlayerName: TLabel
+      Left = 224
+      Top = 18
+      Width = 59
+      Height = 13
+      Caption = 'Player name'
+    end
+    object LblHeaderPlayerName: TLabel
+      Left = 89
+      Top = 18
+      Width = 74
+      Height = 13
+      Caption = 'Player name:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object LblTrainerName: TLabel
+      Left = 224
+      Top = 37
+      Width = 63
+      Height = 13
+      Caption = 'Trainer name'
+    end
+    object LblHeaderTrainerName: TLabel
+      Left = 89
+      Top = 37
+      Width = 128
+      Height = 13
+      Caption = 'Trainer name in Game:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object LblSecondLanguage1: TLabel
+      Left = 96
+      Top = 64
+      Width = 55
+      Height = 13
+      Caption = '[Language]'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object LblDefaultLanguage1: TLabel
+      Left = 260
+      Top = 64
+      Width = 55
+      Height = 13
+      Caption = '[Language]'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object LblSecondLanguage2: TLabel
+      Left = 501
+      Top = 64
+      Width = 55
+      Height = 13
+      Caption = '[Language]'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object LblDefaultLanguage2: TLabel
+      Left = 665
+      Top = 64
+      Width = 55
+      Height = 13
+      Caption = '[Language]'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object GrdPokemon1: TStringGrid
+      Left = 89
+      Top = 80
+      Width = 324
+      Height = 156
+      ColCount = 2
+      DefaultColWidth = 160
+      DefaultRowHeight = 18
+      FixedCols = 0
+      RowCount = 8
+      FixedRows = 0
+      ScrollBars = ssNone
+      TabOrder = 0
+    end
+    object GrdPokemon2: TStringGrid
+      Left = 493
+      Top = 80
+      Width = 324
+      Height = 156
+      ColCount = 2
+      DefaultColWidth = 160
+      DefaultRowHeight = 18
+      FixedCols = 0
+      RowCount = 8
+      FixedRows = 0
+      ScrollBars = ssNone
+      TabOrder = 1
+    end
+    object GrdPokemon3: TStringGrid
+      Left = 89
+      Top = 259
+      Width = 324
+      Height = 156
+      ColCount = 2
+      DefaultColWidth = 160
+      DefaultRowHeight = 18
+      FixedCols = 0
+      RowCount = 8
+      FixedRows = 0
+      ScrollBars = ssNone
+      TabOrder = 2
+    end
+    object GrdPokemon4: TStringGrid
+      Left = 493
+      Top = 259
+      Width = 324
+      Height = 156
+      ColCount = 2
+      DefaultColWidth = 160
+      DefaultRowHeight = 18
+      FixedCols = 0
+      RowCount = 8
+      FixedRows = 0
+      ScrollBars = ssNone
+      TabOrder = 3
+    end
+    object GrdPokemon5: TStringGrid
+      Left = 89
+      Top = 437
+      Width = 324
+      Height = 156
+      ColCount = 2
+      DefaultColWidth = 160
+      DefaultRowHeight = 18
+      FixedCols = 0
+      RowCount = 8
+      FixedRows = 0
+      ScrollBars = ssNone
+      TabOrder = 4
+    end
+    object GrdPokemon6: TStringGrid
+      Left = 493
+      Top = 437
+      Width = 324
+      Height = 156
+      ColCount = 2
+      DefaultColWidth = 160
+      DefaultRowHeight = 18
+      FixedCols = 0
+      RowCount = 8
+      FixedRows = 0
+      ScrollBars = ssNone
+      TabOrder = 5
+    end
+    object GrdHeaderPokemon1: TStringGrid
+      Left = 8
+      Top = 80
+      Width = 82
+      Height = 156
+      ColCount = 1
+      DefaultColWidth = 90
+      DefaultRowHeight = 18
+      FixedCols = 0
+      RowCount = 8
+      FixedRows = 0
+      ScrollBars = ssNone
+      TabOrder = 6
+    end
+    object GrdHeaderPokemon2: TStringGrid
+      Left = 413
+      Top = 80
+      Width = 82
+      Height = 156
+      ColCount = 1
+      DefaultColWidth = 80
+      DefaultRowHeight = 18
+      FixedCols = 0
+      RowCount = 8
+      FixedRows = 0
+      ScrollBars = ssNone
+      TabOrder = 7
+    end
+    object GrdHeaderPokemon3: TStringGrid
+      Left = 8
+      Top = 259
+      Width = 82
+      Height = 156
+      ColCount = 1
+      DefaultColWidth = 80
+      DefaultRowHeight = 18
+      FixedCols = 0
+      RowCount = 8
+      FixedRows = 0
+      ScrollBars = ssNone
+      TabOrder = 8
+    end
+    object GrdHeaderPokemon4: TStringGrid
+      Left = 413
+      Top = 259
+      Width = 82
+      Height = 156
+      ColCount = 1
+      DefaultColWidth = 80
+      DefaultRowHeight = 18
+      FixedCols = 0
+      RowCount = 8
+      FixedRows = 0
+      ScrollBars = ssNone
+      TabOrder = 9
+    end
+    object GrdHeaderPokemon5: TStringGrid
+      Left = 8
+      Top = 437
+      Width = 82
+      Height = 156
+      ColCount = 1
+      DefaultColWidth = 80
+      DefaultRowHeight = 18
+      FixedCols = 0
+      RowCount = 8
+      FixedRows = 0
+      ScrollBars = ssNone
+      TabOrder = 10
+    end
+    object GrdHeaderPokemon6: TStringGrid
+      Left = 413
+      Top = 437
+      Width = 82
+      Height = 156
+      ColCount = 1
+      DefaultColWidth = 80
+      DefaultRowHeight = 18
+      FixedCols = 0
+      RowCount = 8
+      FixedRows = 0
+      ScrollBars = ssNone
+      TabOrder = 11
+    end
+  end
+end

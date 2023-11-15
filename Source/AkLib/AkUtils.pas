@@ -3,10 +3,32 @@ unit AkUtils;
 interface
 
 uses
-  SysUtils, Classes;
+  SysUtils, Classes,
+  CsvParser;
+
+const
+  NULL_DATETIME = -693594;
 
 type
   TUrl = type string;
+
+  /// <summary>
+  ///  The record containing the language's informations: (1) the language ID,
+  ///  a string usually composed of two characters (like 'en'); (2) the
+  ///  description, a string usually containing the full translated name (like
+  ///  'English'); (3) the resource index, a integer which often contains
+  ///  the column number of the language translation (to facilitate the use with
+  ///  column-based translation resources or number-based translation resources);
+  ///  (4 - optional) the name of the font to use with this language.
+  /// </summary>
+  TLanguage = record
+    Id: string;
+    Description: string;
+    Index: Integer;
+    FontName: string;
+    constructor Create(const AId, ADescription: string; const AIndex: Integer;
+      const AFontName: string = '');
+  end;
 
   TStringsHelper = class Helper for TStringList
   private
@@ -71,6 +93,96 @@ type
     destructor Destroy; override;
   end;
 
+  /// <summary>
+  ///  Base language registry, used to give consistent language/translation
+  ///  support to the application. Languages can be loaded into it manually (via
+  ///  the Add methods) or by giving it a Config file, that has to be a ';'
+  ///  separated CSV file with 4 columns for each language: Id, Description,
+  ///  Index, FontName (see TLanguage documentation for further informations).
+  ///  The first language added to the registry will be marked as the default
+  ///  language (i.e. the language of the app without any translation): it can
+  ///  be changed via the DefaultLanguage property.
+  /// </summary>
+  /// <remarks>
+  ///  You shouldn't create instances of this class, call the Instance property
+  ///  instead.
+  /// </remarks>
+  TAkLanguageRegistry = class
+  strict private
+    FLanguages: array of TLanguage;
+    FDefaultLanguageIndex: Integer;
+    class var FConfigFileName: TFileName;
+    class var FInstance: TAkLanguageRegistry;
+    function LanguageIndex(const ALanguage: TLanguage): Integer; overload;
+    function LanguageIndex(const AId: string): Integer; overload;
+    function LanguageIndex(const AIndex: Integer): Integer; overload;
+    function FindLanguageById(const AId: string): TLanguage;
+    function FindLanguageByColumn(const AIndex: Integer): TLanguage;
+    function GetLanguageById(const AId: string): TLanguage;
+    function GetLanguageByColumn(const AIndex: Integer): TLanguage;
+    procedure SetDefaultLanguage(const ALanguage: TLanguage);
+    function GetDefaultLanguage: TLanguage;
+    procedure ReadFromConfig;
+    class function GetConfigFileName: TFileName; static;
+    class procedure SetConfigFileName(const AFileName: TFileName); static;
+    class function GetInstance: TAkLanguageRegistry; static;
+  public
+    property LanguageById[const AId: string]: TLanguage read GetLanguageById; default;
+    property LanguageByColumn[const AIndex: Integer]: TLanguage read GetLanguageByColumn;
+    property DefaultLanguage: TLanguage read GetDefaultLanguage write SetDefaultLanguage;
+    class property Config: TFileName read GetConfigFileName write SetConfigFileName;
+    class property Instance: TAkLanguageRegistry read GetInstance;
+    procedure Add(const ALanguage: TLanguage); overload;
+    procedure Add(const ALanguages: array of TLanguage); overload;
+    procedure Clear;
+    function IsIn(const ALanguage: TLanguage): Boolean; overload;
+    function IsIn(const AId: string): Boolean; overload;
+    function IsIn(const AIndex: Integer): Boolean; overload;
+    function IsDefaultLanguage(const ALanguage: TLanguage): Boolean; overload;
+    function IsDefaultLanguage(const AId: string): Boolean; overload;
+    function IsDefaultLanguage(const AIndex: Integer): Boolean; overload;
+    procedure ForEach(const AProc: TProc<TLanguage>);
+    class procedure Iterate(const ALanguages: array of TLanguage; const AProc: TProc<TLanguage>); overload;
+    class procedure Iterate(const AProc: TProc<TLanguage>); overload;
+    destructor Destroy; override;
+  end;
+
+
+function AppTitle: string;
+function AppPath: string;
+
+/// <summary>
+///  Translate function that operates reading from a CSV resource file of
+///  translations: the string to be translated is used (as a "key value") to
+///  find the row of the resource containing the appropriate translation. The
+///  column index from which the translation is got is determined by adding the
+///  offset of the resource to the one of the given language (as it is stored in
+///  the registry). [e.g. if the italian language is stored as id = 'it' and
+///  index = 3 and the resource file (foo.csv) has 5 columns of non-translation
+///  data before the translation ones, the call to this method has to be like
+///  <code>
+///  Translate('something', 'it', 'foo.csv', 5)
+///  </code>
+///  and it will search on the 8th column of foo.csv for the italian translation].
+/// </summary>
+/// <param name="AString">
+///  The string to be translated.
+/// </param>
+/// <param name="ALanguageId">
+///  The language ID to translate into.
+/// </param>
+/// <param name="AResource">
+///  The CSV resource file containing translation values.
+/// </param>
+/// <param name="AResourceOffset">
+///  The first column (index) of the resource file containing translation.
+/// </param>
+/// <param name="AStringOffset">
+///  The column (index) which contains the string to be translated.
+/// </param>
+function TranslateFromCsv(const AString, ALanguageId: string; const AResource: TCsv;
+  const AResourceOffset: Integer = 0; const AStringOffset: Integer = 0): string;
+
 function CreateFileList(const AFolderName, AWildCard: string): TArray<TFileName>;
 procedure ExpandValue(var AText: string; const AMacro, AValue: string; const ADelimiter: string  = '%');
 procedure ExpandValues(var AText: string; const AMacros, AValues: array of string; const ADelimiter: string = '%');
@@ -82,11 +194,49 @@ function RemoveStrings(const AString: string; APatterns: array of string): strin
 function MakeDir(const APath: string): Boolean;
 function RandomString(const ALength: Integer; const ACharSet: string = ''): string;
 function HexToInt(const AHex: string): Integer;
+function IsValidDateFormat(const AFormat: string): Boolean;
+function StringToDate(const AString: string; const AFormat: string = 'yyyymmdd'): TDateTime;
+function StrContains(const AString, ASubString: string): Boolean; overload;
+function StrContains(const AString: string; const ASubStrings: array of string): Boolean; overload;
+function StrArrayClone(const AStringArray: array of string): TArray<string>;
 
 implementation
 
 uses
   StrUtils, IOUtils;
+
+function AppTitle: string;
+begin
+  Result := StringReplace(ExtractFileName(ParamStr(0)), ExtractFileExt(ParamStr(0)), '', [rfReplaceAll, rfIgnoreCase]);
+end;
+
+function AppPath: string;
+begin
+  Result := ExtractFilePath(ParamStr(0));
+end;
+
+function TranslateFromCsv(const AString, ALanguageId: string; const AResource: TCsv;
+  const AResourceOffset, AStringOffset: Integer): string;
+begin
+  Assert(Assigned(AResource));
+
+  Result := AString;
+
+  if Result = '' then
+    Exit;
+
+  if TAkLanguageRegistry.Instance.IsDefaultLanguage(ALanguageId) then
+    Exit;
+
+  try
+    Result := AResource.FindByValue(AString, TAkLanguageRegistry.Instance[ALanguageId].Index + AResourceOffset, AStringOffset);
+  except
+    Result := AString;
+  end;
+
+  if Result = '' then
+    Result := AString;
+end;
 
 function CreateFileList(const AFolderName, AWildCard: string): TArray<TFileName>;
 var
@@ -229,6 +379,107 @@ end;
 function HexToInt(const AHex: string): Integer;
 begin
   Result := StrToInt('$' + AHex);
+end;
+
+function IsValidDateFormat(const AFormat: string): Boolean;
+begin
+  Result := MatchText(AFormat, ['yyyymmdd',
+    'yyyy-mm-dd', 'yyyy/mm/dd', 'yyyy_mm_dd', 'yyyy mm dd',
+    'dd-mm-yyyy', 'dd/mm/yyyy', 'dd_mm_yyyy', 'dd mm yyyy',
+    'mm-dd-yyyy', 'mm/dd/yyyy', 'mm_dd_yyyy', 'mm dd yyyy',
+    'yy-mm-dd', 'yy/mm/dd', 'yy_mm_dd', 'yy mm dd',
+    'dd-mm-yy', 'dd/mm/yy', 'dd_mm_yy', 'dd mm yy',
+    'mm-dd-yy', 'mm/dd/yy', 'mm_dd_yy', 'mm dd yy']);
+end;
+
+function StringToDate(const AString, AFormat: string): TDateTime;
+var
+  LYear: string;
+  LMonth: string;
+  LDay: string;
+  LYearOffset: Integer;
+  LMonthOffset: Integer;
+  LDayOffset: Integer;
+  LYearLength: Integer;
+
+  procedure SetOffsets(const AYearOffset, AMonthOffset, ADayOffset: Integer;
+    const AYearLength: Integer = 4);
+  begin
+    LYearOffset := AYearOffset;
+    LMonthOffset := AMonthOffset;
+    LDayOffset := ADayOffset;
+    LYearLength := AYearLength;
+  end;
+
+  procedure AdjustYear;
+  var
+    LCurrentYearStr: string;
+    LCurrentHundreds: string;
+  begin
+    LCurrentYearStr := IntToStr(CurrentYear);
+    LCurrentHundreds := LCurrentYearStr.Substring(0, Length(LCurrentYearStr) - 2);
+    if StrToInt(LCurrentHundreds + LYear) > (CurrentYear + 20) then
+      LYear := IntToStr(StrToInt(LCurrentHundreds) - 1) + LYear;
+  end;
+begin
+  if AString = '' then
+  begin
+    Result := NULL_DATETIME;
+    Exit;
+  end;
+
+  if not IsValidDateFormat(AFormat) then
+    raise Exception.CreateFmt('Unknown date format "%s"', [AFormat])
+  else if SameText(AFormat, 'yyyymmdd') then
+    SetOffsets(0, 4, 6)
+  else if MatchText(AFormat, ['yyyy-mm-dd', 'yyyy/mm/dd', 'yyyy_mm_dd', 'yyyy mm dd']) then
+    SetOffsets(0, 5, 8)
+  else if MatchText(AFormat, ['dd-mm-yyyy', 'dd/mm/yyyy', 'dd_mm_yyyy', 'dd mm yyyy']) then
+    SetOffsets(6, 3, 0)
+  else if MatchText(AFormat, ['mm-dd-yyyy', 'mm/dd/yyyy', 'mm_dd_yyyy', 'mm dd yyyy']) then
+    SetOffsets(6, 0, 3)
+  else if MatchText(AFormat, ['yy-mm-dd', 'yy/mm/dd', 'yy_mm_dd', 'yy mm dd']) then
+    SetOffsets(0, 3, 6, 2)
+  else if MatchText(AFormat, ['dd-mm-yy', 'dd/mm/yy', 'dd_mm_yy', 'dd mm yy']) then
+    SetOffsets(6, 3, 0, 2)
+  else if MatchText(AFormat, ['mm-dd-yy', 'mm/dd/yy', 'mm_dd_yy', 'mm dd yy']) then
+    SetOffsets(6, 0, 3, 2);
+
+  LYear := AString.Substring(LYearOffset, LYearLength);
+  LMonth := AString.Substring(LMonthOffset, 2);
+  LDay := AString.Substring(LDayOffset, 2);
+  if LYearLength = 2 then
+    AdjustYear;
+  Result := EncodeDate(StrToInt(LYear), StrToInt(LMonth), StrToInt(LDay));
+end;
+
+function StrContains(const AString, ASubString: string): Boolean;
+begin
+  Result := Pos(UpperCase(ASubString), UpperCase(AString)) > 0;
+end;
+
+function StrContains(const AString: string; const ASubStrings: array of string): Boolean;
+var
+  I: Integer;
+begin
+  Result := False;
+  for I := 0 to Length(ASubStrings) - 1 do
+  begin
+    Result := StrContains(AString, ASubStrings[I]);
+    if Result then
+      Break;
+  end;
+end;
+
+function StrArrayClone(const AStringArray: array of string): TArray<string>;
+var
+  LLength: Integer;
+  I: Integer;
+begin
+  LLength := Length(AStringArray);
+  SetLength(Result, LLength);
+  for I := 0 to LLength - 1 do
+    Result[I] := AStringArray[I];
 end;
 
 { TStringsHelper }
@@ -433,6 +684,231 @@ end;
 procedure TAkLogger.SetInterval(const AInterval: Char);
 begin
   FInterval := UpCase(AInterval);
+end;
+
+{ TLanguageRegistry }
+
+procedure TAkLanguageRegistry.Add(const ALanguage: TLanguage);
+begin
+  Assert(ALanguage.Id <> '', 'Languages must have non-empty ID.');
+  Assert(ALanguage.Index > -1, 'Languages must have non-negative Index.');
+
+  Assert(not IsIn(ALanguage), Format('There is already a language with ID "%s" or index %d.', [ALanguage.Id, ALanguage.Index]));
+
+  // if it's the first add on the registry, mark it as the default language
+  // for the application, the user can always edit it later
+  if Length(FLanguages) = 0 then
+    FDefaultLanguageIndex := 0;
+
+  SetLength(FLanguages, Length(FLanguages) + 1);
+  FLanguages[Length(FLanguages) - 1] := ALanguage;
+end;
+
+procedure TAkLanguageRegistry.Add(const ALanguages: array of TLanguage);
+var
+  I: Integer;
+begin
+  for I := 0 to Length(ALanguages) - 1 do
+    Add(ALanguages[I]);
+end;
+
+procedure TAkLanguageRegistry.Clear;
+begin
+  SetLength(FLanguages, 0);
+end;
+
+destructor TAkLanguageRegistry.Destroy;
+begin
+  SetLength(FLanguages, 0);
+  FreeAndNil(FInstance);
+  inherited;
+end;
+
+function TAkLanguageRegistry.FindLanguageById(const AId: string): TLanguage;
+var
+  LIndex: Integer;
+begin
+  Result := TLanguage.Create('', '', -1);
+  LIndex := LanguageIndex(AId);
+  if LIndex > -1 then
+    Result := FLanguages[LIndex];
+end;
+
+function TAkLanguageRegistry.FindLanguageByColumn(const AIndex: Integer): TLanguage;
+var
+  LIndex: Integer;
+begin
+  Result := TLanguage.Create('', '', -1);
+  LIndex := LanguageIndex(AIndex);
+  if LIndex > -1 then
+    Result := FLanguages[LIndex];
+end;
+
+procedure TAkLanguageRegistry.ForEach(const AProc: TProc<TLanguage>);
+var
+  I: Integer;
+begin
+  for I := 0 to Length(FLanguages) - 1 do
+    AProc(FLanguages[I]);
+end;
+
+class function TAkLanguageRegistry.GetConfigFileName: TFileName;
+begin
+  Result := FConfigFileName;
+end;
+
+function TAkLanguageRegistry.GetDefaultLanguage: TLanguage;
+begin
+  Result := FLanguages[FDefaultLanguageIndex];
+end;
+
+class function TAkLanguageRegistry.GetInstance: TAkLanguageRegistry;
+begin
+  if FInstance = nil then
+    FInstance := TAkLanguageRegistry.Create;
+  Result := FInstance;
+end;
+
+function TAkLanguageRegistry.GetLanguageById(const AId: string): TLanguage;
+begin
+  Result := FindLanguageById(AId);
+  if Result.Id = '' then
+    raise Exception.CreateFmt('Language with ID "%s" not found.', [AId]);
+end;
+
+function TAkLanguageRegistry.GetLanguageByColumn(const AIndex: Integer): TLanguage;
+begin
+  Result := FindLanguageByColumn(AIndex);
+  if Result.Id = '' then
+    raise Exception.CreateFmt('Language with index %d not found.', [AIndex]);
+end;
+
+function TAkLanguageRegistry.LanguageIndex(const AIndex: Integer): Integer;
+var
+  I: Integer;
+begin
+  Result := -1;
+  for I := 0 to Length(FLanguages) - 1 do
+    if FLanguages[I].Index = AIndex then
+      Result := I;
+end;
+
+function TAkLanguageRegistry.LanguageIndex(const ALanguage: TLanguage): Integer;
+begin
+  Result := LanguageIndex(ALanguage.Id);
+  if Result < 0 then
+    Result := LanguageIndex(ALanguage.Index);
+end;
+
+function TAkLanguageRegistry.LanguageIndex(const AId: string): Integer;
+var
+  I: Integer;
+begin
+  Result := -1;
+  for I := 0 to Length(FLanguages) - 1 do
+    if SameText(FLanguages[I].Id, AId) then
+      Result := I;
+end;
+
+function TAkLanguageRegistry.IsDefaultLanguage(const ALanguage: TLanguage): Boolean;
+begin
+  Result := LanguageIndex(ALanguage) = FDefaultLanguageIndex;
+end;
+
+function TAkLanguageRegistry.IsDefaultLanguage(const AId: string): Boolean;
+begin
+  Result := LanguageIndex(AId) = FDefaultLanguageIndex;
+end;
+
+function TAkLanguageRegistry.IsDefaultLanguage(const AIndex: Integer): Boolean;
+begin
+  Result := LanguageIndex(AIndex) = FDefaultLanguageIndex;
+end;
+
+function TAkLanguageRegistry.IsIn(const AIndex: Integer): Boolean;
+begin
+  Result := LanguageIndex(AIndex) > -1;
+end;
+
+class procedure TAkLanguageRegistry.Iterate(const AProc: TProc<TLanguage>);
+begin
+  Instance.ForEach(AProc);
+end;
+
+class procedure TAkLanguageRegistry.Iterate(const ALanguages: array of TLanguage;
+  const AProc: TProc<TLanguage>);
+var
+  I: Integer;
+begin
+  for I := 0 to Length(ALanguages) - 1 do
+    Instance.Add(ALanguages[I]);
+  Instance.ForEach(AProc);
+end;
+
+function TAkLanguageRegistry.IsIn(const AId: string): Boolean;
+begin
+  Result := LanguageIndex(AId) > -1;
+end;
+
+function TAkLanguageRegistry.IsIn(const ALanguage: TLanguage): Boolean;
+begin
+  Result := LanguageIndex(ALanguage) > -1;
+end;
+
+class procedure TAkLanguageRegistry.SetConfigFileName(const AFileName: TFileName);
+begin
+  Instance.FConfigFileName := AFileName;
+  Instance.ReadFromConfig;
+end;
+
+procedure TAkLanguageRegistry.SetDefaultLanguage(const ALanguage: TLanguage);
+begin
+  if not IsIn(ALanguage) then
+    raise Exception.CreateFmt('No language with ID "%s" found, cannot set it as default.', [ALanguage.Id]);
+  FDefaultLanguageIndex := LanguageIndex(ALanguage);
+end;
+
+procedure TAkLanguageRegistry.ReadFromConfig;
+var
+  LConfigCsv: TCsv;
+begin
+  Clear;
+  if not FileExists(FConfigFileName) then
+  begin
+    Add(TLanguage.Create('en', 'English', 10000));
+    Exit;
+  end;
+  LConfigCsv := TCsv.Create(FConfigFilename);
+  try
+    Assert(LConfigCsv.ColumnCount > 2, 'Languages config file must have at least 3 columns.');
+    if LConfigCsv.ColumnCount = 3 then
+      LConfigCsv.ForEach([0, 1, 2],
+        procedure(const AValues: TArray<string>)
+        begin
+          Add(TLanguage.Create(AValues[0], AValues[1], StrToInt(AValues[2])));
+        end
+      )
+    else
+      LConfigCsv.ForEach([0, 1, 2, 3],
+        procedure(const AValues: TArray<string>)
+        begin
+          Add(TLanguage.Create(AValues[0], AValues[1], StrToInt(AValues[2]), AValues[3]));
+        end
+      );
+  finally
+    LConfigCsv.Free;
+  end;
+end;
+
+{ TLanguage }
+
+constructor TLanguage.Create(const AId, ADescription: string;
+  const AIndex: Integer; const AFontName: string);
+begin
+  Id := AId;
+  Description := ADescription;
+  Index := AIndex;
+  FontName := AFontName;
 end;
 
 end.
