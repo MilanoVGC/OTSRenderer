@@ -23,8 +23,6 @@ More detailed info on the code are [here](/CodeDetails.md)
 
 ### TO-DO
 - Add a column for english display name on Pokémon CSV (current one used is the "stream name" one)
-- Add new features support to the console version (OTSRendererConsoleVcl)
-- Refactor the console version to work with a config file instead of list of arguments (there are too many now to be managed only by command line)
 - Add support for macOS and Linux
 
 ### Contacts

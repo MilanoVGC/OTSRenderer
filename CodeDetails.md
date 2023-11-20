@@ -35,5 +35,12 @@ This application flow can be summarized as follows:
 3.1 (OPTIONAL) Add desired logics to the PokepasteProcessor before and after the renderings using the OnRender and AfterRender properties (such as confirmation dialogs for overwriting already existing files)
 4. Invoke the rendering methods on PokepasteProcessor
 
+# Code details for OTSRendererConsole
+It works using the same logic and the same main units as the GUI program, it does have one more unit (RendererConsole) to manage the configuration settings from a configuration file.
+
+### RendererConsole
+This unit implements the TRendererConsole class: it collects the settings from an INI configuration file and receives single-run info (i.e. command line options) from the console.
+When all is ready it simply creates an instance of TPokepasteProcessor to perform the renderings.
+To know more on the configuration files see the [full config file](/Home/config_big.ini) and the [minimal config file](/Home/config_mini.ini), I personally suggest to stick to the "mini" one replacing the values with the needed ones, keeping the full config as a reference for all the possible configuration settings.
 
 If you have any issue, suggestion, request, curiosity regarding OTSRenderer, feel free to [DM me](https://twitter.com/reldervgc), every feedback is appreciated!
