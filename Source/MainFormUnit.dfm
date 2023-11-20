@@ -218,7 +218,7 @@ object MainForm: TMainForm
     Top = 1
     Width = 584
     Height = 383
-    ActivePage = TabInputOutput
+    ActivePage = TabConfig
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -673,7 +673,7 @@ object MainForm: TMainForm
         BevelOuter = bvNone
         BorderStyle = bsSingle
         Caption = 
-          'CSV File imput column names (mandatory columns for OTS are marke' +
+          'CSV File input column names (mandatory columns for OTS are marke' +
           'd with *)'
         TabOrder = 0
         VerticalAlignment = taAlignTop
