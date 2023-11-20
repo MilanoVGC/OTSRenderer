@@ -32,6 +32,7 @@ type
       const ADateFormat: string);
     constructor CreateFromNamedValues(const ANames, AValues: array of string;
       const ADateFormat: string);
+    function Valid: Boolean;
   end;
 
   TPokepasteProcessor = class
@@ -47,8 +48,11 @@ type
     FOutputs: TStringList;
     FLog: TAkLogger;
     FLogOwner: Boolean;
-    FOnRender: TFunc<TPokepaste, TInput, Boolean>;
-    FAfterRender: TProc<TPokepaste, TInput, string>;
+    FOnRender: TFunc<TPokepaste, TInput, string, Boolean>;
+    FAfterRender: TProc<TPokepaste, TInput, string, TFileName>;
+    FOnInput: TFunc<TPokepaste, TInput, Boolean>;
+    FAfterInput: TProc<TPokepaste, TInput, string>;
+    FOnError: TProc<TPokepaste, TInput, Exception>;
     FStopOnErrors: Boolean;
     procedure CreateFromInput(const AInput: TInput; var AErrors: string;
       const AOutputs: TStringList = nil);
@@ -64,22 +68,47 @@ type
     property Outputs: string read FOutputList write SetOutputs;
 
     /// <summary>
-    ///  The function that will be called before rendering but after having
-    ///  loaded the pokepaste (which is given to the function).
+    ///  The function that will be called before every output rendering, after
+    ///  having loaded the pokepaste (which is given to the function).
     ///  The rendering will be affected by any edit done either on the pokepaste
-    ///  or the input in this function.
-    ///  If the result of the function is False, the rendering of the pokepaste
-    ///  will be skipped.
+    ///  or on the input in this function. The given string contains the output
+    ///  type that is about to be processed.
+    ///  If the result of the function is False, the rendering of that output
+    ///  type for that input will be skipped.
     /// </summary>
-    property OnRender: TFunc<TPokepaste, TInput, Boolean> write FOnRender;
+    property OnRender: TFunc<TPokepaste, TInput, string, Boolean> write FOnRender;
 
     /// <summary>
-    ///  The function that will be called after rendering occurs.
+    ///  The function that will be called after every output rendering occurs.
     ///  The pokepaste and the input are editable without affecting the rendering.
-    ///  The output file names (without the path) are given as a list separed
-    ///  by line breaks.
+    ///  The string contains the output type that has been processed, the
+    ///  TFileName contains the full name of the output file.
     /// </summary>
-    property AfterRender: TProc<TPokepaste, TInput, string> write FAfterRender;
+    property AfterRender: TProc<TPokepaste, TInput, string, TFileName> write FAfterRender;
+
+    /// <summary>
+    ///  The function that will be called before processing a input rendering,
+    ///  after having loaded the pokepaste (which is given to the function).
+    ///  All renderings will be affected by any edit done either on the pokepaste
+    ///  or on the input in this function.
+    ///  If the result of the function is False, all the renderings of that
+    ///  input (and pokepaste) will be skipped.
+    /// </summary>
+    property OnInput: TFunc<TPokepaste, TInput, Boolean> write FOnInput;
+
+    /// <summary>
+    ///  The function that will be called after all the input renderings are
+    ///  done. The pokepaste and the input are editable without affecting the
+    ///  renderings. The string contains the the list of output files separated
+    ///  by a line break.
+    /// </summary>
+    property AfterInput: TProc<TPokepaste, TInput, string> write FAfterInput;
+
+    /// <summary>
+    ///  The function that will be called when an exception is raised during
+    ///  the rendering process.
+    /// </summary>
+    property OnError: TProc<TPokepaste, TInput, Exception> write FOnError;
 
     /// <summary>
     ///  Determines if exceptions catched during the rendering process are
@@ -214,6 +243,11 @@ begin
   Result := CapitalFirst(Name) + ' ' + CapitalFirst(Surname);
 end;
 
+function TInput.Valid: Boolean;
+begin
+  Result := (Name <> '') and (Surname <> '') and (Link <> '') and (TrainerName <> '');
+end;
+
 { TPokepasteProcessor }
 
 constructor TPokepasteProcessor.Create(const ADataFiles: array of TFileName;
@@ -258,6 +292,7 @@ var
   LErrors: string;
 begin
   Assert(Assigned(ACsvFile), 'Input file has not been initialized.');
+  Assert(ACsvFile.HasHeader, 'Input file is not correctly initialized.');
   LColumnDefinitions := StrArrayClone(AColumnDefinitions);
   LErrors := AErrors;
   LOutputs := TStringList.Create;
@@ -302,6 +337,7 @@ var
   LOutputType: string;
   LErrorText: string;
 begin
+  Assert(Assigned(AOutputs));
   try
     FPokepaste.LoadPokepaste(AInput.Link, FDataFiles, FAssetsPath);
     FPokepaste.Owner := AInput.FullName;
@@ -316,29 +352,39 @@ begin
       LErrorText := Format('Loading Pokepaste of "%s": %s', [AInput.FullName, E.Message]);
       FLog.Log('ERROR - ' + LErrorText);
       AErrors := AErrors + LErrorText + sLineBreak;
+      if Assigned(FOnError) then
+        FOnError(FPokepaste, AInput, E);
       if StopOnErrors then
         raise Exception.Create(LErrorText);
     end;
   end;
-  if Assigned(FOnRender) then
-    LDoIt := FOnRender(FPokepaste, AInput)
+  if Assigned(FOnInput) then
+    LDoIt := FOnInput(FPokepaste, AInput)
   else
     LDoIt := True;
   if not LDoIt then
   begin
-    FLog.Log('Skipped ' + AInput.FullName + '.');
+    FLog.Log(Format('Skipped all the renderings for "%s".', [AInput.FullName]));
     Exit;
   end;
   for LOutputType in FOutputs do
   begin
     try
+      if Assigned(FOnRender) then
+        LDoIt := FOnRender(FPokepaste, AInput, LOutputType);
+      if not LDoIt then
+      begin
+        FLog.Log(Format('Skipped %s of "%s".', [LOutputType, AInput.FullName]));
+        Continue;
+      end;
       GameLanguage := AInput.GameLanguageId;
       LOutput := Print(LOutputType);
       if LOutput <> '' then
       begin
-        FLog.Log('Processed ' + AInput.FullName + ' -> ' + LOutput);
-        if Assigned(AOutputs) then
-          AOutputs.Add(ExtractFileName(LOutput));
+        FLog.Log(Format('Processed %s of "%s": %s', [LOutputType, AInput.FullName, LOutput]));
+        AOutputs.Add(ExtractFileName(LOutput));
+        if Assigned(FAfterRender) then
+          FAfterRender(FPokepaste, AInput, LOutputType, LOutput);
       end;
     except
       on E: Exception do
@@ -346,13 +392,15 @@ begin
         LErrorText := Format('Rendering %s of "%s": %s', [LOutputType, AInput.FullName, E.Message]);
         FLog.Log('ERROR - ' + LErrorText);
         AErrors := AErrors + LErrorText + sLineBreak;
+        if Assigned(FOnError) then
+          FOnError(FPokepaste, AInput, E);
         if StopOnErrors then
           raise Exception.Create(LErrorText);
       end;
     end;
   end;
-  if Assigned(FAfterRender) then
-    FAfterRender(FPokepaste, AInput, AOutputs.Text);
+  if Assigned(FAfterInput) then
+    FAfterInput(FPokepaste, AInput, AOutputs.Text);
 end;
 
 function TPokepasteProcessor.CreateFromInputList(var AInputList: array of TInput;

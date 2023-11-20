@@ -16,6 +16,9 @@ type
   TFrame = class(Vcl.Forms.TFrame)
   private
     FPokepaste: TPokepaste;
+    function CalcCellRect(const AGrid: TStringGrid; const ACol, ARow: Integer): TRect;
+    procedure AlignText(const ATextWidth: Integer; var ATextRect: TRect;
+      const AAlignment: Char = taLeft);
   strict protected
     function CellRect(const AGrid: TStringGrid; const ACol, ARow: Integer): TRect;
     procedure FillValue(const AValue: string; const ACanvas: TCanvas;
@@ -40,13 +43,40 @@ uses
 
 { TFrame }
 
+procedure TFrame.AlignText(const ATextWidth: Integer; var ATextRect: TRect;
+  const AAlignment: Char);
+begin
+  if ATextWidth < ATextRect.Width then
+    case AAlignment of
+      taCenter:
+      begin
+        ATextRect.Left := ATextRect.Left + Round((ATextRect.Width - ATextWidth) / 2) - 2;
+        ATextRect.Width := ATextRect.Width - Round((ATextRect.Width - ATextWidth) / 2) + 2;
+      end;
+      taRight:
+      begin
+        ATextRect.Left := ATextRect.Left + (ATextRect.Width - ATextWidth) - 5;
+        ATextRect.Width := ATextRect.Width - (ATextRect.Width - ATextWidth) + 5;
+      end;
+    end;
+end;
+
+function TFrame.CalcCellRect(const AGrid: TStringGrid;
+  const ACol, ARow: Integer): TRect;
+var
+  LOffsetX: Integer;
+  LOffsetY: Integer;
+begin
+  LOffsetX := 1 + (ACol * (1 + AGrid.ColWidths[ACol]));
+  LOffsetY := 1 + (ARow * (1 + AGrid.RowHeights[ARow]));
+  Result := Rect(LOffsetX, LOffsetY, LOffsetX + AGrid.ColWidths[ACol] + 3, LOffsetY + AGrid.RowHeights[ARow] + 3);
+end;
+
 function TFrame.CellRect(const AGrid: TStringGrid; const ACol,
   ARow: Integer): TRect;
 begin
-  Result := AGrid.CellRect(ACol, ARow);
-  Result.SetLocation(Result.Left + AGrid.Left, Result.Top + AGrid.Top - 3);
-  Result.Height := Result.Height + 3;
-  Result.Width := Result.Width + 3;
+  Result := CalcCellRect(AGrid, ACol, ARow);
+  Result.SetLocation(Result.Left + AGrid.Left, Result.Top + AGrid.Top);
 end;
 
 procedure TFrame.FillHeaderRow(const ACanvas: TCanvas; const ARow: Integer;
@@ -71,12 +101,20 @@ var
   LOgFontSize: Integer;
   LRect: TRect;
 begin
+  // Save canvas settings
   LOgFontStyle := ACanvas.Font.Style;
   LOgFontSize := ACanvas.Font.Size;
+
+  // Set canvas settings from label
+  ALabel.Font.Name := ACanvas.Font.Name;
   ACanvas.Font.Style := ALabel.Font.Style;
   ACanvas.Font.Size := ALabel.Font.Size;
-  LRect := Rect(ALabel.Left - 5, ALabel.Top - 5, ALabel.Left + ALabel.Width + 10, ALabel.Top + ALabel.Height + 5);
-  FillValue(ALabel.Caption, ACanvas, LRect, ATextAlignment, False);
+  LRect := Rect(ALabel.Left, ALabel.Top, ALabel.Left + ALabel.Width + 4, ALabel.Top + ALabel.Height + 2);
+  AlignText(ACanvas.TextWidth(ALabel.Caption), LRect, ATextAlignment);
+  // Draw
+  ACanvas.TextRect(LRect, LRect.Left, LRect.Top, ALabel.Caption);
+
+  // Restore original canvas settings
   ACanvas.Font.Style := LOgFontStyle;
   ACanvas.Font.Size := LOgFontSize;
 end;
@@ -135,31 +173,13 @@ procedure TFrame.FillValue(const AValue: string; const ACanvas: TCanvas;
   ARect: TRect; const ATextAlignment: Char; const ADrawRect: Boolean);
 var
   LRect: TRect;
-  LTextWidth: Integer;
-  LTextHeight: Integer;
   LTopMargin: Integer;
 begin
   if ADrawRect then
     ACanvas.Rectangle(ARect);
-  LTextWidth := ACanvas.TextWidth(AValue);
-  LTextHeight := ACanvas.TextHeight(AValue);
-  LTopMargin := Round((ARect.Height - LTextHeight) / 2);
+  LTopMargin := Round((ARect.Height - ACanvas.TextHeight(AValue)) / 2);
   LRect := Rect(ARect.Left + 5, ARect.Top + LTopMargin - 3, ARect.Right - 5, ARect.Bottom - LTopMargin + 3);
-  if LTextWidth < LRect.Width then
-  begin
-    case ATextAlignment of
-      taCenter:
-      begin
-        LRect.Left := LRect.Left + Round((LRect.Width - LTextWidth) / 2) - 2;
-        LRect.Width := LRect.Width - Round((LRect.Width - LTextWidth) / 2) + 2;
-      end;
-      taRight:
-      begin
-        LRect.Left := LRect.Left + (LRect.Width - LTextWidth) - 5;
-        LRect.Width := LRect.Width - (LRect.Width - LTextWidth) + 5;
-      end;
-    end;
-  end;
+  AlignText(ACanvas.TextWidth(AValue), LRect, ATextAlignment);
   ACanvas.TextRect(LRect, LRect.Left, LRect.Top, AValue);
 end;
 

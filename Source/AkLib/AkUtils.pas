@@ -84,12 +84,14 @@ type
     property SaveOnLog: Boolean read FSaveOnLog write FSaveOnLog;
     property Encoding: TEncoding read FEncoding write FEncoding;
     property OnLog: TProc<string> write FOnLog;
+    property IsInitialized: Boolean read FInitialized;
     constructor CreateAndInit(const ATitle, AFileName: string; const AInterval: Char = 'Y';
       const ADateTimeFormat: string = 'yyyymmdd_hh:nn:ss');
     constructor Create(const ATitle, AFileName: string; const AInterval: Char = #0;
       const ADateTimeFormat: string = '');
     procedure Initialize;
-    procedure Log(const AString: string);
+    procedure Log(const AString: string); overload;
+    procedure Log(const AString: string; const AParams: array of const); overload;
     destructor Destroy; override;
   end;
 
@@ -132,6 +134,7 @@ type
     property DefaultLanguage: TLanguage read GetDefaultLanguage write SetDefaultLanguage;
     class property Config: TFileName read GetConfigFileName write SetConfigFileName;
     class property Instance: TAkLanguageRegistry read GetInstance;
+    procedure AfterConstruction; override;
     procedure Add(const ALanguage: TLanguage); overload;
     procedure Add(const ALanguages: array of TLanguage); overload;
     procedure Clear;
@@ -196,6 +199,7 @@ function RandomString(const ALength: Integer; const ACharSet: string = ''): stri
 function HexToInt(const AHex: string): Integer;
 function IsValidDateFormat(const AFormat: string): Boolean;
 function StringToDate(const AString: string; const AFormat: string = 'yyyymmdd'): TDateTime;
+function DateToString(const ADate: TDateTime; const AFormat: string = 'yyyymmdd'): string;
 function StrContains(const AString, ASubString: string): Boolean; overload;
 function StrContains(const AString: string; const ASubStrings: array of string): Boolean; overload;
 function StrArrayClone(const AStringArray: array of string): TArray<string>;
@@ -453,6 +457,14 @@ begin
   Result := EncodeDate(StrToInt(LYear), StrToInt(LMonth), StrToInt(LDay));
 end;
 
+function DateToString(const ADate: TDateTime; const AFormat: string): string;
+begin
+  Result := '';
+  if ADate = NULL_DATETIME then
+    Exit;
+  Result := FormatDateTime(AFormat, ADate);
+end;
+
 function StrContains(const AString, ASubString: string): Boolean;
 begin
   Result := Pos(UpperCase(ASubString), UpperCase(AString)) > 0;
@@ -575,7 +587,7 @@ begin
   LString := '[' + FormatDateTime(DateTimeFormat, Now) + ']: ' + AString;
 
   if Assigned(FOnLog) then
-    FOnLog(LString);
+    FOnLog(AString);
 
   FLog.Add(LString);
 
@@ -620,6 +632,11 @@ begin
   Log(Format('== New session started (%s). ==', [Id]));
 end;
 
+procedure TAkLogger.Log(const AString: string; const AParams: array of const);
+begin
+  Log(Format(AString, AParams));
+end;
+
 constructor TAkLogger.Create(const ATitle, AFileName: string;
   const AInterval: Char; const ADateTimeFormat: string);
 begin
@@ -628,9 +645,10 @@ begin
   FFileName := AFileName;
   FSaveOnLog := True;
   FInterval := AInterval;
-  FDateTimeFormat := FDateTimeFormat;
+  FDateTimeFormat := ADateTimeFormat;
   FInitialized := False;
   FEncoding := TEncoding.UTF8;
+  FOnLog := nil;
 end;
 
 constructor TAkLogger.CreateAndInit(const ATitle, AFileName: string;
@@ -710,6 +728,13 @@ var
 begin
   for I := 0 to Length(ALanguages) - 1 do
     Add(ALanguages[I]);
+end;
+
+procedure TAkLanguageRegistry.AfterConstruction;
+begin
+  inherited;
+  // avoid any access violation problem if a config file is not set.
+  Add(TLanguage.Create('en', 'English', 10000));
 end;
 
 procedure TAkLanguageRegistry.Clear;
@@ -872,12 +897,8 @@ procedure TAkLanguageRegistry.ReadFromConfig;
 var
   LConfigCsv: TCsv;
 begin
+  Assert(FileExists(FConfigFileName), Format('Dictionary file "%s" not found.', [FConfigFileName]));
   Clear;
-  if not FileExists(FConfigFileName) then
-  begin
-    Add(TLanguage.Create('en', 'English', 10000));
-    Exit;
-  end;
   LConfigCsv := TCsv.Create(FConfigFilename);
   try
     Assert(LConfigCsv.ColumnCount > 2, 'Languages config file must have at least 3 columns.');

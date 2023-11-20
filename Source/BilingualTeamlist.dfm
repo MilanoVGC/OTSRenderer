@@ -52,8 +52,8 @@ object BilingualTemplate: TBilingualTemplate
       ParentFont = False
     end
     object LblSecondLanguage1: TLabel
-      Left = 96
-      Top = 64
+      Left = 90
+      Top = 59
       Width = 55
       Height = 13
       Caption = '[Language]'
@@ -65,8 +65,8 @@ object BilingualTemplate: TBilingualTemplate
       ParentFont = False
     end
     object LblDefaultLanguage1: TLabel
-      Left = 260
-      Top = 64
+      Left = 254
+      Top = 59
       Width = 55
       Height = 13
       Caption = '[Language]'
@@ -78,8 +78,8 @@ object BilingualTemplate: TBilingualTemplate
       ParentFont = False
     end
     object LblSecondLanguage2: TLabel
-      Left = 501
-      Top = 64
+      Left = 495
+      Top = 59
       Width = 55
       Height = 13
       Caption = '[Language]'
@@ -91,8 +91,8 @@ object BilingualTemplate: TBilingualTemplate
       ParentFont = False
     end
     object LblDefaultLanguage2: TLabel
-      Left = 665
-      Top = 64
+      Left = 659
+      Top = 59
       Width = 55
       Height = 13
       Caption = '[Language]'
@@ -105,7 +105,7 @@ object BilingualTemplate: TBilingualTemplate
     end
     object GrdPokemon1: TStringGrid
       Left = 89
-      Top = 80
+      Top = 74
       Width = 324
       Height = 156
       ColCount = 2
@@ -119,7 +119,7 @@ object BilingualTemplate: TBilingualTemplate
     end
     object GrdPokemon2: TStringGrid
       Left = 493
-      Top = 80
+      Top = 74
       Width = 324
       Height = 156
       ColCount = 2
@@ -133,7 +133,7 @@ object BilingualTemplate: TBilingualTemplate
     end
     object GrdPokemon3: TStringGrid
       Left = 89
-      Top = 259
+      Top = 253
       Width = 324
       Height = 156
       ColCount = 2
@@ -147,7 +147,7 @@ object BilingualTemplate: TBilingualTemplate
     end
     object GrdPokemon4: TStringGrid
       Left = 493
-      Top = 259
+      Top = 253
       Width = 324
       Height = 156
       ColCount = 2
@@ -161,7 +161,7 @@ object BilingualTemplate: TBilingualTemplate
     end
     object GrdPokemon5: TStringGrid
       Left = 89
-      Top = 437
+      Top = 431
       Width = 324
       Height = 156
       ColCount = 2
@@ -175,7 +175,7 @@ object BilingualTemplate: TBilingualTemplate
     end
     object GrdPokemon6: TStringGrid
       Left = 493
-      Top = 437
+      Top = 431
       Width = 324
       Height = 156
       ColCount = 2
@@ -189,11 +189,11 @@ object BilingualTemplate: TBilingualTemplate
     end
     object GrdHeaderPokemon1: TStringGrid
       Left = 8
-      Top = 80
+      Top = 74
       Width = 82
       Height = 156
       ColCount = 1
-      DefaultColWidth = 90
+      DefaultColWidth = 80
       DefaultRowHeight = 18
       FixedCols = 0
       RowCount = 8
@@ -203,7 +203,7 @@ object BilingualTemplate: TBilingualTemplate
     end
     object GrdHeaderPokemon2: TStringGrid
       Left = 413
-      Top = 80
+      Top = 74
       Width = 82
       Height = 156
       ColCount = 1
@@ -217,7 +217,7 @@ object BilingualTemplate: TBilingualTemplate
     end
     object GrdHeaderPokemon3: TStringGrid
       Left = 8
-      Top = 259
+      Top = 253
       Width = 82
       Height = 156
       ColCount = 1
@@ -231,7 +231,7 @@ object BilingualTemplate: TBilingualTemplate
     end
     object GrdHeaderPokemon4: TStringGrid
       Left = 413
-      Top = 259
+      Top = 253
       Width = 82
       Height = 156
       ColCount = 1
@@ -245,7 +245,7 @@ object BilingualTemplate: TBilingualTemplate
     end
     object GrdHeaderPokemon5: TStringGrid
       Left = 8
-      Top = 437
+      Top = 431
       Width = 82
       Height = 156
       ColCount = 1
@@ -259,7 +259,7 @@ object BilingualTemplate: TBilingualTemplate
     end
     object GrdHeaderPokemon6: TStringGrid
       Left = 413
-      Top = 437
+      Top = 431
       Width = 82
       Height = 156
       ColCount = 1

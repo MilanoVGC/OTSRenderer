@@ -19,11 +19,13 @@ type
     procedure Init(const ADelimiter: Char = ';';
       const AHasHeader: Boolean = False);
     function GetHeaderColumn(const AColumnTitle: string): Integer;
+    function GetHasHeader: Boolean;
   public
     property Delimiter: Char read FDelimiter;
     property Header[const AColumnTitle: string]: Integer read GetHeaderColumn;
     property ColumnCount: Integer read FColumnCount;
     property DateFormat: string read FDateFormat write FDateFormat;
+    property HasHeader: Boolean read GetHasHeader;
     constructor Create(const AFileName: TFileName; const ADelimiter: Char = ';';
       const AHasHeader: Boolean = False); overload;
     constructor Create(const AText: string; const ADelimiter: Char = ';';
@@ -32,12 +34,12 @@ type
     function FindByValue(const AValue: string; const AColumnToFindIndex: Integer;
       const AColumnWhereSearchIndex: Integer = 0): string; overload;
     function FindByValue(const AValue, AColumnToFindTitle, AColumnWhereSearchTitle: string): string; overload;
-    destructor Destroy; override;
     procedure ForEach(const AColumnIndex: Integer; const AProc: TConstProc<string>); overload;
     procedure ForEach(const AColumnTitle: string; const AProc: TConstProc<string>); overload;
     procedure ForEach(const AColumnIndexes: array of Integer; const AProc: TConstProc<TArray<string>>); overload;
     procedure ForEach(const AColumnTitles: array of string; const AProc: TConstProc<TArray<string>>); overload;
     procedure ForEach(const AProc: TConstProc<TArray<string>>); overload;
+    destructor Destroy; override;
   end;
 
   TCsvArchive = class
@@ -179,6 +181,11 @@ end;
 procedure TCsv.ForEach(const AColumnTitle: string; const AProc: TConstProc<string>);
 begin
   ForEach(Header[AColumnTitle], AProc);
+end;
+
+function TCsv.GetHasHeader: Boolean;
+begin
+  Result := FHeaderIndex > -1;
 end;
 
 function TCsv.GetHeaderColumn(const AColumnTitle: string): Integer;

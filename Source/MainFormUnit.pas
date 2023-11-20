@@ -438,49 +438,51 @@ begin
   try
     LProcessor.StopOnErrors := FStopOnErrors;
     LProcessor.OTSLanguage := string(CbxOtsLanguage.Items.Objects[CbxOtsLanguage.ItemIndex]);
-    LProcessor.OnRender :=
-      function(APokepaste: TPokepaste; AInput: TInput): Boolean
-      var
-        LOutputName: string;
-        LOutputType: string;
-      begin
-        if FPreviewEnabled then
-          SetAllSprites;
-        Result := True;
-        for LOutputType in FOutputTypes do
-        begin
-          LOutputName := IncludeTrailingPathDelimiter(LProcessor.OutputPath + LOutputType) + APokepaste.OutputName + OutputExt(LOutputType);
-          if FileExists(LOutputName) then
-          begin
-            if LAlwaysOverwrite then
-              Exit;
-            if LNeverOverwrite then
-            begin
-              Result := False;
-              Exit;
-            end;
-            LDlgResult := YesNoAllDlg(Format('The file "%s" already exists: overwrite it?', [LOutputName]));
-
-            if SameText(LDlgResult, 'YesAll') then
-              LAlwaysOverwrite := True
-            else if SameText(LDlgResult, 'NoAll') then
-              LNeverOverwrite := True;
-
-            if Pos('YES', AnsiUpperCase(LDlgResult)) > 0  then
-              Result := True
-            else
-              Result := False;
-          end;
-        end;
-      end;
 
     if FPreviewEnabled then
-      LProcessor.AfterRender :=
+    begin
+      LProcessor.OnInput :=
+        function(APokepaste: TPokepaste; AInput: TInput): Boolean
+        begin
+          SetAllSprites;
+          Result := True;
+        end;
+      LProcessor.AfterInput :=
         procedure(APokepaste: TPokepaste; AInput: TInput; AOutputs: string)
         begin
           Sleep(1000);
           ClearSprites;
         end;
+    end;
+
+    LProcessor.OnRender :=
+      function(APokepaste: TPokepaste; AInput: TInput; AOutputType: string): Boolean
+      var
+        LOutputName: string;
+      begin
+        Result := True;
+        LOutputName := IncludeTrailingPathDelimiter(LProcessor.OutputPath + AOutputType) + APokepaste.OutputName + OutputExt(AOutputType);
+        if FileExists(LOutputName) then
+        begin
+          if LAlwaysOverwrite then
+            Exit;
+          if LNeverOverwrite then
+          begin
+            Result := False;
+            Exit;
+          end;
+            LDlgResult := YesNoAllDlg(Format('The file "%s" already exists: overwrite it?', [LOutputName]));
+
+          if SameText(LDlgResult, 'YesAll') then
+            LAlwaysOverwrite := True
+          else if SameText(LDlgResult, 'NoAll') then
+            LNeverOverwrite := True;
+          if Pos('YES', AnsiUpperCase(LDlgResult)) > 0  then
+            Result := True
+          else
+            Result := False;
+        end;
+      end;
 
     if FileExists(AInputFileName) then
     begin

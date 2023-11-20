@@ -15,113 +15,52 @@ uses
   PokeParser in '..\..\Source\PokeParser.pas',
   AkUtils in '..\..\Source\AkLib\AkUtils.pas',
   AkUtilsVcl in '..\..\Source\AkLib\AkUtilsVcl.pas',
-  PokeUtils in '..\..\Source\PokeUtils.pas';
+  PokeUtils in '..\..\Source\PokeUtils.pas',
+  RendererConsole in '..\..\Source\RendererConsole.pas',
+  TeamlistTemplateFrame in '..\..\Source\TeamlistTemplateFrame.pas',
+  BilingualTeamlist in '..\..\Source\BilingualTeamlist.pas' {BilingualTemplate: TFrame},
+  MonolingualTeamlist in '..\..\Source\MonolingualTeamlist.pas' {MonolingualTemplate: TFrame};
 
 const
-  HELP_TEXT = '****** OTSRendererConsoleVCL - by relder (github/relderDev) ******' + sLineBreak +
-    'Main usage (one of the following options has to be used):' + sLineBreak +
-    '  -i [input file name] -d [csv delimiter (default=",")] -m [column names (default="Name,Surname,Pokepaste OT")]' + sLineBreak +
-    '    ## this executes the app in file mode: read names and URLs from the CSV file ##' + sLineBreak +
-    '  -n [player''s name] -s [player''s surname] -u [player''s pokepaste URL]' + sLineBreak +
-    '    ## this executes the app in manual mode: it renders only the single given pokepaste ##' + sLineBreak +
-    'Main configurations (will be asked when not given on start):' + sLineBreak +
-    '  -r [resources path]' + sLineBreak +
-    '    ## path with data and assets folders ##' + sLineBreak +
-    '  -c [color palette name]' + sLineBreak +
-    '  -o [outputs format]' + sLineBreak +
-    'Optional configurations:' + sLineBreak +
-    '  -p [output path (default="[app folder]/Output")]' + sLineBreak +
-    '  -fast' + sLineBreak +
-    '    ## defaults all the configurations not set on start skipping the prompt to the user ##' + sLineBreak +
+  HELP_TEXT = '***************************** OTSRendererConsoleVCL - by relder (twitter.com/relderVGC) ******************************' + sLineBreak +
+    'Usage:' + sLineBreak +
+    '  -c [configuration file name]' + sLineBreak +
+    '    ## MANDATORY: - all the main settings are read from this file (resources path, input file info, ...) ##' + sLineBreak +
+    '  -f [input file name]' + sLineBreak +
+    '    ## ALTERNATIVE TO -n: executes the app in file mode: player and paste informations are read from the input file ##' + sLineBreak +
+    '  -n [player''s name] -s [player''s surname] -u [player''s pokepaste URL] -t [player''s trainer name in game]' + sLineBreak +
+    '    ## ALTERNATIVE TO -i: executes the app in manual mode: it renders only the single given pokepaste ##' + sLineBreak +
+    '  -b [player''s battle team name/number] -p [player''s switch profile name]' + sLineBreak +
+    '    ## OPTIONAL: further parameters for the manual mode run of the app (in file mode this options are ignored) ##' + sLineBreak +
+    '  -i [player''s Player ID] -l [player''s game language ID] -d [player''s date of birth in YYYYMMDD format]' + sLineBreak +
+    '    ## OPTIONAL: further parameters for the manual mode run of the app (in file mode this options are ignored) ##' + sLineBreak +
     '  -verbose' + sLineBreak +
-    '    ## prints the registered configuration before executing ##' + sLineBreak +
-    '  -slow' + sLineBreak +
-    '    ## like -verbose but it also ask for confirmation before executing ##' + sLineBreak +
+    '    ## OPTIONAL - prints to the console the registered configuration and each processed file ##' + sLineBreak +
+    '  -keep' + sLineBreak +
+    '    ## OPTIONAL - prompts a line at the end of the run, before exiting from the application ##' + sLineBreak +
     '  -h or -help' + sLineBreak +
     '    ## shows this display ##' + sLineBreak +
     'Remarks:' + sLineBreak +
-    '  If specifying the option for CSV delimiter (-d) enclose it in double quotes "".' + sLineBreak +
+    '  Either "-f" or "-n" must be specified.' + sLineBreak +
     '  All of the parameters listed above are case insensitive.' + sLineBreak +
-    '  To include a space in a parameter enclose it in double quotes "" or use the %space% macro instead of the space character.' + sLineBreak +
+    '  Enclose one parameter in double quotes (") or use the %space% macro to include a space in it.' + sLineBreak +
     sLineBreak +
-    '****** Have fun with your pokepastes! ******' + sLineBreak;
+    '******************************************** Have fun with your pokepastes! *********************************************' + sLineBreak;
 
 var
   LOutputHandle: THandle;
   LBufferInfo: TConsoleScreenBufferInfo;
-
-  LAppMode: string;
-  LFileName: string;
-  LFile: TCsv;
-  LDelimiter: string;
-  LColumns: string;
-  LColumnSplitter: TStringList;
-  LColumnNames: array of string;
-  LName: string;
-  LSurname: string;
-  LUrl: string;
-
-  LResourcesPath: string;
-  LColorPaletteName: string;
-  LOutputPath: string;
-  LOutputs: string;
-  LHtmlOutput: Boolean;
-  LPngOutput: Boolean;
-
-  LAssetsPath: string;
-  LDataFileNames: array of TFileName;
-
-  LConfirm: string;
-
+  LVerbose: Boolean;
+  LKeep: Boolean;
   LPokepaste: TPokepasteVcl;
-  LPokepasteProcessor: TPokepasteProcessor;
-
-  LOutput: string;
-  LFullNameList: string;
-  LErrors: string;
-  I: Integer;
-
-  procedure ReadInput(const AInputName, AInputDefault: string; var AVar: string);
-  begin
-    if FindCmdLineSwitch('Fast') then
-    begin
-      AVar := AInputDefault;
-      Exit;
-    end;
-    WriteLn(Format('Please input the %s [default = "%s"])', [AInputName, AInputDefault]));
-    ReadLn(AVar);
-    if AVar = '' then
-      AVar := AInputDefault;
-  end;
-
-  procedure ReplaceSpace(var AString: string);
-  begin
-    AString := StringReplace(AString, '%space%', ' ', [rfReplaceAll, rfIgnoreCase]);
-  end;
-
-  procedure PrintConfig;
-  begin
-    WriteLn('AppMode: ' + LAppMode);
-    if SameText(LAppMode, 'File') then
-    begin
-      WriteLn('FileName: ' + LFileName);
-      WriteLn('Delimiter: ' + LDelimiter);
-      WriteLn('Columns: ' + LColumns);
-    end
-    else if SameText(LAppMode, 'Manual') then
-    begin
-      WriteLn('Name: ' + LName);
-      WriteLn('Surname: ' + LSurname);
-      WriteLn('Url: ' + LUrl);
-    end;
-    WriteLn('ResourcesPath: ' + LResourcesPath);
-    WriteLn('AssetsPath: ' + LAssetsPath);
-    WriteLn('ColorPaletteName: ' + LColorPaletteName);
-    WriteLn('OutputPath: ' + LOutputPath);
-    WriteLn('Outputs: ' + LOutputs);
-    WriteLn('HtmlOutput: ' + BoolToStr(LHtmlOutput, True));
-    WriteLn('PngOutput: ' + BoolToStr(LPngOutput, True));
-  end;
+  LLogger: TAkLogger;
+  LConfigFileName: string;
+  LRenderer: TRendererConsole;
+  LAppMode: Char;
+  LFileName: string;
+  LSingle: TInput;
+  LUrl: string;
+  LBirthDateStr: string;
 
   procedure PrintHelp;
   var
@@ -153,137 +92,140 @@ var
     end;
   end;
 
-  procedure PrintOutput;
+  procedure Close(const AIsError: Boolean = False);
   begin
-    if LOutput <> '' then
+    if AIsError then
+      WriteLn(Format('Execute %s -h for help.', [ParamStr(0)]));
+
+    if LKeep then
     begin
-      WriteLn('Execution completed with the following output(s):');
-      WriteLn(LOutput);
-    end;
-    if LErrors <> '' then
-    begin
-      WriteLn('Execution has encountered the following error(s):');
-      SetConsoleTextAttribute(TTextRec(Output).Handle, FOREGROUND_INTENSITY or FOREGROUND_RED);
-      WriteLn(LErrors);
-      SetConsoleTextAttribute(LOutputHandle, LBufferInfo.wAttributes);
-    end;
-    if FindCmdLineSwitch('Fast') then
-      Exit;
-    WriteLn('Run concluded, press [ENTER] to exit.');
-    ReadLn;
+      WriteLn('Press [ENTER] to exit.');
+      ReadLn;
+    end
+    else
+      WriteLn('Exiting...');
+
+    if Assigned(LLogger) then
+      LLogger.Free;
   end;
+
+  procedure ReplaceSpace(var AString: string);
+  begin
+    AString := StringReplace(AString, '%space%', ' ', [rfReplaceAll, rfIgnoreCase]);
+  end;
+
 begin
+  // Log creation
+  LLogger := TAkLogger.Create('OTSRendererConsole',
+    IncludeTrailingPathDelimiter(AppPath + 'Log') + AppTitle, 'Y',
+    'yyyymmdd_hh:nn:ss');
   try
+    // Basic setup
     WriteLn('');
     LOutputHandle := TTextRec(Output).Handle;
     GetConsoleScreenBufferInfo(LOutputHandle, LBufferInfo);
-    if ParamCount = 0 then
+    LVerbose := FindCmdLineSwitch('verbose');
+    LKeep := FindCmdLineSwitch('keep');
+
+    // Help
+    if (ParamCount = 0) or FindCmdLineSwitch('help') or FindCmdLineSwitch('H') then
     begin
+      LKeep := True;
       PrintHelp;
-      raise Exception.Create('Press [ENTER] to exit.');
-    end;
-    if FindCmdLineSwitch('Help') or FindCmdLineSwitch('H') then
-    begin
-      PrintHelp;
+      Close;
       Exit;
     end;
-    if FindCmdLineSwitch('I', LFileName) then
+
+    // Check for config file parameter
+    Assert(FindCmdLineSwitch('c', LConfigFileName), 'A configuration file must be provided.');
+
+    // Setting AppMode and options
+    if FindCmdLineSwitch('f', LFileName) and not FindCmdLineSwitch('n') then
+      LAppMode := amFile
+    else if FindCmdLineSwitch('n', LSingle.Name) then
     begin
-      LAppMode := 'File';
-      if not FindCmdLineSwitch('D', LDelimiter) then
-        LDelimiter := ',';
-      if not FindCmdLineSwitch('M', LColumns) then
-        LColumns := 'Name,Surname,Pokepaste%space%OT';
-      ReplaceSpace(LFileName);
-      ReplaceSpace(LColumns);
-      LColumnSplitter := TStringList.Create;
-      try
-        LColumnSplitter.Delimiter := ',';
-        LColumnSplitter.StrictDelimiter := True;
-        LColumnSplitter.DelimitedText := LColumns;
-        SetLength(LColumnNames, LColumnSplitter.Count);
-        for I := 0 to LColumnSplitter.Count - 1 do
-          LColumnNames[I] := LColumnSplitter[I];
-      finally
-        LColumnSplitter.Free;
-      end;
-    end
-    else if FindCmdLineSwitch('N', LName) and FindCmdLineSwitch('S', LSurname) and FindCmdLineSwitch('U', LUrl) then
-    begin
-      LAppMode := 'Manual';
-      ReplaceSpace(LName);
-      ReplaceSpace(LSurname);
+      LAppMode := amSingle;
+      ReplaceSpace(LSingle.Name);
+      Assert(FindCmdLineSwitch('s', LSingle.Surname), '"-s" option must be provided when running manual mode.');
+      ReplaceSpace(LSingle.Surname);
+      Assert(FindCmdLineSwitch('u', LUrl), '"-u" option must be provided when running manual mode.');
+      LSingle.Link := LUrl;
+      Assert(FindCmdLineSwitch('t', LSingle.TrainerName), '"-t" option must be provided when running manual mode.');
+      ReplaceSpace(LSingle.TrainerName);
+      FindCmdLineSwitch('b', LSingle.BattleTeam);
+      ReplaceSpace(LSingle.BattleTeam);
+      FindCmdLineSwitch('p', LSingle.Profile);
+      ReplaceSpace(LSingle.Profile);
+      FindCmdLineSwitch('i', LSingle.PlayerId);
+      FindCmdLineSwitch('l', LSingle.GameLanguageId);
+      FindCmdLineSwitch('d', LBirthDateStr);
+      LSingle.BirthDate := StringToDate(LBirthDateStr, 'yyyymmdd');
+      Assert(LSingle.Valid, 'Mandatory options cannot be empty.');
     end
     else
-      raise Exception.Create('Unrecognized pattern of parameters.');
+      raise Exception.Create('Either "-f" or "-n" option must be provided.');
 
-    if not FindCmdLineSwitch('R', LResourcesPath) then
-      ReadInput('resources path', AppPath + 'Resources', LResourcesPath);
-    if not FindCmdLineSwitch('C', LColorPaletteName) then
-      ReadInput('color palette name', 'blue', LColorPaletteName);
-    if not FindCmdLineSwitch('O', LOutputs) then
-      ReadInput('output formats', 'HTML,PNG', LOutputs);
-    if not FindCmdLineSwitch('P', LOutputPath) then
-      LOutputPath := '';
+    // Starting the logger (no need to log option-broke runs...)
+    LLogger.Initialize;
 
-    ReplaceSpace(LResourcesPath);
-    ReplaceSpace(LColorPaletteName);
-    LAssetsPath := IncludeTrailingPathDelimiter(IncludeTrailingPathDelimiter(LResourcesPath) + 'Assets');
+    TAkLanguageRegistry.Config := AppPath + 'languages.csv';
 
-    SetLength(LDataFileNames, TPokepasteVcl.DataItemsCount);
-    for I := 0 to TPokepasteVcl.DataItemsCount - 1 do
-      LDataFileNames[I] := IncludeTrailingPathDelimiter(IncludeTrailingPathDelimiter(LResourcesPath) + 'Data') +
-        TPokepasteVcl.DataItems[I] + '.csv';
-
-    LHtmlOutput := Pos('HTML', AnsiUpperCase(LOutputs)) > 0;
-    LPngOutput := Pos('PNG', AnsiUpperCase(LOutputs)) > 0;
-
-    if FindCmdLineSwitch('Verbose') then
-      PrintConfig;
-    if FindCmdLineSwitch('Slow') then
-    begin
-      PrintConfig;
-      WriteLn('Start executing? [N = No, everything else = Yes]');
-      ReadLn(LConfirm);
-    end;
-
-    if SameText(LConfirm, 'N') then
-      Exit;
-
-    WriteLn('');
-    WriteLn('Processing...');
-    WriteLn('');
-
-    AddFontResource(PWideChar(IncludeTrailingPathDelimiter(LResourcesPath) + 'SourceSansPro-Semibold.ttf'));
     LPokepaste := TPokepasteVcl.Create;
-    LPokepasteProcessor := TPokepasteProcessor.Create(LDataFileNames, LAssetsPath, LColorPaletteName,
-      LOutputPath, LPokepaste, LHtmlOutput, LPngOutput);
+    LRenderer := TRendererConsole.Create(LConfigFileName, LPokepaste, LLogger);
+    AddFontResource(PWideChar(LRenderer.ResourcesPath + 'SourceSansPro-Semibold.ttf'));
+    AddFontResource(PWideChar(LRenderer.ResourcesPath + 'SimSun.ttf'));
     try
+      // This is probably unnecessary, should test it in an environment where the font is not installed
       SendMessage(HWND_BROADCAST, WM_FONTCHANGE, 0, 0);
-      if SameText(LAppMode, 'File') then
+      LRenderer.AppMode := LAppMode;
+      LRenderer.SingleInput := LSingle;
+      LRenderer.InputFileName := LFileName;
+      if LVerbose then
       begin
-        LFile := TCsv.Create(TFileName(LFileName), LDelimiter[1], True);
-        try
-          LOutput := LPokepasteProcessor.CreateFromFile(LFile, LColumnNames, LFullNameList, LErrors);
-        finally
-          LFile.Free;
-        end
-      end
-      else if SameText(LAppMode, 'Manual') then
-        LOutput := LPokepasteProcessor.CreateFromSingleInput(TInput.Create(LName, LSurname, LUrl), LErrors);
+        LRenderer.OnRender :=
+          function(APokepaste: TPokepaste; AInput: TInput; AOutputType: string): Boolean
+          begin
+            WriteLn(Format('Processing %s output for entry "%s".', [AOutputType, AInput.FullName]));
+            Result := True;
+          end;
+        LRenderer.AfterRender :=
+          procedure(APokepaste: TPokepaste; AInput: TInput; AOutputType: string; AOutputName: TFileName)
+          begin
+            WriteLn(Format('Successfully processed %s output for entry "%s": %s.',
+              [AOutputType, AInput.FullName, AOutputName]));
+          end;
+        LRenderer.OnError :=
+          procedure(APokepaste: TPokepaste; AInput: TInput; AException: Exception)
+          begin
+            SetConsoleTextAttribute(TTextRec(Output).Handle, FOREGROUND_INTENSITY or FOREGROUND_RED);
+            WriteLn(Format('Error processing entry "%s": %s', [AInput.FullName, AException.Message]));
+            SetConsoleTextAttribute(LOutputHandle, LBufferInfo.wAttributes);
+          end;
+        WriteLn(LRenderer.Settings);
+      end;
+      LRenderer.Run;
     finally
-      RemoveFontResource(PWideChar(IncludeTrailingPathDelimiter(LResourcesPath) + 'SourceSansPro-Semibold.ttf'));
-      LPokepasteProcessor.Free;
       LPokepaste.Free;
+      LRenderer.Free;
+      RemoveFontResource(PWideChar(LRenderer.ResourcesPath + 'SourceSansPro-Semibold.ttf'));
+      RemoveFontResource(PWideChar(LRenderer.ResourcesPath + 'SimSun.ttf'));
     end;
 
-    PrintOutput;
+    WriteLn('');
+    WriteLn('All done!');
+    WriteLn('');
+
+    Close;
 
   except
     on E: Exception do
     begin
-      Writeln(E.Message);
-      ReadLn;
+      if not LLogger.IsInitialized then
+        LLogger.Initialize;
+      LLogger.Log(E.Message);
+      WriteLn(E.Message);
+      Close(True);
+      ExitCode := -1;
     end;
   end;
 end.

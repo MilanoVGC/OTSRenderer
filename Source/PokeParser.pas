@@ -188,8 +188,8 @@ type
     property CustomPaste: string read GetCustomPaste;
     property Sprite[const ASpriteType: string; const AIndex: Integer]: TFileName read GetSprite;
     property OutputName: string read GetOutputName;
-    property IsOTSPrintable: Boolean read GetIsOTSPrintable;
     property Qualifier[const AName: string]: string read GetQualifier; default;
+    property IsOTSPrintable: Boolean read GetIsOTSPrintable;
     property IsCTSPrintable: Boolean read GetIsCTSPrintable;
     class property DataItems[const AIndex: Integer]: string read GetDataItem;
     class property DataItemsCount: Integer read GetDataItemCount;
@@ -425,7 +425,10 @@ end;
 
 function TPokepaste.GetLanguage: TLanguage;
 begin
-  Result := TAkLanguageRegistry.Instance[FLanguageId];
+  if FLanguageId = '' then
+    Result := TAkLanguageRegistry.Instance.DefaultLanguage
+  else
+    Result := TAkLanguageRegistry.Instance[FLanguageId];
 end;
 
 function TPokepaste.GetOutputName: string;
@@ -457,7 +460,7 @@ begin
   else if MatchText(AName, ['Trainer', 'TrainerName']) then
     Result := TrainerName
   else if MatchText(AName, ['Birth', 'BirthDate']) then
-    Result := FormatDateTime('yyyy/mm/dd', BirthDate)
+    Result := DateToString(BirthDate, 'yyyy/mm/dd')
   else if MatchText(AName, ['Id', 'PlayerId']) then
     Result := PlayerId
   else if MatchText(AName, ['BattleTeam', 'BattleTeamName', 'Battle']) then
