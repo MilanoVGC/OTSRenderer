@@ -14,7 +14,7 @@ The setup process can seem a bit complicated but we're here to explain all in de
 7. **Create Images**: the button that performs all the renderings.
 
 ### Configuration tab
-1. **8CSV File input column names**: in this panel you have to specify the column names in the selected input CSV file (on point 1 of the *Home tab* list) as they are in the header (first row) of the file.
+1. **CSV File input column names**: in this panel you have to specify the column names in the selected input CSV file (on point 1 of the *Home tab* list) as they are in the header (first row) of the file.
 2. **Other CSV File input configurations**: in this panel you have to specify what the date format used in the file is (for the birth date of the players) and what the CSV delimiter is.
 3. **Outputs**: you can choose what outputs you want the application to render.
 4. **Resources path**: the root folder containing all of the program resources (data, sprites, ...). Unless you are using different instances of this or other applications located on different paths but relying to the same resources, you should avoid changing the default value.
@@ -22,7 +22,7 @@ The setup process can seem a bit complicated but we're here to explain all in de
 6. **Reload Language configuration**: if you make an edit on the [languages file](/Home/languages.csv) while the application is already running and you want it to be loaded instantly, this button lets you do it without needing to exit and re-open the application.
 
 ### Preview
-The preview section is just a monitor to the pokepaste that is being currently rendered. It's nice to have a immediate response on the rendering but is in no means necessary.
+The preview section is just a monitor to the pokepaste that is being currently rendered. It's nice to have a immediate response on the rendering but it is in no means necessary.
 Disabling it will make the rendering faster.
 
 # Notes
