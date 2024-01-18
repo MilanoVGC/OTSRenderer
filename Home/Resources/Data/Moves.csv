@@ -903,8 +903,18 @@ Blood Moon;Normal;Blutmond;Lune Rouge;Luna Roja;Luna Rossa;ブラッドムーン
 Matcha Gotcha;Grass;Quirlschuss;Mortier Matcha;Cañón Batidor;Spruzzatè;シャカシャカほう;휘적휘적포;刷刷茶炮;刷刷茶炮
 Syrup Bomb;Grass;Sirupbombe;Bombe au Sirop;Bomba Caramelo;Bomba Sciroppata;みずあめボム;시럽봄;糖浆炸弹;糖漿炸彈
 Ivy Cudgel;Grass;Rankenkeule;Massue Liane;Garrote Liana;Clava di Liane;ツタこんぼう;덩굴방망이;棘藤棒;棘藤棒
-Electro Shot;Electric;;;;;;;;
-Thunderclap;Electric;;;;;;;;
-Tachyon Cutter;Steel;;;;;;;;
-Upper Hand;Fighting;;;;;;;;
-Psychic Noise;Psychic;;;;;;;;
+Electro Shot;Electric;Stromstrahl;Fulgurayon;Electrorrayo;Elettroraggio;エレクトロビーム;일렉트로빔;電光束;電光束
+Tera Starstorm;Normal;Tera-Sternhagel;Pluie Térastrale;Teraclúster;Teracluster;テラクラスター;테라클러스터;晶光星群;晶光星群
+Fickle Beam;Dragon;Launenlaser;Laser Hasard;Láser Veleidoso;Irregolaser;きまぐレーザー;변덕레이저;隨機光;随机光
+Burning Bulwark;Fire;Flammenschild;Rempart Brûlant;Llama Protectora;Egida Ignea;かえんのまもり;화염의수호;火焰守護;火焰守护
+Thunderclap;Electric;Sturmblitz;Vif Éclair;Relámpago Súbito;Saetta;じんらい;질풍신뢰;迅雷;迅雷
+Mighty Cleave;Rock;Wuchtklinge;Lame Puissante;Filo Potente;Taglio Poderoso;パワフルエッジ;파워풀에지;強刃攻擊;强刃攻击
+Tachyon Cutter;Steel;Tachyon-Schnitt;Lame Tachyonique;Tajo Taquión;Tachiontaglio;タキオンカッター;타키온커터;迅子利刃;迅子利刃
+Hard Press;Steel;Stahlpresse;Pression Extrême;Prensa Metálica;Pressa d’Acciaio;ハードプレス;하드프레스;硬壓;硬压
+Dragon Cheer;Dragon;Drachenschrei;Cri Draconique;Bramido Dragón;Grido del Drago;ドラゴンエール;드래곤옐;龍聲鼓舞;龙声鼓舞
+Alluring Voice;Fairy;Lockstimme;Voix Envoûtante;Canto Encantador;Ammaliavoce;みわくのボイス;매혹의보이스;魅誘之聲;魅诱之声
+Temper Flare;Fire;Frustflamme;Indignition;Cólera Ardiente;Rabbia Bruciante;やけっぱち;열불내기;豁出去;豁出去
+Supercell Slam;Electric;Donnerstoß;Volt Assaut;Plancha Voltaica;Elettrotuffo;サンダーダイブ;썬더다이브;閃電強襲;闪电强袭
+Psychic Noice;Psychic;Psycholärm;Dissonance Psy;Psicorruido;Psicorumore;サイコノイズ;사이코노이즈;精神噪音;精神噪音
+Upper Hand;Fighting;Schnellkonter;Prio-Parade;Palma Rauda;Colpo di Mano;はやてがえし;기선제압;快手還擊;快手还击
+Malignant Chain;Poison;Giftkettung;Chaîne Malsaine;Cadena Virulenta;Intossicatena;じゃどくのくさり;악독사슬;邪毒鎖鏈;邪毒锁链
