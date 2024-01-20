@@ -9,3 +9,9 @@ Home/Log/*
 *.local
 *.identcache
 *.res
+Home/OTSRendererConsoleFMX.exe
+Home/test.bat
+Projects/D10_4/OTSRendererConsoleFMX.dpr
+Projects/D10_4/OTSRendererConsoleFMX.dproj
+Source/AkLib/AkUtilsFMX.pas
+Source/PokeParserFMX.pas
