@@ -26,6 +26,8 @@ const
     'Usage:' + sLineBreak +
     '  -c [configuration file name]' + sLineBreak +
     '    ## MANDATORY: - all the main settings are read from this file (resources path, input file info, ...) ##' + sLineBreak +
+    '  -o [output path]' + sLineBreak +
+    '    ## OPTIONAL: sets the destination folder for the outputs overwriting what read on the configuration file ##' + sLineBreak +
     '  -f [input file name]' + sLineBreak +
     '    ## ALTERNATIVE TO -n: executes the app in file mode: player and paste informations are read from the input file ##' + sLineBreak +
     '  -n [player''s name] -s [player''s surname] -u [player''s pokepaste URL] -t [player''s trainer name in game]' + sLineBreak +
@@ -44,7 +46,6 @@ const
     '  Either "-f" or "-n" must be specified.' + sLineBreak +
     '  All of the parameters listed above are case insensitive.' + sLineBreak +
     '  Enclose one parameter in double quotes (") or use the %space% macro to include a space in it.' + sLineBreak +
-    sLineBreak +
     '******************************************** Have fun with your pokepastes! *********************************************' + sLineBreak;
 
 var
@@ -61,6 +62,7 @@ var
   LSingle: TInput;
   LUrl: string;
   LBirthDateStr: string;
+  LOutputPath: string;
 
   procedure PrintHelp;
   var
@@ -203,6 +205,8 @@ begin
           end;
         WriteLn(LRenderer.Settings);
       end;
+      if FindCmdLineSwitch('o', LOutputPath) then
+        LRenderer.OutputPath := LOutputPath;
       LRenderer.Run;
     finally
       LPokepaste.Free;

@@ -1,2 +1,11 @@
 
 Home/Log/OTSRenderer_2023.log
+*.html
+Home/Output/*
+Home/ConsoleOutput/*
+Home/Log/*
+*.dcu
+*.~*
+*.local
+*.identcache
+*.res
