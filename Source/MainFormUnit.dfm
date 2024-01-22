@@ -218,7 +218,7 @@ object MainForm: TMainForm
     Top = 1
     Width = 584
     Height = 383
-    ActivePage = TabConfig
+    ActivePage = TabInputOutput
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11

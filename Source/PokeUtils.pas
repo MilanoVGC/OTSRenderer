@@ -31,7 +31,7 @@ type
   TTyping = (tNone,
     tWater, tFire, tGrass, tFlying, tRock, tGround,
     tFighting, tPsychic, tDark, tGhost, tNormal, tPoison,
-    tBug, tIce, tElectric, tSteel, tDragon, tFairy);
+    tBug, tIce, tElectric, tSteel, tDragon, tFairy, tStellar);
 
   TMove = record
     Name: string;
